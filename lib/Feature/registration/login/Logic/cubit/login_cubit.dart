@@ -44,8 +44,6 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-
-
   Future<void> saveUserToken(String token) async {
     await CachHelper.setSecuredString(
       key: SharedKeys.userToken,

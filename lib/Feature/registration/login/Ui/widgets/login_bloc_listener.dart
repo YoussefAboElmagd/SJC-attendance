@@ -5,7 +5,7 @@ import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/base/presentation/views/base_layer.dart';
+import 'package:madarj/Feature/base/ui/views/base_layer.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_state.dart';
@@ -24,6 +24,7 @@ class LoginBlocListener extends StatelessWidget {
         state.whenOrNull(
           loginLoading: () {
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (context) => const Center(
                 child: CircularProgressIndicator(
@@ -41,12 +42,21 @@ class LoginBlocListener extends StatelessWidget {
           },
           loginSuccess: (loginResponse) async {
             context.pop();
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (_) => const BaseLayer(),
-              ),
-              (route) => false, // Remove ALL previous routes
-            );
+            context.pushNamed(Routes.cardsScreen, routerNavigator: false);
+            // Navigator.of(context).pushAndRemoveUntil(
+            //   MaterialPageRoute(
+            //     builder: (_) => const BaseLayer(
+            //       initialIndex: 0,
+            //     ),
+            //   ),
+            //   (route) => false, // Remove ALL previous routes
+            // );
+            // Navigator.of(context).pushAndRemoveUntil(
+            //   MaterialPageRoute(
+            //     builder: (_) => const BaseLayer(),
+            //   ),
+            //   (route) => false, // Remove ALL previous routes
+            // );
 
             // FocusScope.of(context).unfocus();
             // context.pushNamedAndRemoveUntill(
@@ -70,6 +80,7 @@ class LoginBlocListener extends StatelessWidget {
   void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) => AlertDialog(
         icon: const Icon(
           Icons.error,
@@ -83,7 +94,7 @@ class LoginBlocListener extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              context.pop();
+              context.popAlert();
             },
             child: Text(
               'Got it',

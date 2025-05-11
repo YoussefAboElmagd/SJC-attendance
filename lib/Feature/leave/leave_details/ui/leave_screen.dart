@@ -15,23 +15,25 @@ class Leave extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsManager.mainGray,
       body: const LeaveBody(),
-      bottomNavigationBar: const BottomExpensesButton(),
+      // bottomNavigationBar:
     );
   }
 }
 
-class BottomExpensesButton extends StatelessWidget {
-  const BottomExpensesButton({super.key});
+class BottomLeaveButton extends StatelessWidget {
+  const BottomLeaveButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorsManager.white,
+      color: const Color.fromARGB(0, 0, 0, 0),
+
+      // color: ColorsManager.white,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: () {
-            // context.pushNamed(Routes.sendLeave);
+            context.pushNamed(Routes.sendLeave);
           },
           child: Container(
             width: double.infinity,
@@ -50,7 +52,7 @@ class BottomExpensesButton extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                S.of(context).Submit_Leave,
+                S.of(context).Submit_Leave_text,
                 style: TextStyles.font16WhiteSemiBold,
               ),
             ),

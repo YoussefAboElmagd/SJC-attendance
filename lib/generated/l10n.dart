@@ -1200,11 +1200,11 @@ class S {
     );
   }
 
-  /// `Submit Leave`
-  String get Submit_Leave {
+  /// `Submit Now`
+  String get Submit_Leave_button {
     return Intl.message(
-      'Submit Leave',
-      name: 'Submit_Leave',
+      'Submit Now',
+      name: 'Submit_Leave_button',
       desc: '',
       args: [],
     );
@@ -1315,6 +1315,146 @@ class S {
     return Intl.message(
       'Select Duration',
       name: 'Select_Duration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home_text {
+    return Intl.message(
+      'Home',
+      name: 'home_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Challanges Awaiting`
+  String get challanges_awaiting {
+    return Intl.message(
+      'Challanges Awaiting',
+      name: 'challanges_awaiting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let’s tackle your to do list`
+  String get Lets_tackle_your_to_do_list {
+    return Intl.message(
+      'Let’s tackle your to do list',
+      name: 'Lets_tackle_your_to_do_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summary of Your Work`
+  String get Summary_of_Your_Work {
+    return Intl.message(
+      'Summary of Your Work',
+      name: 'Summary_of_Your_Work',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your current task progress`
+  String get current_task_progress {
+    return Intl.message(
+      'Your current task progress',
+      name: 'current_task_progress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To Do`
+  String get To_Do {
+    return Intl.message(
+      'To Do',
+      name: 'To_Do',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get Done_text {
+    return Intl.message(
+      'Done',
+      name: 'Done_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sprint 20 - Burnout Stats`
+  String get Sprint_Burnout_Stats {
+    return Intl.message(
+      'Sprint 20 - Burnout Stats',
+      name: 'Sprint_Burnout_Stats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You've completed 8 more tasks than usual, maintain your task with your supervisor`
+  String get completed_tasks_maintain {
+    return Intl.message(
+      'You\'ve completed 8 more tasks than usual, maintain your task with your supervisor',
+      name: 'completed_tasks_maintain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get All_text {
+    return Intl.message(
+      'All',
+      name: 'All_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In Progress`
+  String get In_Progress_text {
+    return Intl.message(
+      'In Progress',
+      name: 'In_Progress_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish`
+  String get Finish_text {
+    return Intl.message(
+      'Finish',
+      name: 'Finish_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wiring Dashboard Analytics`
+  String get Wiring_Dashboard_Analytics {
+    return Intl.message(
+      'Wiring Dashboard Analytics',
+      name: 'Wiring_Dashboard_Analytics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Task`
+  String get Create_Task_button {
+    return Intl.message(
+      'Create Task',
+      name: 'Create_Task_button',
       desc: '',
       args: [],
     );

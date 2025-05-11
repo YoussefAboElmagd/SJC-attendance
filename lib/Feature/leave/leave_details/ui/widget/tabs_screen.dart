@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_body.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -33,19 +34,19 @@ class _TabsScreenState extends State<TabsScreen> {
           child: Row(
             children: [
               BuildTap(
-                title: 'Review',
+                title: S.of(context).Review_Text,
                 isSelected: selectedIndex == 0,
                 badgeCount: 3,
                 onTap: () => setState(() => selectedIndex = 0),
               ),
               BuildTap(
-                title: 'Approved',
+                title: S.of(context).Approved_Text,
                 isSelected: selectedIndex == 1,
                 badgeCount: 3,
                 onTap: () => setState(() => selectedIndex = 1),
               ),
               BuildTap(
-                title: 'Rejected',
+                title: S.of(context).Rejected_text,
                 isSelected: selectedIndex == 2,
                 badgeCount: 3,
                 onTap: () => setState(() => selectedIndex = 2),

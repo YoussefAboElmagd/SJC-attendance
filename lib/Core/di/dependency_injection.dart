@@ -7,6 +7,9 @@ import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
 import 'package:madarj/Feature/all_works/data/repo/all_work_repo.dart';
 import 'package:madarj/Feature/all_works/logic/cubit/all_work_cubit.dart';
+import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
+import 'package:madarj/Feature/expenses/expnses_details/data/repo/expenses_repo.dart';
+import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_service.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/repo/send_expenses_repo.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
@@ -41,6 +44,13 @@ Future<void> setGetIt() async {
   getIt.registerLazySingleton<AllWorkRepo>(() => AllWorkRepo(getIt()));
   getIt.registerFactory<AllWorkCubit>(() => AllWorkCubit(getIt()));
 
+  //  expenses
+  getIt.registerLazySingleton<ExpensesService>(
+      () => ExpensesService(dio));
+  getIt
+      .registerLazySingleton<ExpensesRepo>(() => ExpensesRepo(getIt()));
+  getIt.registerFactory<ExpensesCubit>(() => ExpensesCubit(getIt()));
+  
   // send expenses
   getIt.registerLazySingleton<SendExpensesService>(
       () => SendExpensesService(dio));

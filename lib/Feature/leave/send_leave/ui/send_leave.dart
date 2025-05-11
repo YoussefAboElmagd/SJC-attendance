@@ -31,13 +31,55 @@ class SendLeave extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          S.of(context).Submit_Leave,
+          S.of(context).Submit_Leave_text,
           style: TextStyles.font20BlackSemiBold,
         ),
       ),
       body: BlocProvider(
         create: (context) => getIt<SendLeaveCubit>(),
         child: const SendLeaveBody(),
+      ),
+      bottomNavigationBar: const BottomSendLeaveButton(),
+    );
+  }
+}
+
+class BottomSendLeaveButton extends StatelessWidget {
+  const BottomSendLeaveButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: ColorsManager.white,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: InkWell(
+          onTap: () {
+            // context.pushNamed(Routes.sendLeave);
+          },
+          child: Container(
+            width: double.infinity,
+            height: 50.h,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromRGBO(42, 49, 131, 1),
+                  Color.fromRGBO(42, 49, 131, 1),
+                  Color.fromRGBO(91, 46, 212, 1),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Center(
+              child: Text(
+                S.of(context).Submit_Leave_button,
+                style: TextStyles.font16WhiteSemiBold,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

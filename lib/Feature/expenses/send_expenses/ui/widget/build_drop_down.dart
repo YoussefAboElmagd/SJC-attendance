@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/bottom_sheet.dart';
+import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/show_buttom_sheet_form.dart';
+import 'package:madarj/Feature/leave/send_leave/ui/widgets/custom_bottom_sheet.dart';
 
 class BuildDropdown extends StatelessWidget {
   final String? label;
@@ -48,6 +50,7 @@ class BuildDropdown extends StatelessWidget {
 
   void _showBottomSheet(
       BuildContext context, TextEditingController? textEditingController) {
+    var cubit = context.read<SendExpensesCubit>();
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
@@ -59,13 +62,25 @@ class BuildDropdown extends StatelessWidget {
         ),
       ),
       builder: (context) {
-        return CustomBottomSheet(
-          label: label,
-          hint: hint,
-          items: items,
-          textEditingController: textEditingController,
-          onTap: onTap2,
+        return BlocProvider.value(
+          value: cubit,
+          child: CustomBottomSheet(
+            label: label,
+            hint: hint,
+            items: items,
+            textEditingController: textEditingController,
+            onTap: onTap2,
+            cubit: cubit,
+          ),
         );
+        // return CustomBottomSheet(
+        //   label: label,
+        //   hint: hint,
+        //   items: items,
+        //   textEditingController: textEditingController,
+        //   onTap: onTap2,
+        //   cubit: cubit,
+        // );
       },
     );
   }

@@ -1,9 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_state.dart';
+import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
 import 'package:madarj/Feature/home/ui/widgets/list_of_checks.dart';
 import 'package:madarj/generated/l10n.dart';
 
@@ -12,24 +16,34 @@ class ExpensesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        const ExpensesTopHeader(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.w),
-          child: SizedBox(
-            height: (MediaQuery.sizeOf(context).height - 280.h),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return BlocBuilder<ExpensesCubit, ExpensesState>(
+      builder: (context, state) {
+        return Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Stack(
+              alignment: Alignment.bottomCenter,
               children: [
-                ExpensesBodyWidgets(),
-                // Container(),
+                const ExpensesTopHeader(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+                  child: SizedBox(
+                    height: (MediaQuery.sizeOf(context).height - 250.h),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ExpensesBodyWidgets(),
+                        // Container(),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
-        ),
-      ],
+            const BottomExpensesButton(),
+          ],
+        );
+      },
     );
   }
 }
@@ -136,7 +150,10 @@ class TotalExpenses extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.w,
+                vertical: 16.w,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -181,36 +198,20 @@ class ListOfExpenses extends StatelessWidget {
       height: (MediaQuery.sizeOf(context).height - 550.h),
       child: false
           ? const NoWorkToday()
-          : Container(
-              decoration: const BoxDecoration(
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //     color: ColorsManager.mainColor1.withOpacity(0.3),
-                  //     spreadRadius: 2,
-                  //     blurRadius: 5,
-                  //     offset: Offset(0, 300.h), // Shadow at the top
-                  //     // offset: const Offset(0, 10), // Shadow at the top
-                  //   ),
-                  // ],
-                  ),
-              child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      const ExpensesLogCard(),
-                      // DailyLogCard(
-                      //   workDayEntry: workDayEntries[index],
-                      // ),
-                    ],
-                  );
-                },
-                separatorBuilder: (context, index) => SizedBox(height: 15.h),
-                itemCount: 10,
-              ),
+          : ListView.separated(
+              padding: EdgeInsets.symmetric(vertical: 10.h),
+              itemBuilder: (context, index) {
+                return index == 9
+                    ? Padding(
+                        padding: EdgeInsets.only(
+                          bottom: 25.h,
+                        ),
+                        child: const ExpensesLogCard(),
+                      )
+                    : const ExpensesLogCard();
+              },
+              separatorBuilder: (context, index) => SizedBox(height: 15.h),
+              itemCount: 10,
             ),
     );
   }

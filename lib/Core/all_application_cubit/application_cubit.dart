@@ -7,11 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
+import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 // import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
+import 'package:madarj/Feature/tasks/ui/tasks.dart';
 
 // import 'package:ka3ba/Core/helpers/constants.dart';
 
@@ -69,13 +73,19 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   Widget getPage(int index) {
     switch (index) {
       case 0:
-        return const HomeScreen();
+        return BlocProvider(
+          create: (context) => getIt<HomeCubit>()..getAllHome2(context),
+          child: const HomeScreen(),
+        );
       case 1:
         return Container();
       case 2:
-        return Container();
+        return const Tasks();
       case 3:
-        return const Expenses();
+        return BlocProvider(
+          create: (context) => getIt<ExpensesCubit>(),
+          child: const Expenses(),
+        );
       case 4:
         return const Leave();
       default:

@@ -19,6 +19,7 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -36,6 +37,7 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -53,6 +55,7 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -71,6 +74,8 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -92,6 +97,8 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -110,6 +117,8 @@ mixin _$SendExpensesState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -185,6 +194,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -205,6 +215,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -225,6 +236,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -249,6 +261,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -273,6 +287,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -294,6 +310,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -318,6 +336,225 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements SendExpensesState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeDragDownHintSuccessImplCopyWith<$Res> {
+  factory _$$ChangeDragDownHintSuccessImplCopyWith(
+          _$ChangeDragDownHintSuccessImpl value,
+          $Res Function(_$ChangeDragDownHintSuccessImpl) then) =
+      __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? text});
+}
+
+/// @nodoc
+class __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>
+    extends _$SendExpensesStateCopyWithImpl<$Res,
+        _$ChangeDragDownHintSuccessImpl>
+    implements _$$ChangeDragDownHintSuccessImplCopyWith<$Res> {
+  __$$ChangeDragDownHintSuccessImplCopyWithImpl(
+      _$ChangeDragDownHintSuccessImpl _value,
+      $Res Function(_$ChangeDragDownHintSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = freezed,
+  }) {
+    return _then(_$ChangeDragDownHintSuccessImpl(
+      freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
+  const _$ChangeDragDownHintSuccessImpl(this.text);
+
+  @override
+  final String? text;
+
+  @override
+  String toString() {
+    return 'SendExpensesState.changeDragDownHintSuccess(text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeDragDownHintSuccessImpl &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeDragDownHintSuccessImplCopyWith<_$ChangeDragDownHintSuccessImpl>
+      get copyWith => __$$ChangeDragDownHintSuccessImplCopyWithImpl<
+          _$ChangeDragDownHintSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+  }) {
+    return changeDragDownHintSuccess(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+  }) {
+    return changeDragDownHintSuccess?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    required TResult orElse(),
+  }) {
+    if (changeDragDownHintSuccess != null) {
+      return changeDragDownHintSuccess(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected value) fileSelected,
+    required TResult Function(FileSelectionCancelled value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError value) fileSelectionError,
+    required TResult Function(FileValidationError value) fileValidationError,
+    required TResult Function(Uploading value) uploading,
+    required TResult Function(UploadSuccess value) uploadSuccess,
+    required TResult Function(UploadError value) uploadError,
+    required TResult Function(MultipleFilesSelected value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(PermissionDenied value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied value)
+        permissionPermanentlyDenied,
+  }) {
+    return changeDragDownHintSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
+    TResult? Function(FileSelected value)? fileSelected,
+    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError value)? fileSelectionError,
+    TResult? Function(FileValidationError value)? fileValidationError,
+    TResult? Function(Uploading value)? uploading,
+    TResult? Function(UploadSuccess value)? uploadSuccess,
+    TResult? Function(UploadError value)? uploadError,
+    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
+    TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied value)?
+        permissionPermanentlyDenied,
+  }) {
+    return changeDragDownHintSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
+    TResult Function(FileSelected value)? fileSelected,
+    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError value)? fileSelectionError,
+    TResult Function(FileValidationError value)? fileValidationError,
+    TResult Function(Uploading value)? uploading,
+    TResult Function(UploadSuccess value)? uploadSuccess,
+    TResult Function(UploadError value)? uploadError,
+    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
+    TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied value)?
+        permissionPermanentlyDenied,
+    required TResult orElse(),
+  }) {
+    if (changeDragDownHintSuccess != null) {
+      return changeDragDownHintSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeDragDownHintSuccess implements SendExpensesState {
+  const factory ChangeDragDownHintSuccess(final String? text) =
+      _$ChangeDragDownHintSuccessImpl;
+
+  String? get text;
+  @JsonKey(ignore: true)
+  _$$ChangeDragDownHintSuccessImplCopyWith<_$ChangeDragDownHintSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -362,6 +599,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -382,6 +620,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -402,6 +641,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -426,6 +666,8 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -450,6 +692,8 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -471,6 +715,8 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -562,6 +808,7 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -582,6 +829,7 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -602,6 +850,7 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -626,6 +875,8 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -650,6 +901,8 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -671,6 +924,8 @@ class _$FileSelectedImpl implements FileSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -744,6 +999,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -764,6 +1020,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -784,6 +1041,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -808,6 +1066,8 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -832,6 +1092,8 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -853,6 +1115,8 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -945,6 +1209,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -965,6 +1230,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -985,6 +1251,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -1009,6 +1276,8 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -1033,6 +1302,8 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1054,6 +1325,8 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1152,6 +1425,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -1172,6 +1446,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -1192,6 +1467,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -1216,6 +1492,8 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -1240,6 +1518,8 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1261,6 +1541,8 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1332,6 +1614,7 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -1352,6 +1635,7 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -1372,6 +1656,7 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -1396,6 +1681,8 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -1420,6 +1707,8 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1441,6 +1730,8 @@ class _$UploadingImpl implements Uploading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1532,6 +1823,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -1552,6 +1844,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -1572,6 +1865,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -1596,6 +1890,8 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -1620,6 +1916,8 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1641,6 +1939,8 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1737,6 +2037,7 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -1757,6 +2058,7 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -1777,6 +2079,7 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -1801,6 +2104,8 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -1825,6 +2130,8 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1846,6 +2153,8 @@ class _$UploadErrorImpl implements UploadError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -1950,6 +2259,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -1970,6 +2280,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -1990,6 +2301,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -2014,6 +2326,8 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -2038,6 +2352,8 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2059,6 +2375,8 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2158,6 +2476,7 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -2178,6 +2497,7 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -2198,6 +2518,7 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -2222,6 +2543,8 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -2246,6 +2569,8 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2267,6 +2592,8 @@ class _$UploadProgressImpl implements UploadProgress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2337,6 +2664,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -2357,6 +2685,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -2377,6 +2706,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -2401,6 +2731,8 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -2425,6 +2757,8 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2446,6 +2780,8 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2515,6 +2851,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
     required TResult Function() fileSelectionInProgress,
     required TResult Function(File file) fileSelected,
     required TResult Function() fileSelectionCancelled,
@@ -2535,6 +2872,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
     TResult? Function()? fileSelectionInProgress,
     TResult? Function(File file)? fileSelected,
     TResult? Function()? fileSelectionCancelled,
@@ -2555,6 +2893,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
     TResult Function()? fileSelectionInProgress,
     TResult Function(File file)? fileSelected,
     TResult Function()? fileSelectionCancelled,
@@ -2579,6 +2918,8 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
     required TResult Function(FileSelectionInProgress value)
         fileSelectionInProgress,
     required TResult Function(FileSelected value) fileSelected,
@@ -2603,6 +2944,8 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult? Function(FileSelected value)? fileSelected,
     TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
@@ -2624,6 +2967,8 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
     TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
     TResult Function(FileSelected value)? fileSelected,
     TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,

@@ -1,2 +1,2 @@
 
-class HomeConstants {}
+class SendExpensesConstants {}

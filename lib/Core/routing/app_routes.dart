@@ -7,7 +7,9 @@ import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/LanguageOption/Ui/language_options.dart';
 import 'package:madarj/Feature/all_works/ui/all_works.dart';
-import 'package:madarj/Feature/base/presentation/views/base_layer.dart';
+import 'package:madarj/Feature/base/ui/views/base_layer.dart';
+import 'package:madarj/Feature/base/ui_v2/base_layer_v2.dart';
+import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
@@ -28,9 +30,14 @@ class AppRouter {
           ),
         );
       case Routes.baseLayer:
+        final index = settings.arguments as int? ?? 0;
         return MaterialPageRoute(
-          builder: (_) => const BaseLayer(),
+          builder: (_) => BaseLayer(initialIndex: index),
         );
+      // case Routes.baseLayer:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const BaseLayer(),
+      //   );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
@@ -58,6 +65,10 @@ class AppRouter {
       case Routes.sendLeave:
         return MaterialPageRoute(
           builder: (_) => const SendLeave(),
+        );
+      case Routes.cardsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CardsScreen(),
         );
     }
     return null;

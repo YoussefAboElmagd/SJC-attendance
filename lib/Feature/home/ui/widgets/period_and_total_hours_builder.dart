@@ -20,6 +20,7 @@ class PeriodAndTotalHoursBuilder extends StatelessWidget {
       buildWhen: (previous, current) =>
           current is Loading || current is CombinedSuccess || current is Error,
       builder: (BuildContext context, state) {
+        
         return state.maybeWhen(
           loading: () {
             return const Expanded(

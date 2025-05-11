@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
 import 'package:madarj/Core/themes/colors.dart';
-import 'package:madarj/Feature/base/presentation/views/widget/bottom_navigation_bar_item_button.dart';
+import 'package:madarj/Feature/base/ui/views/widget/bottom_navigation_bar_item_button.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
 // import 'package:madarj/Feature/base/presentation/manager/ui_cubit.dart';
-import 'package:madarj/Feature/base/presentation/views/widget/bottom_nav_bar_design.dart';
+import 'package:madarj/Feature/base/ui/views/widget/bottom_nav_bar_design.dart';
 
 class BottomNavigationBarItemButton extends StatelessWidget {
   const BottomNavigationBarItemButton({super.key, required this.cubit});

@@ -7,4 +7,5 @@ part 'send_leave_service.g.dart';
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
 abstract class SendLeaveService {
   factory SendLeaveService(Dio dio, {String baseUrl}) = _SendLeaveService;
+
 }

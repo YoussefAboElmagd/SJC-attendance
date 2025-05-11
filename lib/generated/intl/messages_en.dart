@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "All_Month_work":
             MessageLookupByLibrary.simpleMessage("All Month work"),
+        "All_text": MessageLookupByLibrary.simpleMessage("All"),
         "An_unexpected_error": MessageLookupByLibrary.simpleMessage(
             "An unexpected error occurred"),
         "Approved_Text": MessageLookupByLibrary.simpleMessage("Approved"),
@@ -46,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Clock_Out": MessageLookupByLibrary.simpleMessage("Clock Out"),
         "Clock_in_Out": MessageLookupByLibrary.simpleMessage("Clock in & Out"),
         "Close_Message": MessageLookupByLibrary.simpleMessage("Close Message"),
+        "Create_Task_button":
+            MessageLookupByLibrary.simpleMessage("Create Task"),
+        "Done_text": MessageLookupByLibrary.simpleMessage("Done"),
         "Dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account ?"),
         "Dont_miss_your_clock_in_schedule":
@@ -83,12 +87,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fill Claim Information"),
         "Fill_Leave_Information":
             MessageLookupByLibrary.simpleMessage("Fill Leave Information"),
+        "Finish_text": MessageLookupByLibrary.simpleMessage("Finish"),
         "Forgetten_password":
             MessageLookupByLibrary.simpleMessage("Forgetten password ?"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
         "Format_should_be_in_pdf": MessageLookupByLibrary.simpleMessage(
             "Format should be in .pdf .jpeg .png less than 5MB"),
+        "In_Progress_text": MessageLookupByLibrary.simpleMessage("In Progress"),
         "Information_about_claim_details": MessageLookupByLibrary.simpleMessage(
             "Information about claim details"),
         "Information_leave_details": MessageLookupByLibrary.simpleMessage(
@@ -105,6 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Leave_Used": MessageLookupByLibrary.simpleMessage("Leave Used"),
         "Lets_Clock_In":
             MessageLookupByLibrary.simpleMessage("Let’s Clock-In!"),
+        "Lets_tackle_your_to_do_list": MessageLookupByLibrary.simpleMessage(
+            "Let’s tackle your to do list"),
         "Location_disabled": MessageLookupByLibrary.simpleMessage(
             "Location services are disabled"),
         "Location_permissions_denied": MessageLookupByLibrary.simpleMessage(
@@ -139,14 +147,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select Expense Category"),
         "Select_Leave_category":
             MessageLookupByLibrary.simpleMessage("Select Leave category"),
+        "Sprint_Burnout_Stats":
+            MessageLookupByLibrary.simpleMessage("Sprint 20 - Burnout Stats"),
         "Submit_Date": MessageLookupByLibrary.simpleMessage("Submit Date"),
         "Submit_Expense":
             MessageLookupByLibrary.simpleMessage("Submit Expense"),
-        "Submit_Leave": MessageLookupByLibrary.simpleMessage("Submit Leave"),
+        "Submit_Leave_button":
+            MessageLookupByLibrary.simpleMessage("Submit Now"),
         "Submit_Leave_text":
             MessageLookupByLibrary.simpleMessage("Submit Leave"),
+        "Summary_of_Your_Work":
+            MessageLookupByLibrary.simpleMessage("Summary of Your Work"),
         "Task_Delegation":
             MessageLookupByLibrary.simpleMessage("Task Delegation"),
+        "To_Do": MessageLookupByLibrary.simpleMessage("To Do"),
         "Today": MessageLookupByLibrary.simpleMessage("Today"),
         "Today_schedule":
             MessageLookupByLibrary.simpleMessage("Today schedule"),
@@ -165,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Type_text": MessageLookupByLibrary.simpleMessage("Type"),
         "Upload_Claim_Document":
             MessageLookupByLibrary.simpleMessage("Upload Claim Document"),
+        "Wiring_Dashboard_Analytics":
+            MessageLookupByLibrary.simpleMessage("Wiring Dashboard Analytics"),
         "Working_Period_text":
             MessageLookupByLibrary.simpleMessage("Working Period"),
         "Would_face": MessageLookupByLibrary.simpleMessage(
@@ -173,9 +189,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Would you like to authenticate using your device biometrics?"),
         "Would_fingerprint": MessageLookupByLibrary.simpleMessage(
             "Would you like to authenticate with your fingerprint instead?"),
+        "challanges_awaiting":
+            MessageLookupByLibrary.simpleMessage("Challanges Awaiting"),
         "change_language_button":
             MessageLookupByLibrary.simpleMessage("language"),
         "close_button": MessageLookupByLibrary.simpleMessage("Close"),
+        "completed_tasks_maintain": MessageLookupByLibrary.simpleMessage(
+            "You\'ve completed 8 more tasks than usual, maintain your task with your supervisor"),
+        "current_task_progress":
+            MessageLookupByLibrary.simpleMessage("Your current task progress"),
         "email_mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":
@@ -186,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "It looks like you don’t have any working time in this month. Don’t worry, this space will be updated as new working time submitted."),
         "have_any_working_text": MessageLookupByLibrary.simpleMessage(
             "It looks like you don’t have any working time in this period. Don’t worry, this space will be updated as new working time submitted."),
+        "home_text": MessageLookupByLibrary.simpleMessage("Home"),
         "image_text": MessageLookupByLibrary.simpleMessage("image"),
         "lang_arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "lang_en": MessageLookupByLibrary.simpleMessage("English"),

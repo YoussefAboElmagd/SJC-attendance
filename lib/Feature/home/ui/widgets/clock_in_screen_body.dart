@@ -19,6 +19,7 @@ class HomeScreenBody extends StatelessWidget {
         SystemNavigator.pop();
         return false;
       },
+      
       child: Scaffold(
         backgroundColor: ColorsManager.mainGray,
         body: const HomeBody(),

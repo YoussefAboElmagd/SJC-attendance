@@ -7,6 +7,7 @@ class SendLeaveCubit extends Cubit<SendLeaveState> {
   SendLeaveCubit(this._sendLeaveRepo) : super(const SendLeaveState.initial());
 
   final SendLeaveRepo _sendLeaveRepo;
+  String? selectedItem;
 
   TextEditingController? leaveCtegory = TextEditingController();
   TextEditingController? leaveDuration = TextEditingController();
@@ -16,6 +17,7 @@ class SendLeaveCubit extends Cubit<SendLeaveState> {
 
   changeDragDownHint(TextEditingController? controller, String? text) {
     controller!.text = text.toString();
+    selectedItem = text.toString();
     emit(SendLeaveState.changeDragDownHintSuccess(text));
   }
 }

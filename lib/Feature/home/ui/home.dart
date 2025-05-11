@@ -9,10 +9,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<HomeCubit>()..getAllHome2(context),
-      // ..getTotalHours(),
-      child: const HomeScreenBody(),
-    );
+    return const HomeScreenBody();
   }
 }

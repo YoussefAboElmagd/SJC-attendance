@@ -32,7 +32,7 @@ class LeaveTopHeader extends StatelessWidget {
                     style: TextStyles.font26WhiteBold,
                   ),
                   Text(
-                    S.of(context).Submit_Leave,
+                    S.of(context).Submit_Leave_text,
                     style: TextStyles.font14GreyRegular.copyWith(
                       color: const Color.fromRGBO(217, 214, 254, 1),
                     ),
@@ -41,8 +41,8 @@ class LeaveTopHeader extends StatelessWidget {
               ),
               SizedBox(width: 20.w),
               SizedBox(
-                height: 100.h,
-                width: 150.w,
+                height: 150.h,
+                // width: 150.w,
                 child: Align(
                   alignment: Alignment.topRight,
                   child: SvgPicture.asset(

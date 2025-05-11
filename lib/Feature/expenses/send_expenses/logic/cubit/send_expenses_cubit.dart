@@ -11,6 +11,20 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   SendExpensesCubit(this._expensesRepo)
       : super(const SendExpensesState.initial());
   final SendExpensesRepo _expensesRepo;
+
+  String? selectedItem;
+
+  TextEditingController? expensesCtegory = TextEditingController();
+  TextEditingController? expensesDuration = TextEditingController();
+  TextEditingController? amountNumber = TextEditingController();
+  TextEditingController? expensesDescription = TextEditingController();
+
+  changeDragDownHint(TextEditingController? controller, String? text) {
+    controller!.text = text.toString();
+    selectedItem = text.toString();
+    emit(SendExpensesState.changeDragDownHintSuccess(text));
+  }
+
   File? file;
   Future<bool> _checkAndRequestPermission(FileType fileType) async {
     Permission permission;
