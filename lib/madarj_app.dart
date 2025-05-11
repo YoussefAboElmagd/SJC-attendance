@@ -67,10 +67,10 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
-              initialRoute: Routes.cardsScreen,
-              // initialRoute: AppConstants.isLogged
-              //     ? Routes.cardsScreen
-              //     : Routes.onBoardingScreen,
+              // initialRoute: Routes.cardsScreen,
+              initialRoute: AppConstants.isLogged
+                  ? Routes.homeScreen
+                  : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );
           },

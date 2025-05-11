@@ -73,10 +73,7 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   Widget getPage(int index) {
     switch (index) {
       case 0:
-        return BlocProvider(
-          create: (context) => getIt<HomeCubit>()..getAllHome2(context),
-          child: const HomeScreen(),
-        );
+        return const HomeScreen();
       case 1:
         return Container();
       case 2:
