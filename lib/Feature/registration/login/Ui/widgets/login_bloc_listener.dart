@@ -42,7 +42,7 @@ class LoginBlocListener extends StatelessWidget {
           },
           loginSuccess: (loginResponse) async {
             context.pop();
-            context.pushNamed(Routes.cardsScreen, routerNavigator: false);
+            context.pushNamed(Routes.homeScreen, routerNavigator: false);
             // Navigator.of(context).pushAndRemoveUntil(
             //   MaterialPageRoute(
             //     builder: (_) => const BaseLayer(
