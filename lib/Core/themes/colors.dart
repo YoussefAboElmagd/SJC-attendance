@@ -8,6 +8,7 @@ class ColorsManager {
   static const Color mainColor3 = Color.fromRGBO(22, 27, 35, 1);
   static const Color mainColor4 = Color.fromRGBO(0, 0, 0, 1);
   static const Color mainColor5 = Color.fromRGBO(4, 16, 36, 1);
+  static const Color mainColor6 = Color.fromRGBO(189, 180, 254, 1);
 
   //grey
   static Color mainGray = Colors.grey[100]!;
@@ -21,6 +22,7 @@ class ColorsManager {
   static const Color grey1 = Color.fromRGBO(235, 236, 238, 1);
   static Color grey2 = Colors.grey.shade100;
   static const Color grey3 = Color.fromRGBO(208, 213, 221, 1);
+  static const Color highRed = Color.fromRGBO(249, 85, 85, 1);
 
   static const Color lightblack = Color.fromRGBO(71, 84, 103, 1);
   static const Color purple = Color.fromRGBO(244, 243, 255, 1);

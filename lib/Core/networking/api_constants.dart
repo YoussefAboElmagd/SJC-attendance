@@ -1,8 +1,9 @@
 class ApiConstants {
   static const String apiBaseUrl = "http://46.202.130.51:8066/api/";
-  static const String prodBaseUrl = "https://portal.aboghaliaoffice.com/";
-  static const String login = "auth/login";
-  static const String register = "auth/register";
+  static const String prodBaseDomain = "https://portal.aboghaliaoffice.com/api/";
+  static const String prodBaseIp = "http://62.72.20.25:8068/api/";
+
+
 }
 
 class ApiErrors {

@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "An_unexpected_error": MessageLookupByLibrary.simpleMessage(
             "An unexpected error occurred"),
         "Approved_Text": MessageLookupByLibrary.simpleMessage("Approved"),
+        "Assign_To": MessageLookupByLibrary.simpleMessage("Assign To"),
+        "Attachment_text": MessageLookupByLibrary.simpleMessage("Attachment"),
         "Authenticate_button":
             MessageLookupByLibrary.simpleMessage("Authenticate"),
         "Authentication_Failed":
@@ -47,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Clock_Out": MessageLookupByLibrary.simpleMessage("Clock Out"),
         "Clock_in_Out": MessageLookupByLibrary.simpleMessage("Clock in & Out"),
         "Close_Message": MessageLookupByLibrary.simpleMessage("Close Message"),
+        "Create_New_Task":
+            MessageLookupByLibrary.simpleMessage("Create New Task"),
         "Create_Task_button":
             MessageLookupByLibrary.simpleMessage("Create Task"),
         "Done_text": MessageLookupByLibrary.simpleMessage("Done"),
@@ -71,6 +75,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Expense Description"),
         "Enter_Leave_Description":
             MessageLookupByLibrary.simpleMessage("Enter Leave Description"),
+        "Enter_Task_Description":
+            MessageLookupByLibrary.simpleMessage("Enter Task Description"),
+        "Enter_Task_Title":
+            MessageLookupByLibrary.simpleMessage("Enter Task Title"),
         "Enter_Transaction_Date":
             MessageLookupByLibrary.simpleMessage("Enter Transaction Date"),
         "Expense_Amount":
@@ -92,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgetten password ?"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
+        "Format_should_MB": MessageLookupByLibrary.simpleMessage(
+            "Format should be in .pdf .jpeg .png less than 5MB"),
         "Format_should_be_in_pdf": MessageLookupByLibrary.simpleMessage(
             "Format should be in .pdf .jpeg .png less than 5MB"),
         "In_Progress_text": MessageLookupByLibrary.simpleMessage("In Progress"),
@@ -133,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No Working Time Available"),
         "Paid_Period": MessageLookupByLibrary.simpleMessage("Paid Period"),
         "Period_text": MessageLookupByLibrary.simpleMessage("Period text"),
+        "Priority": MessageLookupByLibrary.simpleMessage("Priority"),
         "Ready_to_catch_some_fresh_air": MessageLookupByLibrary.simpleMessage(
             "Ready to catch some fresh air? Click “Submit Leave” and \ntake that well-deserved break!"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("Rejected"),
@@ -147,6 +158,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select Expense Category"),
         "Select_Leave_category":
             MessageLookupByLibrary.simpleMessage("Select Leave category"),
+        "Select_Member": MessageLookupByLibrary.simpleMessage("Select Member"),
+        "Select_Priority":
+            MessageLookupByLibrary.simpleMessage("Select Priority"),
+        "Select_tag": MessageLookupByLibrary.simpleMessage("Select tag"),
         "Sprint_Burnout_Stats":
             MessageLookupByLibrary.simpleMessage("Sprint 20 - Burnout Stats"),
         "Submit_Date": MessageLookupByLibrary.simpleMessage("Submit Date"),
@@ -158,8 +173,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Submit Leave"),
         "Summary_of_Your_Work":
             MessageLookupByLibrary.simpleMessage("Summary of Your Work"),
+        "Tags": MessageLookupByLibrary.simpleMessage("Tags"),
         "Task_Delegation":
             MessageLookupByLibrary.simpleMessage("Task Delegation"),
+        "Task_Description":
+            MessageLookupByLibrary.simpleMessage("Task Description"),
+        "Task_Title": MessageLookupByLibrary.simpleMessage("Task Title"),
         "To_Do": MessageLookupByLibrary.simpleMessage("To Do"),
         "Today": MessageLookupByLibrary.simpleMessage("Today"),
         "Today_schedule":

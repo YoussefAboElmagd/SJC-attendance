@@ -41,11 +41,19 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+    
     <!-- pick files -->
+    <!-- 1 -->
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+    <!-- 2 -->
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Need photos permission to upload images</string>
     <key>NSDocumentsFolderUsageDescription</key>
     <string>Need documents permission to upload files</string>
+    
     <!-- local auth -->
     <key>NSFaceIDUsageDescription</key>
     <string>To ensure secure clock-in, we need to verify you're the authorized phone owner using Face ID</string>

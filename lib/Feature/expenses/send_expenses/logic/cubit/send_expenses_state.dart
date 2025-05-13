@@ -33,7 +33,9 @@ class SendExpensesState with _$SendExpensesState {
       MultipleFilesSelected;
   const factory SendExpensesState.uploadProgress(double progress) =
       UploadProgress;
-
+  const factory SendExpensesState.removeFile(List<File> files) =
+        RemoveFile;
+  
   // permissions
   const factory SendExpensesState.permissionDenied() = PermissionDenied;
   const factory SendExpensesState.permissionPermanentlyDenied() =

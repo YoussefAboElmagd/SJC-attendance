@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:madarj/Feature/leave/leave_details/ui/widget/total_leave.dart';
-import 'package:madarj/Feature/tasks/ui/widget/burnout_stats_card.dart';
-import 'package:madarj/Feature/tasks/ui/widget/tabs_screen_tasks.dart';
-import 'package:madarj/Feature/tasks/ui/widget/total_leave.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/burnout_stats_card.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/tabs_screen_tasks.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/total_leave.dart';
 
 class TasksBodyWidgets extends StatelessWidget {
   const TasksBodyWidgets({super.key});

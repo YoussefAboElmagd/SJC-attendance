@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -9,35 +8,25 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/build_file_preview.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/select_upload_claim_file.dart';
 import 'package:madarj/generated/l10n.dart';
-import 'dart:async';
-// import 'package:pdf_render/pdf_render.dart';
 
-class UploadClaimDoc extends StatelessWidget {
-  const UploadClaimDoc({super.key});
-
+class UploadExpensesDoc extends StatelessWidget {
+  const UploadExpensesDoc({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SendExpensesCubit, SendExpensesState>(
-      buildWhen: (previous, current) => current is FileSelected,
       builder: (context, state) {
-        File? file;
-        if (state is FileSelected) {
-          file = state.file;
-        }
         return InkWell(
-          onTap: () {
-            file != null ? () {} : _showFileTypeDialog(context);
-          },
-          child: state.maybeWhen(
-            fileSelected: (file) => BuildFilePreview(file: file),
-            orElse: () => _buildUploadPlaceholder(context),
-          ),
+          onTap: () => _showFilePicker(context),
+          child: _buildUploadPlaceholder(context),
         );
       },
     );
+  }
+
+  Future<void> _showFilePicker(BuildContext context) async {
+    final cubit = context.read<SendExpensesCubit>();
+    await cubit.pickMultipleFiles(context);
   }
 
   Widget _buildUploadPlaceholder(BuildContext context) {
@@ -60,7 +49,7 @@ class UploadClaimDoc extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              s.Upload_Claim_Document,
+              s.Attachment_text,
               style: TextStyles.font18BlackBold.copyWith(
                 color: ColorsManager.mainColor2,
               ),
@@ -77,39 +66,3 @@ class UploadClaimDoc extends StatelessWidget {
     );
   }
 }
-
-Future<void> _showFileTypeDialog(BuildContext context) async {
-  final cubit = context.read<SendExpensesCubit>();
-  await showDialog(
-    context: context,
-    builder: (context) => SelectUploadClaimFile(cubit: cubit),
-  );
-}
-// 
-// Widget _buildLoadingIndicator() {
-//   return Container(
-//     height: 150.h,
-//     color: Colors.grey[200],
-//     child: const Center(child: CircularProgressIndicator()),
-//   );
-// }
-
-// Widget _buildWordPreview() {
-//   return Container(
-//     height: 150.h,
-//     color: Colors.grey[200],
-//     child: Center(
-//       child: Icon(Icons.description, size: 50.w, color: Colors.blue),
-//     ),
-//   );
-// }
-
-// Widget _buildUnknownFilePreview() {
-//   return Container(
-//     height: 150.h,
-//     color: Colors.grey[200],
-//     child: Center(
-//       child: Icon(Icons.insert_drive_file, size: 50.w),
-//     ),
-//   );
-// }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/tasks/ui/widget/tasks_body.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/tasks_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class Tasks extends StatelessWidget {
@@ -29,7 +31,8 @@ class BottomTasksButton extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: () {
-            // context.pushNamed(Routes.sendLeave);
+
+            context.pushNamed(Routes.sendTasks);
           },
           child: Container(
             width: double.infinity,

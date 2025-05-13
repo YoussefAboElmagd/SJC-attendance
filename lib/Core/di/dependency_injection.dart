@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
-import 'package:madarj/Core/networking/api_service.dart';
+// import 'package:madarj/Core/networking/api_service.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
 import 'package:madarj/Feature/all_works/data/repo/all_work_repo.dart';
@@ -22,13 +22,17 @@ import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dar
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/apis/login_services.dart';
 import 'package:madarj/Feature/registration/login/data/repos/login_repo.dart';
+import 'package:madarj/Feature/tasks/send_tasks/apis/send_tasks_service.dart';
+import 'package:madarj/Feature/tasks/send_tasks/data/repo/send_task_repo.dart';
+import 'package:madarj/Feature/tasks/send_tasks/logic/cubit/send_tasks_cubit.dart';
+import 'package:madarj/Feature/tasks/show_task/logic/cubit/show_task_details_cubit.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> setGetIt() async {
   Dio dio = await DioFactory.getDio();
 
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  // getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerFactory<ApplicationCubit>(() => ApplicationCubit());
 
   getIt.registerLazySingleton<LoginService>(() => LoginService(dio));
@@ -45,12 +49,10 @@ Future<void> setGetIt() async {
   getIt.registerFactory<AllWorkCubit>(() => AllWorkCubit(getIt()));
 
   //  expenses
-  getIt.registerLazySingleton<ExpensesService>(
-      () => ExpensesService(dio));
-  getIt
-      .registerLazySingleton<ExpensesRepo>(() => ExpensesRepo(getIt()));
+  getIt.registerLazySingleton<ExpensesService>(() => ExpensesService(dio));
+  getIt.registerLazySingleton<ExpensesRepo>(() => ExpensesRepo(getIt()));
   getIt.registerFactory<ExpensesCubit>(() => ExpensesCubit(getIt()));
-  
+
   // send expenses
   getIt.registerLazySingleton<SendExpensesService>(
       () => SendExpensesService(dio));
@@ -59,9 +61,15 @@ Future<void> setGetIt() async {
   getIt.registerFactory<SendExpensesCubit>(() => SendExpensesCubit(getIt()));
 
   // send leave
-  getIt.registerLazySingleton<SendLeaveService>(
-      () => SendLeaveService(dio));
-  getIt
-      .registerLazySingleton<SendLeaveRepo>(() => SendLeaveRepo(getIt()));
+  getIt.registerLazySingleton<SendLeaveService>(() => SendLeaveService(dio));
+  getIt.registerLazySingleton<SendLeaveRepo>(() => SendLeaveRepo(getIt()));
   getIt.registerFactory<SendLeaveCubit>(() => SendLeaveCubit(getIt()));
+
+  // Send Tasks
+  getIt.registerLazySingleton<SendTasksService>(() => SendTasksService(dio));
+  getIt.registerLazySingleton<SendTaskRepo>(() => SendTaskRepo(getIt()));
+  getIt.registerFactory<SendTasksCubit>(() => SendTasksCubit(getIt()));
+
+  // ShowTaskDetailsCubit 
+  getIt.registerFactory<ShowTaskDetailsCubit>(() => ShowTaskDetailsCubit());
 }

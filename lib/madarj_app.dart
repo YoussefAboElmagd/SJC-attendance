@@ -13,14 +13,6 @@ import 'package:madarj/Core/routing/app_routes.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/generated/l10n.dart';
-// import 'package:labaiik_mo3tmer/Core/di/dependency_injection.dart';
-// import 'package:labaiik_mo3tmer/Core/helpers/cach_helper.dart';
-// import 'package:labaiik_mo3tmer/Core/helpers/constants.dart';
-// import 'package:labaiik_mo3tmer/Core/routing/app_routes.dart';
-// import 'package:labaiik_mo3tmer/Core/routing/routes.dart';
-// import 'package:labaiik_mo3tmer/Core/themes/colors.dart';
-// import 'package:labaiik_mo3tmer/Core/widgets/no_internet.dart';
-// import 'generated/l10n.dart';
 
 class MadarjApp extends StatefulWidget {
   const MadarjApp({super.key});
@@ -69,7 +61,7 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
               debugShowCheckedModeBanner: false,
               // initialRoute: Routes.cardsScreen,
               initialRoute: AppConstants.isLogged
-                  ? Routes.homeScreen
+                  ? Routes.
                   : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );

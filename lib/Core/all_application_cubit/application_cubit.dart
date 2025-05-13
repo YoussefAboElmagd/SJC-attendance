@@ -1,21 +1,13 @@
-// import 'package:bloc/bloc.dart';
-import 'dart:async';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/cach_helper.dart';
 import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
-import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
-// import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
-import 'package:madarj/Feature/tasks/ui/tasks.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/tasks.dart';
 
 // import 'package:ka3ba/Core/helpers/constants.dart';
 
@@ -31,17 +23,13 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   String language = "en";
   getlanguage(String language) {
     if (language == "ar") {
-      // AppConstants.isArabic = true;
       isArabic = true;
       CachHelper.saveData(value: "ar", key: "app_lang");
     } else {
-      // AppConstants.isArabic = false;
       isArabic = false;
       CachHelper.saveData(value: "en", key: "app_lang");
     }
     language = language;
-    // print("AppConstants ${AppConstants.isArabic}");
-    // print("cubit ${isArabic}");
     emit(ApplicationState.changeTheLanguageOfApp(language: language));
   }
 

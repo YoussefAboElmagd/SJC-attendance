@@ -16,7 +16,9 @@ class Routes {
   static const String language = "/language";
   static const String sendExpenses = "/sendExpenses";
   static const String sendLeave = "/sendLeave";
+  static const String sendTasks = "/sendTasks";
   static const String cardsScreen = "/cardsScreen";
+  static const String taskDetails = "/taskDetails";
 
-  // 
+  //
 }
