@@ -9,12 +9,13 @@ class BuildTextField extends StatelessWidget {
     this.label,
     this.hint,
     this.icon,
-    this.maxLines,
+    this.maxLines, this.keyboardType,
   });
   final String? label;
   final String? hint;
   final String? icon;
   final int? maxLines;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,6 +27,7 @@ class BuildTextField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         AppTextFormField(
+          keyboardType: keyboardType,
           maxLines: maxLines,
           hintText: hint!,
           hintStyle: TextStyles.font14GreyRegular,

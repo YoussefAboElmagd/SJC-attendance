@@ -30,6 +30,7 @@ mixin _$SendExpensesState {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) =>
@@ -48,6 +49,7 @@ mixin _$SendExpensesState {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) =>
@@ -66,6 +68,7 @@ mixin _$SendExpensesState {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -89,6 +92,7 @@ mixin _$SendExpensesState {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -109,6 +113,7 @@ mixin _$SendExpensesState {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -129,6 +134,7 @@ mixin _$SendExpensesState {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -205,6 +211,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -226,6 +233,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -247,6 +255,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -276,6 +285,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -299,6 +309,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -322,6 +333,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -418,6 +430,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -439,6 +452,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -460,6 +474,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -489,6 +504,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -512,6 +528,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -535,6 +552,7 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -610,6 +628,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -631,6 +650,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -652,6 +672,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -681,6 +702,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -704,6 +726,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -727,6 +750,7 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -819,6 +843,7 @@ class _$FileSelectedImpl implements FileSelected {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -840,6 +865,7 @@ class _$FileSelectedImpl implements FileSelected {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -861,6 +887,7 @@ class _$FileSelectedImpl implements FileSelected {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -890,6 +917,7 @@ class _$FileSelectedImpl implements FileSelected {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -913,6 +941,7 @@ class _$FileSelectedImpl implements FileSelected {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -936,6 +965,7 @@ class _$FileSelectedImpl implements FileSelected {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1010,6 +1040,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -1031,6 +1062,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -1052,6 +1084,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -1081,6 +1114,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -1104,6 +1138,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1127,6 +1162,7 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1220,6 +1256,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -1241,6 +1278,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -1262,6 +1300,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -1291,6 +1330,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -1314,6 +1354,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1337,6 +1378,7 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1436,6 +1478,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -1457,6 +1500,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -1478,6 +1522,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -1507,6 +1552,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -1530,6 +1576,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1553,6 +1600,7 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1625,6 +1673,7 @@ class _$UploadingImpl implements Uploading {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -1646,6 +1695,7 @@ class _$UploadingImpl implements Uploading {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -1667,6 +1717,7 @@ class _$UploadingImpl implements Uploading {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -1696,6 +1747,7 @@ class _$UploadingImpl implements Uploading {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -1719,6 +1771,7 @@ class _$UploadingImpl implements Uploading {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1742,6 +1795,7 @@ class _$UploadingImpl implements Uploading {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1834,6 +1888,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -1855,6 +1910,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -1876,6 +1932,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -1905,6 +1962,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -1928,6 +1986,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -1951,6 +2010,7 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2048,6 +2108,7 @@ class _$UploadErrorImpl implements UploadError {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -2069,6 +2130,7 @@ class _$UploadErrorImpl implements UploadError {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -2090,6 +2152,7 @@ class _$UploadErrorImpl implements UploadError {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -2119,6 +2182,7 @@ class _$UploadErrorImpl implements UploadError {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -2142,6 +2206,7 @@ class _$UploadErrorImpl implements UploadError {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2165,6 +2230,7 @@ class _$UploadErrorImpl implements UploadError {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2270,6 +2336,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -2291,6 +2358,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -2312,6 +2380,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -2341,6 +2410,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -2364,6 +2434,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2387,6 +2458,7 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2487,6 +2559,7 @@ class _$UploadProgressImpl implements UploadProgress {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -2508,6 +2581,7 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -2529,6 +2603,7 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -2558,6 +2633,7 @@ class _$UploadProgressImpl implements UploadProgress {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -2581,6 +2657,7 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2604,6 +2681,7 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2622,6 +2700,232 @@ abstract class UploadProgress implements SendExpensesState {
   double get progress;
   @JsonKey(ignore: true)
   _$$UploadProgressImplCopyWith<_$UploadProgressImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveFileImplCopyWith<$Res> {
+  factory _$$RemoveFileImplCopyWith(
+          _$RemoveFileImpl value, $Res Function(_$RemoveFileImpl) then) =
+      __$$RemoveFileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<File> files});
+}
+
+/// @nodoc
+class __$$RemoveFileImplCopyWithImpl<$Res>
+    extends _$SendExpensesStateCopyWithImpl<$Res, _$RemoveFileImpl>
+    implements _$$RemoveFileImplCopyWith<$Res> {
+  __$$RemoveFileImplCopyWithImpl(
+      _$RemoveFileImpl _value, $Res Function(_$RemoveFileImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? files = null,
+  }) {
+    return _then(_$RemoveFileImpl(
+      null == files
+          ? _value._files
+          : files // ignore: cast_nullable_to_non_nullable
+              as List<File>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveFileImpl implements RemoveFile {
+  const _$RemoveFileImpl(final List<File> files) : _files = files;
+
+  final List<File> _files;
+  @override
+  List<File> get files {
+    if (_files is EqualUnmodifiableListView) return _files;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_files);
+  }
+
+  @override
+  String toString() {
+    return 'SendExpensesState.removeFile(files: $files)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveFileImpl &&
+            const DeepCollectionEquality().equals(other._files, _files));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_files));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveFileImplCopyWith<_$RemoveFileImpl> get copyWith =>
+      __$$RemoveFileImplCopyWithImpl<_$RemoveFileImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+  }) {
+    return removeFile(files);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+  }) {
+    return removeFile?.call(files);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    required TResult orElse(),
+  }) {
+    if (removeFile != null) {
+      return removeFile(files);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ChangeDragDownHintSuccess value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected value) fileSelected,
+    required TResult Function(FileSelectionCancelled value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError value) fileSelectionError,
+    required TResult Function(FileValidationError value) fileValidationError,
+    required TResult Function(Uploading value) uploading,
+    required TResult Function(UploadSuccess value) uploadSuccess,
+    required TResult Function(UploadError value) uploadError,
+    required TResult Function(MultipleFilesSelected value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
+    required TResult Function(PermissionDenied value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied value)
+        permissionPermanentlyDenied,
+  }) {
+    return removeFile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
+    TResult? Function(FileSelected value)? fileSelected,
+    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError value)? fileSelectionError,
+    TResult? Function(FileValidationError value)? fileValidationError,
+    TResult? Function(Uploading value)? uploading,
+    TResult? Function(UploadSuccess value)? uploadSuccess,
+    TResult? Function(UploadError value)? uploadError,
+    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
+    TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied value)?
+        permissionPermanentlyDenied,
+  }) {
+    return removeFile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ChangeDragDownHintSuccess value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
+    TResult Function(FileSelected value)? fileSelected,
+    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError value)? fileSelectionError,
+    TResult Function(FileValidationError value)? fileValidationError,
+    TResult Function(Uploading value)? uploading,
+    TResult Function(UploadSuccess value)? uploadSuccess,
+    TResult Function(UploadError value)? uploadError,
+    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
+    TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied value)?
+        permissionPermanentlyDenied,
+    required TResult orElse(),
+  }) {
+    if (removeFile != null) {
+      return removeFile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveFile implements SendExpensesState {
+  const factory RemoveFile(final List<File> files) = _$RemoveFileImpl;
+
+  List<File> get files;
+  @JsonKey(ignore: true)
+  _$$RemoveFileImplCopyWith<_$RemoveFileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2675,6 +2979,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -2696,6 +3001,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -2717,6 +3023,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -2746,6 +3053,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -2769,6 +3077,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2792,6 +3101,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2862,6 +3172,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     required TResult Function(String message) uploadError,
     required TResult Function(List<File> files) multipleFilesSelected,
     required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
   }) {
@@ -2883,6 +3194,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult? Function(String message)? uploadError,
     TResult? Function(List<File> files)? multipleFilesSelected,
     TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
   }) {
@@ -2904,6 +3216,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult Function(String message)? uploadError,
     TResult Function(List<File> files)? multipleFilesSelected,
     TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
     required TResult orElse(),
@@ -2933,6 +3246,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     required TResult Function(MultipleFilesSelected value)
         multipleFilesSelected,
     required TResult Function(UploadProgress value) uploadProgress,
+    required TResult Function(RemoveFile value) removeFile,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(PermissionPermanentlyDenied value)
         permissionPermanentlyDenied,
@@ -2956,6 +3270,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult? Function(UploadError value)? uploadError,
     TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult? Function(UploadProgress value)? uploadProgress,
+    TResult? Function(RemoveFile value)? removeFile,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,
@@ -2979,6 +3294,7 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult Function(UploadError value)? uploadError,
     TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
     TResult Function(UploadProgress value)? uploadProgress,
+    TResult Function(RemoveFile value)? removeFile,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(PermissionPermanentlyDenied value)?
         permissionPermanentlyDenied,

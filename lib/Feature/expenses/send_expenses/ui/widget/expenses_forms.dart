@@ -74,6 +74,7 @@ class ExpensesForms extends StatelessWidget {
               label: S.of(context).Expense_Amount,
               hint: S.of(context).Enter_Amount,
               icon: "assets/svgs/summary-expenses(3).svg",
+              keyboardType: TextInputType.number,
             ),
             SizedBox(height: 16.h),
             BuildTextField(

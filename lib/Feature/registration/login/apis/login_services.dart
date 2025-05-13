@@ -7,15 +7,13 @@ import 'package:retrofit/retrofit.dart';
 
 part 'login_services.g.dart';
 
-
-@RestApi(baseUrl: ApiConstants.apiBaseUrl)
+@RestApi(baseUrl: ApiConstants.prodBaseIp)
 abstract class LoginService {
-    factory LoginService(Dio dio, {String baseUrl}) = _LoginService;
+  factory LoginService(Dio dio, {String baseUrl}) = _LoginService;
 
   @POST(LoginConstants.login)
   Future<LoginResponseBody> login(@Body() LoginRequestBody loginRequestBody);
 
   // @PUT(LoginConstants.fcmToken)
   // Future refreshFcmToken(@Body() Map<String, dynamic> body);
-
 }

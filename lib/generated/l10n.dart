@@ -1460,6 +1460,138 @@ class S {
     );
   }
 
+  /// `Create New Task`
+  String get Create_New_Task {
+    return Intl.message(
+      'Create New Task',
+      name: 'Create_New_Task',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attachment`
+  String get Attachment_text {
+    return Intl.message(
+      'Attachment',
+      name: 'Attachment_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Format should be in .pdf .jpeg .png less than 5MB`
+  String get Format_should_MB {
+    return Intl.message(
+      'Format should be in .pdf .jpeg .png less than 5MB',
+      name: 'Format_should_MB',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Task Title`
+  String get Task_Title {
+    return Intl.message(
+      'Task Title',
+      name: 'Task_Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Task Title`
+  String get Enter_Task_Title {
+    return Intl.message(
+      'Enter Task Title',
+      name: 'Enter_Task_Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Task Description`
+  String get Task_Description {
+    return Intl.message(
+      'Task Description',
+      name: 'Task_Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Task Description`
+  String get Enter_Task_Description {
+    return Intl.message(
+      'Enter Task Description',
+      name: 'Enter_Task_Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Assign To`
+  String get Assign_To {
+    return Intl.message(
+      'Assign To',
+      name: 'Assign_To',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Member`
+  String get Select_Member {
+    return Intl.message(
+      'Select Member',
+      name: 'Select_Member',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Priority`
+  String get Priority {
+    return Intl.message(
+      'Priority',
+      name: 'Priority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Priority`
+  String get Select_Priority {
+    return Intl.message(
+      'Select Priority',
+      name: 'Select_Priority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tags`
+  String get Tags {
+    return Intl.message(
+      'Tags',
+      name: 'Tags',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select tag`
+  String get Select_tag {
+    return Intl.message(
+      'Select tag',
+      name: 'Select_tag',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'Task Details' key
+
   // skipped getter for the '' key
 }
 

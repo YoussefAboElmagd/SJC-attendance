@@ -17,6 +17,8 @@ import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
 import 'package:madarj/Feature/on_boarding/ui/on_boarding_screen.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Ui/login.dart';
+import 'package:madarj/Feature/tasks/send_tasks/ui/send_tasks.dart';
+import 'package:madarj/Feature/tasks/show_task/ui/widget/show_task.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -66,9 +68,17 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SendLeave(),
         );
+      case Routes.sendTasks:
+        return MaterialPageRoute(
+          builder: (_) => const SendTasks(),
+        );
       case Routes.cardsScreen:
         return MaterialPageRoute(
           builder: (_) => const CardsScreen(),
+        );
+      case Routes.taskDetails:
+        return MaterialPageRoute(
+          builder: (_) => ShowTaskDetails(),
         );
     }
     return null;

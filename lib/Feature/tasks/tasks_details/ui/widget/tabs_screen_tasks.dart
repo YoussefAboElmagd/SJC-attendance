@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_body.dart';
-import 'package:madarj/Feature/tasks/ui/widget/list_of_tasks.dart';
+// import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_body.dart';
+import 'package:madarj/Feature/leave/leave_details/ui/widget/build_tap.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/list_of_tasks.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class TabsScreenTasks extends StatefulWidget {

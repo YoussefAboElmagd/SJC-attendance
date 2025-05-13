@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/tasks/ui/widget/list_of_leave.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/widget/list_of_leave.dart';
 // import 'package:madarj/Feature/leave/leave_details/ui/widget/list_of_leave.dart';
 import 'package:madarj/generated/l10n.dart';
 

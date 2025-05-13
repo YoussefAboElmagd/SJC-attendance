@@ -1,3 +1,4 @@
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,12 +6,11 @@ import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/app_button.dart';
-import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class SelectUploadClaimFile extends StatelessWidget {
-  const SelectUploadClaimFile({super.key, required this.cubit});
-  final SendExpensesCubit cubit;
+  SelectUploadClaimFile({super.key, required this.cubit});
+  var cubit;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -27,7 +27,7 @@ class SelectUploadClaimFile extends StatelessWidget {
                 context,
                 cubit,
                 FileType.image,
-                cubit.pickImage,
+                cubit.pickImages,
               );
             },
           ),
@@ -40,7 +40,7 @@ class SelectUploadClaimFile extends StatelessWidget {
                 context,
                 cubit,
                 FileType.custom,
-                cubit.pickPdf,
+                cubit.pickPdfs,
               );
             },
           ),
@@ -53,7 +53,7 @@ class SelectUploadClaimFile extends StatelessWidget {
                 context,
                 cubit,
                 FileType.custom,
-                cubit.pickWordDocument,
+                cubit.pickWordDocuments,
               );
             },
           ),

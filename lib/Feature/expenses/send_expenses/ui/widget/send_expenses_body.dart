@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/ensure_claim.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/expenses_forms.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_claim_doc.dart';
+import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_task_photos.dart';
+// import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_claim_doc.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class SendExpensesBody extends StatelessWidget {
@@ -36,7 +37,7 @@ class SendExpensesBody extends StatelessWidget {
                   style: TextStyles.font14GreyRegular,
                 ),
                 SizedBox(height: 20.h),
-                const UploadClaimDoc(),
+                const UploadTaskPhotos(),
                 SizedBox(height: 20.h),
                 const ExpensesForms(),
               ],

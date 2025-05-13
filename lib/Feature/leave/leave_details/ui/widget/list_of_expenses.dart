@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_log_card.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/no_leave_today.dart';
 
-
 class ListOfExpenses extends StatelessWidget {
   const ListOfExpenses({
     super.key,
@@ -18,6 +17,7 @@ class ListOfExpenses extends StatelessWidget {
           : Container(
               decoration: const BoxDecoration(),
               child: ListView.separated(
+                padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,4 +36,3 @@ class ListOfExpenses extends StatelessWidget {
     );
   }
 }
-
