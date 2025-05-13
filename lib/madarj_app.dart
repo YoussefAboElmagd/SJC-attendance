@@ -61,7 +61,7 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
               debugShowCheckedModeBanner: false,
               // initialRoute: Routes.cardsScreen,
               initialRoute: AppConstants.isLogged
-                  ? Routes.
+                  ? Routes.homeScreen
                   : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );

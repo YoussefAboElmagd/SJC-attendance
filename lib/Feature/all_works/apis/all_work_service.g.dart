@@ -14,7 +14,7 @@ class _AllWorkService implements AllWorkService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://46.202.130.51:8066/api/';
+    baseUrl ??= 'https://portal.aboghaliaoffice.com/api/';
   }
 
   final Dio _dio;

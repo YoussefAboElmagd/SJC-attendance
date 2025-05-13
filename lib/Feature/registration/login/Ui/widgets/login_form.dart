@@ -198,17 +198,17 @@ class LoginForm extends StatelessWidget {
           S.of(context).Remember_Me,
           style: TextStyles.font14BlackSemiBold.copyWith(fontSize: 12.sp),
         ),
-        const Spacer(),
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            S.of(context).Forgot_Password,
-            style: TextStyles.font11WhiteRegular.copyWith(
-              color: const Color.fromRGBO(42, 49, 131, 1),
-              fontSize: 12.sp,
-            ),
-          ),
-        ),
+        // const Spacer(),
+        // TextButton(
+        //   onPressed: () {},
+        //   child: Text(
+        //     S.of(context).Forgot_Password,
+        //     style: TextStyles.font11WhiteRegular.copyWith(
+        //       color: const Color.fromRGBO(42, 49, 131, 1),
+        //       fontSize: 12.sp,
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

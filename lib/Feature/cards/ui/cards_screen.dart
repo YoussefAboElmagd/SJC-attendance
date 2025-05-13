@@ -22,7 +22,7 @@ class CardsScreen extends StatelessWidget {
         SystemNavigator.pop();
         return false;
       },
-      child: const Scaffold(
+      child:  Scaffold(
         // appBar: AppBar(
         //   leading: !ApplicationCubit.get(context).isArabic
         //       ? GestureDetector(

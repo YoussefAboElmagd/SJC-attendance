@@ -18,7 +18,7 @@ class ClockInScreenContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: SizedBox(
-            height: (MediaQuery.sizeOf(context).height - 280.h),
+            height: (MediaQuery.sizeOf(context).height - 190.h),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

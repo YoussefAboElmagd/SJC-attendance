@@ -17,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       alignment: AlignmentDirectional.center,
-      height: MediaQuery.sizeOf(context).height * 0.1,
+      height: 80.h, // Use fixed height instead of percentage
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(

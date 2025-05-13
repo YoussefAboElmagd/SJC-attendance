@@ -13,7 +13,7 @@ import 'package:dio/dio.dart';
 
 part 'home_services.g.dart';
 
-@RestApi(baseUrl: ApiConstants.prodBaseIp)
+@RestApi(baseUrl: ApiConstants.prodBaseDomain)
 abstract class HomeServices {
   factory HomeServices(Dio dio, {String baseUrl}) = _HomeServices;
 
