@@ -40,7 +40,7 @@ class _BaseLayerState extends State<BaseLayer> {
             backgroundColor: const Color.fromARGB(255, 255, 255, 255),
             body: Stack(
               children: List.generate(
-                5,
+                4,
                 (index) {
                   return Offstage(
                     offstage: cubit.currentIndex != index,

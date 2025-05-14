@@ -25,7 +25,7 @@ class ExpensesBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: SizedBox(
-                    height: (MediaQuery.sizeOf(context).height - 250.h),
+                    height: (MediaQuery.sizeOf(context).height - 220.h),
                     child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -43,4 +43,3 @@ class ExpensesBody extends StatelessWidget {
     );
   }
 }
-

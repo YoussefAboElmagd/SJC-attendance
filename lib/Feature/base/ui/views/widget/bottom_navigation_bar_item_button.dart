@@ -83,24 +83,24 @@ class BottomNavigationBarItemButton extends StatelessWidget {
             currentIndex: cubit.currentIndex,
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            if (cubit.currentIndex == 4) {
-              final currentNavigatorState =
-                  cubit.navigatorKeys[cubit.currentIndex].currentState;
-              if (currentNavigatorState != null &&
-                  currentNavigatorState.canPop()) {
-                currentNavigatorState.popUntil((route) => route.isFirst);
-              }
-            } else {
-              cubit.emitChangeBottomNav(4);
-            }
-          },
-          child: BottomNavBarItemDesign(
-            index: 4,
-            currentIndex: cubit.currentIndex,
-          ),
-        ),
+        // GestureDetector(
+        //   onTap: () {
+        //     if (cubit.currentIndex == 4) {
+        //       final currentNavigatorState =
+        //           cubit.navigatorKeys[cubit.currentIndex].currentState;
+        //       if (currentNavigatorState != null &&
+        //           currentNavigatorState.canPop()) {
+        //         currentNavigatorState.popUntil((route) => route.isFirst);
+        //       }
+        //     } else {
+        //       cubit.emitChangeBottomNav(4);
+        //     }
+        //   },
+        //   child: BottomNavBarItemDesign(
+        //     index: 4,
+        //     currentIndex: cubit.currentIndex,
+        //   ),
+        // ),
       ],
     );
   }

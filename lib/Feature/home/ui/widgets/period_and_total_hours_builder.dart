@@ -20,7 +20,6 @@ class PeriodAndTotalHoursBuilder extends StatelessWidget {
       buildWhen: (previous, current) =>
           current is Loading || current is CombinedSuccess || current is Error,
       builder: (BuildContext context, state) {
-        
         return state.maybeWhen(
           loading: () {
             return const Expanded(
@@ -118,10 +117,16 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
       actions: [
         TextButton(
           onPressed: () {
-            context.pop();
+            apiErrorModel.message != "token seems to have expired or invalid"
+                ? context.pop()
+                : context.pushNamedAndRemoveUntill(
+                    Routes.loginScreen,
+                  );
           },
           child: Text(
-            'Got it',
+            apiErrorModel.message != "token seems to have expired or invalid"
+                ? 'Got it'
+                : S.of(context).Login_button,
             style: TextStyles.font14BlueSemiBold,
           ),
         ),

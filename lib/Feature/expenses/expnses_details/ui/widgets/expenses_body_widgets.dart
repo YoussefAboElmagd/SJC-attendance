@@ -8,11 +8,11 @@ class ExpensesBodyWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const TotalExpenses(),
-        SizedBox(height: 15.h),
-        const ExpensesTabsScreen(),
+        // const TotalExpenses(),
+        // SizedBox(height: 15.h),
+        ExpensesTabsScreen(),
       ],
     );
   }

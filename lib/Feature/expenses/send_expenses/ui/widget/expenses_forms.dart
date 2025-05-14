@@ -18,19 +18,24 @@ class ExpensesForms extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
+            BuildTextField(
+              label: S.of(context).Expense_Amount,
+              hint: S.of(context).Enter_Amount,
+              icon: "assets/svgs/summary-expenses(3).svg",
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 16.h),
             BuildDropdown(
-              controller: context.read<SendExpensesCubit>().expensesCtegory,
-              label: S.of(context).Expense_Category,
+              controller: context.read<SendExpensesCubit>().departmentText,
+              label: S.of(context).Department_text,
               hint: context
                           .read<SendExpensesCubit>()
-                          .expensesCtegory
+                          .departmentText
                           ?.text
                           .isEmpty ??
                       true
-                  ? S.of(context).Select_Category
-                  : context.read<SendExpensesCubit>().expensesCtegory!.text,
-
-              // hint: S.of(context).Select_Category,
+                  ? S.of(context).Enter_Department
+                  : context.read<SendExpensesCubit>().departmentText!.text,
               icon: "assets/svgs/summary-expenses(1).svg",
               items: const [
                 "ssss2",
@@ -45,16 +50,16 @@ class ExpensesForms extends StatelessWidget {
             ),
             SizedBox(height: 16.h),
             BuildDropdown(
-              controller: context.read<SendExpensesCubit>().expensesDuration,
-              label: S.of(context).Transaction_Date,
+              controller: context.read<SendExpensesCubit>().selectRequestType,
+              label: S.of(context).Select_Request_type,
               hint: context
                           .read<SendExpensesCubit>()
-                          .expensesDuration
+                          .selectRequestType
                           ?.text
                           .isEmpty ??
                       true
-                  ? S.of(context).Enter_Transaction_Date
-                  : context.read<SendExpensesCubit>().expensesDuration!.text,
+                  ? S.of(context).Enter_Request_type
+                  : context.read<SendExpensesCubit>().selectRequestType!.text,
 
               // hint: S.of(context).Enter_Transaction_Date,
               icon: "assets/svgs/summary-expenses(2).svg",
@@ -68,13 +73,6 @@ class ExpensesForms extends StatelessWidget {
                 "ssss7",
                 "ssss8",
               ],
-            ),
-            SizedBox(height: 16.h),
-            BuildTextField(
-              label: S.of(context).Expense_Amount,
-              hint: S.of(context).Enter_Amount,
-              icon: "assets/svgs/summary-expenses(3).svg",
-              keyboardType: TextInputType.number,
             ),
             SizedBox(height: 16.h),
             BuildTextField(

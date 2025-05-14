@@ -19,7 +19,6 @@ class HomeScreenBody extends StatelessWidget {
         SystemNavigator.pop();
         return false;
       },
-      
       child: Scaffold(
         backgroundColor: ColorsManager.mainGray,
         body: const HomeBody(),
@@ -41,7 +40,7 @@ class HomeBody extends StatelessWidget {
           children: [
             const ClockInScreenContent(),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 40.h),
               child: const HomeTopIcons(),
             ),
           ],

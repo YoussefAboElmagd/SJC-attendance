@@ -3,13 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Core/widgets/app_button.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class LeaveLogCard extends StatelessWidget {
   const LeaveLogCard({
     super.key,
+    this.isApproved,
+    this.rejected,
+    this.pending,
+    this.isNew,
   });
 
+  final bool? isApproved;
+  final bool? rejected;
+  final bool? pending;
+  final bool? isNew;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,6 +45,33 @@ class LeaveLogCard extends StatelessWidget {
                   "${DateTime.now().day} ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}",
                   style: TextStyles.font14BlackSemiBold,
                 ),
+                const Spacer(),
+                isApproved == true
+                    ? Text(
+                        S.of(context).Approved_Text,
+                        style: TextStyles.font16GreenSemiBold,
+                      )
+                    : Container(),
+                rejected == true
+                    ? Text(
+                        S.of(context).Rejected_text,
+                        style: TextStyles.font16RedSemiBold,
+                      )
+                    : Container(),
+                pending == true
+                    ? Text(
+                        S.of(context).Pending_section_text,
+                        style: TextStyles.font16BlueSemiBold,
+                      )
+                    : Container(),
+                isNew == true
+                    ? AppTextButton(
+                        buttonText: "Edit",
+                        textStyle: TextStyles.font16BlueSemiBold,
+                        onPressed: () {},
+                        hintText: "Edit",
+                      )
+                    : Container()
               ],
             ),
             SizedBox(height: 8.h),

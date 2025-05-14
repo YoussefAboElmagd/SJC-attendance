@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create New Task"),
         "Create_Task_button":
             MessageLookupByLibrary.simpleMessage("Create Task"),
+        "Department_text": MessageLookupByLibrary.simpleMessage("Department"),
         "Done_text": MessageLookupByLibrary.simpleMessage("Done"),
         "Dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account ?"),
@@ -71,10 +72,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Ensure_All_Document": MessageLookupByLibrary.simpleMessage(
             "Ensure All Document Well Prepared"),
         "Enter_Amount": MessageLookupByLibrary.simpleMessage("Enter Amount"),
+        "Enter_Department":
+            MessageLookupByLibrary.simpleMessage("Enter Department"),
         "Enter_Expense_Description":
             MessageLookupByLibrary.simpleMessage("Enter Expense Description"),
         "Enter_Leave_Description":
             MessageLookupByLibrary.simpleMessage("Enter Leave Description"),
+        "Enter_Request_type":
+            MessageLookupByLibrary.simpleMessage("Enter Request type"),
         "Enter_Task_Description":
             MessageLookupByLibrary.simpleMessage("Enter Task Description"),
         "Enter_Task_Title":
@@ -82,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Enter_Transaction_Date":
             MessageLookupByLibrary.simpleMessage("Enter Transaction Date"),
         "Expense_Amount":
-            MessageLookupByLibrary.simpleMessage("Expense Amount (\$USD)"),
+            MessageLookupByLibrary.simpleMessage("Expense Amount"),
         "Expense_Category":
             MessageLookupByLibrary.simpleMessage("Expense Category"),
         "Expense_Description":
@@ -142,16 +147,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "No_work_entries_available_text":
             MessageLookupByLibrary.simpleMessage("No Working Time Available"),
         "Paid_Period": MessageLookupByLibrary.simpleMessage("Paid Period"),
+        "Pending_section_text": MessageLookupByLibrary.simpleMessage("Pending"),
         "Period_text": MessageLookupByLibrary.simpleMessage("Period text"),
         "Priority": MessageLookupByLibrary.simpleMessage("Priority"),
         "Ready_to_catch_some_fresh_air": MessageLookupByLibrary.simpleMessage(
             "Ready to catch some fresh air? Click “Submit Leave” and \ntake that well-deserved break!"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("Rejected"),
         "Remember_Me": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "Request_type": MessageLookupByLibrary.simpleMessage("Request type"),
         "Review_Text": MessageLookupByLibrary.simpleMessage("Review"),
         "Review_text": MessageLookupByLibrary.simpleMessage("Review"),
         "Select_Category":
             MessageLookupByLibrary.simpleMessage("Select Category"),
+        "Select_Department":
+            MessageLookupByLibrary.simpleMessage("Select Department"),
         "Select_Duration":
             MessageLookupByLibrary.simpleMessage("Select Duration"),
         "Select_Expense_Category":
@@ -161,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Select_Member": MessageLookupByLibrary.simpleMessage("Select Member"),
         "Select_Priority":
             MessageLookupByLibrary.simpleMessage("Select Priority"),
+        "Select_Request_type":
+            MessageLookupByLibrary.simpleMessage("Select Request type"),
         "Select_tag": MessageLookupByLibrary.simpleMessage("Select tag"),
         "Sprint_Burnout_Stats":
             MessageLookupByLibrary.simpleMessage("Sprint 20 - Burnout Stats"),
@@ -208,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Would you like to authenticate using your device biometrics?"),
         "Would_fingerprint": MessageLookupByLibrary.simpleMessage(
             "Would you like to authenticate with your fingerprint instead?"),
+        "amount": MessageLookupByLibrary.simpleMessage("amount"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("Challanges Awaiting"),
         "change_language_button":
@@ -217,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You\'ve completed 8 more tasks than usual, maintain your task with your supervisor"),
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("Your current task progress"),
+        "done_section_text": MessageLookupByLibrary.simpleMessage("Done"),
         "email_mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":
@@ -238,6 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Month working Period"),
         "month_working_time_text": MessageLookupByLibrary.simpleMessage(
             "Your working time in this month"),
+        "new_section_text": MessageLookupByLibrary.simpleMessage("New"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("No"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
             "Increase your work management & career development radically"),

@@ -15,20 +15,20 @@ class BottomNavBarItemDesign extends StatelessWidget {
   // Define the list of icons and names for the 5 items
   static const List<String> activeImagesBottomNavBar = [
     'assets/images/bottom_nav/home-se.png',
-    'assets/images/bottom_nav/calendar-se.png',
+    // 'assets/images/bottom_nav/calendar-se.png',
     'assets/images/bottom_nav/expense-se.png',
     'assets/images/bottom_nav/receipt-se.png',
     'assets/images/bottom_nav/layer-se.png',
   ];
   static const List<String> inactiveImagesBottomNavBar = [
     'assets/images/bottom_nav/home-un.png',
-    'assets/images/bottom_nav/calendar-un.png',
+    // 'assets/images/bottom_nav/calendar-un.png',
     'assets/images/bottom_nav/expense-un.png',
     'assets/images/bottom_nav/receipt-un.png',
     'assets/images/bottom_nav/layer-un.png',
   ];
   static const List<String> names = [
-    'Home',
+    // 'Home',
     'Attendant',
     'Task',
     'Expenses',

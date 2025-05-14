@@ -8,17 +8,21 @@ import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/LanguageOption/Ui/language_options.dart';
 import 'package:madarj/Feature/all_works/ui/all_works.dart';
 import 'package:madarj/Feature/base/ui/views/base_layer.dart';
-import 'package:madarj/Feature/base/ui_v2/base_layer_v2.dart';
+// import 'package:madarj/Feature/base/ui_v2/base_layer_v2.dart';
 import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
+import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
+import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
 import 'package:madarj/Feature/on_boarding/ui/on_boarding_screen.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Ui/login.dart';
 import 'package:madarj/Feature/tasks/send_tasks/ui/send_tasks.dart';
 import 'package:madarj/Feature/tasks/show_task/ui/widget/show_task.dart';
+import 'package:madarj/Feature/tasks/tasks_details/ui/tasks.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -43,6 +47,21 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.leaveScreen:
+        return MaterialPageRoute(
+          builder: (_) => const Leave(),
+        );
+      case Routes.expenseScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ExpensesCubit>(),
+            child: const Expenses(),
+          ),
+        );
+      case Routes.tasksScreen:
+        return MaterialPageRoute(
+          builder: (_) => const Tasks(),
         );
       case Routes.onBoardingScreen:
         return MaterialPageRoute(

@@ -960,10 +960,10 @@ class S {
     );
   }
 
-  /// `Expense Amount ($USD)`
+  /// `Expense Amount`
   String get Expense_Amount {
     return Intl.message(
-      'Expense Amount (\$USD)',
+      'Expense Amount',
       name: 'Expense_Amount',
       desc: '',
       args: [],
@@ -1591,6 +1591,106 @@ class S {
   }
 
   // skipped getter for the 'Task Details' key
+
+  /// `amount`
+  String get amount {
+    return Intl.message(
+      'amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Department`
+  String get Department_text {
+    return Intl.message(
+      'Department',
+      name: 'Department_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request type`
+  String get Request_type {
+    return Intl.message(
+      'Request type',
+      name: 'Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Department`
+  String get Select_Department {
+    return Intl.message(
+      'Select Department',
+      name: 'Select_Department',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Department`
+  String get Enter_Department {
+    return Intl.message(
+      'Enter Department',
+      name: 'Enter_Department',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Request type`
+  String get Select_Request_type {
+    return Intl.message(
+      'Select Request type',
+      name: 'Select_Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Request type`
+  String get Enter_Request_type {
+    return Intl.message(
+      'Enter Request type',
+      name: 'Enter_Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New`
+  String get new_section_text {
+    return Intl.message(
+      'New',
+      name: 'new_section_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get Pending_section_text {
+    return Intl.message(
+      'Pending',
+      name: 'Pending_section_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done_section_text {
+    return Intl.message(
+      'Done',
+      name: 'done_section_text',
+      desc: '',
+      args: [],
+    );
+  }
 
   // skipped getter for the '' key
 }

@@ -11,13 +11,19 @@ class Routes {
   // home layout
   static const String baseLayer = "/baseLayer";
   static const String homeScreen = "/homeScreen";
+  static const String leaveScreen = "/leaveScreen";
+  static const String expenseScreen = "/expenseScreen";
+  static const String tasksScreen = "/tasksScreen";
+  
   static const String clockInScreen = "/clockInScreen";
   static const String allMonthWorks = "/AllMonthWorks";
   static const String language = "/language";
+  
   static const String sendExpenses = "/sendExpenses";
   static const String sendLeave = "/sendLeave";
   static const String sendTasks = "/sendTasks";
   static const String cardsScreen = "/cardsScreen";
+  
   static const String taskDetails = "/taskDetails";
 
   //

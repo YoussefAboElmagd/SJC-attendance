@@ -52,7 +52,7 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   ];
   List<Widget> get pages => [
         const HomeScreen(),
-        Container(),
+        // Container(),
         Container(),
         Container(),
         Container(),
@@ -62,19 +62,19 @@ class ApplicationCubit extends Cubit<ApplicationState> {
     switch (index) {
       case 0:
         return const HomeScreen();
+      // case 1:
+      //   return Container();
       case 1:
-        return Container();
-      case 2:
         return const Tasks();
-      case 3:
+      case 2:
         return BlocProvider(
           create: (context) => getIt<ExpensesCubit>(),
           child: const Expenses(),
         );
-      case 4:
+      case 3:
         return const Leave();
       default:
-        return Container();
+        return const HomeScreen();
     }
   }
 }

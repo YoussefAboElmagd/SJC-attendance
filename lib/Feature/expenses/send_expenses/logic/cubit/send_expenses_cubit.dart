@@ -14,8 +14,8 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
 
   String? selectedItem;
 
-  TextEditingController? expensesCtegory = TextEditingController();
-  TextEditingController? expensesDuration = TextEditingController();
+  TextEditingController? departmentText = TextEditingController();
+  TextEditingController? selectRequestType = TextEditingController();
   TextEditingController? amountNumber = TextEditingController();
   TextEditingController? expensesDescription = TextEditingController();
 
