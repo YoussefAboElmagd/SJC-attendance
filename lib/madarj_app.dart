@@ -37,8 +37,9 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
         create: (context) => getIt<ApplicationCubit>(),
         child: BlocBuilder<ApplicationCubit, ApplicationState>(
           builder: (context, state) {
-            String language = CachHelper.getData(key: "app_lang") ?? "en";
-
+            String language = CachHelper.getData(key: "app_lang") ?? "ar";
+            print(
+                "CachHelper.getData(key:)${CachHelper.getData(key: "app_lang")} ");
             if (state is ChangeTheLanguageOfApp) {
               language = state.language;
             }

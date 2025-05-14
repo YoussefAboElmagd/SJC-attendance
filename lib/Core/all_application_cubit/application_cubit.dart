@@ -19,8 +19,8 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   static ApplicationCubit get(context) => BlocProvider.of(context);
 
   bool isArabic = CachHelper.getData(key: "app_lang") == "ar" ? true : false;
-  static Locale locale = const Locale("en");
-  String language = "en";
+  static Locale locale = const Locale("ar");
+  String language = "ar";
   getlanguage(String language) {
     if (language == "ar") {
       isArabic = true;
