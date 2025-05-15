@@ -22,20 +22,34 @@ flutter run --release -t lib/main.dart
 flutter build apk -t lib/main.dart
 flutter build apk --release --split-per-abi
 
-
 dart pub global activate flutterfire_cli
 flutterfire configure
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  
+await Firebase.initializeApp(
+options: DefaultFirebaseOptions.currentPlatform,
+);
 
 org.gradle.java.home=C:\\Program Files\\Java\\jdk-17.0.1
 
+git fetch --all
+git checkout -b mac-version origin/mac-version
 
-
-package com.example.madarj
+package com.sjc.mdarj
 
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity: FlutterActivity()
+
+
+
+ios work manager
+وفي Xcode:
+
+افتح ios/Runner.xcworkspace
+
+اختر Runner → Signing & Capabilities
+
+اضف Capability اسمها Background Modes
+
+فعل الخيار Background fetch
+
+هل تحب أشرح لك كيف تختبر الخلفية في iOS من الـ Xcode؟

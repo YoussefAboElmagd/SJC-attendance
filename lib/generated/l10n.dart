@@ -1692,6 +1692,16 @@ class S {
     );
   }
 
+  /// `Expenses Details`
+  String get Expenses_Details {
+    return Intl.message(
+      'Expenses Details',
+      name: 'Expenses_Details',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

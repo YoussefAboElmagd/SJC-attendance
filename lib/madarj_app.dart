@@ -54,7 +54,7 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-              title: "Attendance",
+              title: "SJC",
               theme: ThemeData(
                 primaryColor: ColorsManager.mainBlue,
                 scaffoldBackgroundColor: Colors.white,
@@ -62,7 +62,7 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
               debugShowCheckedModeBanner: false,
               // initialRoute: Routes.cardsScreen,
               initialRoute: AppConstants.isLogged
-                  ? Routes.homeScreen
+                  ? Routes.cardsScreen
                   : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );

@@ -94,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Expense Description"),
         "Expense_Summary":
             MessageLookupByLibrary.simpleMessage("Expense Summary"),
+        "Expenses_Details":
+            MessageLookupByLibrary.simpleMessage("Expenses Details"),
         "Expenses_approved_text": MessageLookupByLibrary.simpleMessage(
             "1000+ Expenses already approved"),
         "Fill_Claim_Information":

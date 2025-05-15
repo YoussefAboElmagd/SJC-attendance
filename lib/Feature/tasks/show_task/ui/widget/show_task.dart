@@ -10,7 +10,7 @@ import 'package:madarj/Feature/tasks/show_task/logic/cubit/show_task_details_sta
 import 'package:madarj/generated/l10n.dart';
 
 class ShowTaskDetails extends StatelessWidget {
-  ShowTaskDetails({super.key});
+  const ShowTaskDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,34 +80,8 @@ class ShowTaskDetails extends StatelessWidget {
                     style: TextStyles.font12lightBlackSemiBold,
                   ),
                   SizedBox(height: 16.h),
-                  // ✅ الصورة الرئيسية
                   const TaskImages(),
 
-                  // Center(
-                  //   child: Image.asset(
-                  //     'assets/images/task.jpg',
-                  //     width: MediaQuery.sizeOf(context).width,
-                  //     height: 180.h,
-                  //     fit: BoxFit.fill,
-                  //   ),
-                  // ),
-                  // SizedBox(height: 8.h),
-                  // SizedBox(
-                  //   height: 60.h,
-                  //   child: ListView.builder(
-                  //     scrollDirection: Axis.horizontal,
-                  //     itemCount: imagePaths.length,
-                  //     itemBuilder: (context, index) {
-                  //       return Padding(
-                  //         padding: EdgeInsets.only(right: 8.w),
-                  //         child: Image.asset(
-                  //           imagePaths[index],
-                  //           height: 60.h,
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                   SizedBox(height: 16.h),
                   Text(
                     'Description',
@@ -255,20 +229,6 @@ class ShowTaskDetails extends StatelessWidget {
                     ],
                   ),
 
-                  // Row(
-                  //   children: [
-                  //     CircleAvatar(
-                  //       radius: 14.w,
-                  //       backgroundColor: Colors.transparent,
-                  //       backgroundImage: const AssetImage(
-                  //         "assets/images/test_person.jpg",
-                  //       ),
-                  //     ),
-                  //     const AppTextFormField(
-                  //       hintText: 'Write a comment...',
-                  //     ),
-                  //   ],
-                  // ),
                 ],
               ),
             ),

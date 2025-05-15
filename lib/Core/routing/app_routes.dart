@@ -13,7 +13,9 @@ import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
 import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
+import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_details.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/ui/show_expenses_details.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
@@ -57,6 +59,17 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<ExpensesCubit>(),
             child: const Expenses(),
+          ),
+        );
+      case Routes.showExpensesDetailsBody:
+        final args = settings.arguments as Map<String, dynamic>?;
+
+        return MaterialPageRoute(
+          builder: (_) => ShowExpensesDetails(
+            isApproved: args?['isApproved'] as bool?,
+            rejected: args?['rejected'] as bool?,
+            pending: args?['pending'] as bool?,
+            isNew: args?['isNew'] as bool?,
           ),
         );
       case Routes.tasksScreen:

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_log_card.dart';
 import 'package:madarj/Feature/home/ui/widgets/list_of_checks.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/no_leave_today.dart';
@@ -38,6 +40,19 @@ class DoneExpenses extends StatelessWidget {
                         height: 5.h,
                       ),
                       InkWell(
+                        onTap: () {
+                          context.pushNamed(
+                            Routes.showExpensesDetailsBody,
+                            arguments: {
+                              'isApproved': true,
+                              'rejected': false,
+                              'pending': false,
+                              'isNew': false,
+                            },
+                          );
+
+                          // context.pushNamed(Routes.showExpensesDetailsBody);
+                        },
                         child: ExpensesLogCard(
                           isApproved: reqStatus[index],
                           rejected: !reqStatus[index],
@@ -78,8 +93,21 @@ class NewExpenses extends StatelessWidget {
                       SizedBox(
                         height: 5.h,
                       ),
-                      const InkWell(
-                        child: ExpensesLogCard(
+                      InkWell(
+                        onTap: () {
+                          context.pushNamed(
+                            Routes.showExpensesDetailsBody,
+                            arguments: {
+                              'isApproved': false,
+                              'rejected': false,
+                              'pending': false,
+                              'isNew': true,
+                            },
+                          );
+
+                          // context.pushNamed(Routes.showExpensesDetailsBody);
+                        },
+                        child: const ExpensesLogCard(
                           isNew: true,
                         ),
                       ),
@@ -117,8 +145,20 @@ class PendingExpenses extends StatelessWidget {
                       SizedBox(
                         height: 5.h,
                       ),
-                      const InkWell(
-                        child: ExpensesLogCard(
+                      InkWell(
+                        onTap: () {
+                          context.pushNamed(
+                            Routes.showExpensesDetailsBody,
+                            arguments: {
+                              'isApproved': false,
+                              'rejected': false,
+                              'pending': true,
+                              'isNew': false,
+                            },
+                          );
+                          // context.pushNamed(Routes.showExpensesDetailsBody);
+                        },
+                        child: const ExpensesLogCard(
                           pending: true,
                         ),
                       ),

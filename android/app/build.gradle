@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.example.madarj"
+    namespace = "com.sjc.mdarj"
     compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.madarj"
+        applicationId = "com.sjc.mdarj"
         minSdk = 21
         targetSdk = 34
         multiDexEnabled true

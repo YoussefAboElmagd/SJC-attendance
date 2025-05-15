@@ -7,6 +7,7 @@ import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
 import 'package:madarj/Feature/all_works/data/repo/all_work_repo.dart';
 import 'package:madarj/Feature/all_works/logic/cubit/all_work_cubit.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
 import 'package:madarj/Feature/expenses/expnses_details/data/repo/expenses_repo.dart';
 import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
@@ -70,6 +71,9 @@ Future<void> setGetIt() async {
   getIt.registerLazySingleton<SendTaskRepo>(() => SendTaskRepo(getIt()));
   getIt.registerFactory<SendTasksCubit>(() => SendTasksCubit(getIt()));
 
-  // ShowTaskDetailsCubit 
+  // ShowTaskDetailsCubit
   getIt.registerFactory<ShowTaskDetailsCubit>(() => ShowTaskDetailsCubit());
+
+
+  getIt.registerFactory<ExpensesDetailsCubit>(() => ExpensesDetailsCubit());
 }
