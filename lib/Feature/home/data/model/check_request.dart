@@ -8,11 +8,13 @@ class CheckRequest {
   double? latitude;
   @JsonKey(name: 'ip_address')
   String? ipAddress;
+  String? uuid;
 
   CheckRequest({
     required this.longitude,
     required this.latitude,
     required this.ipAddress,
+    required this.uuid,
   });
 
   factory CheckRequest.fromJson(Map<String, dynamic> json) =>

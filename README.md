@@ -53,3 +53,18 @@ ios work manager
 فعل الخيار Background fetch
 
 هل تحب أشرح لك كيف تختبر الخلفية في iOS من الـ Xcode؟
+
+
+
+
+make this for me with the full script =>
+make this model show booking user usign flutter and json serilizable and don't use final and required in code as may all the keys come with null 
+and use json key
+put the attribute in the constructor 
+
+
+1-dart pub global activate flutterfire_cli
+2-flutterfire configure
+add firebase_core pack
+ 
+ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)

@@ -37,9 +37,11 @@ class CheckUserBlocListener extends StatelessWidget {
             context.popAlert();
             if (checkResponse.data[0].attendanceState == "checked_out") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_In;
+              // await context.read<HomeCubit>().startShift();
             }
             if (checkResponse.data[0].attendanceState == "checked_in") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_Out;
+              // await context.read<HomeCubit>().endShift();
             }
 
             context.read<HomeCubit>().getAllHome2(context);

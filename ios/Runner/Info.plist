@@ -78,7 +78,17 @@
         <string>UIInterfaceOrientationLandscapeLeft</string>
         <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
-    
+    <!-- background -->
+    <key>UIBackgroundModes</key>
+    <array>
+    <string>fetch</string>
+    </array>
+    <!-- notification -->
+<key>NSUserTrackingUsageDescription</key>
+<string>نستخدم هذا لتتبع ساعات  للتطبيق.</string>
+<key>NSLocalNetworkUsageDescription</key>
+<string>نحتاج إرسال إشعارات للاستخدام الزائد.</string>
+
     <!-- Performance Settings -->
     <key>CADisableMinimumFrameDurationOnPhone</key>
     <true/>
