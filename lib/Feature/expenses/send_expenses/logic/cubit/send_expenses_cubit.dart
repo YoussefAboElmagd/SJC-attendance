@@ -2,6 +2,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:madarj/Core/networking/api_error_model.dart';
+import 'package:madarj/Core/networking/api_results.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/create_expense_request.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/request_types_model_response.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/send_exp_categories_model_response.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/repo/send_expenses_repo.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -12,12 +17,14 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       : super(const SendExpensesState.initial());
   final SendExpensesRepo _expensesRepo;
 
+  // handle ui
   String? selectedItem;
 
   TextEditingController? departmentText = TextEditingController();
   TextEditingController? selectRequestType = TextEditingController();
   TextEditingController? amountNumber = TextEditingController();
   TextEditingController? expensesDescription = TextEditingController();
+  var formKey = GlobalKey<FormState>();
 
   changeDragDownHint(TextEditingController? controller, String? text) {
     controller!.text = text.toString();
@@ -25,7 +32,118 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
     emit(SendExpensesState.changeDragDownHintSuccess(text));
   }
 
-    List<File> selectedFiles = [];
+  // connect with back
+
+  Future<void> getAllExpenses(BuildContext context) async {
+    emit(const SendExpensesState.loading());
+
+    try {
+      final periodFuture = _expensesRepo.getRequestTypes();
+      final categoriesFuture = _expensesRepo.getCategories();
+
+      final responses = await Future.wait([
+        periodFuture,
+        categoriesFuture,
+      ]);
+
+      final requestTypesResult = responses[0] as ApiResults<RequestTypesModel>;
+      final categoriesResult = responses[1] as ApiResults<SendExpCategResponse>;
+      // Collect all errors
+      final errors = <ApiErrorModel>[];
+
+      // Helper function to handle errors
+      void handleError(ApiErrorModel error, String type) {
+        print("$type error: $error");
+        errors.add(error);
+      }
+
+      requestTypesResult.when(
+        success: (_) {},
+        failure: (error) => handleError(error, 'requestTypesResult'),
+      );
+      categoriesResult.when(
+        success: (_) {},
+        failure: (error) => handleError(error, 'categoriesResult'),
+      );
+
+      if (errors.isNotEmpty) {
+        final uniqueMessages = <String>{};
+        for (var error in errors) {
+          final msg = error.message ?? 'Unknown error';
+          uniqueMessages.add(msg);
+        }
+
+        final combinedMessage = uniqueMessages.join('\n');
+
+        final combinedError = ApiErrorModel(
+          message: combinedMessage,
+          status: errors.first.status,
+        );
+
+        emit(SendExpensesState.error(combinedError));
+        return;
+      }
+
+      late final RequestTypesModel requestTypesModel;
+      late final SendExpCategResponse categoriesModel;
+
+      requestTypesResult.when(
+        success: (data) => requestTypesModel = data,
+        failure: (_) {},
+      );
+      categoriesResult.when(
+        success: (data) => categoriesModel = data,
+        failure: (_) {},
+      );
+
+      emit(
+        SendExpensesState.combinedSuccess(
+          requestType: requestTypesModel,
+          categories: categoriesModel,
+        ),
+      );
+    } catch (e) {
+      emit(SendExpensesState.error(ApiErrorModel(
+        message: S.of(context).An_unexpected_error,
+        status: '500',
+      )));
+    }
+  }
+
+  Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
+    return {
+      for (var i = 0; i < errors.length; i++)
+        'error_$i': errors[i].message ?? 'Unknown error'
+    };
+  }
+
+  createExpense(
+    CreateExpenseRequest request,
+  ) async {
+    emit(const SendExpensesState.createExpensesLoading());
+    try {
+      final response = await _expensesRepo.createExpense(request);
+
+      response.when(
+        success: (totalHoursResponse) async {
+          emit(SendExpensesState.createExpensesSuccess(totalHoursResponse));
+        },
+        failure: (apiErrorModel) {
+          // print("cubit error");
+          emit(SendExpensesState.createExpensesError(apiErrorModel));
+        },
+      );
+    } catch (e) {
+      print(e.toString());
+      emit(SendExpensesState.createExpensesError(
+        ApiErrorModel(
+          message: e.toString(),
+        ),
+      ));
+    }
+  }
+
+  List<File> selectedFiles = [];
 
   Future<void> pickMultipleFiles(BuildContext context) async {
     try {
@@ -79,7 +197,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   void removeFile(File file) {
     print("file cubit $file");
     final newFiles = List<File>.from(selectedFiles)..remove(file);
-    selectedFiles = newFiles; 
+    selectedFiles = newFiles;
 
     emit(SendExpensesState.removeFile(selectedFiles));
   }
@@ -115,243 +233,4 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       emit(SendExpensesState.fileValidationError(e.toString()));
     }
   }
-
-  // File? file;
-  // Future<bool> _checkAndRequestPermission(FileType fileType) async {
-  //   Permission permission;
-  //   if (Platform.isAndroid) {
-  //     if (await Permission.storage.request().isGranted) {
-  //       return true;
-  //     }
-  //   } else if (Platform.isIOS) {
-  //     switch (fileType) {
-  //       case FileType.image:
-  //         permission = Permission.photos;
-  //         break;
-  //       case FileType.custom:
-  //       case FileType.any:
-  //         permission = Permission.storage;
-  //         break;
-  //       default:
-  //         permission = Permission.storage;
-  //     }
-  //     if (await permission.request().isGranted) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-  // Future<void> pickImage() async {
-  //   try {
-  //     if (!await _checkAndRequestPermission(FileType.image)) {
-  //       emit(const SendExpensesState.permissionDenied());
-  //       return;
-  //     }
-
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.image,
-  //       allowMultiple: false,
-  //     );
-
-  //     _handleFileResult(result);
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> pickPdf() async {
-  //   try {
-  //     if (!await _checkAndRequestPermission(FileType.custom)) {
-  //       emit(const SendExpensesState.permissionDenied());
-  //       return;
-  //     }
-
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.custom,
-  //       allowedExtensions: ['pdf'],
-  //       allowMultiple: false,
-  //     );
-
-  //     _handleFileResult(result);
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> pickWordDocument() async {
-  //   try {
-  //     if (!await _checkAndRequestPermission(FileType.custom)) {
-  //       emit(const SendExpensesState.permissionDenied());
-  //       return;
-  //     }
-
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.custom,
-  //       allowedExtensions: ['doc', 'docx'],
-  //       allowMultiple: false,
-  //     );
-
-  //     _handleFileResult(result);
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-
-  // void _handleFileResult(FilePickerResult? result) {
-  //   if (result != null && result.files.isNotEmpty) {
-  //     final file = File(result.files.single.path!);
-  //     _validateAndProcessFile(file);
-  //   } else {
-  //     emit(const SendExpensesState.fileSelectionCancelled());
-  //   }
-  // }
-
-  // // --- Common Validation & Processing ---
-  // void _validateAndProcessFile(File file) {
-  //   try {
-  //     final allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx'];
-  //     final fileExtension = file.path.split('.').last.toLowerCase();
-
-  //     if (!allowedExtensions.contains(fileExtension)) {
-  //       emit(const SendExpensesState.fileValidationError(
-  //           'Only images (JPG, PNG), PDFs and Word documents are allowed'));
-  //       return;
-  //     }
-
-  //     // Check file size (optional - example: 5MB limit)
-  //     const maxSize = 5 * 1024 * 1024; // 5MB
-  //     if (file.lengthSync() > maxSize) {
-  //       emit(const SendExpensesState.fileValidationError(
-  //           'File size exceeds 5MB limit'));
-  //       return;
-  //     }
-  //     file = file;
-  //     print("file joe $file");
-  //     print("file joe ${file == null}");
-  //     emit(SendExpensesState.fileSelected(file));
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileValidationError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> checkAndPickFile(BuildContext context, SendExpensesCubit cubit,
-  //     FileType fileType, Future<void> Function() pickFunction) async {
-  //   final s = S.of(context);
-  //   try {
-  //     final permissionGranted = await requestPermission(fileType);
-  //     if (!permissionGranted) {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(content: Text(s.permission_denied)),
-  //       );
-  //       return;
-  //     }
-
-  //     await pickFunction();
-  //   } catch (e) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(content: Text('${s.error_occurred}: $e')),
-  //     );
-  //   }
-  // }
-
-  // Future<bool> requestPermission(FileType fileType) async {
-  //   if (Platform.isAndroid) {
-  //     final status = await Permission.storage.request();
-  //     return status.isGranted;
-  //   } else if (Platform.isIOS) {
-  //     if (fileType == FileType.image) {
-  //       final status = await Permission.photos.request();
-  //       return status.isGranted;
-  //     } else {
-  //       final status = await Permission.storage.request();
-  //       return status.isGranted;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-  // // --- File Selection Functions ---
-
-  // Future<void> pickImage() async {
-  //   try {
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.image,
-  //       allowMultiple: false,
-  //     );
-
-  //     if (result != null && result.files.isNotEmpty) {
-  //       final file = File(result.files.single.path!);
-  //       _validateAndProcessFile(file);
-  //     } else {
-  //       emit(const SendExpensesState.fileSelectionCancelled());
-  //     }
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> pickPdf() async {
-  //   try {
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.custom,
-  //       allowedExtensions: ['pdf'],
-  //       allowMultiple: false,
-  //     );
-
-  //     if (result != null && result.files.isNotEmpty) {
-  //       final file = File(result.files.single.path!);
-  //       _validateAndProcessFile(file);
-  //     } else {
-  //       emit(const SendExpensesState.fileSelectionCancelled());
-  //     }
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> pickWordDocument() async {
-  //   try {
-  //     emit(const SendExpensesState.fileSelectionInProgress());
-  //     final result = await FilePicker.platform.pickFiles(
-  //       type: FileType.custom,
-  //       allowedExtensions: ['doc', 'docx'],
-  //       allowMultiple: false,
-  //     );
-
-  //     if (result != null && result.files.isNotEmpty) {
-  //       final file = File(result.files.single.path!);
-  //       _validateAndProcessFile(file);
-  //     } else {
-  //       emit(const SendExpensesState.fileSelectionCancelled());
-  //     }
-  //   } catch (e) {
-  //     emit(SendExpensesState.fileSelectionError(e.toString()));
-  //   }
-  // }
-  // --- File Upload Logic ---
-  // Future<void> uploadSelectedFile() async {
-  //   final currentState = state;
-  //   if (currentState is! FileSelected) return;
-
-  //   try {
-  //     emit(const SendExpensesState.uploading());
-  //     await _simulateUpload(currentState.file);
-  //     emit(SendExpensesState.uploadSuccess(currentState.file));
-  //   } catch (e) {
-  //     emit(SendExpensesState.uploadError(e.toString()));
-  //   }
-  // }
-
-  // Future<void> _simulateUpload(File file) async {
-  //   await Future.delayed(const Duration(seconds: 2));
-  //   // Replace with actual upload logic:
-  //   // final response = await YourApiService.uploadExpenseFile(file);
-  //   // if (!response.success) throw Exception(response.error);
-  // }
 }

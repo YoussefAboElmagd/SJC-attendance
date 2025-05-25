@@ -253,6 +253,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Month working Period"),
         "month_working_time_text": MessageLookupByLibrary.simpleMessage(
             "Your working time in this month"),
+        "mustnot_be_empty":
+            MessageLookupByLibrary.simpleMessage("mustn\'t be empty"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("New"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("No"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(

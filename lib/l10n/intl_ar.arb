@@ -8,6 +8,7 @@
   "Email_hint_form_field": "mohamedtamer25@gmail.com",
   "email_mustnot_be_empty": "يجب ألا يكون البريد الإلكتروني فارغًا",
   "password_mustnot_be_empty": "يجب ألا تكون كلمة المرور فارغة",
+  "mustnot_be_empty": "يجب ألا يكون فارغًا",
   "password_text": "كلمة المرور",
   "password_hint_text": "أدخل كلمة المرور الخاصة بك",
   "sign_up": "إنشاء حساب",

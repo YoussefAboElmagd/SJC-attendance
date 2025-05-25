@@ -36,7 +36,7 @@ class _ExpensesService implements ExpensesService {
     )
         .compose(
           _dio.options,
-          'get/category/expenses',
+          'category/expenses',
           queryParameters: queryParameters,
           data: _data,
         )

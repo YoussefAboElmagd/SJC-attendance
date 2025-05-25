@@ -1,5 +1,5 @@
 
 class ExpensesConstants {
-    static const String expensesCategories = "get/category/expenses"; // Add this line
+    static const String expensesCategories = "category/expenses"; // Add this line
 
 }

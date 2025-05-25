@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SendExpensesState {
+mixin _$SendExpensesState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -33,6 +33,12 @@ mixin _$SendExpensesState {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +58,12 @@ mixin _$SendExpensesState {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,88 +83,116 @@ mixin _$SendExpensesState {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SendExpensesStateCopyWith<$Res> {
-  factory $SendExpensesStateCopyWith(
-          SendExpensesState value, $Res Function(SendExpensesState) then) =
-      _$SendExpensesStateCopyWithImpl<$Res, SendExpensesState>;
+abstract class $SendExpensesStateCopyWith<T, $Res> {
+  factory $SendExpensesStateCopyWith(SendExpensesState<T> value,
+          $Res Function(SendExpensesState<T>) then) =
+      _$SendExpensesStateCopyWithImpl<T, $Res, SendExpensesState<T>>;
 }
 
 /// @nodoc
-class _$SendExpensesStateCopyWithImpl<$Res, $Val extends SendExpensesState>
-    implements $SendExpensesStateCopyWith<$Res> {
+class _$SendExpensesStateCopyWithImpl<T, $Res,
+        $Val extends SendExpensesState<T>>
+    implements $SendExpensesStateCopyWith<T, $Res> {
   _$SendExpensesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -162,35 +202,35 @@ class _$SendExpensesStateCopyWithImpl<$Res, $Val extends SendExpensesState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<T, $Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
+      __$$InitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
+class __$$InitialImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl<T> implements _Initial<T> {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.initial()';
+    return 'SendExpensesState<$T>.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
   }
 
   @override
@@ -214,6 +254,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return initial();
   }
@@ -236,6 +282,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return initial?.call();
   }
@@ -258,6 +310,12 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -269,26 +327,34 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return initial(this);
   }
@@ -296,23 +362,30 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return initial?.call(this);
   }
@@ -320,23 +393,29 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -346,28 +425,28 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements SendExpensesState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Initial<T> implements SendExpensesState<T> {
+  const factory _Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ChangeDragDownHintSuccessImplCopyWith<$Res> {
+abstract class _$$ChangeDragDownHintSuccessImplCopyWith<T, $Res> {
   factory _$$ChangeDragDownHintSuccessImplCopyWith(
-          _$ChangeDragDownHintSuccessImpl value,
-          $Res Function(_$ChangeDragDownHintSuccessImpl) then) =
-      __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>;
+          _$ChangeDragDownHintSuccessImpl<T> value,
+          $Res Function(_$ChangeDragDownHintSuccessImpl<T>) then) =
+      __$$ChangeDragDownHintSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String? text});
 }
 
 /// @nodoc
-class __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res,
-        _$ChangeDragDownHintSuccessImpl>
-    implements _$$ChangeDragDownHintSuccessImplCopyWith<$Res> {
+class __$$ChangeDragDownHintSuccessImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$ChangeDragDownHintSuccessImpl<T>>
+    implements _$$ChangeDragDownHintSuccessImplCopyWith<T, $Res> {
   __$$ChangeDragDownHintSuccessImplCopyWithImpl(
-      _$ChangeDragDownHintSuccessImpl _value,
-      $Res Function(_$ChangeDragDownHintSuccessImpl) _then)
+      _$ChangeDragDownHintSuccessImpl<T> _value,
+      $Res Function(_$ChangeDragDownHintSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -375,7 +454,7 @@ class __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? text = freezed,
   }) {
-    return _then(_$ChangeDragDownHintSuccessImpl(
+    return _then(_$ChangeDragDownHintSuccessImpl<T>(
       freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -386,7 +465,8 @@ class __$$ChangeDragDownHintSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
+class _$ChangeDragDownHintSuccessImpl<T>
+    implements ChangeDragDownHintSuccess<T> {
   const _$ChangeDragDownHintSuccessImpl(this.text);
 
   @override
@@ -394,14 +474,14 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
 
   @override
   String toString() {
-    return 'SendExpensesState.changeDragDownHintSuccess(text: $text)';
+    return 'SendExpensesState<$T>.changeDragDownHintSuccess(text: $text)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeDragDownHintSuccessImpl &&
+            other is _$ChangeDragDownHintSuccessImpl<T> &&
             (identical(other.text, text) || other.text == text));
   }
 
@@ -411,9 +491,10 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeDragDownHintSuccessImplCopyWith<_$ChangeDragDownHintSuccessImpl>
-      get copyWith => __$$ChangeDragDownHintSuccessImplCopyWithImpl<
-          _$ChangeDragDownHintSuccessImpl>(this, _$identity);
+  _$$ChangeDragDownHintSuccessImplCopyWith<T,
+          _$ChangeDragDownHintSuccessImpl<T>>
+      get copyWith => __$$ChangeDragDownHintSuccessImplCopyWithImpl<T,
+          _$ChangeDragDownHintSuccessImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -433,6 +514,12 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return changeDragDownHintSuccess(text);
   }
@@ -455,6 +542,12 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return changeDragDownHintSuccess?.call(text);
   }
@@ -477,6 +570,12 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (changeDragDownHintSuccess != null) {
@@ -488,26 +587,34 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return changeDragDownHintSuccess(this);
   }
@@ -515,23 +622,30 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return changeDragDownHintSuccess?.call(this);
   }
@@ -539,23 +653,29 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (changeDragDownHintSuccess != null) {
@@ -565,49 +685,51 @@ class _$ChangeDragDownHintSuccessImpl implements ChangeDragDownHintSuccess {
   }
 }
 
-abstract class ChangeDragDownHintSuccess implements SendExpensesState {
+abstract class ChangeDragDownHintSuccess<T> implements SendExpensesState<T> {
   const factory ChangeDragDownHintSuccess(final String? text) =
-      _$ChangeDragDownHintSuccessImpl;
+      _$ChangeDragDownHintSuccessImpl<T>;
 
   String? get text;
   @JsonKey(ignore: true)
-  _$$ChangeDragDownHintSuccessImplCopyWith<_$ChangeDragDownHintSuccessImpl>
+  _$$ChangeDragDownHintSuccessImplCopyWith<T,
+          _$ChangeDragDownHintSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FileSelectionInProgressImplCopyWith<$Res> {
+abstract class _$$FileSelectionInProgressImplCopyWith<T, $Res> {
   factory _$$FileSelectionInProgressImplCopyWith(
-          _$FileSelectionInProgressImpl value,
-          $Res Function(_$FileSelectionInProgressImpl) then) =
-      __$$FileSelectionInProgressImplCopyWithImpl<$Res>;
+          _$FileSelectionInProgressImpl<T> value,
+          $Res Function(_$FileSelectionInProgressImpl<T>) then) =
+      __$$FileSelectionInProgressImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$FileSelectionInProgressImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$FileSelectionInProgressImpl>
-    implements _$$FileSelectionInProgressImplCopyWith<$Res> {
+class __$$FileSelectionInProgressImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$FileSelectionInProgressImpl<T>>
+    implements _$$FileSelectionInProgressImplCopyWith<T, $Res> {
   __$$FileSelectionInProgressImplCopyWithImpl(
-      _$FileSelectionInProgressImpl _value,
-      $Res Function(_$FileSelectionInProgressImpl) _then)
+      _$FileSelectionInProgressImpl<T> _value,
+      $Res Function(_$FileSelectionInProgressImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
+class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
   const _$FileSelectionInProgressImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.fileSelectionInProgress()';
+    return 'SendExpensesState<$T>.fileSelectionInProgress()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileSelectionInProgressImpl);
+            other is _$FileSelectionInProgressImpl<T>);
   }
 
   @override
@@ -631,6 +753,12 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return fileSelectionInProgress();
   }
@@ -653,6 +781,12 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return fileSelectionInProgress?.call();
   }
@@ -675,6 +809,12 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionInProgress != null) {
@@ -686,26 +826,34 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return fileSelectionInProgress(this);
   }
@@ -713,23 +861,30 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return fileSelectionInProgress?.call(this);
   }
@@ -737,23 +892,29 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionInProgress != null) {
@@ -763,25 +924,25 @@ class _$FileSelectionInProgressImpl implements FileSelectionInProgress {
   }
 }
 
-abstract class FileSelectionInProgress implements SendExpensesState {
-  const factory FileSelectionInProgress() = _$FileSelectionInProgressImpl;
+abstract class FileSelectionInProgress<T> implements SendExpensesState<T> {
+  const factory FileSelectionInProgress() = _$FileSelectionInProgressImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$FileSelectedImplCopyWith<$Res> {
-  factory _$$FileSelectedImplCopyWith(
-          _$FileSelectedImpl value, $Res Function(_$FileSelectedImpl) then) =
-      __$$FileSelectedImplCopyWithImpl<$Res>;
+abstract class _$$FileSelectedImplCopyWith<T, $Res> {
+  factory _$$FileSelectedImplCopyWith(_$FileSelectedImpl<T> value,
+          $Res Function(_$FileSelectedImpl<T>) then) =
+      __$$FileSelectedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({File file});
 }
 
 /// @nodoc
-class __$$FileSelectedImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$FileSelectedImpl>
-    implements _$$FileSelectedImplCopyWith<$Res> {
+class __$$FileSelectedImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$FileSelectedImpl<T>>
+    implements _$$FileSelectedImplCopyWith<T, $Res> {
   __$$FileSelectedImplCopyWithImpl(
-      _$FileSelectedImpl _value, $Res Function(_$FileSelectedImpl) _then)
+      _$FileSelectedImpl<T> _value, $Res Function(_$FileSelectedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -789,7 +950,7 @@ class __$$FileSelectedImplCopyWithImpl<$Res>
   $Res call({
     Object? file = null,
   }) {
-    return _then(_$FileSelectedImpl(
+    return _then(_$FileSelectedImpl<T>(
       null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -800,7 +961,7 @@ class __$$FileSelectedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FileSelectedImpl implements FileSelected {
+class _$FileSelectedImpl<T> implements FileSelected<T> {
   const _$FileSelectedImpl(this.file);
 
   @override
@@ -808,14 +969,14 @@ class _$FileSelectedImpl implements FileSelected {
 
   @override
   String toString() {
-    return 'SendExpensesState.fileSelected(file: $file)';
+    return 'SendExpensesState<$T>.fileSelected(file: $file)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileSelectedImpl &&
+            other is _$FileSelectedImpl<T> &&
             (identical(other.file, file) || other.file == file));
   }
 
@@ -825,8 +986,9 @@ class _$FileSelectedImpl implements FileSelected {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileSelectedImplCopyWith<_$FileSelectedImpl> get copyWith =>
-      __$$FileSelectedImplCopyWithImpl<_$FileSelectedImpl>(this, _$identity);
+  _$$FileSelectedImplCopyWith<T, _$FileSelectedImpl<T>> get copyWith =>
+      __$$FileSelectedImplCopyWithImpl<T, _$FileSelectedImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -846,6 +1008,12 @@ class _$FileSelectedImpl implements FileSelected {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return fileSelected(file);
   }
@@ -868,6 +1036,12 @@ class _$FileSelectedImpl implements FileSelected {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return fileSelected?.call(file);
   }
@@ -890,6 +1064,12 @@ class _$FileSelectedImpl implements FileSelected {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelected != null) {
@@ -901,26 +1081,34 @@ class _$FileSelectedImpl implements FileSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return fileSelected(this);
   }
@@ -928,23 +1116,30 @@ class _$FileSelectedImpl implements FileSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return fileSelected?.call(this);
   }
@@ -952,23 +1147,29 @@ class _$FileSelectedImpl implements FileSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelected != null) {
@@ -978,48 +1179,49 @@ class _$FileSelectedImpl implements FileSelected {
   }
 }
 
-abstract class FileSelected implements SendExpensesState {
-  const factory FileSelected(final File file) = _$FileSelectedImpl;
+abstract class FileSelected<T> implements SendExpensesState<T> {
+  const factory FileSelected(final File file) = _$FileSelectedImpl<T>;
 
   File get file;
   @JsonKey(ignore: true)
-  _$$FileSelectedImplCopyWith<_$FileSelectedImpl> get copyWith =>
+  _$$FileSelectedImplCopyWith<T, _$FileSelectedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FileSelectionCancelledImplCopyWith<$Res> {
+abstract class _$$FileSelectionCancelledImplCopyWith<T, $Res> {
   factory _$$FileSelectionCancelledImplCopyWith(
-          _$FileSelectionCancelledImpl value,
-          $Res Function(_$FileSelectionCancelledImpl) then) =
-      __$$FileSelectionCancelledImplCopyWithImpl<$Res>;
+          _$FileSelectionCancelledImpl<T> value,
+          $Res Function(_$FileSelectionCancelledImpl<T>) then) =
+      __$$FileSelectionCancelledImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$FileSelectionCancelledImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$FileSelectionCancelledImpl>
-    implements _$$FileSelectionCancelledImplCopyWith<$Res> {
+class __$$FileSelectionCancelledImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$FileSelectionCancelledImpl<T>>
+    implements _$$FileSelectionCancelledImplCopyWith<T, $Res> {
   __$$FileSelectionCancelledImplCopyWithImpl(
-      _$FileSelectionCancelledImpl _value,
-      $Res Function(_$FileSelectionCancelledImpl) _then)
+      _$FileSelectionCancelledImpl<T> _value,
+      $Res Function(_$FileSelectionCancelledImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
+class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
   const _$FileSelectionCancelledImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.fileSelectionCancelled()';
+    return 'SendExpensesState<$T>.fileSelectionCancelled()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileSelectionCancelledImpl);
+            other is _$FileSelectionCancelledImpl<T>);
   }
 
   @override
@@ -1043,6 +1245,12 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return fileSelectionCancelled();
   }
@@ -1065,6 +1273,12 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return fileSelectionCancelled?.call();
   }
@@ -1087,6 +1301,12 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionCancelled != null) {
@@ -1098,26 +1318,34 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return fileSelectionCancelled(this);
   }
@@ -1125,23 +1353,30 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return fileSelectionCancelled?.call(this);
   }
@@ -1149,23 +1384,29 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionCancelled != null) {
@@ -1175,25 +1416,26 @@ class _$FileSelectionCancelledImpl implements FileSelectionCancelled {
   }
 }
 
-abstract class FileSelectionCancelled implements SendExpensesState {
-  const factory FileSelectionCancelled() = _$FileSelectionCancelledImpl;
+abstract class FileSelectionCancelled<T> implements SendExpensesState<T> {
+  const factory FileSelectionCancelled() = _$FileSelectionCancelledImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$FileSelectionErrorImplCopyWith<$Res> {
-  factory _$$FileSelectionErrorImplCopyWith(_$FileSelectionErrorImpl value,
-          $Res Function(_$FileSelectionErrorImpl) then) =
-      __$$FileSelectionErrorImplCopyWithImpl<$Res>;
+abstract class _$$FileSelectionErrorImplCopyWith<T, $Res> {
+  factory _$$FileSelectionErrorImplCopyWith(_$FileSelectionErrorImpl<T> value,
+          $Res Function(_$FileSelectionErrorImpl<T>) then) =
+      __$$FileSelectionErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FileSelectionErrorImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$FileSelectionErrorImpl>
-    implements _$$FileSelectionErrorImplCopyWith<$Res> {
-  __$$FileSelectionErrorImplCopyWithImpl(_$FileSelectionErrorImpl _value,
-      $Res Function(_$FileSelectionErrorImpl) _then)
+class __$$FileSelectionErrorImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$FileSelectionErrorImpl<T>>
+    implements _$$FileSelectionErrorImplCopyWith<T, $Res> {
+  __$$FileSelectionErrorImplCopyWithImpl(_$FileSelectionErrorImpl<T> _value,
+      $Res Function(_$FileSelectionErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1201,7 +1443,7 @@ class __$$FileSelectionErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FileSelectionErrorImpl(
+    return _then(_$FileSelectionErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1212,7 +1454,7 @@ class __$$FileSelectionErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FileSelectionErrorImpl implements FileSelectionError {
+class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
   const _$FileSelectionErrorImpl(this.message);
 
   @override
@@ -1220,14 +1462,14 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
 
   @override
   String toString() {
-    return 'SendExpensesState.fileSelectionError(message: $message)';
+    return 'SendExpensesState<$T>.fileSelectionError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileSelectionErrorImpl &&
+            other is _$FileSelectionErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1237,9 +1479,9 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileSelectionErrorImplCopyWith<_$FileSelectionErrorImpl> get copyWith =>
-      __$$FileSelectionErrorImplCopyWithImpl<_$FileSelectionErrorImpl>(
-          this, _$identity);
+  _$$FileSelectionErrorImplCopyWith<T, _$FileSelectionErrorImpl<T>>
+      get copyWith => __$$FileSelectionErrorImplCopyWithImpl<T,
+          _$FileSelectionErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1259,6 +1501,12 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return fileSelectionError(message);
   }
@@ -1281,6 +1529,12 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return fileSelectionError?.call(message);
   }
@@ -1303,6 +1557,12 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionError != null) {
@@ -1314,26 +1574,34 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return fileSelectionError(this);
   }
@@ -1341,23 +1609,30 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return fileSelectionError?.call(this);
   }
@@ -1365,23 +1640,29 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileSelectionError != null) {
@@ -1391,31 +1672,32 @@ class _$FileSelectionErrorImpl implements FileSelectionError {
   }
 }
 
-abstract class FileSelectionError implements SendExpensesState {
+abstract class FileSelectionError<T> implements SendExpensesState<T> {
   const factory FileSelectionError(final String message) =
-      _$FileSelectionErrorImpl;
+      _$FileSelectionErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$FileSelectionErrorImplCopyWith<_$FileSelectionErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FileSelectionErrorImplCopyWith<T, _$FileSelectionErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FileValidationErrorImplCopyWith<$Res> {
-  factory _$$FileValidationErrorImplCopyWith(_$FileValidationErrorImpl value,
-          $Res Function(_$FileValidationErrorImpl) then) =
-      __$$FileValidationErrorImplCopyWithImpl<$Res>;
+abstract class _$$FileValidationErrorImplCopyWith<T, $Res> {
+  factory _$$FileValidationErrorImplCopyWith(_$FileValidationErrorImpl<T> value,
+          $Res Function(_$FileValidationErrorImpl<T>) then) =
+      __$$FileValidationErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FileValidationErrorImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$FileValidationErrorImpl>
-    implements _$$FileValidationErrorImplCopyWith<$Res> {
-  __$$FileValidationErrorImplCopyWithImpl(_$FileValidationErrorImpl _value,
-      $Res Function(_$FileValidationErrorImpl) _then)
+class __$$FileValidationErrorImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$FileValidationErrorImpl<T>>
+    implements _$$FileValidationErrorImplCopyWith<T, $Res> {
+  __$$FileValidationErrorImplCopyWithImpl(_$FileValidationErrorImpl<T> _value,
+      $Res Function(_$FileValidationErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1423,7 +1705,7 @@ class __$$FileValidationErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FileValidationErrorImpl(
+    return _then(_$FileValidationErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1434,7 +1716,7 @@ class __$$FileValidationErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FileValidationErrorImpl implements FileValidationError {
+class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
   const _$FileValidationErrorImpl(this.message);
 
   @override
@@ -1442,14 +1724,14 @@ class _$FileValidationErrorImpl implements FileValidationError {
 
   @override
   String toString() {
-    return 'SendExpensesState.fileValidationError(message: $message)';
+    return 'SendExpensesState<$T>.fileValidationError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileValidationErrorImpl &&
+            other is _$FileValidationErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1459,9 +1741,9 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileValidationErrorImplCopyWith<_$FileValidationErrorImpl> get copyWith =>
-      __$$FileValidationErrorImplCopyWithImpl<_$FileValidationErrorImpl>(
-          this, _$identity);
+  _$$FileValidationErrorImplCopyWith<T, _$FileValidationErrorImpl<T>>
+      get copyWith => __$$FileValidationErrorImplCopyWithImpl<T,
+          _$FileValidationErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1481,6 +1763,12 @@ class _$FileValidationErrorImpl implements FileValidationError {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return fileValidationError(message);
   }
@@ -1503,6 +1791,12 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return fileValidationError?.call(message);
   }
@@ -1525,6 +1819,12 @@ class _$FileValidationErrorImpl implements FileValidationError {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileValidationError != null) {
@@ -1536,26 +1836,34 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return fileValidationError(this);
   }
@@ -1563,23 +1871,30 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return fileValidationError?.call(this);
   }
@@ -1587,23 +1902,29 @@ class _$FileValidationErrorImpl implements FileValidationError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (fileValidationError != null) {
@@ -1613,46 +1934,46 @@ class _$FileValidationErrorImpl implements FileValidationError {
   }
 }
 
-abstract class FileValidationError implements SendExpensesState {
+abstract class FileValidationError<T> implements SendExpensesState<T> {
   const factory FileValidationError(final String message) =
-      _$FileValidationErrorImpl;
+      _$FileValidationErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$FileValidationErrorImplCopyWith<_$FileValidationErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FileValidationErrorImplCopyWith<T, _$FileValidationErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UploadingImplCopyWith<$Res> {
+abstract class _$$UploadingImplCopyWith<T, $Res> {
   factory _$$UploadingImplCopyWith(
-          _$UploadingImpl value, $Res Function(_$UploadingImpl) then) =
-      __$$UploadingImplCopyWithImpl<$Res>;
+          _$UploadingImpl<T> value, $Res Function(_$UploadingImpl<T>) then) =
+      __$$UploadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$UploadingImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$UploadingImpl>
-    implements _$$UploadingImplCopyWith<$Res> {
+class __$$UploadingImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$UploadingImpl<T>>
+    implements _$$UploadingImplCopyWith<T, $Res> {
   __$$UploadingImplCopyWithImpl(
-      _$UploadingImpl _value, $Res Function(_$UploadingImpl) _then)
+      _$UploadingImpl<T> _value, $Res Function(_$UploadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UploadingImpl implements Uploading {
+class _$UploadingImpl<T> implements Uploading<T> {
   const _$UploadingImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.uploading()';
+    return 'SendExpensesState<$T>.uploading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UploadingImpl);
+        (other.runtimeType == runtimeType && other is _$UploadingImpl<T>);
   }
 
   @override
@@ -1676,6 +1997,12 @@ class _$UploadingImpl implements Uploading {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return uploading();
   }
@@ -1698,6 +2025,12 @@ class _$UploadingImpl implements Uploading {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return uploading?.call();
   }
@@ -1720,6 +2053,12 @@ class _$UploadingImpl implements Uploading {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploading != null) {
@@ -1731,26 +2070,34 @@ class _$UploadingImpl implements Uploading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return uploading(this);
   }
@@ -1758,23 +2105,30 @@ class _$UploadingImpl implements Uploading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return uploading?.call(this);
   }
@@ -1782,23 +2136,29 @@ class _$UploadingImpl implements Uploading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploading != null) {
@@ -1808,25 +2168,25 @@ class _$UploadingImpl implements Uploading {
   }
 }
 
-abstract class Uploading implements SendExpensesState {
-  const factory Uploading() = _$UploadingImpl;
+abstract class Uploading<T> implements SendExpensesState<T> {
+  const factory Uploading() = _$UploadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$UploadSuccessImplCopyWith<$Res> {
-  factory _$$UploadSuccessImplCopyWith(
-          _$UploadSuccessImpl value, $Res Function(_$UploadSuccessImpl) then) =
-      __$$UploadSuccessImplCopyWithImpl<$Res>;
+abstract class _$$UploadSuccessImplCopyWith<T, $Res> {
+  factory _$$UploadSuccessImplCopyWith(_$UploadSuccessImpl<T> value,
+          $Res Function(_$UploadSuccessImpl<T>) then) =
+      __$$UploadSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({File file});
 }
 
 /// @nodoc
-class __$$UploadSuccessImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$UploadSuccessImpl>
-    implements _$$UploadSuccessImplCopyWith<$Res> {
-  __$$UploadSuccessImplCopyWithImpl(
-      _$UploadSuccessImpl _value, $Res Function(_$UploadSuccessImpl) _then)
+class __$$UploadSuccessImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$UploadSuccessImpl<T>>
+    implements _$$UploadSuccessImplCopyWith<T, $Res> {
+  __$$UploadSuccessImplCopyWithImpl(_$UploadSuccessImpl<T> _value,
+      $Res Function(_$UploadSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1834,7 +2194,7 @@ class __$$UploadSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? file = null,
   }) {
-    return _then(_$UploadSuccessImpl(
+    return _then(_$UploadSuccessImpl<T>(
       null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -1845,7 +2205,7 @@ class __$$UploadSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UploadSuccessImpl implements UploadSuccess {
+class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
   const _$UploadSuccessImpl(this.file);
 
   @override
@@ -1853,14 +2213,14 @@ class _$UploadSuccessImpl implements UploadSuccess {
 
   @override
   String toString() {
-    return 'SendExpensesState.uploadSuccess(file: $file)';
+    return 'SendExpensesState<$T>.uploadSuccess(file: $file)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UploadSuccessImpl &&
+            other is _$UploadSuccessImpl<T> &&
             (identical(other.file, file) || other.file == file));
   }
 
@@ -1870,8 +2230,9 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UploadSuccessImplCopyWith<_$UploadSuccessImpl> get copyWith =>
-      __$$UploadSuccessImplCopyWithImpl<_$UploadSuccessImpl>(this, _$identity);
+  _$$UploadSuccessImplCopyWith<T, _$UploadSuccessImpl<T>> get copyWith =>
+      __$$UploadSuccessImplCopyWithImpl<T, _$UploadSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1891,6 +2252,12 @@ class _$UploadSuccessImpl implements UploadSuccess {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return uploadSuccess(file);
   }
@@ -1913,6 +2280,12 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return uploadSuccess?.call(file);
   }
@@ -1935,6 +2308,12 @@ class _$UploadSuccessImpl implements UploadSuccess {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -1946,26 +2325,34 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return uploadSuccess(this);
   }
@@ -1973,23 +2360,30 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return uploadSuccess?.call(this);
   }
@@ -1997,23 +2391,29 @@ class _$UploadSuccessImpl implements UploadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -2023,30 +2423,30 @@ class _$UploadSuccessImpl implements UploadSuccess {
   }
 }
 
-abstract class UploadSuccess implements SendExpensesState {
-  const factory UploadSuccess(final File file) = _$UploadSuccessImpl;
+abstract class UploadSuccess<T> implements SendExpensesState<T> {
+  const factory UploadSuccess(final File file) = _$UploadSuccessImpl<T>;
 
   File get file;
   @JsonKey(ignore: true)
-  _$$UploadSuccessImplCopyWith<_$UploadSuccessImpl> get copyWith =>
+  _$$UploadSuccessImplCopyWith<T, _$UploadSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UploadErrorImplCopyWith<$Res> {
-  factory _$$UploadErrorImplCopyWith(
-          _$UploadErrorImpl value, $Res Function(_$UploadErrorImpl) then) =
-      __$$UploadErrorImplCopyWithImpl<$Res>;
+abstract class _$$UploadErrorImplCopyWith<T, $Res> {
+  factory _$$UploadErrorImplCopyWith(_$UploadErrorImpl<T> value,
+          $Res Function(_$UploadErrorImpl<T>) then) =
+      __$$UploadErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$UploadErrorImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$UploadErrorImpl>
-    implements _$$UploadErrorImplCopyWith<$Res> {
+class __$$UploadErrorImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$UploadErrorImpl<T>>
+    implements _$$UploadErrorImplCopyWith<T, $Res> {
   __$$UploadErrorImplCopyWithImpl(
-      _$UploadErrorImpl _value, $Res Function(_$UploadErrorImpl) _then)
+      _$UploadErrorImpl<T> _value, $Res Function(_$UploadErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2054,7 +2454,7 @@ class __$$UploadErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$UploadErrorImpl(
+    return _then(_$UploadErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -2065,7 +2465,7 @@ class __$$UploadErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UploadErrorImpl implements UploadError {
+class _$UploadErrorImpl<T> implements UploadError<T> {
   const _$UploadErrorImpl(this.message);
 
   @override
@@ -2073,14 +2473,14 @@ class _$UploadErrorImpl implements UploadError {
 
   @override
   String toString() {
-    return 'SendExpensesState.uploadError(message: $message)';
+    return 'SendExpensesState<$T>.uploadError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UploadErrorImpl &&
+            other is _$UploadErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -2090,8 +2490,9 @@ class _$UploadErrorImpl implements UploadError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UploadErrorImplCopyWith<_$UploadErrorImpl> get copyWith =>
-      __$$UploadErrorImplCopyWithImpl<_$UploadErrorImpl>(this, _$identity);
+  _$$UploadErrorImplCopyWith<T, _$UploadErrorImpl<T>> get copyWith =>
+      __$$UploadErrorImplCopyWithImpl<T, _$UploadErrorImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2111,6 +2512,12 @@ class _$UploadErrorImpl implements UploadError {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return uploadError(message);
   }
@@ -2133,6 +2540,12 @@ class _$UploadErrorImpl implements UploadError {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return uploadError?.call(message);
   }
@@ -2155,6 +2568,12 @@ class _$UploadErrorImpl implements UploadError {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -2166,26 +2585,34 @@ class _$UploadErrorImpl implements UploadError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return uploadError(this);
   }
@@ -2193,23 +2620,30 @@ class _$UploadErrorImpl implements UploadError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return uploadError?.call(this);
   }
@@ -2217,23 +2651,29 @@ class _$UploadErrorImpl implements UploadError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -2243,31 +2683,33 @@ class _$UploadErrorImpl implements UploadError {
   }
 }
 
-abstract class UploadError implements SendExpensesState {
-  const factory UploadError(final String message) = _$UploadErrorImpl;
+abstract class UploadError<T> implements SendExpensesState<T> {
+  const factory UploadError(final String message) = _$UploadErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$UploadErrorImplCopyWith<_$UploadErrorImpl> get copyWith =>
+  _$$UploadErrorImplCopyWith<T, _$UploadErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MultipleFilesSelectedImplCopyWith<$Res> {
+abstract class _$$MultipleFilesSelectedImplCopyWith<T, $Res> {
   factory _$$MultipleFilesSelectedImplCopyWith(
-          _$MultipleFilesSelectedImpl value,
-          $Res Function(_$MultipleFilesSelectedImpl) then) =
-      __$$MultipleFilesSelectedImplCopyWithImpl<$Res>;
+          _$MultipleFilesSelectedImpl<T> value,
+          $Res Function(_$MultipleFilesSelectedImpl<T>) then) =
+      __$$MultipleFilesSelectedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({List<File> files});
 }
 
 /// @nodoc
-class __$$MultipleFilesSelectedImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$MultipleFilesSelectedImpl>
-    implements _$$MultipleFilesSelectedImplCopyWith<$Res> {
-  __$$MultipleFilesSelectedImplCopyWithImpl(_$MultipleFilesSelectedImpl _value,
-      $Res Function(_$MultipleFilesSelectedImpl) _then)
+class __$$MultipleFilesSelectedImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$MultipleFilesSelectedImpl<T>>
+    implements _$$MultipleFilesSelectedImplCopyWith<T, $Res> {
+  __$$MultipleFilesSelectedImplCopyWithImpl(
+      _$MultipleFilesSelectedImpl<T> _value,
+      $Res Function(_$MultipleFilesSelectedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2275,7 +2717,7 @@ class __$$MultipleFilesSelectedImplCopyWithImpl<$Res>
   $Res call({
     Object? files = null,
   }) {
-    return _then(_$MultipleFilesSelectedImpl(
+    return _then(_$MultipleFilesSelectedImpl<T>(
       null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
@@ -2286,7 +2728,7 @@ class __$$MultipleFilesSelectedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
+class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
   const _$MultipleFilesSelectedImpl(final List<File> files) : _files = files;
 
   final List<File> _files;
@@ -2299,14 +2741,14 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
 
   @override
   String toString() {
-    return 'SendExpensesState.multipleFilesSelected(files: $files)';
+    return 'SendExpensesState<$T>.multipleFilesSelected(files: $files)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultipleFilesSelectedImpl &&
+            other is _$MultipleFilesSelectedImpl<T> &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
@@ -2317,9 +2759,9 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MultipleFilesSelectedImplCopyWith<_$MultipleFilesSelectedImpl>
-      get copyWith => __$$MultipleFilesSelectedImplCopyWithImpl<
-          _$MultipleFilesSelectedImpl>(this, _$identity);
+  _$$MultipleFilesSelectedImplCopyWith<T, _$MultipleFilesSelectedImpl<T>>
+      get copyWith => __$$MultipleFilesSelectedImplCopyWithImpl<T,
+          _$MultipleFilesSelectedImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2339,6 +2781,12 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return multipleFilesSelected(files);
   }
@@ -2361,6 +2809,12 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return multipleFilesSelected?.call(files);
   }
@@ -2383,6 +2837,12 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (multipleFilesSelected != null) {
@@ -2394,26 +2854,34 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return multipleFilesSelected(this);
   }
@@ -2421,23 +2889,30 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return multipleFilesSelected?.call(this);
   }
@@ -2445,23 +2920,29 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (multipleFilesSelected != null) {
@@ -2471,31 +2952,31 @@ class _$MultipleFilesSelectedImpl implements MultipleFilesSelected {
   }
 }
 
-abstract class MultipleFilesSelected implements SendExpensesState {
+abstract class MultipleFilesSelected<T> implements SendExpensesState<T> {
   const factory MultipleFilesSelected(final List<File> files) =
-      _$MultipleFilesSelectedImpl;
+      _$MultipleFilesSelectedImpl<T>;
 
   List<File> get files;
   @JsonKey(ignore: true)
-  _$$MultipleFilesSelectedImplCopyWith<_$MultipleFilesSelectedImpl>
+  _$$MultipleFilesSelectedImplCopyWith<T, _$MultipleFilesSelectedImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UploadProgressImplCopyWith<$Res> {
-  factory _$$UploadProgressImplCopyWith(_$UploadProgressImpl value,
-          $Res Function(_$UploadProgressImpl) then) =
-      __$$UploadProgressImplCopyWithImpl<$Res>;
+abstract class _$$UploadProgressImplCopyWith<T, $Res> {
+  factory _$$UploadProgressImplCopyWith(_$UploadProgressImpl<T> value,
+          $Res Function(_$UploadProgressImpl<T>) then) =
+      __$$UploadProgressImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({double progress});
 }
 
 /// @nodoc
-class __$$UploadProgressImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$UploadProgressImpl>
-    implements _$$UploadProgressImplCopyWith<$Res> {
-  __$$UploadProgressImplCopyWithImpl(
-      _$UploadProgressImpl _value, $Res Function(_$UploadProgressImpl) _then)
+class __$$UploadProgressImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$UploadProgressImpl<T>>
+    implements _$$UploadProgressImplCopyWith<T, $Res> {
+  __$$UploadProgressImplCopyWithImpl(_$UploadProgressImpl<T> _value,
+      $Res Function(_$UploadProgressImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2503,7 +2984,7 @@ class __$$UploadProgressImplCopyWithImpl<$Res>
   $Res call({
     Object? progress = null,
   }) {
-    return _then(_$UploadProgressImpl(
+    return _then(_$UploadProgressImpl<T>(
       null == progress
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
@@ -2514,7 +2995,7 @@ class __$$UploadProgressImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UploadProgressImpl implements UploadProgress {
+class _$UploadProgressImpl<T> implements UploadProgress<T> {
   const _$UploadProgressImpl(this.progress);
 
   @override
@@ -2522,14 +3003,14 @@ class _$UploadProgressImpl implements UploadProgress {
 
   @override
   String toString() {
-    return 'SendExpensesState.uploadProgress(progress: $progress)';
+    return 'SendExpensesState<$T>.uploadProgress(progress: $progress)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UploadProgressImpl &&
+            other is _$UploadProgressImpl<T> &&
             (identical(other.progress, progress) ||
                 other.progress == progress));
   }
@@ -2540,8 +3021,8 @@ class _$UploadProgressImpl implements UploadProgress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UploadProgressImplCopyWith<_$UploadProgressImpl> get copyWith =>
-      __$$UploadProgressImplCopyWithImpl<_$UploadProgressImpl>(
+  _$$UploadProgressImplCopyWith<T, _$UploadProgressImpl<T>> get copyWith =>
+      __$$UploadProgressImplCopyWithImpl<T, _$UploadProgressImpl<T>>(
           this, _$identity);
 
   @override
@@ -2562,6 +3043,12 @@ class _$UploadProgressImpl implements UploadProgress {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return uploadProgress(progress);
   }
@@ -2584,6 +3071,12 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return uploadProgress?.call(progress);
   }
@@ -2606,6 +3099,12 @@ class _$UploadProgressImpl implements UploadProgress {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadProgress != null) {
@@ -2617,26 +3116,34 @@ class _$UploadProgressImpl implements UploadProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return uploadProgress(this);
   }
@@ -2644,23 +3151,30 @@ class _$UploadProgressImpl implements UploadProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return uploadProgress?.call(this);
   }
@@ -2668,23 +3182,29 @@ class _$UploadProgressImpl implements UploadProgress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (uploadProgress != null) {
@@ -2694,30 +3214,30 @@ class _$UploadProgressImpl implements UploadProgress {
   }
 }
 
-abstract class UploadProgress implements SendExpensesState {
-  const factory UploadProgress(final double progress) = _$UploadProgressImpl;
+abstract class UploadProgress<T> implements SendExpensesState<T> {
+  const factory UploadProgress(final double progress) = _$UploadProgressImpl<T>;
 
   double get progress;
   @JsonKey(ignore: true)
-  _$$UploadProgressImplCopyWith<_$UploadProgressImpl> get copyWith =>
+  _$$UploadProgressImplCopyWith<T, _$UploadProgressImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveFileImplCopyWith<$Res> {
+abstract class _$$RemoveFileImplCopyWith<T, $Res> {
   factory _$$RemoveFileImplCopyWith(
-          _$RemoveFileImpl value, $Res Function(_$RemoveFileImpl) then) =
-      __$$RemoveFileImplCopyWithImpl<$Res>;
+          _$RemoveFileImpl<T> value, $Res Function(_$RemoveFileImpl<T>) then) =
+      __$$RemoveFileImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({List<File> files});
 }
 
 /// @nodoc
-class __$$RemoveFileImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$RemoveFileImpl>
-    implements _$$RemoveFileImplCopyWith<$Res> {
+class __$$RemoveFileImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$RemoveFileImpl<T>>
+    implements _$$RemoveFileImplCopyWith<T, $Res> {
   __$$RemoveFileImplCopyWithImpl(
-      _$RemoveFileImpl _value, $Res Function(_$RemoveFileImpl) _then)
+      _$RemoveFileImpl<T> _value, $Res Function(_$RemoveFileImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2725,7 +3245,7 @@ class __$$RemoveFileImplCopyWithImpl<$Res>
   $Res call({
     Object? files = null,
   }) {
-    return _then(_$RemoveFileImpl(
+    return _then(_$RemoveFileImpl<T>(
       null == files
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
@@ -2736,7 +3256,7 @@ class __$$RemoveFileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveFileImpl implements RemoveFile {
+class _$RemoveFileImpl<T> implements RemoveFile<T> {
   const _$RemoveFileImpl(final List<File> files) : _files = files;
 
   final List<File> _files;
@@ -2749,14 +3269,14 @@ class _$RemoveFileImpl implements RemoveFile {
 
   @override
   String toString() {
-    return 'SendExpensesState.removeFile(files: $files)';
+    return 'SendExpensesState<$T>.removeFile(files: $files)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveFileImpl &&
+            other is _$RemoveFileImpl<T> &&
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
@@ -2767,8 +3287,8 @@ class _$RemoveFileImpl implements RemoveFile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveFileImplCopyWith<_$RemoveFileImpl> get copyWith =>
-      __$$RemoveFileImplCopyWithImpl<_$RemoveFileImpl>(this, _$identity);
+  _$$RemoveFileImplCopyWith<T, _$RemoveFileImpl<T>> get copyWith =>
+      __$$RemoveFileImplCopyWithImpl<T, _$RemoveFileImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2788,6 +3308,12 @@ class _$RemoveFileImpl implements RemoveFile {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return removeFile(files);
   }
@@ -2810,6 +3336,12 @@ class _$RemoveFileImpl implements RemoveFile {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return removeFile?.call(files);
   }
@@ -2832,6 +3364,12 @@ class _$RemoveFileImpl implements RemoveFile {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (removeFile != null) {
@@ -2843,26 +3381,34 @@ class _$RemoveFileImpl implements RemoveFile {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return removeFile(this);
   }
@@ -2870,23 +3416,30 @@ class _$RemoveFileImpl implements RemoveFile {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return removeFile?.call(this);
   }
@@ -2894,23 +3447,29 @@ class _$RemoveFileImpl implements RemoveFile {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (removeFile != null) {
@@ -2920,45 +3479,46 @@ class _$RemoveFileImpl implements RemoveFile {
   }
 }
 
-abstract class RemoveFile implements SendExpensesState {
-  const factory RemoveFile(final List<File> files) = _$RemoveFileImpl;
+abstract class RemoveFile<T> implements SendExpensesState<T> {
+  const factory RemoveFile(final List<File> files) = _$RemoveFileImpl<T>;
 
   List<File> get files;
   @JsonKey(ignore: true)
-  _$$RemoveFileImplCopyWith<_$RemoveFileImpl> get copyWith =>
+  _$$RemoveFileImplCopyWith<T, _$RemoveFileImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PermissionDeniedImplCopyWith<$Res> {
-  factory _$$PermissionDeniedImplCopyWith(_$PermissionDeniedImpl value,
-          $Res Function(_$PermissionDeniedImpl) then) =
-      __$$PermissionDeniedImplCopyWithImpl<$Res>;
+abstract class _$$PermissionDeniedImplCopyWith<T, $Res> {
+  factory _$$PermissionDeniedImplCopyWith(_$PermissionDeniedImpl<T> value,
+          $Res Function(_$PermissionDeniedImpl<T>) then) =
+      __$$PermissionDeniedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$PermissionDeniedImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res, _$PermissionDeniedImpl>
-    implements _$$PermissionDeniedImplCopyWith<$Res> {
-  __$$PermissionDeniedImplCopyWithImpl(_$PermissionDeniedImpl _value,
-      $Res Function(_$PermissionDeniedImpl) _then)
+class __$$PermissionDeniedImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$PermissionDeniedImpl<T>>
+    implements _$$PermissionDeniedImplCopyWith<T, $Res> {
+  __$$PermissionDeniedImplCopyWithImpl(_$PermissionDeniedImpl<T> _value,
+      $Res Function(_$PermissionDeniedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PermissionDeniedImpl implements PermissionDenied {
+class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
   const _$PermissionDeniedImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.permissionDenied()';
+    return 'SendExpensesState<$T>.permissionDenied()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PermissionDeniedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$PermissionDeniedImpl<T>);
   }
 
   @override
@@ -2982,6 +3542,12 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return permissionDenied();
   }
@@ -3004,6 +3570,12 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return permissionDenied?.call();
   }
@@ -3026,6 +3598,12 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -3037,26 +3615,34 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return permissionDenied(this);
   }
@@ -3064,23 +3650,30 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return permissionDenied?.call(this);
   }
@@ -3088,23 +3681,29 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -3114,44 +3713,45 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   }
 }
 
-abstract class PermissionDenied implements SendExpensesState {
-  const factory PermissionDenied() = _$PermissionDeniedImpl;
+abstract class PermissionDenied<T> implements SendExpensesState<T> {
+  const factory PermissionDenied() = _$PermissionDeniedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$PermissionPermanentlyDeniedImplCopyWith<$Res> {
+abstract class _$$PermissionPermanentlyDeniedImplCopyWith<T, $Res> {
   factory _$$PermissionPermanentlyDeniedImplCopyWith(
-          _$PermissionPermanentlyDeniedImpl value,
-          $Res Function(_$PermissionPermanentlyDeniedImpl) then) =
-      __$$PermissionPermanentlyDeniedImplCopyWithImpl<$Res>;
+          _$PermissionPermanentlyDeniedImpl<T> value,
+          $Res Function(_$PermissionPermanentlyDeniedImpl<T>) then) =
+      __$$PermissionPermanentlyDeniedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$PermissionPermanentlyDeniedImplCopyWithImpl<$Res>
-    extends _$SendExpensesStateCopyWithImpl<$Res,
-        _$PermissionPermanentlyDeniedImpl>
-    implements _$$PermissionPermanentlyDeniedImplCopyWith<$Res> {
+class __$$PermissionPermanentlyDeniedImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$PermissionPermanentlyDeniedImpl<T>>
+    implements _$$PermissionPermanentlyDeniedImplCopyWith<T, $Res> {
   __$$PermissionPermanentlyDeniedImplCopyWithImpl(
-      _$PermissionPermanentlyDeniedImpl _value,
-      $Res Function(_$PermissionPermanentlyDeniedImpl) _then)
+      _$PermissionPermanentlyDeniedImpl<T> _value,
+      $Res Function(_$PermissionPermanentlyDeniedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
+class _$PermissionPermanentlyDeniedImpl<T>
+    implements PermissionPermanentlyDenied<T> {
   const _$PermissionPermanentlyDeniedImpl();
 
   @override
   String toString() {
-    return 'SendExpensesState.permissionPermanentlyDenied()';
+    return 'SendExpensesState<$T>.permissionPermanentlyDenied()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PermissionPermanentlyDeniedImpl);
+            other is _$PermissionPermanentlyDeniedImpl<T>);
   }
 
   @override
@@ -3175,6 +3775,12 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
     required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
   }) {
     return permissionPermanentlyDenied();
   }
@@ -3197,6 +3803,12 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
     TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
   }) {
     return permissionPermanentlyDenied?.call();
   }
@@ -3219,6 +3831,12 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
     TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
     required TResult orElse(),
   }) {
     if (permissionPermanentlyDenied != null) {
@@ -3230,26 +3848,34 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ChangeDragDownHintSuccess value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
         changeDragDownHintSuccess,
-    required TResult Function(FileSelectionInProgress value)
+    required TResult Function(FileSelectionInProgress<T> value)
         fileSelectionInProgress,
-    required TResult Function(FileSelected value) fileSelected,
-    required TResult Function(FileSelectionCancelled value)
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
         fileSelectionCancelled,
-    required TResult Function(FileSelectionError value) fileSelectionError,
-    required TResult Function(FileValidationError value) fileValidationError,
-    required TResult Function(Uploading value) uploading,
-    required TResult Function(UploadSuccess value) uploadSuccess,
-    required TResult Function(UploadError value) uploadError,
-    required TResult Function(MultipleFilesSelected value)
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
         multipleFilesSelected,
-    required TResult Function(UploadProgress value) uploadProgress,
-    required TResult Function(RemoveFile value) removeFile,
-    required TResult Function(PermissionDenied value) permissionDenied,
-    required TResult Function(PermissionPermanentlyDenied value)
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
   }) {
     return permissionPermanentlyDenied(this);
   }
@@ -3257,23 +3883,30 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ChangeDragDownHintSuccess value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult? Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult? Function(FileSelected value)? fileSelected,
-    TResult? Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult? Function(FileSelectionError value)? fileSelectionError,
-    TResult? Function(FileValidationError value)? fileValidationError,
-    TResult? Function(Uploading value)? uploading,
-    TResult? Function(UploadSuccess value)? uploadSuccess,
-    TResult? Function(UploadError value)? uploadError,
-    TResult? Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult? Function(UploadProgress value)? uploadProgress,
-    TResult? Function(RemoveFile value)? removeFile,
-    TResult? Function(PermissionDenied value)? permissionDenied,
-    TResult? Function(PermissionPermanentlyDenied value)?
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
   }) {
     return permissionPermanentlyDenied?.call(this);
   }
@@ -3281,23 +3914,29 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ChangeDragDownHintSuccess value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
         changeDragDownHintSuccess,
-    TResult Function(FileSelectionInProgress value)? fileSelectionInProgress,
-    TResult Function(FileSelected value)? fileSelected,
-    TResult Function(FileSelectionCancelled value)? fileSelectionCancelled,
-    TResult Function(FileSelectionError value)? fileSelectionError,
-    TResult Function(FileValidationError value)? fileValidationError,
-    TResult Function(Uploading value)? uploading,
-    TResult Function(UploadSuccess value)? uploadSuccess,
-    TResult Function(UploadError value)? uploadError,
-    TResult Function(MultipleFilesSelected value)? multipleFilesSelected,
-    TResult Function(UploadProgress value)? uploadProgress,
-    TResult Function(RemoveFile value)? removeFile,
-    TResult Function(PermissionDenied value)? permissionDenied,
-    TResult Function(PermissionPermanentlyDenied value)?
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
     required TResult orElse(),
   }) {
     if (permissionPermanentlyDenied != null) {
@@ -3307,7 +3946,1530 @@ class _$PermissionPermanentlyDeniedImpl implements PermissionPermanentlyDenied {
   }
 }
 
-abstract class PermissionPermanentlyDenied implements SendExpensesState {
+abstract class PermissionPermanentlyDenied<T> implements SendExpensesState<T> {
   const factory PermissionPermanentlyDenied() =
-      _$PermissionPermanentlyDeniedImpl;
+      _$PermissionPermanentlyDeniedImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<T, $Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
+      __$$LoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
+    implements _$$LoadingImplCopyWith<T, $Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl<T> implements Loading<T> {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading<T> implements SendExpensesState<T> {
+  const factory Loading() = _$LoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<T, $Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
+      __$$ErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({ApiErrorModel error});
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
+    implements _$$ErrorImplCopyWith<T, $Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorImpl<T> implements Error<T> {
+  const _$ErrorImpl(this.error);
+
+  @override
+  final ApiErrorModel error;
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return error?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error<T> implements SendExpensesState<T> {
+  const factory Error(final ApiErrorModel error) = _$ErrorImpl<T>;
+
+  ApiErrorModel get error;
+  @JsonKey(ignore: true)
+  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CombinedSuccessImplCopyWith<T, $Res> {
+  factory _$$CombinedSuccessImplCopyWith(_$CombinedSuccessImpl<T> value,
+          $Res Function(_$CombinedSuccessImpl<T>) then) =
+      __$$CombinedSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T requestType, T categories});
+}
+
+/// @nodoc
+class __$$CombinedSuccessImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$CombinedSuccessImpl<T>>
+    implements _$$CombinedSuccessImplCopyWith<T, $Res> {
+  __$$CombinedSuccessImplCopyWithImpl(_$CombinedSuccessImpl<T> _value,
+      $Res Function(_$CombinedSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestType = freezed,
+    Object? categories = freezed,
+  }) {
+    return _then(_$CombinedSuccessImpl<T>(
+      requestType: freezed == requestType
+          ? _value.requestType
+          : requestType // ignore: cast_nullable_to_non_nullable
+              as T,
+      categories: freezed == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
+  const _$CombinedSuccessImpl(
+      {required this.requestType, required this.categories});
+
+  @override
+  final T requestType;
+  @override
+  final T categories;
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.combinedSuccess(requestType: $requestType, categories: $categories)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CombinedSuccessImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.requestType, requestType) &&
+            const DeepCollectionEquality()
+                .equals(other.categories, categories));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(requestType),
+      const DeepCollectionEquality().hash(categories));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CombinedSuccessImplCopyWith<T, _$CombinedSuccessImpl<T>> get copyWith =>
+      __$$CombinedSuccessImplCopyWithImpl<T, _$CombinedSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return combinedSuccess(requestType, categories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return combinedSuccess?.call(requestType, categories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (combinedSuccess != null) {
+      return combinedSuccess(requestType, categories);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return combinedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return combinedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (combinedSuccess != null) {
+      return combinedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CombinedSuccess<T> implements SendExpensesState<T> {
+  const factory CombinedSuccess(
+      {required final T requestType,
+      required final T categories}) = _$CombinedSuccessImpl<T>;
+
+  T get requestType;
+  T get categories;
+  @JsonKey(ignore: true)
+  _$$CombinedSuccessImplCopyWith<T, _$CombinedSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateExpensesLoadingImplCopyWith<T, $Res> {
+  factory _$$CreateExpensesLoadingImplCopyWith(
+          _$CreateExpensesLoadingImpl<T> value,
+          $Res Function(_$CreateExpensesLoadingImpl<T>) then) =
+      __$$CreateExpensesLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$CreateExpensesLoadingImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$CreateExpensesLoadingImpl<T>>
+    implements _$$CreateExpensesLoadingImplCopyWith<T, $Res> {
+  __$$CreateExpensesLoadingImplCopyWithImpl(
+      _$CreateExpensesLoadingImpl<T> _value,
+      $Res Function(_$CreateExpensesLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
+  const _$CreateExpensesLoadingImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.createExpensesLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateExpensesLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return createExpensesLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return createExpensesLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesLoading != null) {
+      return createExpensesLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return createExpensesLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return createExpensesLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesLoading != null) {
+      return createExpensesLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateExpensesLoading<T> implements SendExpensesState<T> {
+  const factory CreateExpensesLoading() = _$CreateExpensesLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CreateExpensesSuccessImplCopyWith<T, $Res> {
+  factory _$$CreateExpensesSuccessImplCopyWith(
+          _$CreateExpensesSuccessImpl<T> value,
+          $Res Function(_$CreateExpensesSuccessImpl<T>) then) =
+      __$$CreateExpensesSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T response});
+}
+
+/// @nodoc
+class __$$CreateExpensesSuccessImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$CreateExpensesSuccessImpl<T>>
+    implements _$$CreateExpensesSuccessImplCopyWith<T, $Res> {
+  __$$CreateExpensesSuccessImplCopyWithImpl(
+      _$CreateExpensesSuccessImpl<T> _value,
+      $Res Function(_$CreateExpensesSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = freezed,
+  }) {
+    return _then(_$CreateExpensesSuccessImpl<T>(
+      freezed == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
+  const _$CreateExpensesSuccessImpl(this.response);
+
+  @override
+  final T response;
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.createExpensesSuccess(response: $response)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateExpensesSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.response, response));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateExpensesSuccessImplCopyWith<T, _$CreateExpensesSuccessImpl<T>>
+      get copyWith => __$$CreateExpensesSuccessImplCopyWithImpl<T,
+          _$CreateExpensesSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return createExpensesSuccess(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return createExpensesSuccess?.call(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesSuccess != null) {
+      return createExpensesSuccess(response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return createExpensesSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return createExpensesSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesSuccess != null) {
+      return createExpensesSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateExpensesSuccess<T> implements SendExpensesState<T> {
+  const factory CreateExpensesSuccess(final T response) =
+      _$CreateExpensesSuccessImpl<T>;
+
+  T get response;
+  @JsonKey(ignore: true)
+  _$$CreateExpensesSuccessImplCopyWith<T, _$CreateExpensesSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateExpensesErrorImplCopyWith<T, $Res> {
+  factory _$$CreateExpensesErrorImplCopyWith(_$CreateExpensesErrorImpl<T> value,
+          $Res Function(_$CreateExpensesErrorImpl<T>) then) =
+      __$$CreateExpensesErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({ApiErrorModel error});
+}
+
+/// @nodoc
+class __$$CreateExpensesErrorImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$CreateExpensesErrorImpl<T>>
+    implements _$$CreateExpensesErrorImplCopyWith<T, $Res> {
+  __$$CreateExpensesErrorImplCopyWithImpl(_$CreateExpensesErrorImpl<T> _value,
+      $Res Function(_$CreateExpensesErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$CreateExpensesErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
+  const _$CreateExpensesErrorImpl(this.error);
+
+  @override
+  final ApiErrorModel error;
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.createExpensesError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateExpensesErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateExpensesErrorImplCopyWith<T, _$CreateExpensesErrorImpl<T>>
+      get copyWith => __$$CreateExpensesErrorImplCopyWithImpl<T,
+          _$CreateExpensesErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+  }) {
+    return createExpensesError(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+  }) {
+    return createExpensesError?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesError != null) {
+      return createExpensesError(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+  }) {
+    return createExpensesError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+  }) {
+    return createExpensesError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    required TResult orElse(),
+  }) {
+    if (createExpensesError != null) {
+      return createExpensesError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateExpensesError<T> implements SendExpensesState<T> {
+  const factory CreateExpensesError(final ApiErrorModel error) =
+      _$CreateExpensesErrorImpl<T>;
+
+  ApiErrorModel get error;
+  @JsonKey(ignore: true)
+  _$$CreateExpensesErrorImplCopyWith<T, _$CreateExpensesErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -245,6 +245,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("فترة العمل الشهرية"),
         "month_working_time_text":
             MessageLookupByLibrary.simpleMessage("وقت عملك في هذا الشهر"),
+        "mustnot_be_empty":
+            MessageLookupByLibrary.simpleMessage("يجب ألا يكون فارغًا"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("جديد"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("لا العودة"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(

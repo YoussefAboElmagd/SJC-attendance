@@ -1702,6 +1702,16 @@ class S {
     );
   }
 
+  /// `mustn't be empty`
+  String get mustnot_be_empty {
+    return Intl.message(
+      'mustn\'t be empty',
+      name: 'mustnot_be_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
