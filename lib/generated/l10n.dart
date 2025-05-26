@@ -1712,6 +1712,16 @@ class S {
     );
   }
 
+  /// `Successfully sent expenses`
+  String get Successfully_sent_expenses {
+    return Intl.message(
+      'Successfully sent expenses',
+      name: 'Successfully_sent_expenses',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

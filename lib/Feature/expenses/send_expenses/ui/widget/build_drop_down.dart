@@ -10,22 +10,24 @@ class BuildDropdown extends StatelessWidget {
   final String? label;
   final String? hint;
   final String? icon;
-  final List<String> items;
   final ValueChanged<String>? onItemSelected;
   final Function()? onTap;
   TextEditingController? controller;
+  TextEditingController? controllerId;
   final void Function()? onTap2;
+  final Map<String, String>? mapDrop;
 
   BuildDropdown({
     super.key,
     this.label,
     this.hint,
     this.icon,
-    required this.items,
     this.onItemSelected,
     this.controller,
+    this.controllerId,
     this.onTap,
     this.onTap2,
+    this.mapDrop,
   });
 
   @override
@@ -42,14 +44,24 @@ class BuildDropdown extends StatelessWidget {
         ShowButtomSheetForm(
           hint: hint,
           icon: icon,
-          onTap: onTap ?? () => _showBottomSheet(context, controller),
+          onTap: onTap ??
+              () => _showBottomSheet(
+                    context,
+                    controller,
+                    controllerId,
+                    mapDrop,
+                  ),
         ),
       ],
     );
   }
 
   void _showBottomSheet(
-      BuildContext context, TextEditingController? textEditingController) {
+    BuildContext context,
+    TextEditingController? textEditingController,
+    TextEditingController? id,
+    Map<String, String>? mapDrop,
+  ) {
     var cubit = context.read<SendExpensesCubit>();
     showModalBottomSheet(
       context: context,
@@ -65,22 +77,17 @@ class BuildDropdown extends StatelessWidget {
         return BlocProvider.value(
           value: cubit,
           child: CustomBottomSheet(
+            id: id,
+            itemsId: mapDrop!.keys.toList(),
             label: label,
             hint: hint,
-            items: items,
+            items: mapDrop.values.toList(),
             textEditingController: textEditingController,
             onTap: onTap2,
+            itemsMap: mapDrop,
             cubit: cubit,
           ),
         );
-        // return CustomBottomSheet(
-        //   label: label,
-        //   hint: hint,
-        //   items: items,
-        //   textEditingController: textEditingController,
-        //   onTap: onTap2,
-        //   cubit: cubit,
-        // );
       },
     );
   }

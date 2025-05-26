@@ -165,5 +165,6 @@
   "new_section_text": "جديد",
   "Pending_section_text": "قيد الانتظار",
   "done_section_text": "تم",
-  "Expenses_Details": "تفاصيل المصروفات"
+  "Expenses_Details": "تفاصيل المصروفات",
+  "Successfully_sent_expenses": "تم ارسال المصروف بنجاح"
 }

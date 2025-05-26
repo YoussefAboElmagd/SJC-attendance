@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/model/create_expense_request.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/send_expenses_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
@@ -16,7 +18,10 @@ class SendExpenses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SendExpensesCubit>(),
+      create: (context) => getIt<SendExpensesCubit>()
+        ..getAllExpenses(
+          context,
+        ),
       child: Scaffold(
         backgroundColor: ColorsManager.mainGray,
         appBar: AppBar(
@@ -38,11 +43,79 @@ class SendExpenses extends StatelessWidget {
             style: TextStyles.font20BlackSemiBold,
           ),
         ),
-        body: const SendExpensesBody(),
+        body: const SendExpenBlocBuilder(),
         bottomNavigationBar: const BottomExpensesLeaveButton(),
       ),
     );
   }
+}
+
+class SendExpenBlocBuilder extends StatelessWidget {
+  const SendExpenBlocBuilder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SendExpensesCubit, SendExpensesState>(
+      buildWhen: (prev, current) =>
+          current is Loading || current is Error || current is CombinedSuccess,
+      builder: (context, state) {
+        return state.maybeWhen(
+          // ignore: void_checks
+          loading: () {
+            return const LinearProgressIndicator(
+              color: ColorsManager.mainColor2,
+            );
+          },
+          combinedSuccess: (data1, data2) {
+            return SendExpensesBody(
+              requests: data1,
+              categories: data2,
+            );
+          },
+          error: (error) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              setUpErrorState(context, error);
+            });
+            return const SizedBox.shrink();
+          },
+          orElse: () {
+            return const SizedBox.shrink();
+          },
+        );
+      },
+    );
+  }
+}
+
+void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      icon: Icon(
+        Icons.error,
+        color: Colors.red,
+        size: 32.w,
+      ),
+      content: Text(
+        apiErrorModel.getAllErrorMessages(),
+        style: TextStyles.font15DarkBlueMedium,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            context.pop();
+            context.popAlert();
+          },
+          child: Text(
+            'close it',
+            style: TextStyles.font14BlueSemiBold,
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 class BottomExpensesLeaveButton extends StatelessWidget {
@@ -63,8 +136,16 @@ class BottomExpensesLeaveButton extends StatelessWidget {
                 .validate()) {
               context.read<SendExpensesCubit>().createExpense(
                     CreateExpenseRequest(
-                      categoryId: "19",
-                      requestTypeId: "4",
+                      categoryId: context
+                          .read<SendExpensesCubit>()
+                          .selectRequestId!
+                          .text
+                          .toString(),
+                      requestTypeId: context
+                          .read<SendExpensesCubit>()
+                          .departmentId!
+                          .text
+                          .toString(),
                       description: context
                           .read<SendExpensesCubit>()
                           .expensesDescription!

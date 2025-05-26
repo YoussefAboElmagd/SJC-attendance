@@ -22,12 +22,20 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
 
   TextEditingController? departmentText = TextEditingController();
   TextEditingController? selectRequestType = TextEditingController();
+  TextEditingController? departmentId = TextEditingController();
+  TextEditingController? selectRequestId = TextEditingController();
   TextEditingController? amountNumber = TextEditingController();
   TextEditingController? expensesDescription = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
-  changeDragDownHint(TextEditingController? controller, String? text) {
+  changeDragDownHint(
+    TextEditingController? controller,
+    TextEditingController? controllerId,
+    String? text,
+    String id,
+  ) {
     controller!.text = text.toString();
+    controllerId!.text = id.toString();
     selectedItem = text.toString();
     emit(SendExpensesState.changeDragDownHintSuccess(text));
   }

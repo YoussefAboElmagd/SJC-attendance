@@ -184,6 +184,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Submit Now"),
         "Submit_Leave_text":
             MessageLookupByLibrary.simpleMessage("Submit Leave"),
+        "Successfully_sent_expenses":
+            MessageLookupByLibrary.simpleMessage("Successfully sent expenses"),
         "Summary_of_Your_Work":
             MessageLookupByLibrary.simpleMessage("Summary of Your Work"),
         "Tags": MessageLookupByLibrary.simpleMessage("Tags"),

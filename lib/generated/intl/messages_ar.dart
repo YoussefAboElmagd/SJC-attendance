@@ -179,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قدّم الآن"),
         "Submit_Leave_text":
             MessageLookupByLibrary.simpleMessage("تقديم إجازة"),
+        "Successfully_sent_expenses":
+            MessageLookupByLibrary.simpleMessage("تم ارسال المصروف بنجاح"),
         "Summary_of_Your_Work":
             MessageLookupByLibrary.simpleMessage("ملخص عملك"),
         "Tags": MessageLookupByLibrary.simpleMessage("الوسوم"),

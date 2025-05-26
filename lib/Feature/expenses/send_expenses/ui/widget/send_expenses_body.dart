@@ -6,6 +6,8 @@ import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/request_types_model_response.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/send_exp_categories_model_response.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/ensure_claim.dart';
@@ -13,9 +15,16 @@ import 'package:madarj/Feature/expenses/send_expenses/ui/widget/expenses_forms.d
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_task_photos.dart';
 // import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_claim_doc.dart';
 import 'package:madarj/generated/l10n.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SendExpensesBody extends StatelessWidget {
-  const SendExpensesBody({super.key});
+  const SendExpensesBody({
+    super.key,
+    required this.requests,
+    required this.categories,
+  });
+  final RequestTypesModel requests;
+  final SendExpCategResponse categories;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +55,10 @@ class SendExpensesBody extends StatelessWidget {
                 SizedBox(height: 20.h),
                 const UploadTaskPhotos(),
                 SizedBox(height: 20.h),
-                const ExpensesForms(),
+                ExpensesForms(
+                  requests: requests,
+                  categories: categories,
+                ),
                 const CreateExpensesBlocListener(),
               ],
             ),
@@ -83,6 +95,15 @@ class CreateExpensesBlocListener extends StatelessWidget {
           },
           createExpensesSuccess: (response) async {
             context.pop();
+            Fluttertoast.showToast(
+              msg: S.of(context).Successfully_sent_expenses,
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.green,
+              textColor: Colors.white,
+              fontSize: 16.0,
+            );
             context.pushNamed(Routes.expenseScreen);
           },
           createExpensesError: (error) {
