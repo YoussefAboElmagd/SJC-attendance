@@ -5,6 +5,9 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/generated/l10n.dart';
 
+
+
+
 class NoLeaveToday extends StatelessWidget {
   const NoLeaveToday({
     super.key,
@@ -33,7 +36,6 @@ class NoLeaveToday extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(
               top: 12.0.h,
-              // bottom: 5.0,
               right: 12.0.w,
               left: 12.w,
             ),

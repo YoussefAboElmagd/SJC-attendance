@@ -5,8 +5,6 @@ import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/base/ui/views/base_layer.dart';
-import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_state.dart';
 
@@ -32,40 +30,10 @@ class LoginBlocListener extends StatelessWidget {
                 ),
               ),
             );
-            // showDialog(
-            //     context: context,
-            //     builder: (context) {
-            //       return const CircularProgressIndicator(
-            //         color: ColorsManager.mainColor,
-            //       );
-            //     });
           },
           loginSuccess: (loginResponse) async {
             context.pop();
-            context.pushNamed(Routes.homeScreen, routerNavigator: false);
-            // Navigator.of(context).pushAndRemoveUntil(
-            //   MaterialPageRoute(
-            //     builder: (_) => const BaseLayer(
-            //       initialIndex: 0,
-            //     ),
-            //   ),
-            //   (route) => false, // Remove ALL previous routes
-            // );
-            // Navigator.of(context).pushAndRemoveUntil(
-            //   MaterialPageRoute(
-            //     builder: (_) => const BaseLayer(),
-            //   ),
-            //   (route) => false, // Remove ALL previous routes
-            // );
-
-            // FocusScope.of(context).unfocus();
-            // context.pushNamedAndRemoveUntill(
-            //   Routes.homeScreen,
-            //   predicate: (route) => false, // This removes ALL previous routes
-            // );
-            // context.pushNamedAndRemoveUntill(Routes.homeScreen);
-            // print(loginResponse.userData.token);
-            // await saveToken(loginResponse.userData.token ?? "");
+            context.pushNamed(Routes.cardsScreen, routerNavigator: false);
           },
           loginError: (error) {
             context.pop();
@@ -82,11 +50,7 @@ class LoginBlocListener extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
+        icon: const Icon(Icons.error, color: Colors.red, size: 32),
         content: Text(
           apiErrorModel.message!,
           style: TextStyles.font15DarkBlueMedium,
@@ -96,10 +60,7 @@ class LoginBlocListener extends StatelessWidget {
             onPressed: () {
               context.popAlert();
             },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),

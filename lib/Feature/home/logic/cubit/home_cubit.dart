@@ -18,6 +18,7 @@ import 'package:madarj/Core/widgets/custom_button.dart';
 import 'package:madarj/Feature/home/data/model/check_request.dart';
 import 'package:madarj/Feature/home/data/model/clock_status_response.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
+import 'package:madarj/Feature/home/data/model/notification_request.dart';
 import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
 import 'package:madarj/Feature/home/data/model/total_hours.dart';
 import 'package:madarj/Feature/home/data/repo/home_repo.dart';
@@ -86,23 +87,18 @@ class HomeCubit extends Cubit<HomeState> {
           availableBiometrics.contains(BiometricType.fingerprint);
       final hasStrongAuth = availableBiometrics.contains(BiometricType.strong);
 
-      // Only show face dialog if we explicitly have face biometrics
       if (hasFace) {
-        // final useFace = await showFaceAuthDialog(context,isFace:true,false);
         final useFace = await showGenericBiometricDialog(
           context,
           isFace: true,
           isFinger: false,
           text: S.of(context).Would_face,
-          // "This device supports face recognition. Would you like to authenticate with your face?",
         );
         if (!useFace) {
           emit(const HomeState.authenticationFailed());
           return;
         }
-      }
-      // For devices with only strong auth, we don't know if it's face or fingerprint
-      else if (hasStrongAuth && !hasFace) {
+      } else if (hasStrongAuth && !hasFace) {
         final useBiometric = await showGenericBiometricDialog(
           context,
           isFace: true,
@@ -112,9 +108,7 @@ class HomeCubit extends Cubit<HomeState> {
           emit(const HomeState.authenticationFailed());
           return;
         }
-      }
-      // Explicit fingerprint case
-      else if (hasFingerprint) {
+      } else if (hasFingerprint) {
         // final useFingerprint = await showFingerprintFallbackDialog(context);
         final useFingerprint = await showGenericBiometricDialog(
           context,
@@ -215,18 +209,6 @@ class HomeCubit extends Cubit<HomeState> {
                       textStyle: TextStyles.font14WhiteSemiBold,
                       color: ColorsManager.red,
                     ),
-                    // Row(
-                    //   children: [
-                    //     TextButton(
-                    //       onPressed: () => Navigator.pop(context, false),
-                    //       child: const Text('Cancel'),
-                    //     ),
-                    //     TextButton(
-                    //       onPressed: () => Navigator.pop(context, true),
-                    //       child: const Text('Authenticate'),
-                    //     ),
-                    //   ],
-                    // )
                   ],
                 ),
               ),
@@ -497,17 +479,11 @@ class HomeCubit extends Cubit<HomeState> {
 
   /// Utility: Get current location
   Future<Position> _getCurrentLocation(BuildContext context) async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      throw Exception(S.of(context).Location_disabled);
-    }
-
     LocationPermission permission = await Geolocator.checkPermission();
+
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        // throw Exception(
-        //     'Location permissions are denied please allow location to continue');
         throw Exception(S.of(context).Location_permissions_denied);
       }
     }
@@ -515,7 +491,11 @@ class HomeCubit extends Cubit<HomeState> {
     if (permission == LocationPermission.deniedForever) {
       throw Exception(S.of(context).Location_permissions_denied_please);
     }
-
+    // bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    // if (!serviceEnabled) {
+    // serviceEnabled=await Geolocator.
+    //   throw Exception(S.of(context).Location_disabled);
+    // }
     return await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.best,
     );
@@ -565,511 +545,16 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-//   Future<void> checkShiftStatus() async {
-//     final isCheckedIn = await CachHelper.getData(key: 'is_checked_in') ?? false;
-//     if (isCheckedIn) {
-//       emit(ShiftActive());
-//     } else {
-//       emit(ShiftInactive());
-//     }
-//   }
-// }
-  // // TRACKING
-  // Future<void> startCheckInTracking() async {
-  //   // final prefs = await CachHelper.getSharedPreferencesInstance();
-  //   final now = DateTime.now();
-  //   final today = now.toIso8601String().split('T').first;
-
-  //   await CachHelper.saveData(
-  //       key: 'checkin_start_time', value: now.toIso8601String());
-  //   await CachHelper.saveData(key: 'current_tracking_day', value: today);
-  // }
-
-  // Future<void> stopCheckOutTracking() async {
-  //   // final prefs = await CachHelper.getSharedPreferencesInstance();
-  //   final startStr = CachHelper.getData(key: 'checkin_start_time');
-  //   if (startStr == null) return;
-
-  //   final startTime = DateTime.parse(startStr);
-  //   final now = DateTime.now();
-  //   final duration = now.difference(startTime).inSeconds;
-
-  //   final today = now.toIso8601String().split('T').first;
-  //   final key = 'usage_$today';
-  //   final totalSoFar = CachHelper.getData(key: key) ?? 0;
-
-  //   final totalToday = totalSoFar + duration;
-  //   await CachHelper.saveData(key: key, value: totalToday);
-  //   await CachHelper.removeData(key: 'checkin_start_time');
-
-  //   if (totalToday >= 120) {
-  //     // 2 دقيقة اختبار
-  //     await sendLimitNotification();
-  //   }
-  // }
-
-  // Future<void> sendLimitNotification() async {
-  //   await LocalNotificationService.showBasicNotification(
-  //     title: 'تجاوز الوقت المسموح',
-  //     body: 'لقد قضيت أكثر من دقيقتين في التطبيق اليوم!',
-  //   );
-  // }
-// Future<void> authenticateWithFaceOnly({
-//   required BuildContext context,
-//   required bool isCheckIn,
-// }) async {
-//   emit(const HomeState.authenticating());
-
-//   try {
-//     await auth!.getAvailableBiometrics();
-//     authenticated = await auth!.authenticate(
-//       localizedReason: 'Please authenticate to proccessed',
-//       options: const AuthenticationOptions(
-//         stickyAuth: true,
-//         sensitiveTransaction: true,
-//         biometricOnly: true,
-//       ),
-//     );
-
-//     if (authenticated) {
-
-//       // if (isCheckIn) {
-
-//       //   // await checkIn();
-//       // }
-//       // else {
-//       //   // await checkOut();
-//       // }
-//     } else {
-//       emit(const HomeState.authenticationFailed());
-//     }
-//   } on PlatformException catch (e) {
-//     if (e.code == 'lockedOut') {
-//       emit(const HomeState.lockedOut());
-//     } else {
-//       emit( HomeState.error(
-//         ApiErrorModel(message: 'Authentication failed', status: '401'),
-//       ));
-//     }
-//   }
-// }
-
-// Future<void> getthisPayPeriod() async {
-//   emit(const HomeState.getthisPayPeriodLoading());
-//   final response = await _homeRepo.getthisPayPeriod();
-//   response.when(
-//     success: (thisPayPeriodResponse) async {
-//       emit(HomeState.getthisPayPeriodSuccess(thisPayPeriodResponse));
-//     },
-//     failure: (apiErrorModel) {
-//       emit(HomeState.getthisPayPeriodError(apiErrorModel));
-//     },
-//   );
-// }
-
-// Future<void> getTotalHours() async {
-//   emit(const HomeState.gettotalHoursLoading());
-//   final response = await _homeRepo.getTotalWorkingMonthAt();
-//   response.when(
-//     success: (totalHoursResponse) async {
-//       emit(HomeState.gettotalHoursSuccess(totalHoursResponse));
-//     },
-//     failure: (apiErrorModel) {
-//       emit(HomeState.gettotalHoursError(apiErrorModel));
-//     },
-//   );
-// }
-
-// 1. First, let's define proper types for your API responses
-// Assuming these are your response types (adjust according to your actual types)
-// class PayPeriod {}
-// class HoursData {}
-// class WorkDayEntry {
-// Your existing WorkDayEntry class
-// }
-
-// getAllHome2() async {
-//   emit(const HomeState.loading());
-
-//   final periodFuture = _homeRepo.getthisPayPeriod();
-//   final hoursFuture = _homeRepo.gettotalHours();
-//   final totalWorkingMonth = _homeRepo.getTotalWorkingMonthAt();
-
-//   final responses = await Future.wait([
-//     periodFuture,
-//     hoursFuture,
-//     totalWorkingMonth,
-//   ]);
-
-//   final periodResult = responses[0] as ApiResults<dynamic>;
-//   final hoursResult = responses[1] as ApiResults<dynamic>;
-//   final totalWorkingResult = responses[2] as ApiResults<dynamic>;
-
-//   // Collect all errors
-//   final errors = <ApiErrorModel>[];
-
-//   periodResult.when(
-//     success: (_) {},
-//     failure: (error) {
-//       print("hoursResultperiodResult $error");
-
-//       errors.add(error);
-//     },
-//   );
-
-//   hoursResult.when(
-//     success: (_) {},
-//     failure: (error) {
-//       print("hoursResult $error");
-//       errors.add(error);
-//     },
-//   );
-
-//   totalWorkingResult.when(
-//     success: (_) {},
-//     failure: (error) {
-//       print("totalWorkingResult $error");
-//       errors.add(error);
-//     },
-//   );
-//   print(errors);
-//   if (errors.isNotEmpty) {
-//     // Combine errors or select the most important one
-//     final combinedError = errors.length == 1
-//         ? errors.first
-// : ApiErrorModel(
-//             message: 'Multiple errors occurred',
-//             status: errors.first.status,
-//           errors: _buildErrorMap(errors),
-//         );
-//   print(combinedError);
-//   emit(HomeState.error(combinedError));
-//   return;
-// }
-
-//   // All results are successful - use pattern matching to extract data
-//   late final dynamic periodData;
-//   late final dynamic hoursData;
-//   late final dynamic totalWorksData;
-
-//   periodResult.when(
-//     success: (data) => periodData = data,
-//     failure: (_) {}, // We already checked for errors above
-//   );
-
-//   hoursResult.when(
-//     success: (data) => hoursData = data,
-//     failure: (_) {},
-//   );
-
-//   totalWorkingResult.when(
-//     success: (data) => totalWorksData = data,
-//     failure: (_) {},
-//   );
-
-//   emit(HomeState.combinedSuccess(
-//     period: periodData,
-//     hours: hoursData,
-//     totalWorks: totalWorksData,
-// ));
-// }
-
-// Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
-//   final errorMap = <String, dynamic>{};
-//   for (var i = 0; i < errors.length; i++) {
-//     errorMap['error_$i'] = errors[i].message ?? 'Unknown error';
-//   }
-//   return errorMap;
-// }
-//   getAllHome2() async {
-//     emit(const HomeState.loading());
-
-//     final periodFuture = _homeRepo.getthisPayPeriod();
-//     final hoursFuture = _homeRepo.gettotalHours();
-//     // final totalWorkingMonth = _homeRepo.getTotalWorkingMonthAt();
-// //
-//     final responses = await Future.wait([
-//       periodFuture,
-//       hoursFuture,
-//       // totalWorkingMonth,
-//     ]);
-
-//     final periodResult = responses[0];
-//     final hoursResult = responses[1];
-//     // final totalWorkingResult = responses[2];
-
-//     periodResult.when(
-//       success: (periodData) {
-//         hoursResult.when(
-//           success: (hoursData) {
-//             emit(HomeState.combinedSuccess(
-//                 period: periodData, hours: hoursData, totalWorks: []));
-//           },
-//           failure: (error) {
-//             emit(HomeState.error(error));
-//           },
-//         );
-//       },
-//       failure: (error) {
-//         emit(HomeState.error(error));
-//       },
-//     );
-//   }
-// Future<void> checkBiometricsAndAuthenticate({
-//   required BuildContext context,
-//   required bool isCheckIn,
-// }) async {
-//   emit(const HomeState.authenticating());
-//   auth ??= LocalAuthentication();
-
-//   try {
-//     // Check what biometrics are available and enrolled
-//     final availableBiometrics = await auth!.getAvailableBiometrics();
-//     debugPrint('Available biometrics: $availableBiometrics');
-
-//     // Check for any biometric support
-//     final hasAnyBiometric = await auth!.canCheckBiometrics;
-//     final isDeviceSupported = await auth!.isDeviceSupported();
-
-//     if (!hasAnyBiometric ||
-//         !isDeviceSupported ||
-//         availableBiometrics.isEmpty) {
-//       emit(HomeState.authError(
-//         ApiErrorModel(
-//           message: 'No biometric authentication available on this device',
-//           status: '400',
-//         ),
-//       ));
-//       return;
-//     }
-
-//     // Check for specific biometric types
-//     final hasFace = availableBiometrics.contains(BiometricType.face);
-//     final hasFingerprint =
-//         availableBiometrics.contains(BiometricType.fingerprint);
-
-//     if (hasFace) {
-//       // Show face auth dialog only if face biometric is explicitly supported
-//       final useFace = await showFaceAuthDialog(context);
-//       if (!useFace) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     } else if (hasFingerprint) {
-//       // Fall back to fingerprint if available
-//       final useFingerprint = await showFingerprintFallbackDialog(context);
-//       if (!useFingerprint) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     } else {
-//       // No supported biometrics (face or fingerprint)
-//       emit(HomeState.authError(
-//         ApiErrorModel(
-//           message: 'No supported biometric methods available',
-//           status: '400',
-//         ),
-//       ));
-//       return;
-//     }
-
-//     // Perform authentication with the selected method
-//     await _performBiometricAuth(isCheckIn);
-//   } catch (e) {
-//     debugPrint('Authentication error: $e');
-//     emit(HomeState.authError(
-//       ApiErrorModel(
-//         message: 'Authentication failed: ${e.toString()}',
-//         status: '500',
-//       ),
-//     ));
-//   }
-// }
-// Future<void> checkBiometricsAndAuthenticate({
-//   required BuildContext context,
-//   required bool isCheckIn,
-// }) async {
-//   emit(const HomeState.authenticating());
-//   auth ??= LocalAuthentication();
-
-//   try {
-//     // Check what biometrics are available and enrolled
-//     final availableBiometrics = await auth!.getAvailableBiometrics();
-//     print(availableBiometrics);
-//     final hasFace = availableBiometrics.contains(BiometricType.face);
-//     print(hasFace);
-//     final hasFingerprint =
-//         availableBiometrics.contains(BiometricType.fingerprint);
-//     print(hasFingerprint);
-
-//     if (!hasFace && !hasFingerprint) {
-//       // No biometrics available at all
-//       emit(HomeState.authError(
-//         ApiErrorModel(
-//           message: 'No biometric authentication available on this device',
-//           status: '400',
-//         ),
-//       ));
-//       return;
-//     }
-
-//     if (hasFace) {
-//       // Device has face recognition - show face auth button
-//       final useFace = await showFaceAuthDialog(context);
-//       if (!useFace) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     } else if (hasFingerprint) {
-//       // No face but has fingerprint - show fingerprint prompt directly
-//       final useFingerprint = await showFingerprintFallbackDialog(context);
-//       if (!useFingerprint) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     }
-
-//     // Perform the actual authentication
-//     await _performBiometricAuth(isCheckIn);
-//   } catch (e) {
-//     // Handle errors...
-//   }
-// }
-
-// Future<void> authenticateWithBiometrics({
-//   required BuildContext context,
-//   required bool isCheckIn,
-// }) async {
-//   emit(const HomeState.authenticating());
-
-//   try {
-//     auth ??= LocalAuthentication();
-
-//     final canCheckBiometrics = await auth!.canCheckBiometrics;
-
-//     final availableBiometrics = await getSupportedBiometrics();
-//     debugPrint('Can check biometrics: $canCheckBiometrics');
-//     debugPrint('Available biometrics: $availableBiometrics');
-
-//     if (!canCheckBiometrics || availableBiometrics.isEmpty) {
-//       emit(HomeState.authError(
-//         ApiErrorModel(
-//           message: 'Biometric authentication not available on this device.',
-//           status: '400',
-//         ),
-//       ));
-//       return;
-//     }
-
-//     final authenticated = await auth!.authenticate(
-//       localizedReason: 'Please authenticate to proceed',
-//       options: const AuthenticationOptions(
-//         stickyAuth: true,
-//         sensitiveTransaction: true,
-//         biometricOnly: true,
-//       ),
-//     );
-//     print(authenticated);
-//     if (authenticated) {
-//       emit(HomeState.authenticated(isCheckIn: isCheckIn));
-//     } else {
-//       emit(const HomeState.authenticationFailed());
-//     }
-//   } on PlatformException catch (e) {
-//     debugPrint('Biometric auth error: ${e.code} - ${e.message}');
-
-//     switch (e.code) {
-//       case 'lockedOut':
-//         emit(const HomeState.lockedOut());
-//       case 'notAvailable':
-//       case 'passcodeNotSet':
-//       case 'notEnrolled':
-//         emit(HomeState.authError(
-//           ApiErrorModel(
-//             message: 'Biometric authentication not set up on this device.',
-//             status: '400',
-//           ),
-//         ));
-//       default:
-//         emit(HomeState.authError(
-//           ApiErrorModel(
-//             message: 'Authentication failed: ${e.message}',
-//             status: '401',
-//           ),
-//         ));
-//     }
-//   } catch (e) {
-//     debugPrint('Unexpected error: $e');
-//     emit(HomeState.authError(
-//       ApiErrorModel(
-//         message: 'Unexpected error during authentication',
-//         status: '500',
-//       ),
-//     ));
-//   }
-// }
-
-// Future<void> checkBiometricsAndAuthenticate({
-//   required BuildContext context,
-//   required bool isCheckIn,
-// }) async {
-//   emit(const HomeState.authenticating());
-//   auth ??= LocalAuthentication();
-
-//   try {
-//     // Check what biometrics are available and enrolled
-//     final availableBiometrics = await auth!.getAvailableBiometrics();
-//     debugPrint('Available biometrics: $availableBiometrics');
-
-//     // Check for any biometric support (including weak/strong types)
-//     final hasAnyBiometric = await auth!.canCheckBiometrics;
-//     final isDeviceSupported = await auth!.isDeviceSupported();
-
-//     if (!hasAnyBiometric ||
-//         !isDeviceSupported ||
-//         availableBiometrics.isEmpty) {
-//       emit(HomeState.authError(
-//         ApiErrorModel(
-//           message: 'No biometric authentication available on this device',
-//           status: '400',
-//         ),
-//       ));
-//       return;
-//     }
-
-//     // Check for specific types or generic strong auth
-//     final hasFace = availableBiometrics.contains(BiometricType.face) ||
-//         availableBiometrics.contains(BiometricType.strong);
-//     final hasFingerprint =
-//         availableBiometrics.contains(BiometricType.fingerprint) ||
-//             availableBiometrics.contains(BiometricType.strong);
-
-//     if (hasFace) {
-//       // Try face auth first
-//       final useFace = await showFaceAuthDialog(context);
-//       if (!useFace) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     } else if (hasFingerprint) {
-//       // Fall back to fingerprint
-//       final useFingerprint = await showFingerprintFallbackDialog(context);
-//       if (!useFingerprint) {
-//         emit(const HomeState.authenticationFailed());
-//         return;
-//       }
-//     }
-
-//     // Perform authentication with the selected method
-//     await _performBiometricAuth(isCheckIn);
-//   } catch (e) {
-//     debugPrint('Authentication error: $e');
-//     emit(HomeState.authError(
-//       ApiErrorModel(
-//         message: 'Authentication failed: ${e.toString()}',
-//         status: '500',
-//       ),
-//     ));
-//   }
-// }
+  sendToken(NotificationRequest notificationRequest) async {
+    emit(state);
+    var resoponse = await _homeRepo.snedToken(notificationRequest);
+    resoponse.when(
+      success: (data) {
+        emit(state);
+      },
+      failure: (ApiErrorModel apiErrorModel) {
+        emit(state);
+      },
+    );
+  }
 }

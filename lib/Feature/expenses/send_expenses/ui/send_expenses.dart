@@ -3,24 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
-import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/expenses/send_expenses/data/model/create_expense_request.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
-import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/send_expenses_body.dart';
+import 'package:madarj/Feature/expenses/send_expenses/ui/widget/bottom_expenses_button.dart';
+import 'package:madarj/Feature/expenses/send_expenses/ui/widget/send_expen_bloc_builder.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class SendExpenses extends StatelessWidget {
-  const SendExpenses({super.key});
-
+  const SendExpenses({super.key, this.update, this.id});
+  final bool? update;
+  final int? id;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<SendExpensesCubit>()
         ..getAllExpenses(
           context,
+          id == 0 ? null : id,
         ),
       child: Scaffold(
         backgroundColor: ColorsManager.mainGray,
@@ -43,146 +43,13 @@ class SendExpenses extends StatelessWidget {
             style: TextStyles.font20BlackSemiBold,
           ),
         ),
-        body: const SendExpenBlocBuilder(),
-        bottomNavigationBar: const BottomExpensesLeaveButton(),
-      ),
-    );
-  }
-}
-
-class SendExpenBlocBuilder extends StatelessWidget {
-  const SendExpenBlocBuilder({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<SendExpensesCubit, SendExpensesState>(
-      buildWhen: (prev, current) =>
-          current is Loading || current is Error || current is CombinedSuccess,
-      builder: (context, state) {
-        return state.maybeWhen(
-          // ignore: void_checks
-          loading: () {
-            return const LinearProgressIndicator(
-              color: ColorsManager.mainColor2,
-            );
-          },
-          combinedSuccess: (data1, data2) {
-            return SendExpensesBody(
-              requests: data1,
-              categories: data2,
-            );
-          },
-          error: (error) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              setUpErrorState(context, error);
-            });
-            return const SizedBox.shrink();
-          },
-          orElse: () {
-            return const SizedBox.shrink();
-          },
-        );
-      },
-    );
-  }
-}
-
-void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: Icon(
-        Icons.error,
-        color: Colors.red,
-        size: 32.w,
-      ),
-      content: Text(
-        apiErrorModel.getAllErrorMessages(),
-        style: TextStyles.font15DarkBlueMedium,
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            context.pop();
-            context.popAlert();
-          },
-          child: Text(
-            'close it',
-            style: TextStyles.font14BlueSemiBold,
-          ),
+        body: SendExpenBlocBuilder(
+          update: update,
+          id: id,
         ),
-      ],
-    ),
-  );
-}
-
-class BottomExpensesLeaveButton extends StatelessWidget {
-  const BottomExpensesLeaveButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: ColorsManager.white,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: InkWell(
-          onTap: () {
-            if (context
-                .read<SendExpensesCubit>()
-                .formKey
-                .currentState!
-                .validate()) {
-              context.read<SendExpensesCubit>().createExpense(
-                    CreateExpenseRequest(
-                      categoryId: context
-                          .read<SendExpensesCubit>()
-                          .selectRequestId!
-                          .text
-                          .toString(),
-                      requestTypeId: context
-                          .read<SendExpensesCubit>()
-                          .departmentId!
-                          .text
-                          .toString(),
-                      description: context
-                          .read<SendExpensesCubit>()
-                          .expensesDescription!
-                          .text
-                          .toString(),
-                      totalAmount: context
-                          .read<SendExpensesCubit>()
-                          .amountNumber!
-                          .text
-                          .toString(),
-                      files: context.read<SendExpensesCubit>().selectedFiles,
-                    ),
-                  );
-            }
-          },
-          child: Container(
-            width: double.infinity,
-            height: 50.h,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color.fromRGBO(42, 49, 131, 1),
-                  Color.fromRGBO(42, 49, 131, 1),
-                  Color.fromRGBO(91, 46, 212, 1),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Center(
-              child: Text(
-                S.of(context).Submit_Leave_button,
-                style: TextStyles.font16WhiteSemiBold,
-              ),
-            ),
-          ),
+        bottomNavigationBar: BottomSendExpensesButton(
+          update: update,
+          id: id,
         ),
       ),
     );

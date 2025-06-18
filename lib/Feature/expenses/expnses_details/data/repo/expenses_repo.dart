@@ -1,6 +1,7 @@
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
+import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_model.dart';
 import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_service.dart';
 
 class ExpensesRepo {
@@ -12,6 +13,33 @@ class ExpensesRepo {
   Future getExpenseCategories() async {
     try {
       final response = await _expensesService.getExpenseCategories();
+      return ApiResults.success(response);
+    } catch (error) {
+      return ApiResults.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResults<ExpensesListResponse>> getNewExpenses() async {
+    try {
+      final response = await _expensesService.getNewExpenses();
+      return ApiResults.success(response);
+    } catch (error) {
+      return ApiResults.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResults<ExpensesListResponse>> getPendingExpenses() async {
+    try {
+      final response = await _expensesService.getPendingExpenses();
+      return ApiResults.success(response);
+    } catch (error) {
+      return ApiResults.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResults<ExpensesListResponse>> getDoneExpenses() async {
+    try {
+      final response = await _expensesService.getDoneExpenses();
       return ApiResults.success(response);
     } catch (error) {
       return ApiResults.failure(ApiErrorHandler.handle(error));

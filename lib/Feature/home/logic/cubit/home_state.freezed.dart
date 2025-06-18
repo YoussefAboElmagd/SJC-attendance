@@ -33,6 +33,9 @@ mixin _$HomeState<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -58,6 +61,9 @@ mixin _$HomeState<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -83,6 +89,9 @@ mixin _$HomeState<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -113,6 +122,9 @@ mixin _$HomeState<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -141,6 +153,9 @@ mixin _$HomeState<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -165,6 +180,9 @@ mixin _$HomeState<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -248,6 +266,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -276,6 +297,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -304,6 +328,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -340,6 +367,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -371,6 +401,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -398,6 +431,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -474,6 +510,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -502,6 +541,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -530,6 +572,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -566,6 +611,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -597,6 +645,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -624,6 +675,9 @@ class _$GetthisPayPeriodLoadingImpl<T> implements GetthisPayPeriodLoading<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -727,6 +781,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -755,6 +812,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -783,6 +843,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -819,6 +882,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -850,6 +916,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -877,6 +946,9 @@ class _$GetthisPayPeriodSuccessImpl<T> implements GetthisPayPeriodSuccess<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -985,6 +1057,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -1013,6 +1088,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -1041,6 +1119,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -1077,6 +1158,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -1108,6 +1192,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -1135,6 +1222,9 @@ class _$GetthisPayPeriodErrorImpl<T> implements GetthisPayPeriodError<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -1216,6 +1306,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -1244,6 +1337,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -1272,6 +1368,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -1308,6 +1407,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -1339,6 +1441,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -1366,6 +1471,9 @@ class _$GettotalHoursLoadingImpl<T> implements GettotalHoursLoading<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -1468,6 +1576,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -1496,6 +1607,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -1524,6 +1638,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -1560,6 +1677,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -1591,6 +1711,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -1618,6 +1741,9 @@ class _$GettotalHoursSuccessImpl<T> implements GettotalHoursSuccess<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -1724,6 +1850,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -1752,6 +1881,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -1780,6 +1912,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -1816,6 +1951,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -1847,6 +1985,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -1874,6 +2015,9 @@ class _$GettotalHoursErrorImpl<T> implements GettotalHoursError<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -1953,6 +2097,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -1981,6 +2128,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -2009,6 +2159,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -2045,6 +2198,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -2076,6 +2232,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -2103,6 +2262,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -2202,6 +2364,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -2230,6 +2395,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -2258,6 +2426,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -2294,6 +2465,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -2325,6 +2499,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -2352,6 +2529,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -2492,6 +2672,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -2520,6 +2703,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -2549,6 +2735,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -2585,6 +2774,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -2616,6 +2808,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -2643,6 +2838,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -2729,6 +2927,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -2757,6 +2958,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -2785,6 +2989,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -2821,6 +3028,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -2852,6 +3062,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -2879,6 +3092,9 @@ class _$CheckUserLoadingImpl<T> implements CheckUserLoading<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -2980,6 +3196,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -3008,6 +3227,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -3036,6 +3258,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -3072,6 +3297,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -3103,6 +3331,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -3130,6 +3361,9 @@ class _$CheckUserSuccessImpl<T> implements CheckUserSuccess<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -3235,6 +3469,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -3263,6 +3500,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -3291,6 +3531,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -3327,6 +3570,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -3358,6 +3604,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -3385,6 +3634,9 @@ class _$CheckUserErrorImpl<T> implements CheckUserError<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -3409,6 +3661,798 @@ abstract class CheckUserError<T> implements HomeState<T> {
   @JsonKey(ignore: true)
   _$$CheckUserErrorImplCopyWith<T, _$CheckUserErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotificationLoadingImplCopyWith<T, $Res> {
+  factory _$$NotificationLoadingImplCopyWith(_$NotificationLoadingImpl<T> value,
+          $Res Function(_$NotificationLoadingImpl<T>) then) =
+      __$$NotificationLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$NotificationLoadingImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$NotificationLoadingImpl<T>>
+    implements _$$NotificationLoadingImplCopyWith<T, $Res> {
+  __$$NotificationLoadingImplCopyWithImpl(_$NotificationLoadingImpl<T> _value,
+      $Res Function(_$NotificationLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NotificationLoadingImpl<T> implements NotificationLoading<T> {
+  const _$NotificationLoadingImpl();
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.notificationLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotificationLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getthisPayPeriodLoading,
+    required TResult Function(T data) getthisPayPeriodSuccess,
+    required TResult Function(ApiErrorModel error) getthisPayPeriodError,
+    required TResult Function() gettotalHoursLoading,
+    required TResult Function(T data) gettotalHoursSuccess,
+    required TResult Function(ApiErrorModel error) gettotalHoursError,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(
+            T period, T hours, T totalWorks, T todayAttendanceResult)
+        combinedSuccess,
+    required TResult Function() checkUserLoading,
+    required TResult Function(T data) checkUserSuccess,
+    required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
+    required TResult Function() supported,
+    required TResult Function() biometricsAvailable,
+    required TResult Function() authenticating,
+    required TResult Function() authenticationFailed,
+    required TResult Function() lockedOut,
+    required TResult Function(ApiErrorModel error) authError,
+    required TResult Function(bool isCheckIn) authenticated,
+  }) {
+    return notificationLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getthisPayPeriodLoading,
+    TResult? Function(T data)? getthisPayPeriodSuccess,
+    TResult? Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult? Function()? gettotalHoursLoading,
+    TResult? Function(T data)? gettotalHoursSuccess,
+    TResult? Function(ApiErrorModel error)? gettotalHoursError,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult? Function()? checkUserLoading,
+    TResult? Function(T data)? checkUserSuccess,
+    TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
+    TResult? Function()? supported,
+    TResult? Function()? biometricsAvailable,
+    TResult? Function()? authenticating,
+    TResult? Function()? authenticationFailed,
+    TResult? Function()? lockedOut,
+    TResult? Function(ApiErrorModel error)? authError,
+    TResult? Function(bool isCheckIn)? authenticated,
+  }) {
+    return notificationLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getthisPayPeriodLoading,
+    TResult Function(T data)? getthisPayPeriodSuccess,
+    TResult Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult Function()? gettotalHoursLoading,
+    TResult Function(T data)? gettotalHoursSuccess,
+    TResult Function(ApiErrorModel error)? gettotalHoursError,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult Function()? checkUserLoading,
+    TResult Function(T data)? checkUserSuccess,
+    TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
+    TResult Function()? supported,
+    TResult Function()? biometricsAvailable,
+    TResult Function()? authenticating,
+    TResult Function()? authenticationFailed,
+    TResult Function()? lockedOut,
+    TResult Function(ApiErrorModel error)? authError,
+    TResult Function(bool isCheckIn)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationLoading != null) {
+      return notificationLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetthisPayPeriodLoading<T> value)
+        getthisPayPeriodLoading,
+    required TResult Function(GetthisPayPeriodSuccess<T> value)
+        getthisPayPeriodSuccess,
+    required TResult Function(GetthisPayPeriodError<T> value)
+        getthisPayPeriodError,
+    required TResult Function(GettotalHoursLoading<T> value)
+        gettotalHoursLoading,
+    required TResult Function(GettotalHoursSuccess<T> value)
+        gettotalHoursSuccess,
+    required TResult Function(GettotalHoursError<T> value) gettotalHoursError,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CheckUserLoading<T> value) checkUserLoading,
+    required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
+    required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
+    required TResult Function(HomeSupportedState<T> value) supported,
+    required TResult Function(HomeBiometricsAvailable<T> value)
+        biometricsAvailable,
+    required TResult Function(HomeAuthenticating<T> value) authenticating,
+    required TResult Function(HomeAuthenticationFailed<T> value)
+        authenticationFailed,
+    required TResult Function(HomeAuthenticationLockedOut<T> value) lockedOut,
+    required TResult Function(AuthError<T> value) authError,
+    required TResult Function(HomeAuthenticated<T> value) authenticated,
+  }) {
+    return notificationLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetthisPayPeriodLoading<T> value)?
+        getthisPayPeriodLoading,
+    TResult? Function(GetthisPayPeriodSuccess<T> value)?
+        getthisPayPeriodSuccess,
+    TResult? Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult? Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult? Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult? Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
+    TResult? Function(HomeSupportedState<T> value)? supported,
+    TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult? Function(HomeAuthenticating<T> value)? authenticating,
+    TResult? Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult? Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult? Function(AuthError<T> value)? authError,
+    TResult? Function(HomeAuthenticated<T> value)? authenticated,
+  }) {
+    return notificationLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetthisPayPeriodLoading<T> value)? getthisPayPeriodLoading,
+    TResult Function(GetthisPayPeriodSuccess<T> value)? getthisPayPeriodSuccess,
+    TResult Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
+    TResult Function(HomeSupportedState<T> value)? supported,
+    TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult Function(HomeAuthenticating<T> value)? authenticating,
+    TResult Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult Function(AuthError<T> value)? authError,
+    TResult Function(HomeAuthenticated<T> value)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationLoading != null) {
+      return notificationLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotificationLoading<T> implements HomeState<T> {
+  const factory NotificationLoading() = _$NotificationLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$NotificationSuccessImplCopyWith<T, $Res> {
+  factory _$$NotificationSuccessImplCopyWith(_$NotificationSuccessImpl<T> value,
+          $Res Function(_$NotificationSuccessImpl<T>) then) =
+      __$$NotificationSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$NotificationSuccessImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$NotificationSuccessImpl<T>>
+    implements _$$NotificationSuccessImplCopyWith<T, $Res> {
+  __$$NotificationSuccessImplCopyWithImpl(_$NotificationSuccessImpl<T> _value,
+      $Res Function(_$NotificationSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$NotificationSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NotificationSuccessImpl<T> implements NotificationSuccess<T> {
+  const _$NotificationSuccessImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.notificationSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotificationSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NotificationSuccessImplCopyWith<T, _$NotificationSuccessImpl<T>>
+      get copyWith => __$$NotificationSuccessImplCopyWithImpl<T,
+          _$NotificationSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getthisPayPeriodLoading,
+    required TResult Function(T data) getthisPayPeriodSuccess,
+    required TResult Function(ApiErrorModel error) getthisPayPeriodError,
+    required TResult Function() gettotalHoursLoading,
+    required TResult Function(T data) gettotalHoursSuccess,
+    required TResult Function(ApiErrorModel error) gettotalHoursError,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(
+            T period, T hours, T totalWorks, T todayAttendanceResult)
+        combinedSuccess,
+    required TResult Function() checkUserLoading,
+    required TResult Function(T data) checkUserSuccess,
+    required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
+    required TResult Function() supported,
+    required TResult Function() biometricsAvailable,
+    required TResult Function() authenticating,
+    required TResult Function() authenticationFailed,
+    required TResult Function() lockedOut,
+    required TResult Function(ApiErrorModel error) authError,
+    required TResult Function(bool isCheckIn) authenticated,
+  }) {
+    return notificationSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getthisPayPeriodLoading,
+    TResult? Function(T data)? getthisPayPeriodSuccess,
+    TResult? Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult? Function()? gettotalHoursLoading,
+    TResult? Function(T data)? gettotalHoursSuccess,
+    TResult? Function(ApiErrorModel error)? gettotalHoursError,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult? Function()? checkUserLoading,
+    TResult? Function(T data)? checkUserSuccess,
+    TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
+    TResult? Function()? supported,
+    TResult? Function()? biometricsAvailable,
+    TResult? Function()? authenticating,
+    TResult? Function()? authenticationFailed,
+    TResult? Function()? lockedOut,
+    TResult? Function(ApiErrorModel error)? authError,
+    TResult? Function(bool isCheckIn)? authenticated,
+  }) {
+    return notificationSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getthisPayPeriodLoading,
+    TResult Function(T data)? getthisPayPeriodSuccess,
+    TResult Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult Function()? gettotalHoursLoading,
+    TResult Function(T data)? gettotalHoursSuccess,
+    TResult Function(ApiErrorModel error)? gettotalHoursError,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult Function()? checkUserLoading,
+    TResult Function(T data)? checkUserSuccess,
+    TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
+    TResult Function()? supported,
+    TResult Function()? biometricsAvailable,
+    TResult Function()? authenticating,
+    TResult Function()? authenticationFailed,
+    TResult Function()? lockedOut,
+    TResult Function(ApiErrorModel error)? authError,
+    TResult Function(bool isCheckIn)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationSuccess != null) {
+      return notificationSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetthisPayPeriodLoading<T> value)
+        getthisPayPeriodLoading,
+    required TResult Function(GetthisPayPeriodSuccess<T> value)
+        getthisPayPeriodSuccess,
+    required TResult Function(GetthisPayPeriodError<T> value)
+        getthisPayPeriodError,
+    required TResult Function(GettotalHoursLoading<T> value)
+        gettotalHoursLoading,
+    required TResult Function(GettotalHoursSuccess<T> value)
+        gettotalHoursSuccess,
+    required TResult Function(GettotalHoursError<T> value) gettotalHoursError,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CheckUserLoading<T> value) checkUserLoading,
+    required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
+    required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
+    required TResult Function(HomeSupportedState<T> value) supported,
+    required TResult Function(HomeBiometricsAvailable<T> value)
+        biometricsAvailable,
+    required TResult Function(HomeAuthenticating<T> value) authenticating,
+    required TResult Function(HomeAuthenticationFailed<T> value)
+        authenticationFailed,
+    required TResult Function(HomeAuthenticationLockedOut<T> value) lockedOut,
+    required TResult Function(AuthError<T> value) authError,
+    required TResult Function(HomeAuthenticated<T> value) authenticated,
+  }) {
+    return notificationSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetthisPayPeriodLoading<T> value)?
+        getthisPayPeriodLoading,
+    TResult? Function(GetthisPayPeriodSuccess<T> value)?
+        getthisPayPeriodSuccess,
+    TResult? Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult? Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult? Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult? Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
+    TResult? Function(HomeSupportedState<T> value)? supported,
+    TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult? Function(HomeAuthenticating<T> value)? authenticating,
+    TResult? Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult? Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult? Function(AuthError<T> value)? authError,
+    TResult? Function(HomeAuthenticated<T> value)? authenticated,
+  }) {
+    return notificationSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetthisPayPeriodLoading<T> value)? getthisPayPeriodLoading,
+    TResult Function(GetthisPayPeriodSuccess<T> value)? getthisPayPeriodSuccess,
+    TResult Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
+    TResult Function(HomeSupportedState<T> value)? supported,
+    TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult Function(HomeAuthenticating<T> value)? authenticating,
+    TResult Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult Function(AuthError<T> value)? authError,
+    TResult Function(HomeAuthenticated<T> value)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationSuccess != null) {
+      return notificationSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotificationSuccess<T> implements HomeState<T> {
+  const factory NotificationSuccess(final T data) =
+      _$NotificationSuccessImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$NotificationSuccessImplCopyWith<T, _$NotificationSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotificationErrorImplCopyWith<T, $Res> {
+  factory _$$NotificationErrorImplCopyWith(_$NotificationErrorImpl<T> value,
+          $Res Function(_$NotificationErrorImpl<T>) then) =
+      __$$NotificationErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({ApiErrorModel error});
+}
+
+/// @nodoc
+class __$$NotificationErrorImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$NotificationErrorImpl<T>>
+    implements _$$NotificationErrorImplCopyWith<T, $Res> {
+  __$$NotificationErrorImplCopyWithImpl(_$NotificationErrorImpl<T> _value,
+      $Res Function(_$NotificationErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$NotificationErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NotificationErrorImpl<T> implements NotificationError<T> {
+  const _$NotificationErrorImpl(this.error);
+
+  @override
+  final ApiErrorModel error;
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.notificationError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotificationErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NotificationErrorImplCopyWith<T, _$NotificationErrorImpl<T>>
+      get copyWith =>
+          __$$NotificationErrorImplCopyWithImpl<T, _$NotificationErrorImpl<T>>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getthisPayPeriodLoading,
+    required TResult Function(T data) getthisPayPeriodSuccess,
+    required TResult Function(ApiErrorModel error) getthisPayPeriodError,
+    required TResult Function() gettotalHoursLoading,
+    required TResult Function(T data) gettotalHoursSuccess,
+    required TResult Function(ApiErrorModel error) gettotalHoursError,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(
+            T period, T hours, T totalWorks, T todayAttendanceResult)
+        combinedSuccess,
+    required TResult Function() checkUserLoading,
+    required TResult Function(T data) checkUserSuccess,
+    required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
+    required TResult Function() supported,
+    required TResult Function() biometricsAvailable,
+    required TResult Function() authenticating,
+    required TResult Function() authenticationFailed,
+    required TResult Function() lockedOut,
+    required TResult Function(ApiErrorModel error) authError,
+    required TResult Function(bool isCheckIn) authenticated,
+  }) {
+    return notificationError(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getthisPayPeriodLoading,
+    TResult? Function(T data)? getthisPayPeriodSuccess,
+    TResult? Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult? Function()? gettotalHoursLoading,
+    TResult? Function(T data)? gettotalHoursSuccess,
+    TResult? Function(ApiErrorModel error)? gettotalHoursError,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult? Function()? checkUserLoading,
+    TResult? Function(T data)? checkUserSuccess,
+    TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
+    TResult? Function()? supported,
+    TResult? Function()? biometricsAvailable,
+    TResult? Function()? authenticating,
+    TResult? Function()? authenticationFailed,
+    TResult? Function()? lockedOut,
+    TResult? Function(ApiErrorModel error)? authError,
+    TResult? Function(bool isCheckIn)? authenticated,
+  }) {
+    return notificationError?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getthisPayPeriodLoading,
+    TResult Function(T data)? getthisPayPeriodSuccess,
+    TResult Function(ApiErrorModel error)? getthisPayPeriodError,
+    TResult Function()? gettotalHoursLoading,
+    TResult Function(T data)? gettotalHoursSuccess,
+    TResult Function(ApiErrorModel error)? gettotalHoursError,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T period, T hours, T totalWorks, T todayAttendanceResult)?
+        combinedSuccess,
+    TResult Function()? checkUserLoading,
+    TResult Function(T data)? checkUserSuccess,
+    TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
+    TResult Function()? supported,
+    TResult Function()? biometricsAvailable,
+    TResult Function()? authenticating,
+    TResult Function()? authenticationFailed,
+    TResult Function()? lockedOut,
+    TResult Function(ApiErrorModel error)? authError,
+    TResult Function(bool isCheckIn)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationError != null) {
+      return notificationError(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetthisPayPeriodLoading<T> value)
+        getthisPayPeriodLoading,
+    required TResult Function(GetthisPayPeriodSuccess<T> value)
+        getthisPayPeriodSuccess,
+    required TResult Function(GetthisPayPeriodError<T> value)
+        getthisPayPeriodError,
+    required TResult Function(GettotalHoursLoading<T> value)
+        gettotalHoursLoading,
+    required TResult Function(GettotalHoursSuccess<T> value)
+        gettotalHoursSuccess,
+    required TResult Function(GettotalHoursError<T> value) gettotalHoursError,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CheckUserLoading<T> value) checkUserLoading,
+    required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
+    required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
+    required TResult Function(HomeSupportedState<T> value) supported,
+    required TResult Function(HomeBiometricsAvailable<T> value)
+        biometricsAvailable,
+    required TResult Function(HomeAuthenticating<T> value) authenticating,
+    required TResult Function(HomeAuthenticationFailed<T> value)
+        authenticationFailed,
+    required TResult Function(HomeAuthenticationLockedOut<T> value) lockedOut,
+    required TResult Function(AuthError<T> value) authError,
+    required TResult Function(HomeAuthenticated<T> value) authenticated,
+  }) {
+    return notificationError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetthisPayPeriodLoading<T> value)?
+        getthisPayPeriodLoading,
+    TResult? Function(GetthisPayPeriodSuccess<T> value)?
+        getthisPayPeriodSuccess,
+    TResult? Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult? Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult? Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult? Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
+    TResult? Function(HomeSupportedState<T> value)? supported,
+    TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult? Function(HomeAuthenticating<T> value)? authenticating,
+    TResult? Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult? Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult? Function(AuthError<T> value)? authError,
+    TResult? Function(HomeAuthenticated<T> value)? authenticated,
+  }) {
+    return notificationError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetthisPayPeriodLoading<T> value)? getthisPayPeriodLoading,
+    TResult Function(GetthisPayPeriodSuccess<T> value)? getthisPayPeriodSuccess,
+    TResult Function(GetthisPayPeriodError<T> value)? getthisPayPeriodError,
+    TResult Function(GettotalHoursLoading<T> value)? gettotalHoursLoading,
+    TResult Function(GettotalHoursSuccess<T> value)? gettotalHoursSuccess,
+    TResult Function(GettotalHoursError<T> value)? gettotalHoursError,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CheckUserLoading<T> value)? checkUserLoading,
+    TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
+    TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
+    TResult Function(HomeSupportedState<T> value)? supported,
+    TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
+    TResult Function(HomeAuthenticating<T> value)? authenticating,
+    TResult Function(HomeAuthenticationFailed<T> value)? authenticationFailed,
+    TResult Function(HomeAuthenticationLockedOut<T> value)? lockedOut,
+    TResult Function(AuthError<T> value)? authError,
+    TResult Function(HomeAuthenticated<T> value)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (notificationError != null) {
+      return notificationError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotificationError<T> implements HomeState<T> {
+  const factory NotificationError(final ApiErrorModel error) =
+      _$NotificationErrorImpl<T>;
+
+  ApiErrorModel get error;
+  @JsonKey(ignore: true)
+  _$$NotificationErrorImplCopyWith<T, _$NotificationErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3465,6 +4509,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -3493,6 +4540,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -3521,6 +4571,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -3557,6 +4610,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -3588,6 +4644,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -3615,6 +4674,9 @@ class _$HomeSupportedStateImpl<T> implements HomeSupportedState<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -3691,6 +4753,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -3719,6 +4784,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -3747,6 +4815,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -3783,6 +4854,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -3814,6 +4888,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -3841,6 +4918,9 @@ class _$HomeBiometricsAvailableImpl<T> implements HomeBiometricsAvailable<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -3915,6 +4995,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -3943,6 +5026,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -3971,6 +5057,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -4007,6 +5096,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -4038,6 +5130,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -4065,6 +5160,9 @@ class _$HomeAuthenticatingImpl<T> implements HomeAuthenticating<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -4141,6 +5239,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -4169,6 +5270,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -4197,6 +5301,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -4233,6 +5340,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -4264,6 +5374,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -4291,6 +5404,9 @@ class _$HomeAuthenticationFailedImpl<T> implements HomeAuthenticationFailed<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -4369,6 +5485,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -4397,6 +5516,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -4425,6 +5547,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -4461,6 +5586,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -4492,6 +5620,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -4519,6 +5650,9 @@ class _$HomeAuthenticationLockedOutImpl<T>
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -4619,6 +5753,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -4647,6 +5784,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -4675,6 +5815,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -4711,6 +5854,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -4742,6 +5888,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -4769,6 +5918,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,
@@ -4876,6 +6028,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     required TResult Function() checkUserLoading,
     required TResult Function(T data) checkUserSuccess,
     required TResult Function(ApiErrorModel error) checkUserError,
+    required TResult Function() notificationLoading,
+    required TResult Function(T data) notificationSuccess,
+    required TResult Function(ApiErrorModel error) notificationError,
     required TResult Function() supported,
     required TResult Function() biometricsAvailable,
     required TResult Function() authenticating,
@@ -4904,6 +6059,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     TResult? Function()? checkUserLoading,
     TResult? Function(T data)? checkUserSuccess,
     TResult? Function(ApiErrorModel error)? checkUserError,
+    TResult? Function()? notificationLoading,
+    TResult? Function(T data)? notificationSuccess,
+    TResult? Function(ApiErrorModel error)? notificationError,
     TResult? Function()? supported,
     TResult? Function()? biometricsAvailable,
     TResult? Function()? authenticating,
@@ -4932,6 +6090,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     TResult Function()? checkUserLoading,
     TResult Function(T data)? checkUserSuccess,
     TResult Function(ApiErrorModel error)? checkUserError,
+    TResult Function()? notificationLoading,
+    TResult Function(T data)? notificationSuccess,
+    TResult Function(ApiErrorModel error)? notificationError,
     TResult Function()? supported,
     TResult Function()? biometricsAvailable,
     TResult Function()? authenticating,
@@ -4968,6 +6129,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     required TResult Function(CheckUserLoading<T> value) checkUserLoading,
     required TResult Function(CheckUserSuccess<T> value) checkUserSuccess,
     required TResult Function(CheckUserError<T> value) checkUserError,
+    required TResult Function(NotificationLoading<T> value) notificationLoading,
+    required TResult Function(NotificationSuccess<T> value) notificationSuccess,
+    required TResult Function(NotificationError<T> value) notificationError,
     required TResult Function(HomeSupportedState<T> value) supported,
     required TResult Function(HomeBiometricsAvailable<T> value)
         biometricsAvailable,
@@ -4999,6 +6163,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     TResult? Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult? Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult? Function(CheckUserError<T> value)? checkUserError,
+    TResult? Function(NotificationLoading<T> value)? notificationLoading,
+    TResult? Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult? Function(NotificationError<T> value)? notificationError,
     TResult? Function(HomeSupportedState<T> value)? supported,
     TResult? Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult? Function(HomeAuthenticating<T> value)? authenticating,
@@ -5026,6 +6193,9 @@ class _$HomeAuthenticatedImpl<T> implements HomeAuthenticated<T> {
     TResult Function(CheckUserLoading<T> value)? checkUserLoading,
     TResult Function(CheckUserSuccess<T> value)? checkUserSuccess,
     TResult Function(CheckUserError<T> value)? checkUserError,
+    TResult Function(NotificationLoading<T> value)? notificationLoading,
+    TResult Function(NotificationSuccess<T> value)? notificationSuccess,
+    TResult Function(NotificationError<T> value)? notificationError,
     TResult Function(HomeSupportedState<T> value)? supported,
     TResult Function(HomeBiometricsAvailable<T> value)? biometricsAvailable,
     TResult Function(HomeAuthenticating<T> value)? authenticating,

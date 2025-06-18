@@ -36,6 +36,10 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.checkUserLoading() = CheckUserLoading;
   const factory HomeState.checkUserSuccess(T data) = CheckUserSuccess<T>;
   const factory HomeState.checkUserError(ApiErrorModel error) = CheckUserError;
+  //
+  const factory HomeState.notificationLoading() = NotificationLoading;
+  const factory HomeState.notificationSuccess(T data) = NotificationSuccess<T>;
+  const factory HomeState.notificationError(ApiErrorModel error) = NotificationError;
 
   //
   const factory HomeState.supported() = HomeSupportedState;

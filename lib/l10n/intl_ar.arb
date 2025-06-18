@@ -1,4 +1,8 @@
 {
+  "Attendance": "الحضور",
+  "Tasks": "التاسكات",
+  "Expense": "المصروفات",
+  "Leave": "الاجازات",
   "Dont_have_an_account": "ليس لديك حساب؟",
   "Login_button": "تسجيل الدخول",
   "Login_text": "تسجيل الدخول",
@@ -166,5 +170,11 @@
   "Pending_section_text": "قيد الانتظار",
   "done_section_text": "تم",
   "Expenses_Details": "تفاصيل المصروفات",
-  "Successfully_sent_expenses": "تم ارسال المصروف بنجاح"
+  "Expense_text": "مصروف",
+  "No_Expense": "لا يوجد مصروفات",
+  "It_looks_like_you_have_any_expense": "يبدو أنه ليس لديك أي مصروفات معتمدة بعد. لا تقلق، سيتم تحديث هذه المساحة عند إضافة ",
+  "Successfully_sent_expenses": "تم ارسال المصروف بنجاح",
+  "there_is_no_description": "لا يوجد وصف للمصروف",
+  "you_should_edit_at_least_one": "يجب ان تقوم بتعديل واحد منهم علي الاقل",
+  "Expenses_description": "وصف المصروف"
 }

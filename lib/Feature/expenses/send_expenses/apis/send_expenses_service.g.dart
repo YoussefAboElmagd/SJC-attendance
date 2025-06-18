@@ -90,48 +90,19 @@ class _SendExpensesService implements SendExpensesService {
   }
 
   @override
-  Future<CreateExpenseResponse> createExpense(
-    String category_id,
-    String request_type_id,
-    String description,
-    String total_amount,
-    List<File> file,
-  ) async {
+  Future<ExpenseDetailsResponse> getExpenseDetails(int expenseId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'expense_id': expenseId};
     final _headers = <String, dynamic>{};
-    final _data = FormData();
-    _data.fields.add(MapEntry(
-      'category_id',
-      category_id,
-    ));
-    _data.fields.add(MapEntry(
-      'request_type_id',
-      request_type_id,
-    ));
-    _data.fields.add(MapEntry(
-      'description',
-      description,
-    ));
-    _data.fields.add(MapEntry(
-      'total_amount',
-      total_amount,
-    ));
-    _data.files.addAll(file.map((i) => MapEntry(
-        'file',
-        MultipartFile.fromFileSync(
-          i.path,
-          filename: i.path.split(Platform.pathSeparator).last,
-        ))));
-    final _options = _setStreamType<CreateExpenseResponse>(Options(
-      method: 'POST',
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ExpenseDetailsResponse>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
-      contentType: 'multipart/form-data',
     )
         .compose(
           _dio.options,
-          'employee/expenses',
+          'employee/expenses/expense-details',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -141,9 +112,9 @@ class _SendExpensesService implements SendExpensesService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CreateExpenseResponse _value;
+    late ExpenseDetailsResponse _value;
     try {
-      _value = CreateExpenseResponse.fromJson(_result.data!);
+      _value = ExpenseDetailsResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

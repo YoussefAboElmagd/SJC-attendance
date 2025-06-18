@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_tabs_screen.dart';
-// import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_body.dart';
+import 'package:madarj/Feature/leave/leave_details/data/model/holiday_request.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/build_tap.dart';
-import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_log_card.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/list_of_leave.dart';
-import 'package:madarj/Feature/leave/leave_details/ui/widget/no_leave_today.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({super.key});
+  const TabsScreen({
+    super.key,
+    this.requestsApprovedData,
+    this.requestsPendingData,
+    this.requestsRefusedData,
+  });
+  final HolidayRequestResponse? requestsApprovedData;
+  final HolidayRequestResponse? requestsPendingData;
+  final HolidayRequestResponse? requestsRefusedData;
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
@@ -18,14 +23,14 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int selectedIndex = 0;
 
-  List<Widget> screens = const [
-    ListOfLeave(),
-    ListOfLeave(),
-    ListOfLeave(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<Widget> screens = [
+      ListOfLeave(data: widget.requestsPendingData, isNew: true),
+      ListOfLeave(data: widget.requestsApprovedData),
+      ListOfLeave(data: widget.requestsRefusedData),
+    ];
+
     return Column(
       children: [
         Container(
@@ -41,65 +46,27 @@ class _TabsScreenState extends State<TabsScreen> {
               BuildTap(
                 title: S.of(context).Review_Text,
                 isSelected: selectedIndex == 0,
-                badgeCount: 3,
+                badgeCount: widget.requestsPendingData!.count!,
                 onTap: () => setState(() => selectedIndex = 0),
               ),
               BuildTap(
                 title: S.of(context).Approved_Text,
                 isSelected: selectedIndex == 1,
-                badgeCount: 3,
+                badgeCount: widget.requestsApprovedData!.count!,
                 onTap: () => setState(() => selectedIndex = 1),
               ),
               BuildTap(
                 title: S.of(context).Rejected_text,
                 isSelected: selectedIndex == 2,
-                badgeCount: 3,
+                badgeCount: widget.requestsRefusedData!.count!,
                 onTap: () => setState(() => selectedIndex = 2),
               ),
             ],
           ),
         ),
         SizedBox(height: 5.h),
-        screens[selectedIndex], // العرض حسب المؤشر
+        screens[selectedIndex],
       ],
     );
   }
 }
-
-// class ListOfLeave extends StatelessWidget {
-//   const ListOfLeave({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: (MediaQuery.sizeOf(context).height - 320.h),
-//       child: false
-//           ? const NoLeaveToday()
-//           : Container(
-//               decoration: const BoxDecoration(),
-//               child: ListView.separated(
-//                 padding: EdgeInsets.zero,
-//                 itemBuilder: (context, index) {
-//                   return Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       SizedBox(
-//                         height: 5.h,
-//                       ),
-//                       const InkWell(
-//                         child: LeaveLogCard(),
-//                       ),
-//                     ],
-//                   );
-//                 },
-//                 separatorBuilder: (context, index) => SizedBox(
-//                   height: 15.h,
-//                 ),
-//                 itemCount: 10,
-//               ),
-//             ),
-//     );
-//   }
-// }

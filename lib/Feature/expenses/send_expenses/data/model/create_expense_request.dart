@@ -8,19 +8,20 @@ part 'create_expense_request.g.dart';
 
 @JsonSerializable()
 class CreateExpenseRequest {
-  @JsonKey(name: 'category_id')
+  @JsonKey(name: 'category_id', ignore: true)
   final String? categoryId;
-  
-  @JsonKey(name: 'request_type_id')
+
+  @JsonKey(ignore: true, name: 'request_type_id')
   final String? requestTypeId;
-  
+
+  @JsonKey(ignore: true)
   final String? description;
-  
-  @JsonKey(name: 'total_amount')
+
+  @JsonKey(name: 'total_amount', ignore: true)
   final String? totalAmount;
-  
+
   // final String? date;
-  
+
   @JsonKey(ignore: true)
   final List<File>? files;
 
@@ -34,7 +35,6 @@ class CreateExpenseRequest {
   });
 
   Map<String, dynamic> toJson() => _$CreateExpenseRequestToJson(this);
-
 
   // For multipart/form-data requests
   Future<FormData> toFormData() async {
@@ -50,7 +50,7 @@ class CreateExpenseRequest {
     if (files != null && files!.isNotEmpty) {
       for (var file in files!) {
         formData.files.add(MapEntry(
-          'file',  // Field name should match your API requirements
+          'file', // Field name should match your API requirements
           await MultipartFile.fromFile(
             file.path,
             filename: file.path.split('/').last,
@@ -62,5 +62,3 @@ class CreateExpenseRequest {
     return formData;
   }
 }
-
-

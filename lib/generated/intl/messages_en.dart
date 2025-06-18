@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Approved_Text": MessageLookupByLibrary.simpleMessage("Approved"),
         "Assign_To": MessageLookupByLibrary.simpleMessage("Assign To"),
         "Attachment_text": MessageLookupByLibrary.simpleMessage("Attachment"),
+        "Attendance": MessageLookupByLibrary.simpleMessage("Attendance"),
         "Authenticate_button":
             MessageLookupByLibrary.simpleMessage("Authenticate"),
         "Authentication_Failed":
@@ -86,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Task Title"),
         "Enter_Transaction_Date":
             MessageLookupByLibrary.simpleMessage("Enter Transaction Date"),
+        "Expense": MessageLookupByLibrary.simpleMessage("Expense"),
         "Expense_Amount":
             MessageLookupByLibrary.simpleMessage("Expense Amount"),
         "Expense_Category":
@@ -94,10 +96,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Expense Description"),
         "Expense_Summary":
             MessageLookupByLibrary.simpleMessage("Expense Summary"),
+        "Expense_text": MessageLookupByLibrary.simpleMessage("Expense"),
         "Expenses_Details":
             MessageLookupByLibrary.simpleMessage("Expenses Details"),
         "Expenses_approved_text": MessageLookupByLibrary.simpleMessage(
             "1000+ Expenses already approved"),
+        "Expenses_description":
+            MessageLookupByLibrary.simpleMessage("Expenses description"),
         "Fill_Claim_Information":
             MessageLookupByLibrary.simpleMessage("Fill Claim Information"),
         "Fill_Leave_Information":
@@ -116,7 +121,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Information about claim details"),
         "Information_leave_details": MessageLookupByLibrary.simpleMessage(
             "Information about leave details"),
+        "It_looks_like_you_have_any_expense": MessageLookupByLibrary.simpleMessage(
+            "It looks like you dont have any expense approved. Dont worry, this space will be updated as"),
         "Language_text": MessageLookupByLibrary.simpleMessage("Language"),
+        "Leave": MessageLookupByLibrary.simpleMessage("Leaves"),
         "Leave_Category":
             MessageLookupByLibrary.simpleMessage("Leave Category"),
         "Leave_Date": MessageLookupByLibrary.simpleMessage("Leave Date"),
@@ -139,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Locked_Out": MessageLookupByLibrary.simpleMessage("Locked Out"),
         "Login_button": MessageLookupByLibrary.simpleMessage("Login"),
         "Login_text": MessageLookupByLibrary.simpleMessage("Login"),
+        "No_Expense": MessageLookupByLibrary.simpleMessage("No Expense"),
         "No_Leave_Submitted":
             MessageLookupByLibrary.simpleMessage("No Leave Submitted!"),
         "No_checkIn": MessageLookupByLibrary.simpleMessage("No checkIn"),
@@ -194,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Task_Description":
             MessageLookupByLibrary.simpleMessage("Task Description"),
         "Task_Title": MessageLookupByLibrary.simpleMessage("Task Title"),
+        "Tasks": MessageLookupByLibrary.simpleMessage("Tasks"),
         "To_Do": MessageLookupByLibrary.simpleMessage("To Do"),
         "Today": MessageLookupByLibrary.simpleMessage("Today"),
         "Today_schedule":
@@ -286,10 +296,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in to my account"),
         "sign_text": MessageLookupByLibrary.simpleMessage("Sign In"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "there_is_no_description":
+            MessageLookupByLibrary.simpleMessage("there is no description"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("view month work"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),
         "working_time_text": MessageLookupByLibrary.simpleMessage(
-            "Your working time in this paid period")
+            "Your working time in this paid period"),
+        "you_should_edit_at_least_one":
+            MessageLookupByLibrary.simpleMessage("you should edit at least one")
       };
 }

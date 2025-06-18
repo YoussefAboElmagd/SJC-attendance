@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/home/ui/widgets/list_of_checks.dart';
+import 'package:madarj/Feature/home/ui/widgets/no_work_today.dart';
 import 'package:madarj/Feature/tasks/tasks_details/ui/widget/task_card.dart';
 
 class ListOfTasks extends StatelessWidget {

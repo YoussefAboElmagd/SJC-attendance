@@ -43,8 +43,8 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
             if (state is ChangeTheLanguageOfApp) {
               language = state.language;
             }
-            print(language);
-            print(language);
+            // print(language);
+            // print(language);
             return MaterialApp(
               locale: Locale(language),
               localizationsDelegates: const [

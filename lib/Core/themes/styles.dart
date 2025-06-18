@@ -14,6 +14,29 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
+  static TextStyle font14Grey = TextStyle(
+    fontFamily: 'Cairo',
+    color: ColorsManager.grey,
+    fontSize: 14.sp,
+  );
+  static TextStyle font16MainColorBold = TextStyle(
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColor,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle font12RedBold = TextStyle(
+    fontFamily: 'Cairo',
+    color: ColorsManager.red,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle font14MainColorBold = TextStyle(
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColor,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle font20BlackBold = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.bold,

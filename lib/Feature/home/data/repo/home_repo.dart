@@ -5,6 +5,7 @@ import 'package:madarj/Feature/home/data/model/check_request.dart';
 import 'package:madarj/Feature/home/data/model/check_response.dart';
 import 'package:madarj/Feature/home/data/model/clock_status_response.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
+import 'package:madarj/Feature/home/data/model/notification_request.dart';
 import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
 import 'package:madarj/Feature/home/data/model/total_hours.dart';
 
@@ -61,6 +62,17 @@ class HomeRepo {
   Future<ApiResults<ClockStatusResponse>> getAttendanceState() async {
     try {
       final response = await _homeServices.getClockStatus();
+      return ApiResults.success(response);
+    } catch (error) {
+      print("error repo $error");
+      return ApiResults.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResults<ClockStatusResponse>> snedToken(
+      NotificationRequest notificationRequest) async {
+    try {
+      final response = await _homeServices.sendFcmToken(notificationRequest);
       return ApiResults.success(response);
     } catch (error) {
       print("error repo $error");

@@ -39,7 +39,7 @@ class ApiErrorModel {
   int? code;
   String? message;
   String? status;
-  @JsonKey(name: "errors")
+  @JsonKey(name: "error")
   // final Map<String, dynamic>? errors;
   final Map<String, dynamic>? errors;
 
@@ -51,7 +51,7 @@ class ApiErrorModel {
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
 
   String getAllErrorMessages() {
-    if (errors!.isNotEmptyOrNull()) return message ?? "error is unknown";
+    if (errors.isNotEmptyOrNull()) return message ?? "error is unknown";
     final errorMessage = errors!.entries.map((val) {
       var value = val.value;
       return "${value.join(",")}";

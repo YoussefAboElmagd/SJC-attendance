@@ -50,6 +50,12 @@ class SendExpensesState<T> with _$SendExpensesState<T> {
     required T requestType,
     required T categories,
   }) = CombinedSuccess<T>;
+
+  const factory SendExpensesState.combinedSuccessForUpdate({
+    required T requestType,
+    required T categories,
+    required T expenseDetailsResult,
+  }) = CombinedSuccessForUpdate<T>;
   // create expenses
   const factory SendExpensesState.createExpensesLoading() =
       CreateExpensesLoading;
@@ -57,4 +63,6 @@ class SendExpensesState<T> with _$SendExpensesState<T> {
       CreateExpensesSuccess<T>;
   const factory SendExpensesState.createExpensesError(ApiErrorModel error) =
       CreateExpensesError;
+
+  const factory SendExpensesState.errorChooseDragDrop() = ErrorChooseDragDrop;
 }

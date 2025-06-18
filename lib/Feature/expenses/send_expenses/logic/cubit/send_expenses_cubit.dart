@@ -9,12 +9,13 @@ import 'package:madarj/Feature/expenses/send_expenses/data/model/request_types_m
 import 'package:madarj/Feature/expenses/send_expenses/data/model/send_exp_categories_model_response.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/repo/send_expenses_repo.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/data/model/get_expense_details.dart';
 import 'package:madarj/generated/l10n.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class SendExpensesCubit extends Cubit<SendExpensesState> {
   SendExpensesCubit(this._expensesRepo)
-      : super(const SendExpensesState.initial());
+    : super(const SendExpensesState.initial());
   final SendExpensesRepo _expensesRepo;
 
   // handle ui
@@ -27,7 +28,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   TextEditingController? amountNumber = TextEditingController();
   TextEditingController? expensesDescription = TextEditingController();
   var formKey = GlobalKey<FormState>();
-
+  ExpenseDetailsResponse? expense;
   changeDragDownHint(
     TextEditingController? controller,
     TextEditingController? controllerId,
@@ -42,23 +43,36 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
 
   // connect with back
 
-  Future<void> getAllExpenses(BuildContext context) async {
+  Future<void> getAllExpenses(BuildContext context, int? id) async {
     emit(const SendExpensesState.loading());
 
     try {
       final periodFuture = _expensesRepo.getRequestTypes();
       final categoriesFuture = _expensesRepo.getCategories();
-
-      final responses = await Future.wait([
-        periodFuture,
-        categoriesFuture,
-      ]);
+      Future<ApiResults<ExpenseDetailsResponse>>? expenseDetails;
+      if (id != null) {
+        expenseDetails = _expensesRepo.getExpenseDetails(id);
+      }
+      var responses;
+      if (expenseDetails != null) {
+        responses = await Future.wait([
+          periodFuture,
+          categoriesFuture,
+          expenseDetails,
+        ]);
+      } else {
+        responses = await Future.wait([periodFuture, categoriesFuture]);
+      }
 
       final requestTypesResult = responses[0] as ApiResults<RequestTypesModel>;
       final categoriesResult = responses[1] as ApiResults<SendExpCategResponse>;
+      var expenseDetailsResult;
+      if (id != null) {
+        expenseDetailsResult =
+            responses[2] as ApiResults<ExpenseDetailsResponse>;
+      }
       // Collect all errors
       final errors = <ApiErrorModel>[];
-
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
         print("$type error: $error");
@@ -73,6 +87,13 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
         success: (_) {},
         failure: (error) => handleError(error, 'categoriesResult'),
       );
+      if (id != null) {
+        expenseDetailsResult.when(
+          success: (_) {},
+          failure: (error) => handleError(error, 'categoriesResult'),
+        );
+      }
+      print("errors 22222222 $errors");
 
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
@@ -87,14 +108,15 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
           message: combinedMessage,
           status: errors.first.status,
         );
-
+        print("combinedError $combinedError");
         emit(SendExpensesState.error(combinedError));
         return;
       }
+      print("errors 11111 $errors");
 
       late final RequestTypesModel requestTypesModel;
       late final SendExpCategResponse categoriesModel;
-
+      ExpenseDetailsResponse? expenseDetailsResponse;
       requestTypesResult.when(
         success: (data) => requestTypesModel = data,
         failure: (_) {},
@@ -103,31 +125,53 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
         success: (data) => categoriesModel = data,
         failure: (_) {},
       );
-
+      if (expenseDetailsResult != null) {
+        expenseDetailsResult.when(
+          success: (data) => expenseDetailsResponse = data,
+          failure: (_) {},
+        );
+      }
+      // departmentId!.text =
+      //     requestTypesModel.requestTypes!.keys.first.toString();
+      // selectRequestId!.text = categoriesModel.categories!.keys.first;
+      expense = expenseDetailsResponse;
+      if (id != null) {
+        emit(
+          SendExpensesState.combinedSuccessForUpdate(
+            requestType: requestTypesModel,
+            categories: categoriesModel,
+            expenseDetailsResult: expenseDetailsResponse,
+          ),
+        );
+      } else {
+        emit(
+          SendExpensesState.combinedSuccess(
+            requestType: requestTypesModel,
+            categories: categoriesModel,
+          ),
+        );
+      }
+    } catch (e) {
+      print("eeeeeeee $e");
       emit(
-        SendExpensesState.combinedSuccess(
-          requestType: requestTypesModel,
-          categories: categoriesModel,
+        SendExpensesState.error(
+          ApiErrorModel(
+            message: S.of(context).An_unexpected_error,
+            status: '500',
+          ),
         ),
       );
-    } catch (e) {
-      emit(SendExpensesState.error(ApiErrorModel(
-        message: S.of(context).An_unexpected_error,
-        status: '500',
-      )));
     }
   }
 
-  Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
-    return {
-      for (var i = 0; i < errors.length; i++)
-        'error_$i': errors[i].message ?? 'Unknown error'
-    };
-  }
+  // Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
+  //   return {
+  //     for (var i = 0; i < errors.length; i++)
+  //       'error_$i': errors[i].message ?? 'Unknown error',
+  //   };
+  // }
 
-  createExpense(
-    CreateExpenseRequest request,
-  ) async {
+  createExpense(CreateExpenseRequest request) async {
     emit(const SendExpensesState.createExpensesLoading());
     try {
       final response = await _expensesRepo.createExpense(request);
@@ -143,11 +187,36 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       );
     } catch (e) {
       print(e.toString());
-      emit(SendExpensesState.createExpensesError(
-        ApiErrorModel(
-          message: e.toString(),
+      emit(
+        SendExpensesState.createExpensesError(
+          ApiErrorModel(message: e.toString()),
         ),
-      ));
+      );
+    }
+  }
+
+  Future<void> editExpense(
+    int expenseId,
+    CreateExpenseRequest request,
+    // List?files,
+  ) async {
+    emit(const SendExpensesState.createExpensesLoading());
+    try {
+      final response = await _expensesRepo.editExpense(expenseId, request);
+      response.when(
+        success: (response) async {
+          emit(SendExpensesState.createExpensesSuccess(response));
+        },
+        failure: (apiErrorModel) {
+          emit(SendExpensesState.createExpensesError(apiErrorModel));
+        },
+      );
+    } catch (e) {
+      emit(
+        SendExpensesState.createExpensesError(
+          ApiErrorModel(message: e.toString()),
+        ),
+      );
     }
   }
 
@@ -230,8 +299,11 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       }
 
       if (validFiles.isEmpty) {
-        emit(const SendExpensesState.fileValidationError(
-            'No valid files were selected. Only images (JPG, PNG), PDFs and Word documents under 5MB are allowed'));
+        emit(
+          const SendExpensesState.fileValidationError(
+            'No valid files were selected. Only images (JPG, PNG), PDFs and Word documents under 5MB are allowed',
+          ),
+        );
         return;
       }
 
@@ -240,5 +312,33 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
     } catch (e) {
       emit(SendExpensesState.fileValidationError(e.toString()));
     }
+  } // Add this validation method
+
+  String? departmentError;
+  String? requestTypeError;
+  bool validateForm() {
+    bool isValid = true;
+
+    // Reset errors
+    departmentError = null;
+    requestTypeError = null;
+
+    // Validate dropdowns
+    // departmentId!.text
+    if (departmentText?.text.isEmpty ?? true) {
+      departmentError = 'Please select a department';
+      isValid = false;
+    }
+
+    if (selectRequestType?.text.isEmpty ?? true) {
+      requestTypeError = 'Please select a request type';
+      isValid = false;
+    }
+
+    // Validate other fields if needed
+    // ...
+
+    emit(const SendExpensesState.errorChooseDragDrop());
+    return isValid;
   }
 }

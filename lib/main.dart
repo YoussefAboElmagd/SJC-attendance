@@ -20,9 +20,7 @@ void main() async {
 
   // Initialize Cache, Bloc observer, DI, ScreenUtil as before
   Bloc.observer = MyBlocObserver();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   LocalNotificationService.init();
   PushNotificationsService.init();
@@ -32,9 +30,7 @@ void main() async {
 }
 
 Future<void> checkUserLogged() async {
-  bool? isLogged = await CachHelper.getData(
-    key: SharedKeys.isLogged,
-  );
+  bool? isLogged = await CachHelper.getData(key: SharedKeys.isLogged);
   String? userToken = await CachHelper.getSecuredString(
     key: SharedKeys.userToken,
   );
@@ -44,8 +40,6 @@ Future<void> checkUserLogged() async {
     AppConstants.isLogged = false;
   }
 }
-
-
 
   // Future.wait([
   //   LocalNotificationService.init(),
@@ -57,7 +51,7 @@ Future<void> checkUserLogged() async {
   // Initialize notifications and background task
   // await initializeNotifications();
 
-  // Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+  // Workmanager().initialize(callbackDispatcher,isInDebugMode: true);
 
   // Workmanager().initialize(callbackDispatcher, isInDebugMode: false);
   // Workmanager().registerPeriodicTask(

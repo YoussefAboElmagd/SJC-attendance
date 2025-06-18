@@ -5,6 +5,7 @@ import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_constan
 import 'package:madarj/Feature/expenses/send_expenses/data/model/create_expense_response.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/model/request_types_model_response.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/model/send_exp_categories_model_response.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/data/model/get_expense_details.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
@@ -19,16 +20,31 @@ abstract class SendExpensesService {
 
   @GET(SendExpensesConstants.categories)
   Future<SendExpCategResponse> getCategories();
-
-  // In your service
-  @POST(SendExpensesConstants.createExpense)
-  @MultiPart()
-  Future<CreateExpenseResponse> createExpense(
-    // @Body() FormData formData,
-    @Part() String category_id,
-    @Part() String request_type_id,
-    @Part() String description,
-    @Part() String total_amount,
-    @Part() List<File> file,
+  @GET(SendExpensesConstants.detailsExpenses)
+  Future<ExpenseDetailsResponse> getExpenseDetails(
+    @Query("expense_id") int expenseId,
   );
+  // In your service
+  // @POST(SendExpensesConstants.createExpense)
+  // @MultiPart()
+  // Future<CreateExpenseResponse> createExpense(
+  //   // @Body() FormData formData,
+  //   @Part() String category_id,
+  //   @Part() String request_type_id,
+  //   @Part() String description,
+  //   @Part() String total_amount,
+  //   @Part() List<File> file,
+  // );
+
+  // Add this new method for editing expense
+  // @POST(SendExpensesConstants.editExpense)
+  // @MultiPart()
+  // Future<CreateExpenseResponse> editExpense(
+  //   @Query('expense_id') int expenseId,
+  //   @Part() String category_id,
+  //   @Part() String request_type_id,
+  //   @Part() String description,
+  //   @Part() String total_amount,
+  //   @Part() List<File> file,
+  // );
 }

@@ -8,7 +8,9 @@ import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_state.dart';
 import 'package:madarj/Feature/home/ui/widgets/clock_in.dart';
+import 'package:madarj/Feature/home/ui/widgets/clock_in_shimmer.dart';
 import 'package:madarj/Feature/home/ui/widgets/list_of_checks.dart';
+import 'package:madarj/Feature/home/ui/widgets/list_of_checks_shimmer.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class PeriodAndTotalHoursBuilder extends StatelessWidget {
@@ -38,7 +40,6 @@ class PeriodAndTotalHoursBuilder extends StatelessWidget {
             if (data4.attendanceState == "checked_out") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_In;
             }
-            // print(data3.isEmpty);
             return Expanded(
               child: Column(
                 children: [
@@ -58,33 +59,6 @@ class PeriodAndTotalHoursBuilder extends StatelessWidget {
             });
             return const SizedBox.shrink();
           },
-          // error: (errorHandler) => AlertDialog(
-          //   icon: Icon(
-          //     Icons.error,
-          //     color: Colors.red,
-          //     size: 32.w,
-          //   ),
-          //   content: Text(
-          //     errorHandler.message!,
-          //     style: TextStyles.font15DarkBlueMedium,
-          //   ),
-          //   actions: [
-          //     TextButton(
-          //       onPressed: () {
-          //         // Navigator.of(context).pop();
-          //         context.pop();
-
-          //         // context.read<HomeCubit>().getAllHome2();
-          //         // context.read<HomeCubit>().getAllHome2();
-          //         context.pushNamed(Routes.homeScreen);
-          //       },
-          //       child: Text(
-          //         'Try again',
-          //         style: TextStyles.font14BlueSemiBold,
-          //       ),
-          //     ),
-          //   ],
-          // ),
           orElse: () {
             return const SizedBox.shrink();
           },
@@ -135,31 +109,3 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   );
 }
 
-
-// void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
-//   showDialog(
-//     context: context,
-//     builder: (context) => AlertDialog(
-//       icon:  Icon(
-//         Icons.error,
-//         color: Colors.red,
-//         size: 32.w,
-//       ),
-//       content: Text(
-//         apiErrorModel.message!,
-//         style: TextStyles.font15DarkBlueMedium,
-//       ),
-//       actions: [
-//         TextButton(
-//           onPressed: () {
-//             context.pop();
-//           },
-//           child: Text(
-//             'Got it',
-//             style: TextStyles.font14BlueSemiBold,
-//           ),
-//         ),
-//       ],
-//     ),
-//   );
-// }

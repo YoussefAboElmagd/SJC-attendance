@@ -5,6 +5,7 @@ import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/show_buttom_sheet_form.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/custom_bottom_sheet.dart';
+// import 'package:madarj/Feature/leave/send_leave/ui/widgets/custom_bottom_sheet_content.dart';
 
 class BuildDropdown extends StatelessWidget {
   final String? label;
@@ -16,6 +17,7 @@ class BuildDropdown extends StatelessWidget {
   TextEditingController? controllerId;
   final void Function()? onTap2;
   final Map<String, String>? mapDrop;
+  final String? errorText; // Add errorText parameter
 
   BuildDropdown({
     super.key,
@@ -28,6 +30,7 @@ class BuildDropdown extends StatelessWidget {
     this.onTap,
     this.onTap2,
     this.mapDrop,
+    this.errorText, // Initialize errorText
   });
 
   @override
@@ -52,6 +55,14 @@ class BuildDropdown extends StatelessWidget {
                     mapDrop,
                   ),
         ),
+        if (errorText != null && errorText!.isNotEmpty)
+          Padding(
+            padding: EdgeInsets.only(top: 4.h),
+            child: Text(
+              errorText!,
+              style: TextStyles.font12RedMedium,
+            ),
+          ),
       ],
     );
   }

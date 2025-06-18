@@ -13,17 +13,19 @@ import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
 import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_details.dart';
+// import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_details.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/ui/show_expenses_details.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
+import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
+import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
 import 'package:madarj/Feature/on_boarding/ui/on_boarding_screen.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Ui/login.dart';
 import 'package:madarj/Feature/tasks/send_tasks/ui/send_tasks.dart';
-import 'package:madarj/Feature/tasks/show_task/ui/widget/show_task.dart';
+import 'package:madarj/Feature/tasks/show_task/ui/show_task.dart';
 import 'package:madarj/Feature/tasks/tasks_details/ui/tasks.dart';
 
 class AppRouter {
@@ -47,12 +49,14 @@ class AppRouter {
       //     builder: (_) => const BaseLayer(),
       //   );
       case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.leaveScreen:
         return MaterialPageRoute(
-          builder: (_) => const Leave(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                getIt<LeaveDetailsCubit>()..getAllLeaves(context),
+            child: const Leave(),
+          ),
         );
       case Routes.expenseScreen:
         return MaterialPageRoute(
@@ -70,48 +74,41 @@ class AppRouter {
             rejected: args?['rejected'] as bool?,
             pending: args?['pending'] as bool?,
             isNew: args?['isNew'] as bool?,
+            id: args?['id'] as int?,
           ),
         );
       case Routes.tasksScreen:
-        return MaterialPageRoute(
-          builder: (_) => const Tasks(),
-        );
+        return MaterialPageRoute(builder: (_) => const Tasks());
       case Routes.onBoardingScreen:
-        return MaterialPageRoute(
-          builder: (_) => const OnboardingScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.clockInScreen:
-        return MaterialPageRoute(
-          builder: (_) => const ClockInScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const ClockInScreen());
       case Routes.allMonthWorks:
-        return MaterialPageRoute(
-          builder: (_) => const AllMonthWorks(),
-        );
+        return MaterialPageRoute(builder: (_) => const AllMonthWorks());
       case Routes.language:
-        return MaterialPageRoute(
-          builder: (_) => const Languageoptions(),
-        );
+        return MaterialPageRoute(builder: (_) => const Languageoptions());
       case Routes.sendExpenses:
+        final args = settings.arguments as Map<String, dynamic>?;
+        print(args?['id']);
         return MaterialPageRoute(
-          builder: (_) => const SendExpenses(),
+          builder: (_) => SendExpenses(
+            update: args?['update'] ?? false,
+            id: args?['id'] ?? 0,
+          ),
         );
       case Routes.sendLeave:
         return MaterialPageRoute(
-          builder: (_) => const SendLeave(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SendLeaveCubit>()..getTimeoffTypes(),
+            child: const SendLeave(),
+          ),
         );
       case Routes.sendTasks:
-        return MaterialPageRoute(
-          builder: (_) => const SendTasks(),
-        );
+        return MaterialPageRoute(builder: (_) => const SendTasks());
       case Routes.cardsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const CardsScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const CardsScreen());
       case Routes.taskDetails:
-        return MaterialPageRoute(
-          builder: (_) => ShowTaskDetails(),
-        );
+        return MaterialPageRoute(builder: (_) => const ShowTaskDetails());
     }
     return null;
   }

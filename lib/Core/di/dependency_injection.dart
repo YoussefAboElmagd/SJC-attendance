@@ -7,6 +7,8 @@ import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
 import 'package:madarj/Feature/all_works/data/repo/all_work_repo.dart';
 import 'package:madarj/Feature/all_works/logic/cubit/all_work_cubit.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/apis/show_expenses_details_service.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/data/repo/get_expense_details_repo.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
 import 'package:madarj/Feature/expenses/expnses_details/data/repo/expenses_repo.dart';
@@ -17,6 +19,9 @@ import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_
 import 'package:madarj/Feature/home/apis/home_services.dart';
 import 'package:madarj/Feature/home/data/repo/home_repo.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
+import 'package:madarj/Feature/leave/leave_details/apis/leave_details_service.dart';
+import 'package:madarj/Feature/leave/leave_details/data/repo/leave_details_repo.dart';
+import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/send_leave/apis/send_leave_service.dart';
 import 'package:madarj/Feature/leave/send_leave/data/repo/send_leave_repo.dart';
 import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
@@ -66,6 +71,11 @@ Future<void> setGetIt() async {
   getIt.registerLazySingleton<SendLeaveRepo>(() => SendLeaveRepo(getIt()));
   getIt.registerFactory<SendLeaveCubit>(() => SendLeaveCubit(getIt()));
 
+  // send leave
+  getIt.registerLazySingleton<LeaveDetailsService>(() => LeaveDetailsService(dio));
+  getIt.registerLazySingleton<LeaveDetailsRepo>(() => LeaveDetailsRepo(getIt()));
+  getIt.registerFactory<LeaveDetailsCubit>(() => LeaveDetailsCubit(getIt()));
+
   // Send Tasks
   getIt.registerLazySingleton<SendTasksService>(() => SendTasksService(dio));
   getIt.registerLazySingleton<SendTaskRepo>(() => SendTaskRepo(getIt()));
@@ -74,6 +84,11 @@ Future<void> setGetIt() async {
   // ShowTaskDetailsCubit
   getIt.registerFactory<ShowTaskDetailsCubit>(() => ShowTaskDetailsCubit());
 
-
-  getIt.registerFactory<ExpensesDetailsCubit>(() => ExpensesDetailsCubit());
+  getIt.registerLazySingleton<ShowExpensesDetailsService>(
+      () => ShowExpensesDetailsService(dio));
+  getIt.registerLazySingleton<GetExpenseDetailsRepo>(
+      () => GetExpenseDetailsRepo(getIt()));
+  getIt.registerFactory<ExpensesDetailsCubit>(() => ExpensesDetailsCubit(
+        getIt(),
+      ));
 }

@@ -33,7 +33,6 @@ class ClockInTopHeader extends StatelessWidget {
                   ),
                   Text(
                     S.of(context).Dont_miss_your_clock_in_schedule,
-                    // "Don’t miss your clock in schedule",
                     style: TextStyles.font14GreyRegular.copyWith(
                       color: const Color.fromRGBO(217, 214, 254, 1),
                     ),

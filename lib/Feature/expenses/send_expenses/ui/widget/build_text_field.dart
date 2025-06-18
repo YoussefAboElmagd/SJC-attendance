@@ -14,7 +14,7 @@ class BuildTextField extends StatelessWidget {
     this.icon,
     this.maxLines,
     this.keyboardType,
-    this.controller,
+    this.controller, this.validator,
   });
   final String? label;
   final String? hint;
@@ -22,7 +22,7 @@ class BuildTextField extends StatelessWidget {
   final int? maxLines;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
-
+  final Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +34,7 @@ class BuildTextField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         AppTextFormField(
-          validator: (val) {
+          validator:validator?? (val) {
             if (val.isNotEmptyOrNull()) {
               return "$label ${S.of(context).mustnot_be_empty}";
             }

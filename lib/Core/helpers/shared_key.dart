@@ -4,4 +4,5 @@ class SharedKeys {
   static String reqId = "reqId";
   static String isLogged = "isLogged";
   static String clockUser = "Clock-In";
+  static String fcmToken = "fcmToken";
 }

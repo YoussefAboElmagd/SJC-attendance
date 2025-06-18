@@ -50,6 +50,46 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Attendance`
+  String get Attendance {
+    return Intl.message(
+      'Attendance',
+      name: 'Attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasks`
+  String get Tasks {
+    return Intl.message(
+      'Tasks',
+      name: 'Tasks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get Expense {
+    return Intl.message(
+      'Expense',
+      name: 'Expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leaves`
+  String get Leave {
+    return Intl.message(
+      'Leaves',
+      name: 'Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Don’t have an account ?`
   String get Dont_have_an_account {
     return Intl.message(
@@ -1717,6 +1757,66 @@ class S {
     return Intl.message(
       'Successfully sent expenses',
       name: 'Successfully_sent_expenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get Expense_text {
+    return Intl.message(
+      'Expense',
+      name: 'Expense_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Expense`
+  String get No_Expense {
+    return Intl.message(
+      'No Expense',
+      name: 'No_Expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It looks like you dont have any expense approved. Dont worry, this space will be updated as`
+  String get It_looks_like_you_have_any_expense {
+    return Intl.message(
+      'It looks like you dont have any expense approved. Dont worry, this space will be updated as',
+      name: 'It_looks_like_you_have_any_expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `there is no description`
+  String get there_is_no_description {
+    return Intl.message(
+      'there is no description',
+      name: 'there_is_no_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses description`
+  String get Expenses_description {
+    return Intl.message(
+      'Expenses description',
+      name: 'Expenses_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you should edit at least one`
+  String get you_should_edit_at_least_one {
+    return Intl.message(
+      'you should edit at least one',
+      name: 'you_should_edit_at_least_one',
       desc: '',
       args: [],
     );

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:madarj/Core/di/dependency_injection.dart';
-// import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/Feature/home/ui/widgets/clock_in_screen_body.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
 import 'package:intl/intl.dart';
@@ -70,7 +71,12 @@ class DailyLogCard extends StatelessWidget {
                       ),
                       SizedBox(height: 4.h),
                       Text(
-                        workDayEntry.workedHours!.replaceAll("and", "&"),
+                        ApplicationCubit.get(context).isArabic
+                            ? workDayEntry.workedHours!
+                                .replaceAll("and", "&")
+                                .replaceAll("Hrs", "س")
+                                .replaceAll("Mins", "دق")
+                            : workDayEntry.workedHours!.replaceAll("and", "&"),
                         // hours,
                         style: TextStyles.font14BlackSemiBold,
                       ),
@@ -91,9 +97,11 @@ class DailyLogCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 4.h),
+                      SizedBox(
+                        height: 4.h,
+                      ),
                       Text(
-                        "${workDayEntry.checkIn ?? S.of(context).No_checkIn} - ${workDayEntry.checkOut ?? S.of(context).No_checkout}", // .replaceFirst("and", "\\"),
+                        "${workDayEntry.checkIn == null ? S.of(context).No_checkIn : ApplicationCubit.get(context).isArabic ? workDayEntry.checkIn!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkIn!} - ${workDayEntry.checkOut == null ? S.of(context).No_checkout : ApplicationCubit.get(context).isArabic ? workDayEntry.checkOut!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkOut!}",
                         style: TextStyles.font14BlackSemiBold,
                       ),
                     ],

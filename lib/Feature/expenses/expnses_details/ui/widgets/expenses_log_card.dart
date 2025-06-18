@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,23 +6,23 @@ import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/app_button.dart';
+import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_model.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class ExpensesLogCard extends StatelessWidget {
-  // final TodayWorkDayEntry workDayEntry;
-
   const ExpensesLogCard({
     super.key,
     this.isApproved,
     this.rejected,
     this.pending,
     this.isNew,
-    // required this.workDayEntry,
+    this.data,
   });
   final bool? isApproved;
   final bool? rejected;
   final bool? pending;
   final bool? isNew;
+  final ExpenseData? data;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class ExpensesLogCard extends StatelessWidget {
                   width: 4,
                 ),
                 Text(
-                  "${DateTime.now().day} ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}",
+                  "${data!.date}",
                   style: TextStyles.font14BlackSemiBold,
                 ),
                 const Spacer(),
@@ -79,7 +78,13 @@ class ExpensesLogCard extends StatelessWidget {
                         backgroundColor: ColorsManager.mainColor1,
                         textStyle: TextStyles.font14WhiteSemiBold,
                         onPressed: () {
-                          context.pushNamed(Routes.sendExpenses);
+                          context.pushNamed(
+                            Routes.sendExpenses,
+                            arguments: {
+                              "update": true,
+                              "id": data!.id,
+                            },
+                          );
                         },
                         hintText: "Edit",
                       )
@@ -101,7 +106,7 @@ class ExpensesLogCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        S.of(context).Total_Hours,
+                        S.of(context).Request_type,
                         style: TextStyles.font14BlackSemiBold.copyWith(
                           fontSize: 12.sp,
                           color: const Color.fromRGBO(
@@ -114,8 +119,7 @@ class ExpensesLogCard extends StatelessWidget {
                       ),
                       SizedBox(height: 4.h),
                       Text(
-                        // workDayEntry.workedHours!.replaceAll("and", "&"),
-                        "E-Learning",
+                        "${data!.name}",
                         style: TextStyles.font14BlackSemiBold,
                       ),
                     ],
@@ -137,8 +141,7 @@ class ExpensesLogCard extends StatelessWidget {
                       ),
                       SizedBox(height: 4.h),
                       Text(
-                        "\$55",
-                        // "${workDayEntry.checkIn ?? S.of(context).No_checkIn} - ${workDayEntry.checkOut ?? S.of(context).No_checkout}", // .replaceFirst("and", "\\"),
+                        "${data!.totalAmount}\$",
                         style: TextStyles.font14BlackSemiBold,
                       ),
                     ],

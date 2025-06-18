@@ -15,7 +15,6 @@ class Leave extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsManager.mainGray,
       body: const LeaveBody(),
-      // bottomNavigationBar:
     );
   }
 }
@@ -27,8 +26,6 @@ class BottomLeaveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color.fromARGB(0, 0, 0, 0),
-
-      // color: ColorsManager.white,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(

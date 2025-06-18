@@ -36,9 +36,13 @@ mixin _$SendExpensesState<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,9 +65,12 @@ mixin _$SendExpensesState<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,9 +93,12 @@ mixin _$SendExpensesState<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,11 +127,14 @@ mixin _$SendExpensesState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -147,9 +160,12 @@ mixin _$SendExpensesState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -174,9 +190,12 @@ mixin _$SendExpensesState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -257,9 +276,13 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return initial();
   }
@@ -285,9 +308,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return initial?.call();
   }
@@ -313,9 +339,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -350,11 +379,14 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return initial(this);
   }
@@ -383,9 +415,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return initial?.call(this);
   }
@@ -413,9 +448,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -517,9 +555,13 @@ class _$ChangeDragDownHintSuccessImpl<T>
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return changeDragDownHintSuccess(text);
   }
@@ -545,9 +587,12 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return changeDragDownHintSuccess?.call(text);
   }
@@ -573,9 +618,12 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (changeDragDownHintSuccess != null) {
@@ -610,11 +658,14 @@ class _$ChangeDragDownHintSuccessImpl<T>
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return changeDragDownHintSuccess(this);
   }
@@ -643,9 +694,12 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return changeDragDownHintSuccess?.call(this);
   }
@@ -673,9 +727,12 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (changeDragDownHintSuccess != null) {
@@ -756,9 +813,13 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return fileSelectionInProgress();
   }
@@ -784,9 +845,12 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return fileSelectionInProgress?.call();
   }
@@ -812,9 +876,12 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionInProgress != null) {
@@ -849,11 +916,14 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return fileSelectionInProgress(this);
   }
@@ -882,9 +952,12 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return fileSelectionInProgress?.call(this);
   }
@@ -912,9 +985,12 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionInProgress != null) {
@@ -1011,9 +1087,13 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return fileSelected(file);
   }
@@ -1039,9 +1119,12 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return fileSelected?.call(file);
   }
@@ -1067,9 +1150,12 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelected != null) {
@@ -1104,11 +1190,14 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return fileSelected(this);
   }
@@ -1137,9 +1226,12 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return fileSelected?.call(this);
   }
@@ -1167,9 +1259,12 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelected != null) {
@@ -1248,9 +1343,13 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return fileSelectionCancelled();
   }
@@ -1276,9 +1375,12 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return fileSelectionCancelled?.call();
   }
@@ -1304,9 +1406,12 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionCancelled != null) {
@@ -1341,11 +1446,14 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return fileSelectionCancelled(this);
   }
@@ -1374,9 +1482,12 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return fileSelectionCancelled?.call(this);
   }
@@ -1404,9 +1515,12 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionCancelled != null) {
@@ -1504,9 +1618,13 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return fileSelectionError(message);
   }
@@ -1532,9 +1650,12 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return fileSelectionError?.call(message);
   }
@@ -1560,9 +1681,12 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionError != null) {
@@ -1597,11 +1721,14 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return fileSelectionError(this);
   }
@@ -1630,9 +1757,12 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return fileSelectionError?.call(this);
   }
@@ -1660,9 +1790,12 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileSelectionError != null) {
@@ -1766,9 +1899,13 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return fileValidationError(message);
   }
@@ -1794,9 +1931,12 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return fileValidationError?.call(message);
   }
@@ -1822,9 +1962,12 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileValidationError != null) {
@@ -1859,11 +2002,14 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return fileValidationError(this);
   }
@@ -1892,9 +2038,12 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return fileValidationError?.call(this);
   }
@@ -1922,9 +2071,12 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (fileValidationError != null) {
@@ -2000,9 +2152,13 @@ class _$UploadingImpl<T> implements Uploading<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return uploading();
   }
@@ -2028,9 +2184,12 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return uploading?.call();
   }
@@ -2056,9 +2215,12 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploading != null) {
@@ -2093,11 +2255,14 @@ class _$UploadingImpl<T> implements Uploading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return uploading(this);
   }
@@ -2126,9 +2291,12 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return uploading?.call(this);
   }
@@ -2156,9 +2324,12 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploading != null) {
@@ -2255,9 +2426,13 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return uploadSuccess(file);
   }
@@ -2283,9 +2458,12 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return uploadSuccess?.call(file);
   }
@@ -2311,9 +2489,12 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -2348,11 +2529,14 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return uploadSuccess(this);
   }
@@ -2381,9 +2565,12 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return uploadSuccess?.call(this);
   }
@@ -2411,9 +2598,12 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -2515,9 +2705,13 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return uploadError(message);
   }
@@ -2543,9 +2737,12 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return uploadError?.call(message);
   }
@@ -2571,9 +2768,12 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -2608,11 +2808,14 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return uploadError(this);
   }
@@ -2641,9 +2844,12 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return uploadError?.call(this);
   }
@@ -2671,9 +2877,12 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -2784,9 +2993,13 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return multipleFilesSelected(files);
   }
@@ -2812,9 +3025,12 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return multipleFilesSelected?.call(files);
   }
@@ -2840,9 +3056,12 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (multipleFilesSelected != null) {
@@ -2877,11 +3096,14 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return multipleFilesSelected(this);
   }
@@ -2910,9 +3132,12 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return multipleFilesSelected?.call(this);
   }
@@ -2940,9 +3165,12 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (multipleFilesSelected != null) {
@@ -3046,9 +3274,13 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return uploadProgress(progress);
   }
@@ -3074,9 +3306,12 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return uploadProgress?.call(progress);
   }
@@ -3102,9 +3337,12 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadProgress != null) {
@@ -3139,11 +3377,14 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return uploadProgress(this);
   }
@@ -3172,9 +3413,12 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return uploadProgress?.call(this);
   }
@@ -3202,9 +3446,12 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (uploadProgress != null) {
@@ -3311,9 +3558,13 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return removeFile(files);
   }
@@ -3339,9 +3590,12 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return removeFile?.call(files);
   }
@@ -3367,9 +3621,12 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (removeFile != null) {
@@ -3404,11 +3661,14 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return removeFile(this);
   }
@@ -3437,9 +3697,12 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return removeFile?.call(this);
   }
@@ -3467,9 +3730,12 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (removeFile != null) {
@@ -3545,9 +3811,13 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return permissionDenied();
   }
@@ -3573,9 +3843,12 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return permissionDenied?.call();
   }
@@ -3601,9 +3874,12 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -3638,11 +3914,14 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return permissionDenied(this);
   }
@@ -3671,9 +3950,12 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return permissionDenied?.call(this);
   }
@@ -3701,9 +3983,12 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -3778,9 +4063,13 @@ class _$PermissionPermanentlyDeniedImpl<T>
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return permissionPermanentlyDenied();
   }
@@ -3806,9 +4095,12 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return permissionPermanentlyDenied?.call();
   }
@@ -3834,9 +4126,12 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (permissionPermanentlyDenied != null) {
@@ -3871,11 +4166,14 @@ class _$PermissionPermanentlyDeniedImpl<T>
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return permissionPermanentlyDenied(this);
   }
@@ -3904,9 +4202,12 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return permissionPermanentlyDenied?.call(this);
   }
@@ -3934,9 +4235,12 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (permissionPermanentlyDenied != null) {
@@ -4007,9 +4311,13 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return loading();
   }
@@ -4035,9 +4343,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return loading?.call();
   }
@@ -4063,9 +4374,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -4100,11 +4414,14 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return loading(this);
   }
@@ -4133,9 +4450,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return loading?.call(this);
   }
@@ -4163,9 +4483,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -4261,9 +4584,13 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return error(this.error);
   }
@@ -4289,9 +4616,12 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return error?.call(this.error);
   }
@@ -4317,9 +4647,12 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -4354,11 +4687,14 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return error(this);
   }
@@ -4387,9 +4723,12 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return error?.call(this);
   }
@@ -4417,9 +4756,12 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -4535,9 +4877,13 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return combinedSuccess(requestType, categories);
   }
@@ -4563,9 +4909,12 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return combinedSuccess?.call(requestType, categories);
   }
@@ -4591,9 +4940,12 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (combinedSuccess != null) {
@@ -4628,11 +4980,14 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return combinedSuccess(this);
   }
@@ -4661,9 +5016,12 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return combinedSuccess?.call(this);
   }
@@ -4691,9 +5049,12 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (combinedSuccess != null) {
@@ -4713,6 +5074,323 @@ abstract class CombinedSuccess<T> implements SendExpensesState<T> {
   @JsonKey(ignore: true)
   _$$CombinedSuccessImplCopyWith<T, _$CombinedSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CombinedSuccessForUpdateImplCopyWith<T, $Res> {
+  factory _$$CombinedSuccessForUpdateImplCopyWith(
+          _$CombinedSuccessForUpdateImpl<T> value,
+          $Res Function(_$CombinedSuccessForUpdateImpl<T>) then) =
+      __$$CombinedSuccessForUpdateImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T requestType, T categories, T expenseDetailsResult});
+}
+
+/// @nodoc
+class __$$CombinedSuccessForUpdateImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$CombinedSuccessForUpdateImpl<T>>
+    implements _$$CombinedSuccessForUpdateImplCopyWith<T, $Res> {
+  __$$CombinedSuccessForUpdateImplCopyWithImpl(
+      _$CombinedSuccessForUpdateImpl<T> _value,
+      $Res Function(_$CombinedSuccessForUpdateImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestType = freezed,
+    Object? categories = freezed,
+    Object? expenseDetailsResult = freezed,
+  }) {
+    return _then(_$CombinedSuccessForUpdateImpl<T>(
+      requestType: freezed == requestType
+          ? _value.requestType
+          : requestType // ignore: cast_nullable_to_non_nullable
+              as T,
+      categories: freezed == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as T,
+      expenseDetailsResult: freezed == expenseDetailsResult
+          ? _value.expenseDetailsResult
+          : expenseDetailsResult // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
+  const _$CombinedSuccessForUpdateImpl(
+      {required this.requestType,
+      required this.categories,
+      required this.expenseDetailsResult});
+
+  @override
+  final T requestType;
+  @override
+  final T categories;
+  @override
+  final T expenseDetailsResult;
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.combinedSuccessForUpdate(requestType: $requestType, categories: $categories, expenseDetailsResult: $expenseDetailsResult)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CombinedSuccessForUpdateImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.requestType, requestType) &&
+            const DeepCollectionEquality()
+                .equals(other.categories, categories) &&
+            const DeepCollectionEquality()
+                .equals(other.expenseDetailsResult, expenseDetailsResult));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(requestType),
+      const DeepCollectionEquality().hash(categories),
+      const DeepCollectionEquality().hash(expenseDetailsResult));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CombinedSuccessForUpdateImplCopyWith<T, _$CombinedSuccessForUpdateImpl<T>>
+      get copyWith => __$$CombinedSuccessForUpdateImplCopyWithImpl<T,
+          _$CombinedSuccessForUpdateImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
+  }) {
+    return combinedSuccessForUpdate(
+        requestType, categories, expenseDetailsResult);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
+  }) {
+    return combinedSuccessForUpdate?.call(
+        requestType, categories, expenseDetailsResult);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (combinedSuccessForUpdate != null) {
+      return combinedSuccessForUpdate(
+          requestType, categories, expenseDetailsResult);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
+  }) {
+    return combinedSuccessForUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+  }) {
+    return combinedSuccessForUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (combinedSuccessForUpdate != null) {
+      return combinedSuccessForUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CombinedSuccessForUpdate<T> implements SendExpensesState<T> {
+  const factory CombinedSuccessForUpdate(
+          {required final T requestType,
+          required final T categories,
+          required final T expenseDetailsResult}) =
+      _$CombinedSuccessForUpdateImpl<T>;
+
+  T get requestType;
+  T get categories;
+  T get expenseDetailsResult;
+  @JsonKey(ignore: true)
+  _$$CombinedSuccessForUpdateImplCopyWith<T, _$CombinedSuccessForUpdateImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4775,9 +5453,13 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return createExpensesLoading();
   }
@@ -4803,9 +5485,12 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return createExpensesLoading?.call();
   }
@@ -4831,9 +5516,12 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesLoading != null) {
@@ -4868,11 +5556,14 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return createExpensesLoading(this);
   }
@@ -4901,9 +5592,12 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return createExpensesLoading?.call(this);
   }
@@ -4931,9 +5625,12 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesLoading != null) {
@@ -5034,9 +5731,13 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return createExpensesSuccess(response);
   }
@@ -5062,9 +5763,12 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return createExpensesSuccess?.call(response);
   }
@@ -5090,9 +5794,12 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesSuccess != null) {
@@ -5127,11 +5834,14 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return createExpensesSuccess(this);
   }
@@ -5160,9 +5870,12 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return createExpensesSuccess?.call(this);
   }
@@ -5190,9 +5903,12 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesSuccess != null) {
@@ -5296,9 +6012,13 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
     required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
     required TResult Function() createExpensesLoading,
     required TResult Function(T response) createExpensesSuccess,
     required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
   }) {
     return createExpensesError(this.error);
   }
@@ -5324,9 +6044,12 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
     TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult? Function()? createExpensesLoading,
     TResult? Function(T response)? createExpensesSuccess,
     TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
   }) {
     return createExpensesError?.call(this.error);
   }
@@ -5352,9 +6075,12 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
     TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
     TResult Function()? createExpensesLoading,
     TResult Function(T response)? createExpensesSuccess,
     TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesError != null) {
@@ -5389,11 +6115,14 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Error<T> value) error,
     required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
     required TResult Function(CreateExpensesLoading<T> value)
         createExpensesLoading,
     required TResult Function(CreateExpensesSuccess<T> value)
         createExpensesSuccess,
     required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
   }) {
     return createExpensesError(this);
   }
@@ -5422,9 +6151,12 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Error<T> value)? error,
     TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
   }) {
     return createExpensesError?.call(this);
   }
@@ -5452,9 +6184,12 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Error<T> value)? error,
     TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
     TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
     TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
     TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
     required TResult orElse(),
   }) {
     if (createExpensesError != null) {
@@ -5472,4 +6207,253 @@ abstract class CreateExpensesError<T> implements SendExpensesState<T> {
   @JsonKey(ignore: true)
   _$$CreateExpensesErrorImplCopyWith<T, _$CreateExpensesErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorChooseDragDropImplCopyWith<T, $Res> {
+  factory _$$ErrorChooseDragDropImplCopyWith(_$ErrorChooseDragDropImpl<T> value,
+          $Res Function(_$ErrorChooseDragDropImpl<T>) then) =
+      __$$ErrorChooseDragDropImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ErrorChooseDragDropImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$ErrorChooseDragDropImpl<T>>
+    implements _$$ErrorChooseDragDropImplCopyWith<T, $Res> {
+  __$$ErrorChooseDragDropImplCopyWithImpl(_$ErrorChooseDragDropImpl<T> _value,
+      $Res Function(_$ErrorChooseDragDropImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
+  const _$ErrorChooseDragDropImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.errorChooseDragDrop()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorChooseDragDropImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
+  }) {
+    return errorChooseDragDrop();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
+  }) {
+    return errorChooseDragDrop?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (errorChooseDragDrop != null) {
+      return errorChooseDragDrop();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
+  }) {
+    return errorChooseDragDrop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+  }) {
+    return errorChooseDragDrop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (errorChooseDragDrop != null) {
+      return errorChooseDragDrop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorChooseDragDrop<T> implements SendExpensesState<T> {
+  const factory ErrorChooseDragDrop() = _$ErrorChooseDragDropImpl<T>;
 }

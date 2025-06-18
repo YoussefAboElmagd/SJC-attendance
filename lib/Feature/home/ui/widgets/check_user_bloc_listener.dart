@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/home/data/model/notification_request.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_state.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -61,14 +65,7 @@ class CheckUserBlocListener extends StatelessWidget {
                 actions: [
                   TextButton(
                     onPressed: () {
-                      // context.pop();
-                      // Navigator.of(context).pop();
-                      // context.read<HomeCubit>().getAllHome2();
                       Navigator.of(context).pop();
-
-                      // context.pushNamed(Routes.homeScreen);
-
-                      // context.pushReplacementNamed(Routes.loginScreen);
                     },
                     child: Text(
                       'got it',
@@ -78,9 +75,17 @@ class CheckUserBlocListener extends StatelessWidget {
                 ],
               ),
             );
+            context.read<HomeCubit>().sendToken(NotificationRequest(
+                  fcmToken: CachHelper.getData(
+                        key: SharedKeys.fcmToken,
+                      ) ??
+                      AppConstants.fcmToken ??
+                      "",
+                ));
           },
           checkUserError: (error) {
             context.pop();
+
             setUpErrorState(context, error);
           },
         );

@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Approved_Text": MessageLookupByLibrary.simpleMessage("مقبول"),
         "Assign_To": MessageLookupByLibrary.simpleMessage("تعيين إلى"),
         "Attachment_text": MessageLookupByLibrary.simpleMessage("مرفق"),
+        "Attendance": MessageLookupByLibrary.simpleMessage("الحضور"),
         "Authenticate_button": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "Authentication_Failed":
             MessageLookupByLibrary.simpleMessage("فشل التحقق"),
@@ -85,16 +86,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أدخل عنوان المهمة"),
         "Enter_Transaction_Date":
             MessageLookupByLibrary.simpleMessage("أدخل تاريخ المعاملة"),
+        "Expense": MessageLookupByLibrary.simpleMessage("المصروفات"),
         "Expense_Amount": MessageLookupByLibrary.simpleMessage("قيمة المصروف"),
         "Expense_Category": MessageLookupByLibrary.simpleMessage("فئة المصروف"),
         "Expense_Description":
             MessageLookupByLibrary.simpleMessage("وصف المصروف"),
         "Expense_Summary":
             MessageLookupByLibrary.simpleMessage("ملخص المصروفات"),
+        "Expense_text": MessageLookupByLibrary.simpleMessage("مصروف"),
         "Expenses_Details":
             MessageLookupByLibrary.simpleMessage("تفاصيل المصروفات"),
         "Expenses_approved_text": MessageLookupByLibrary.simpleMessage(
             "أكثر من 1000 مصروف تمت الموافقة عليها بالفعل"),
+        "Expenses_description":
+            MessageLookupByLibrary.simpleMessage("وصف المصروف"),
         "Fill_Claim_Information":
             MessageLookupByLibrary.simpleMessage("املأ معلومات المطالبة"),
         "Fill_Leave_Information":
@@ -113,7 +118,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("معلومات عن تفاصيل المطالبة"),
         "Information_leave_details":
             MessageLookupByLibrary.simpleMessage("معلومات عن تفاصيل الإجازة"),
+        "It_looks_like_you_have_any_expense": MessageLookupByLibrary.simpleMessage(
+            "يبدو أنه ليس لديك أي مصروفات معتمدة بعد. لا تقلق، سيتم تحديث هذه المساحة عند إضافة "),
         "Language_text": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "Leave": MessageLookupByLibrary.simpleMessage("الاجازات"),
         "Leave_Category": MessageLookupByLibrary.simpleMessage("فئة الإجازة"),
         "Leave_Date": MessageLookupByLibrary.simpleMessage("تاريخ الإجازة"),
         "Leave_Description":
@@ -136,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Locked_Out": MessageLookupByLibrary.simpleMessage("تم القفل"),
         "Login_button": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "Login_text": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "No_Expense": MessageLookupByLibrary.simpleMessage("لا يوجد مصروفات"),
         "No_Leave_Submitted":
             MessageLookupByLibrary.simpleMessage("لم يتم تقديم أي إجازة!"),
         "No_checkIn": MessageLookupByLibrary.simpleMessage("لا يوجد"),
@@ -187,6 +196,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Task_Delegation": MessageLookupByLibrary.simpleMessage("تفويض المهام"),
         "Task_Description": MessageLookupByLibrary.simpleMessage("وصف المهمة"),
         "Task_Title": MessageLookupByLibrary.simpleMessage("عنوان المهمة"),
+        "Tasks": MessageLookupByLibrary.simpleMessage("التاسكات"),
         "To_Do": MessageLookupByLibrary.simpleMessage("للقيام"),
         "Today": MessageLookupByLibrary.simpleMessage("اليوم"),
         "Today_schedule": MessageLookupByLibrary.simpleMessage("جدول اليوم"),
@@ -279,10 +289,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابي"),
         "sign_text": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "there_is_no_description":
+            MessageLookupByLibrary.simpleMessage("لا يوجد وصف للمصروف"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("عرض عمل الشهر"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),
         "working_time_text": MessageLookupByLibrary.simpleMessage(
-            "وقت عملك خلال هذه الفترة المدفوعة")
+            "وقت عملك خلال هذه الفترة المدفوعة"),
+        "you_should_edit_at_least_one": MessageLookupByLibrary.simpleMessage(
+            "يجب ان تقوم بتعديل واحد منهم علي الاقل")
       };
 }

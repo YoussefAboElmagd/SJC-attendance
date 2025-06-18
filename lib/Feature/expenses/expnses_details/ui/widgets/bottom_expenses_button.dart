@@ -13,8 +13,6 @@ class BottomExpensesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-
-      // color: ColorsManager.white,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(

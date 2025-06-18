@@ -25,21 +25,28 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName")
 if (flutterVersionName == null) {
     flutterVersionName = "1.0"
 }
-
+// val keystoreProperties = Properties()
+// val keystorePropertiesFile = rootProject.file("key.properties")
+// if (keystorePropertiesFile.exists()) {
+//     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+// }
 android {
     namespace = "com.sjc.mdarj"
-    compileSdk = 34
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 35
+    // ndkVersion = "26.3.11579264"
+    ndkVersion "29.0.13599879"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled = true
+
     }
 
     defaultConfig {
         applicationId = "com.sjc.mdarj"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         multiDexEnabled true
 
         versionCode = flutterVersionCode.toInteger()
@@ -48,9 +55,21 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "upload"
+            keyPassword = "sjcinternalMdarj123123123joe"
+            storeFile = file('upload-keystore.jks')
+            storePassword = "sjcinternalMdarj123123123joe"
+        }
+    }
+
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            signingConfig = signingConfigs.release
         }
     }
 }
@@ -61,4 +80,8 @@ flutter {
 // Add this at the bottom of the file:
 kotlin {
     jvmToolchain(17)
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
 }

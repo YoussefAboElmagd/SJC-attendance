@@ -21,6 +21,7 @@ flutter run --release -t lib/main.dart
 
 flutter build apk -t lib/main.dart
 flutter build apk --release --split-per-abi
+flutter build appbundle -t lib/main.dart
 
 dart pub global activate flutterfire_cli
 flutterfire configure
@@ -68,3 +69,10 @@ put the attribute in the constructor
 add firebase_core pack
  
  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+
+
+keytool -genkey -v -keystore D:\work\madarj\android\app\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+
+
+
+

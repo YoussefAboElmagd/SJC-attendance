@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Feature/home/ui/widgets/check_user_bloc_listener.dart';
-// import 'package:madarj/Feature/home/ui/widgets/clock_in.dart';
 import 'package:madarj/Feature/home/ui/widgets/clock_in_top_header.dart';
-// import 'package:madarj/Feature/home/ui/widgets/list_of_checks.dart';
 import 'package:madarj/Feature/home/ui/widgets/period_and_total_hours_builder.dart';
 
 class ClockInScreenContent extends StatelessWidget {
@@ -23,8 +21,6 @@ class ClockInScreenContent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PeriodAndTotalHoursBuilder(),
-                // ClockIn(),
-                // ListOfchecks(),
                 CheckUserBlocListener(),
               ],
             ),
