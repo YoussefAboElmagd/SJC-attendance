@@ -4,6 +4,7 @@ import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/home/ui/widgets/home_top_icons.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
@@ -14,7 +15,15 @@ class Leave extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsManager.mainGray,
-      body: const LeaveBody(),
+      body: Stack(
+        children: [
+          const LeaveBody(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 40.h),
+            child: const HomeTopIcons(),
+          ),
+        ],
+      ),
     );
   }
 }

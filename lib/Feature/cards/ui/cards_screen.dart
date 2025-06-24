@@ -22,7 +22,7 @@ class CardsScreen extends StatelessWidget {
         SystemNavigator.pop();
         return false;
       },
-      child:  Scaffold(
+      child:  const Scaffold(
         body: CardsBody(),
       ),
     );

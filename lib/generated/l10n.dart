@@ -1822,6 +1822,36 @@ class S {
     );
   }
 
+  /// `Select`
+  String get select_choice {
+    return Intl.message(
+      'Select',
+      name: 'select_choice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reason`
+  String get reason_text {
+    return Intl.message(
+      'reason',
+      name: 'reason_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `there is no amout`
+  String get there_is_no_amout {
+    return Intl.message(
+      'there is no amout',
+      name: 'there_is_no_amout',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

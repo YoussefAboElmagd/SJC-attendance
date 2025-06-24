@@ -176,5 +176,8 @@
   "Successfully_sent_expenses": "تم ارسال المصروف بنجاح",
   "there_is_no_description": "لا يوجد وصف للمصروف",
   "you_should_edit_at_least_one": "يجب ان تقوم بتعديل واحد منهم علي الاقل",
-  "Expenses_description": "وصف المصروف"
+  "Expenses_description": "وصف المصروف",
+  "select_choice": "تاكيد الاختيار",
+  "reason_text": "سبب الرفض"
+  ,"there_is_no_amout":"لا يوجد مبلغ"
 }

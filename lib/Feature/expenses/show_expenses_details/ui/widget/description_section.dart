@@ -26,10 +26,24 @@ class DescriptionSection extends StatelessWidget {
         Text(S.of(context).amount, style: TextStyles.font14BlackSemiBold),
         SizedBox(height: 4.h),
         Text(
-          data!.data!.totalAmount.toString() ??
-              S.of(context).there_is_no_description,
+          data!.data!.totalAmount.toString() ?? S.of(context).there_is_no_amout,
           style: TextStyles.font14GreySemiBold,
         ),
+        SizedBox(height: 10.h),
+        data!.data!.rejectReason != ""
+            ? Text(
+                S.of(context).reason_text,
+                style: TextStyles.font14BlackSemiBold,
+              )
+            : const SizedBox.shrink(),
+        SizedBox(height: 4.h),
+        data!.data!.rejectReason != ""
+            ? Text(
+                data!.data!.rejectReason.toString() ??
+                    S.of(context).there_is_no_description,
+                style: TextStyles.font14GreySemiBold,
+              )
+            : const SizedBox.shrink(),
       ],
     );
   }

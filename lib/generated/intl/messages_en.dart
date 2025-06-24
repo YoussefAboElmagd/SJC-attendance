@@ -287,6 +287,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Permission denied"),
         "permission_permanently_denied": MessageLookupByLibrary.simpleMessage(
             "permission permanently denied"),
+        "reason_text": MessageLookupByLibrary.simpleMessage("reason"),
+        "select_choice": MessageLookupByLibrary.simpleMessage("Select"),
         "select_file_type":
             MessageLookupByLibrary.simpleMessage("Select file type"),
         "selected_text": MessageLookupByLibrary.simpleMessage("Selected"),
@@ -296,6 +298,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in to my account"),
         "sign_text": MessageLookupByLibrary.simpleMessage("Sign In"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "there_is_no_amout":
+            MessageLookupByLibrary.simpleMessage("there is no amout"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("there is no description"),
         "view_month_work":

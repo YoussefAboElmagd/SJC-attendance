@@ -54,7 +54,14 @@ class ExpensesForms extends StatelessWidget {
                 mapDrop: requests.requestTypes,
                 controller: context.read<SendExpensesCubit>().departmentText,
                 label: S.of(context).Department_text,
-                hint: update == true
+                hint:
+                    update == true &&
+                        (context
+                                .read<SendExpensesCubit>()
+                                .departmentText
+                                ?.text
+                                .isEmpty ??
+                            true)
                     ? expenseDetail!.data!.requestName.toString()
                     : context
                               .read<SendExpensesCubit>()
@@ -65,9 +72,7 @@ class ExpensesForms extends StatelessWidget {
                     ? S.of(context).Enter_Department
                     : context.read<SendExpensesCubit>().departmentText!.text,
                 icon: "assets/svgs/summary-expenses(1).svg",
-                errorText: context
-                    .read<SendExpensesCubit>()
-                    .departmentError, // Add error text
+                errorText: context.read<SendExpensesCubit>().departmentError,
               ),
               SizedBox(height: 16.h),
               BuildDropdown(
@@ -75,7 +80,14 @@ class ExpensesForms extends StatelessWidget {
                 mapDrop: categories.categories,
                 controller: context.read<SendExpensesCubit>().selectRequestType,
                 label: S.of(context).Select_Request_type,
-                hint: update == true
+                hint:
+                    update == true &&
+                        (context
+                                .read<SendExpensesCubit>()
+                                .selectRequestType
+                                ?.text
+                                .isEmpty ??
+                            true)
                     ? expenseDetail!.data!.categoryName.toString()
                     : context
                               .read<SendExpensesCubit>()
@@ -94,10 +106,31 @@ class ExpensesForms extends StatelessWidget {
                     .read<SendExpensesCubit>()
                     .expensesDescription,
                 label: S.of(context).Expense_Description,
-                hint: S.of(context).Enter_Expense_Description,
+                hint:
+                    update == true &&
+                        (context
+                                .read<SendExpensesCubit>()
+                                .expensesDescription
+                                ?.text
+                                .isEmpty ??
+                            true)
+                    ? expenseDetail!.data!.description.toString()
+                    : S.of(context).Enter_Expense_Description,
                 icon: null,
                 maxLines: 3,
               ),
+              SizedBox(height: 16.h),
+              // BuildTextField(
+              //   controller: context
+              //       .read<SendExpensesCubit>()
+              //       .expensesDescription,
+              //   label: S.of(context).Expense_Description,
+              //   hint: update == true
+              //       ? expenseDetail!.data!.description.toString()
+              //       : S.of(context).Enter_Expense_Description,
+              //   icon: null,
+              //   maxLines: 3,
+              // ),
             ],
           ),
         );

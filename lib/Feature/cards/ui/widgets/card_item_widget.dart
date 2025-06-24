@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/styles.dart';
 
@@ -23,21 +22,9 @@ class CardItemWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            image,
-            height: 100.h,
-            width: 100.h,
-          ),
-          // SvgPicture.asset(
-          //   image,
-          //   // height: 100.h,
-          //   // width: 100.h,
-          // ),
+          Image.asset(image, height: 100.h, width: 100.h),
           SizedBox(height: 10.h),
-          Text(
-            title,
-            style: TextStyles.font16BlackSemiBold,
-          ),
+          Text(title, style: TextStyles.font16BlackSemiBold),
         ],
       ),
     );

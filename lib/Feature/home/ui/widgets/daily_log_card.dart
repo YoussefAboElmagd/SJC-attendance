@@ -10,21 +10,14 @@ import 'package:madarj/generated/l10n.dart';
 class DailyLogCard extends StatelessWidget {
   final TodayWorkDayEntry workDayEntry;
 
-  const DailyLogCard({
-    super.key,
-    required this.workDayEntry,
-  });
+  const DailyLogCard({super.key, required this.workDayEntry});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            10.r,
-          ),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(10.r)),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 13.w),
@@ -34,9 +27,7 @@ class DailyLogCard extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset("assets/svgs/calendar.svg"),
-                const SizedBox(
-                  width: 4,
-                ),
+                const SizedBox(width: 4),
                 Text(
                   "${DateTime.now().day} ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}",
                   style: TextStyles.font14BlackSemiBold,
@@ -61,23 +52,17 @@ class DailyLogCard extends StatelessWidget {
                         S.of(context).Total_Hours,
                         style: TextStyles.font14BlackSemiBold.copyWith(
                           fontSize: 12.sp,
-                          color: const Color.fromRGBO(
-                            71,
-                            84,
-                            103,
-                            1,
-                          ),
+                          color: const Color.fromRGBO(71, 84, 103, 1),
                         ),
                       ),
                       SizedBox(height: 4.h),
                       Text(
                         ApplicationCubit.get(context).isArabic
                             ? workDayEntry.workedHours!
-                                .replaceAll("and", "&")
-                                .replaceAll("Hrs", "س")
-                                .replaceAll("Mins", "دق")
+                                  .replaceAll("and", "&")
+                                  .replaceAll("Hrs", "س")
+                                  .replaceAll("Mins", "دق")
                             : workDayEntry.workedHours!.replaceAll("and", "&"),
-                        // hours,
                         style: TextStyles.font14BlackSemiBold,
                       ),
                     ],
@@ -89,19 +74,20 @@ class DailyLogCard extends StatelessWidget {
                         S.of(context).Clock_in_Out,
                         style: TextStyles.font14BlackSemiBold.copyWith(
                           fontSize: 12.sp,
-                          color: const Color.fromRGBO(
-                            71,
-                            84,
-                            103,
-                            1,
-                          ),
+                          color: const Color.fromRGBO(71, 84, 103, 1),
                         ),
                       ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
+                      SizedBox(height: 4.h),
                       Text(
-                        "${workDayEntry.checkIn == null ? S.of(context).No_checkIn : ApplicationCubit.get(context).isArabic ? workDayEntry.checkIn!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkIn!} - ${workDayEntry.checkOut == null ? S.of(context).No_checkout : ApplicationCubit.get(context).isArabic ? workDayEntry.checkOut!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkOut!}",
+                        "${workDayEntry.checkIn == null
+                            ? S.of(context).No_checkIn
+                            : ApplicationCubit.get(context).isArabic
+                            ? workDayEntry.checkIn!.replaceAll("PM", "م").replaceAll("AM", "ص")
+                            : workDayEntry.checkIn!} - ${workDayEntry.checkOut == null
+                            ? S.of(context).No_checkout
+                            : ApplicationCubit.get(context).isArabic
+                            ? workDayEntry.checkOut!.replaceAll("PM", "م").replaceAll("AM", "ص")
+                            : workDayEntry.checkOut!}",
                         style: TextStyles.font14BlackSemiBold,
                       ),
                     ],

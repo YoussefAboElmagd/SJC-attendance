@@ -59,7 +59,8 @@ class BottomSendExpensesButton extends StatelessWidget {
                   context.read<SendExpensesCubit>().departmentId?.text == "" &&
                   context.read<SendExpensesCubit>().amountNumber?.text == "" &&
                   context.read<SendExpensesCubit>().expensesDescription?.text ==
-                      "") {
+                      "" &&
+                  context.read<SendExpensesCubit>().selectedFiles.isEmpty) {
                 Fluttertoast.showToast(
                   msg: S.of(context).you_should_edit_at_least_one,
                   toastLength: Toast.LENGTH_SHORT,

@@ -60,6 +60,9 @@ class ExpenseData {
   @JsonKey(name: 'date')
   String? date;
 
+  @JsonKey(name: 'reject_reason')
+  String? rejectReason;
+
   @JsonKey(name: 'total_amount')
   double? totalAmount;
 

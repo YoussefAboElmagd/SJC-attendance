@@ -26,23 +26,28 @@ class CardDetails extends StatelessWidget {
             S.of(context).Total_Hours,
             ApplicationCubit.get(context).isArabic
                 ? workDayEntry.workedHours!
-                    .replaceAll("and", "&")
-                    .replaceAll("Hrs", "س")
-                    .replaceAll("Mins", "دق")
+                      .replaceAll("and", "&")
+                      .replaceAll("Hrs", "س")
+                      .replaceAll("Mins", "دق")
                 : workDayEntry.workedHours!.replaceAll("and", "&"),
           ),
           _infoColumn(
             S.of(context).Clock_in_Out,
-            "${workDayEntry.checkIn == null ? S.of(context).No_checkIn : ApplicationCubit.get(context).isArabic ? workDayEntry.checkIn!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkIn!} - ${workDayEntry.checkOut == null ? S.of(context).No_checkout : ApplicationCubit.get(context).isArabic ? workDayEntry.checkOut!.replaceAll("PM", "ص").replaceAll("AM", "م") : workDayEntry.checkOut!}",
+            "${workDayEntry.checkIn == null
+                ? S.of(context).No_checkIn
+                : ApplicationCubit.get(context).isArabic
+                ? workDayEntry.checkIn!.replaceAll("PM", "م").replaceAll("AM", "ص")
+                : workDayEntry.checkIn!} - ${workDayEntry.checkOut == null
+                ? S.of(context).No_checkout
+                : ApplicationCubit.get(context).isArabic
+                ? workDayEntry.checkOut!.replaceAll("PM", "م").replaceAll("AM", "ص")
+                : workDayEntry.checkOut!}",
           ),
         ],
       ),
     );
   }
 
-// Text(
-//                         style: TextStyles.font14BlackSemiBold,
-//                       ),
   Widget _infoColumn(String label, String value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

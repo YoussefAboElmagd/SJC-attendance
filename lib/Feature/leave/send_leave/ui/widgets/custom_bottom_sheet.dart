@@ -13,11 +13,14 @@ class CustomBottomSheet extends StatefulWidget {
   final TextEditingController? id;
   var cubit;
   final void Function()? onTap;
+  final String? buttonText;
+  final String? buttonText2;
 
   CustomBottomSheet({
     super.key,
     this.label,
     this.hint,
+    this.buttonText,
     required this.items,
     this.textEditingController,
     required this.cubit,
@@ -25,6 +28,7 @@ class CustomBottomSheet extends StatefulWidget {
     this.itemsId,
     this.itemsMap,
     this.id,
+    this.buttonText2,
   });
 
   @override
@@ -37,34 +41,32 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return CustomBottomSheetContent(
-      
       label: widget.label,
       hint: widget.hint,
-      
+
       listContent: BottomSheetList(
         items: widget.items,
         selectedItem: selectedItem,
         onItemSelected: (value) {
-          setState(
-            () => selectedItem = value,
-          );
+          setState(() => selectedItem = value);
           if (value != null) {
             widget.itemsMap == null || widget.itemsMap!.isEmpty
-                ? widget.cubit
-                    .changeDragDownHint(widget.textEditingController, value)
+                ? widget.cubit.changeDragDownHint(
+                    widget.textEditingController,
+                    value,
+                  )
                 : widget.cubit.changeDragDownHint(
                     widget.textEditingController,
                     widget.id,
                     value,
-                    findKeyForValue(
-                      widget.itemsMap!,
-                      value,
-                    ),
+                    findKeyForValue(widget.itemsMap!, value),
                   );
           }
         },
       ),
       buttonsRow: BottomSheetButtons(
+        buttonText: widget.buttonText,
+        buttonText2: widget.buttonText2,
         hasSelection: selectedItem != null && selectedItem!.isNotEmpty,
         onClose: () => Navigator.pop(context),
         onSubmit: () => Navigator.pop(context),

@@ -280,6 +280,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن"),
         "permission_permanently_denied":
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن بشكل دائم"),
+        "reason_text": MessageLookupByLibrary.simpleMessage("سبب الرفض"),
+        "select_choice": MessageLookupByLibrary.simpleMessage("تاكيد الاختيار"),
         "select_file_type":
             MessageLookupByLibrary.simpleMessage("اختر نوع الملف"),
         "selected_text": MessageLookupByLibrary.simpleMessage("تم الاختيار"),
@@ -289,6 +291,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابي"),
         "sign_text": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "there_is_no_amout":
+            MessageLookupByLibrary.simpleMessage("لا يوجد مبلغ"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("لا يوجد وصف للمصروف"),
         "view_month_work":

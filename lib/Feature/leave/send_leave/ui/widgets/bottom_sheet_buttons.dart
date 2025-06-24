@@ -10,12 +10,16 @@ class BottomSheetButtons extends StatelessWidget {
   final bool hasSelection;
   final VoidCallback onClose;
   final VoidCallback onSubmit;
+  final String? buttonText;
+  final String? buttonText2;
 
   const BottomSheetButtons({
     super.key,
     required this.hasSelection,
     required this.onClose,
     required this.onSubmit,
+    this.buttonText,
+    this.buttonText2,
   });
 
   @override
@@ -26,7 +30,7 @@ class BottomSheetButtons extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             hintText: S.of(context).Close_Message,
-            buttonText: S.of(context).Close_Message,
+            buttonText: buttonText2 ?? S.of(context).Close_Message,
             textStyle: TextStyles.font16GreyNormal,
             borderRadius: 30.r,
             onPressed: onClose,
@@ -37,17 +41,19 @@ class BottomSheetButtons extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             hintText: S.of(context).Submit_Date,
-            buttonText: S.of(context).Submit_Date,
+            buttonText: buttonText ?? S.of(context).Submit_Date,
             textStyle: hasSelection
                 ? TextStyles.font16WhiteSemiBold
                 : TextStyles.font16WhiteNormal,
             onPressed: () {
+              // print(buttonText);
               if (hasSelection) {
                 context.pop();
               }
             },
-            backgroundColor:
-                hasSelection ? ColorsManager.mainColor1 : ColorsManager.grey,
+            backgroundColor: hasSelection
+                ? ColorsManager.mainColor1
+                : ColorsManager.grey,
             borderRadius: 30.r,
           ),
         ),

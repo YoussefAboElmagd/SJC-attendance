@@ -34,7 +34,8 @@ ExpenseData _$ExpenseDataFromJson(Map<String, dynamic> json) => ExpenseData(
           .toList(),
     )
       ..categoryName = json['category_name'] as String?
-      ..requestName = json['request_type_name'] as String?;
+      ..requestName = json['request_type_name'] as String?
+      ..rejectReason = json['reject_reason'] as String?;
 
 Map<String, dynamic> _$ExpenseDataToJson(ExpenseData instance) =>
     <String, dynamic>{
@@ -46,6 +47,7 @@ Map<String, dynamic> _$ExpenseDataToJson(ExpenseData instance) =>
       'request_type_name': instance.requestName,
       'state': instance.state,
       'date': instance.date,
+      'reject_reason': instance.rejectReason,
       'total_amount': instance.totalAmount,
       'attachments': instance.attachments,
       'messages': instance.messages,

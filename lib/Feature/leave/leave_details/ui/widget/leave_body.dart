@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/constants.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
+import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_state.dart';
@@ -128,7 +133,7 @@ class SendLeaveListener extends StatelessWidget {
   }
 }
 
-void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
   // Only show dialog if the widget is still mounted
   if (!context.mounted) return;
 
@@ -138,27 +143,98 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   final errorMessage = isMultipleErrors
       ? apiErrorModel.errors!.values.join('\n')
       : apiErrorModel.message ?? 'An unexpected error occurred';
-
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: Icon(Icons.error, color: Colors.red, size: 32.w),
-      content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
-      actions: [
-        TextButton(
-          onPressed: () {
-            apiErrorModel.message != "token seems to have expired or invalid"
-                ? context.pop()
-                : context.pushNamedAndRemoveUntill(Routes.loginScreen);
-          },
-          child: Text(
-            apiErrorModel.message != "token seems to have expired or invalid"
-                ? 'Got it'
-                : S.of(context).Login_button,
-            style: TextStyles.font14BlueSemiBold,
-          ),
-        ),
-      ],
-    ),
-  );
+  if (apiErrorModel.message == "token seems to have expired or invalid") {
+    CachHelper.removeData(key: SharedKeys.userToken);
+    CachHelper.clearAllSecuredData();
+    context.pushNamedAndRemoveUntill(Routes.loginScreen);
+    AppConstants.isLogged = false;
+    await CachHelper.saveData(key: SharedKeys.isLogged, value: false);
+    DioFactory.setTokenAfterLogin(null);
+    Fluttertoast.showToast(
+      msg: apiErrorModel.message!,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+    context.pushNamedAndRemoveUntill(Routes.loginScreen);
+  } else {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+          content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
+          actions: [
+            TextButton(
+              onPressed:
+                  apiErrorModel.message !=
+                      "token seems to have expired or invalid"
+                  ? () {
+                      context.pushNamed(Routes.cardsScreen);
+                    }
+                  : () async {
+                      CachHelper.removeData(key: SharedKeys.userToken);
+                      CachHelper.clearAllSecuredData();
+                      context.pushNamedAndRemoveUntill(Routes.loginScreen);
+                      AppConstants.isLogged = false;
+                      await CachHelper.saveData(
+                        key: SharedKeys.isLogged,
+                        value: false,
+                      );
+                      DioFactory.setTokenAfterLogin(null);
+                    },
+              // onPressed: () {
+              //   apiErrorModel.message != "token seems to have expired or invalid"
+              //       ? context.pop()
+              //       : context.pushNamedAndRemoveUntill(Routes.loginScreen);
+              // },
+              child: Text(
+                apiErrorModel.message !=
+                        "token seems to have expired or invalid"
+                    ? 'Got it'
+                    : S.of(context).Login_button,
+                style: TextStyles.font14BlueSemiBold,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+  // showDialog(
+  //   context: context,
+  //   builder: (context) => AlertDialog(
+  //     icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+  //     content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
+  //     actions: [
+  //       TextButton(
+  //         onPressed:
+  //             apiErrorModel.message != "token seems to have expired or invalid"
+  //             ? () {
+  //                 context.pushNamed(Routes.cardsScreen);
+  //               }
+  //             : () async {
+  //                 CachHelper.removeData(key: SharedKeys.userToken);
+  //                 CachHelper.clearAllSecuredData();
+  //                 context.pushNamedAndRemoveUntill(Routes.loginScreen);
+  //                 AppConstants.isLogged = false;
+  //                 await CachHelper.saveData(
+  //                   key: SharedKeys.isLogged,
+  //                   value: false,
+  //                 );
+  //                 DioFactory.setTokenAfterLogin(null);
+  //               },
+  //         child: Text(
+  //           apiErrorModel.message != "token seems to have expired or invalid"
+  //               ? 'Got it'
+  //               : S.of(context).Login_button,
+  //           style: TextStyles.font14BlueSemiBold,
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
 }

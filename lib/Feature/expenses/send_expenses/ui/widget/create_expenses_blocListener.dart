@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -45,7 +44,7 @@ class CreateExpensesBlocListener extends StatelessWidget {
               textColor: Colors.white,
               fontSize: 16.0,
             );
-            context.pushNamed(Routes.expenseScreen);
+            context.pushNamedAndRemoveUntill(Routes.expenseScreen);
           },
           createExpensesError: (error) {
             context.pop();
@@ -62,11 +61,7 @@ class CreateExpensesBlocListener extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
+        icon: const Icon(Icons.error, color: Colors.red, size: 32),
         content: Text(
           apiErrorModel.message!,
           style: TextStyles.font15DarkBlueMedium,
@@ -76,10 +71,7 @@ class CreateExpensesBlocListener extends StatelessWidget {
             onPressed: () {
               context.popAlert();
             },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),

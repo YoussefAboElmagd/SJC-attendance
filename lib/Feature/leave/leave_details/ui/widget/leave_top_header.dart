@@ -13,7 +13,7 @@ class LeaveTopHeader extends StatelessWidget {
       children: [
         Container(
           height: 235.h,
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.w),
           decoration: const BoxDecoration(
             color: Color.fromRGBO(42, 49, 131, 1),
             borderRadius: BorderRadius.only(
@@ -42,7 +42,6 @@ class LeaveTopHeader extends StatelessWidget {
               SizedBox(width: 20.w),
               SizedBox(
                 height: 150.h,
-                // width: 150.w,
                 child: Align(
                   alignment: Alignment.topRight,
                   child: SvgPicture.asset(

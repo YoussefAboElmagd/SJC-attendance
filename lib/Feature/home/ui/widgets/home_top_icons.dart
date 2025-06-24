@@ -9,10 +9,8 @@ import 'package:madarj/Core/widgets/custom_alert.dart';
 import 'dart:math' as math;
 
 class HomeTopIcons extends StatelessWidget {
-  const HomeTopIcons({
-    super.key,
-  });
-
+  const HomeTopIcons({super.key, this.arrowColor});
+  final Color? arrowColor;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApplicationCubit, ApplicationState>(
@@ -21,37 +19,37 @@ class HomeTopIcons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             !ApplicationCubit.get(context).isArabic
-                ? GestureDetector(
-                    onTap: () {
-                      setupLogout(context);
-                    },
-                    child: CircleAvatar(
-                      radius: 17.w,
-                      backgroundColor: Colors.white,
-                      child: Image.asset(
-                        width: 35.w,
-                        "assets/images/logout.png",
-                        color: Colors.red,
-                      ),
-                    ),
-                  )
-                : Transform(
+                ? Transform(
                     alignment: Alignment.center,
-                    transform: Matrix4.rotationY(
-                      math.pi,
-                    ),
+                    transform: Matrix4.rotationY(math.pi),
                     child: GestureDetector(
                       onTap: () {
-                        setupLogout(context);
+                        context.pop();
+                        // setupLogout(context);
                       },
                       child: CircleAvatar(
                         radius: 17.w,
                         backgroundColor: Colors.white,
                         child: Image.asset(
                           width: 35.w,
-                          "assets/images/logout.png",
-                          color: Colors.red,
+                          "assets/images/arrow-back.png",
+                          color: arrowColor ?? Colors.blue,
                         ),
+                      ),
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () {
+                      context.pop();
+                      // setupLogout(context);
+                    },
+                    child: CircleAvatar(
+                      radius: 17.w,
+                      backgroundColor: Colors.white,
+                      child: Image.asset(
+                        width: 35.w,
+                        "assets/images/arrow-back.png",
+                        color: arrowColor ?? Colors.blue,
                       ),
                     ),
                   ),
@@ -62,9 +60,7 @@ class HomeTopIcons extends StatelessWidget {
               child: CircleAvatar(
                 radius: 17.w,
                 backgroundColor: Colors.white,
-                child: SvgPicture.asset(
-                  "assets/svgs/language2.svg",
-                ),
+                child: SvgPicture.asset("assets/svgs/language2.svg"),
               ),
             ),
           ],
@@ -75,8 +71,5 @@ class HomeTopIcons extends StatelessWidget {
 }
 
 void setupLogout(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (context) => const CustomAlert(),
-  );
+  showDialog(context: context, builder: (context) => const CustomAlert());
 }

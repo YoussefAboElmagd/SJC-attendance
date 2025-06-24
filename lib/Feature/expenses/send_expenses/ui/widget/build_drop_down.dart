@@ -5,6 +5,7 @@ import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/show_buttom_sheet_form.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/custom_bottom_sheet.dart';
+import 'package:madarj/generated/l10n.dart';
 // import 'package:madarj/Feature/leave/send_leave/ui/widgets/custom_bottom_sheet_content.dart';
 
 class BuildDropdown extends StatelessWidget {
@@ -38,30 +39,20 @@ class BuildDropdown extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (label != null)
-          Text(
-            label!,
-            style: TextStyles.font16BlackSemiBold,
-          ),
+        if (label != null) Text(label!, style: TextStyles.font16BlackSemiBold),
         SizedBox(height: 8.h),
         ShowButtomSheetForm(
           hint: hint,
           icon: icon,
-          onTap: onTap ??
-              () => _showBottomSheet(
-                    context,
-                    controller,
-                    controllerId,
-                    mapDrop,
-                  ),
+          onTap:
+              onTap ??
+              () =>
+                  _showBottomSheet(context, controller, controllerId, mapDrop),
         ),
         if (errorText != null && errorText!.isNotEmpty)
           Padding(
             padding: EdgeInsets.only(top: 4.h),
-            child: Text(
-              errorText!,
-              style: TextStyles.font12RedMedium,
-            ),
+            child: Text(errorText!, style: TextStyles.font12RedMedium),
           ),
       ],
     );
@@ -78,17 +69,16 @@ class BuildDropdown extends StatelessWidget {
       context: context,
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(
-            16.r,
-          ),
-        ),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
       ),
       builder: (context) {
         return BlocProvider.value(
           value: cubit,
           child: CustomBottomSheet(
             id: id,
+            buttonText: S.of(context).select_choice,
+            buttonText2: S.of(context).close_button,
+
             itemsId: mapDrop!.keys.toList(),
             label: label,
             hint: hint,

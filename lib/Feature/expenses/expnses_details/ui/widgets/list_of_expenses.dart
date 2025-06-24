@@ -10,21 +10,17 @@ import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_log_
 import 'package:madarj/generated/l10n.dart';
 
 class DoneExpenses extends StatelessWidget {
-  const DoneExpenses({
-    super.key,
-    required this.doneExpensesData,
-  });
+  const DoneExpenses({super.key, required this.doneExpensesData});
   final ExpensesListResponse doneExpensesData;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: (MediaQuery.sizeOf(context).height - 320.h),
-      child: doneExpensesData.data.isNotEmptyOrNull() ||
+      child:
+          doneExpensesData.data.isNotEmptyOrNull() ||
               doneExpensesData.results == 0
-          ? NoExpenses(
-              status: S.of(context).done_section_text,
-            )
+          ? NoExpenses(status: S.of(context).done_section_text)
           : Container(
               decoration: const BoxDecoration(),
               child: ListView.separated(
@@ -33,26 +29,40 @@ class DoneExpenses extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                      SizedBox(height: 5.h),
                       InkWell(
                         onTap: () {
-                          // print(doneExpensesData.data);
-                          context.pushNamed(
-                            Routes.showExpensesDetailsBody,
-                            arguments: {
-                              'isApproved': true,
-                              'rejected': false,
-                              'pending': false,
-                              'isNew': false,
-                              'id': doneExpensesData.data![index].id,
-                            },
-                          );
+                          print(doneExpensesData.data![index].status);
+                          if (doneExpensesData.data![index].status!
+                                  .toLowerCase() ==
+                              "refused") {
+                            context.pushNamed(
+                              Routes.showExpensesDetailsBody,
+                              arguments: {
+                                'isApproved': false,
+                                'rejected': true,
+                                'pending': false,
+                                'isNew': false,
+                                'id': doneExpensesData.data![index].id,
+                              },
+                            );
+                          } else {
+                            context.pushNamed(
+                              Routes.showExpensesDetailsBody,
+                              arguments: {
+                                'isApproved': true,
+                                'rejected': false,
+                                'pending': false,
+                                'isNew': false,
+                                'id': doneExpensesData.data![index].id,
+                              },
+                            );
+                          }
                         },
                         child: ExpensesLogCard(
                           data: doneExpensesData.data![index],
-                          isApproved: doneExpensesData.data![index].status ==
+                          isApproved:
+                              doneExpensesData.data![index].status ==
                                   "approved" ||
                               doneExpensesData.data![index].status == "done",
                           rejected:
@@ -62,9 +72,7 @@ class DoneExpenses extends StatelessWidget {
                     ],
                   );
                 },
-                separatorBuilder: (context, index) => SizedBox(
-                  height: 15.h,
-                ),
+                separatorBuilder: (context, index) => SizedBox(height: 15.h),
                 itemCount: doneExpensesData.data!.length,
               ),
             ),
@@ -73,21 +81,17 @@ class DoneExpenses extends StatelessWidget {
 }
 
 class NewExpenses extends StatelessWidget {
-  const NewExpenses({
-    super.key,
-    required this.newExpensesData,
-  });
+  const NewExpenses({super.key, required this.newExpensesData});
   final ExpensesListResponse newExpensesData;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: (MediaQuery.sizeOf(context).height - 320.h),
-      child: newExpensesData.data.isNotEmptyOrNull() ||
+      child:
+          newExpensesData.data.isNotEmptyOrNull() ||
               newExpensesData.results == 0
-          ? NoExpenses(
-              status: S.of(context).new_section_text,
-            )
+          ? NoExpenses(status: S.of(context).new_section_text)
           : Container(
               decoration: const BoxDecoration(),
               child: ListView.separated(
@@ -96,9 +100,7 @@ class NewExpenses extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                      SizedBox(height: 5.h),
                       InkWell(
                         onTap: () {
                           context.pushNamed(
@@ -120,9 +122,7 @@ class NewExpenses extends StatelessWidget {
                     ],
                   );
                 },
-                separatorBuilder: (context, index) => SizedBox(
-                  height: 15.h,
-                ),
+                separatorBuilder: (context, index) => SizedBox(height: 15.h),
                 itemCount: newExpensesData.data!.length,
               ),
             ),
@@ -131,21 +131,17 @@ class NewExpenses extends StatelessWidget {
 }
 
 class PendingExpenses extends StatelessWidget {
-  const PendingExpenses({
-    super.key,
-    required this.pendingExpensesData,
-  });
+  const PendingExpenses({super.key, required this.pendingExpensesData});
   final ExpensesListResponse pendingExpensesData;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: (MediaQuery.sizeOf(context).height - 320.h),
-      child: pendingExpensesData.data.isNotEmptyOrNull() ||
+      child:
+          pendingExpensesData.data.isNotEmptyOrNull() ||
               pendingExpensesData.results == 0
-          ? NoExpenses(
-              status: S.of(context).Pending_section_text,
-            )
+          ? NoExpenses(status: S.of(context).Pending_section_text)
           : Container(
               decoration: const BoxDecoration(),
               child: ListView.separated(
@@ -154,9 +150,7 @@ class PendingExpenses extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                      SizedBox(height: 5.h),
                       InkWell(
                         onTap: () {
                           context.pushNamed(
@@ -178,9 +172,7 @@ class PendingExpenses extends StatelessWidget {
                     ],
                   );
                 },
-                separatorBuilder: (context, index) => SizedBox(
-                  height: 15.h,
-                ),
+                separatorBuilder: (context, index) => SizedBox(height: 15.h),
                 itemCount: pendingExpensesData.data!.length,
               ),
             ),
@@ -189,10 +181,7 @@ class PendingExpenses extends StatelessWidget {
 }
 
 class NoExpenses extends StatelessWidget {
-  const NoExpenses({
-    super.key,
-    this.status,
-  });
+  const NoExpenses({super.key, this.status});
   final String? status;
   @override
   Widget build(BuildContext context) {
@@ -208,18 +197,10 @@ class NoExpenses extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                15.r,
-              ),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
           child: Padding(
-            padding: EdgeInsets.only(
-              top: 12.0.h,
-              right: 12.0.w,
-              left: 12.w,
-            ),
+            padding: EdgeInsets.only(top: 12.0.h, right: 12.0.w, left: 12.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -232,9 +213,7 @@ class NoExpenses extends StatelessWidget {
                       S.of(context).Expense_text,
                       style: TextStyles.font18BlackBold,
                     ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
+                    SizedBox(height: 5.h),
                     Text(
                       "${S.of(context).Expense_text} $status",
                       style: TextStyles.font14BlackSemiBold.copyWith(
@@ -244,11 +223,7 @@ class NoExpenses extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    top: 50.h,
-                    right: 50.w,
-                    left: 50.w,
-                  ),
+                  padding: EdgeInsets.only(top: 50.h, right: 50.w, left: 50.w),
                   child: Center(
                     child: SvgPicture.asset(
                       "assets/svgs/no_exp.svg",
@@ -257,9 +232,7 @@ class NoExpenses extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 15.h,
-                ),
+                SizedBox(height: 15.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -269,8 +242,10 @@ class NoExpenses extends StatelessWidget {
                       style: TextStyles.font16BlackSemiBold,
                     ),
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 8.h,
+                        horizontal: 8.w,
+                      ),
                       child: Center(
                         child: Text(
                           textAlign: TextAlign.center,

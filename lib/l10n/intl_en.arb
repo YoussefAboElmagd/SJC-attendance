@@ -177,9 +177,9 @@
   "there_is_no_description": "there is no description",
   "Expenses_description": "Expenses description",
   "you_should_edit_at_least_one": "you should edit at least one",
-  "": "",
-  "": "",
-  "": "",
+  "select_choice": "Select",
+  "reason_text": "reason",
+  "there_is_no_amout": "there is no amout",
   "": "",
   "": ""
 }
