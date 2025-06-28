@@ -8,13 +8,10 @@ import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/send_expenses_body.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class SendExpenBlocBuilder extends StatelessWidget {
-  const SendExpenBlocBuilder({
-    super.key,
-    this.update,
-    this.id,
-  });
+  const SendExpenBlocBuilder({super.key, this.update, this.id});
   final bool? update;
   final int? id;
   @override
@@ -68,11 +65,7 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      icon: Icon(
-        Icons.error,
-        color: Colors.red,
-        size: 32.w,
-      ),
+      icon: Icon(Icons.error, color: Colors.red, size: 32.w),
       content: Text(
         apiErrorModel.getAllErrorMessages(),
         style: TextStyles.font15DarkBlueMedium,
@@ -84,7 +77,7 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
             context.popAlert();
           },
           child: Text(
-            'close it',
+            S.of(context).close_it,
             style: TextStyles.font14BlueSemiBold,
           ),
         ),

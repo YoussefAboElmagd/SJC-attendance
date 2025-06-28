@@ -7,6 +7,7 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_state.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -60,18 +61,13 @@ class LoginBlocListener extends StatelessWidget {
             onPressed: () {
               context.popAlert();
             },
-            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+            child: Text(
+              S.of(context).close_it,
+              style: TextStyles.font14BlueSemiBold,
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-// saveToken(String token) async {
-//   await CachHelper.setSecuredString(
-//     value: token,
-//     key: SharedKeys.userToken,
-//   );
-//   DioFactory.setTokenAfterLogin(token);
-// }

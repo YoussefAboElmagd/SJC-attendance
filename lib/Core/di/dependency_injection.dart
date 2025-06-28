@@ -25,6 +25,9 @@ import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cub
 import 'package:madarj/Feature/leave/send_leave/apis/send_leave_service.dart';
 import 'package:madarj/Feature/leave/send_leave/data/repo/send_leave_repo.dart';
 import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
+import 'package:madarj/Feature/payroll/apis/payroll_service.dart';
+import 'package:madarj/Feature/payroll/data/repo/payroll_repo.dart';
+import 'package:madarj/Feature/payroll/logic/cubit/payroll_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/apis/login_services.dart';
 import 'package:madarj/Feature/registration/login/data/repos/login_repo.dart';
@@ -80,6 +83,11 @@ Future<void> setGetIt() async {
   getIt.registerLazySingleton<SendTasksService>(() => SendTasksService(dio));
   getIt.registerLazySingleton<SendTaskRepo>(() => SendTaskRepo(getIt()));
   getIt.registerFactory<SendTasksCubit>(() => SendTasksCubit(getIt()));
+
+  // payroll
+  getIt.registerLazySingleton<PayrollService>(() => PayrollService(dio));
+  getIt.registerLazySingleton<PayrollRepo>(() => PayrollRepo(getIt()));
+  getIt.registerFactory<PayrollCubit>(() => PayrollCubit(getIt()));
 
   // ShowTaskDetailsCubit
   getIt.registerFactory<ShowTaskDetailsCubit>(() => ShowTaskDetailsCubit());

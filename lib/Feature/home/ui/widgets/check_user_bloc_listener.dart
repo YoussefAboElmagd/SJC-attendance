@@ -68,20 +68,21 @@ class CheckUserBlocListener extends StatelessWidget {
                       Navigator.of(context).pop();
                     },
                     child: Text(
-                      'got it',
+                      S.of(context).close_it,
                       style: TextStyles.font14BlueSemiBold,
                     ),
                   ),
                 ],
               ),
             );
-            context.read<HomeCubit>().sendToken(NotificationRequest(
-                  fcmToken: CachHelper.getData(
-                        key: SharedKeys.fcmToken,
-                      ) ??
-                      AppConstants.fcmToken ??
-                      "",
-                ));
+            context.read<HomeCubit>().sendToken(
+              NotificationRequest(
+                fcmToken:
+                    CachHelper.getData(key: SharedKeys.fcmToken) ??
+                    AppConstants.fcmToken ??
+                    "",
+              ),
+            );
           },
           checkUserError: (error) {
             context.pop();
@@ -98,11 +99,7 @@ class CheckUserBlocListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32.w,
-        ),
+        icon: Icon(Icons.error, color: Colors.red, size: 32.w),
         content: Text(
           apiErrorModel.message!,
           style: TextStyles.font15DarkBlueMedium,
@@ -114,10 +111,7 @@ class CheckUserBlocListener extends StatelessWidget {
               Navigator.of(context).pop();
               context.pushNamedAndRemoveUntill(Routes.homeScreen);
             },
-            child: Text(
-              'try again',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('try again', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),

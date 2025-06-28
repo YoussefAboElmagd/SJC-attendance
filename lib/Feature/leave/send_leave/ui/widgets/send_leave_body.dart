@@ -11,6 +11,7 @@ import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_state.dar
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/fill_leave.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/leave_claim.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/send_leave_forms.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class SendLeaveBody extends StatelessWidget {
   const SendLeaveBody({super.key});
@@ -126,7 +127,10 @@ class SendLeaveListener extends StatelessWidget {
             onPressed: () {
               context.popAlert();
             },
-            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+            child: Text(
+              S.of(context).close_it,
+              style: TextStyles.font14BlueSemiBold,
+            ),
           ),
         ],
       ),

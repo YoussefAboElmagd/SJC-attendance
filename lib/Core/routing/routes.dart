@@ -26,6 +26,8 @@ class Routes {
   static const String cardsScreen = "/cardsScreen";
 
   static const String taskDetails = "/taskDetails";
+  static const String payroll = "/taskDetails";
+  static const String payrollDetails = "/payrollDetails";
 
   //
 }

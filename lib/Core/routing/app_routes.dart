@@ -1,19 +1,14 @@
-// import 'dart:io';
-
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/LanguageOption/Ui/language_options.dart';
 import 'package:madarj/Feature/all_works/ui/all_works.dart';
 import 'package:madarj/Feature/base/ui/views/base_layer.dart';
-// import 'package:madarj/Feature/base/ui_v2/base_layer_v2.dart';
 import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
 import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
-// import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_details.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/ui/show_expenses_details.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
@@ -22,6 +17,9 @@ import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
 import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
 import 'package:madarj/Feature/on_boarding/ui/on_boarding_screen.dart';
+import 'package:madarj/Feature/payroll/logic/cubit/payroll_cubit.dart';
+import 'package:madarj/Feature/payroll/ui/payroll.dart';
+import 'package:madarj/Feature/payroll/ui/widget/payroll_details.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Ui/login.dart';
 import 'package:madarj/Feature/tasks/send_tasks/ui/send_tasks.dart';
@@ -87,6 +85,18 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AllMonthWorks());
       case Routes.language:
         return MaterialPageRoute(builder: (_) => const Languageoptions());
+      case Routes.payrollDetails:
+        return MaterialPageRoute(builder: (_) => const PayrollDetails());
+      case Routes.payroll:
+              final args = settings.arguments as Map<String, dynamic>?;
+
+
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PayrollCubit>()..getEmployeePayslips("1"),
+            child: const Payroll(),
+          ),
+        );
       case Routes.sendExpenses:
         final args = settings.arguments as Map<String, dynamic>?;
         print(args?['id']);
@@ -105,10 +115,10 @@ class AppRouter {
         );
       case Routes.sendTasks:
         return MaterialPageRoute(builder: (_) => const SendTasks());
-      case Routes.cardsScreen:
-        return MaterialPageRoute(builder: (_) => const CardsScreen());
       case Routes.taskDetails:
         return MaterialPageRoute(builder: (_) => const ShowTaskDetails());
+      case Routes.cardsScreen:
+        return MaterialPageRoute(builder: (_) => const CardsScreen());
     }
     return null;
   }

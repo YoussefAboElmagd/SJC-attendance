@@ -1852,6 +1852,196 @@ class S {
     );
   }
 
+  /// `Payroll and Tax`
+  String get Payroll_and_Tax {
+    return Intl.message(
+      'Payroll and Tax',
+      name: 'Payroll_and_Tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overtime`
+  String get Overtime_text {
+    return Intl.message(
+      'Overtime',
+      name: 'Overtime_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll Details`
+  String get Payroll_Details {
+    return Intl.message(
+      'Payroll Details',
+      name: 'Payroll_Details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details about payroll`
+  String get Details_about_payroll {
+    return Intl.message(
+      'Details about payroll',
+      name: 'Details_about_payroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basic Salary`
+  String get Basic_Salary {
+    return Intl.message(
+      'Basic Salary',
+      name: 'Basic_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax`
+  String get Tax {
+    return Intl.message(
+      'Tax',
+      name: 'Tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reimbursement`
+  String get Reimbursement {
+    return Intl.message(
+      'Reimbursement',
+      name: 'Reimbursement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bonus`
+  String get Bonus {
+    return Intl.message(
+      'Bonus',
+      name: 'Bonus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overtime`
+  String get Overtime {
+    return Intl.message(
+      'Overtime',
+      name: 'Overtime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Salary`
+  String get Total_Salary {
+    return Intl.message(
+      'Total Salary',
+      name: 'Total_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salary Slip`
+  String get Salary_Slip {
+    return Intl.message(
+      'Salary Slip',
+      name: 'Salary_Slip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Period`
+  String get Period {
+    return Intl.message(
+      'Period',
+      name: 'Period',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Net Salary`
+  String get Net_Salary {
+    return Intl.message(
+      'Net Salary',
+      name: 'Net_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allowances`
+  String get Allowances {
+    return Intl.message(
+      'Allowances',
+      name: 'Allowances',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deductions`
+  String get Deductions {
+    return Intl.message(
+      'Deductions',
+      name: 'Deductions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This Pay Period`
+  String get This_Pay_Period {
+    return Intl.message(
+      'This Pay Period',
+      name: 'This_Pay_Period',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hrs`
+  String get hrs {
+    return Intl.message(
+      'hrs',
+      name: 'hrs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `token seems to have expired or invalid`
+  String get token_expired {
+    return Intl.message(
+      'token seems to have expired or invalid',
+      name: 'token_expired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close it`
+  String get close_it {
+    return Intl.message(
+      'Close it',
+      name: 'close_it',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

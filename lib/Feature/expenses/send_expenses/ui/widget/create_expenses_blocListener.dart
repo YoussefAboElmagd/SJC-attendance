@@ -71,7 +71,10 @@ class CreateExpensesBlocListener extends StatelessWidget {
             onPressed: () {
               context.popAlert();
             },
-            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+            child: Text(
+              S.of(context).close_it,
+              style: TextStyles.font14BlueSemiBold,
+            ),
           ),
         ],
       ),

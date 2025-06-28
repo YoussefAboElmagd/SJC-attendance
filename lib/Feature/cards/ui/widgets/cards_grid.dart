@@ -8,13 +8,14 @@ class CardsGrid extends StatelessWidget {
 
   final List<String> images = const [
     'assets/images/cards/attendance.png',
-    // 'assets/images/cards/tasks.png',
     'assets/images/cards/expenses.png',
     'assets/images/cards/leaves [time off].png',
+    'assets/images/cards/payroll.png',
   ];
   final List<String> svgs = const [
     'assets/svgs/attendanceicon.svg',
     'assets/svgs/expensesicon.svg',
+    'assets/svgs/leavestimeouticon.svg',
     'assets/svgs/leavestimeouticon.svg',
   ];
 
@@ -23,6 +24,7 @@ class CardsGrid extends StatelessWidget {
     // Routes.tasksScreen,
     Routes.expenseScreen,
     Routes.leaveScreen,
+    Routes.payroll,
   ];
 
   @override
@@ -31,6 +33,7 @@ class CardsGrid extends StatelessWidget {
       S.of(context).Attendance,
       // S.of(context).Tasks,
       S.of(context).Expense,
+      S.of(context).Leave,
       S.of(context).Leave,
     ];
     return GridView.builder(

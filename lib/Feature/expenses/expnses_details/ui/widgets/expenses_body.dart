@@ -65,7 +65,7 @@ class ExpensesBody extends StatelessWidget {
     final errorMessage = isMultipleErrors
         ? apiErrorModel.errors!.values.join('\n')
         : apiErrorModel.message ?? 'An unexpected error occurred';
-    if (apiErrorModel.message == "token seems to have expired or invalid") {
+    if (apiErrorModel.message == S.of(context).token_expired) {
       CachHelper.removeData(key: SharedKeys.userToken);
       CachHelper.clearAllSecuredData();
       context.pushNamedAndRemoveUntill(Routes.loginScreen);
@@ -91,9 +91,7 @@ class ExpensesBody extends StatelessWidget {
             content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
             actions: [
               TextButton(
-                onPressed:
-                    apiErrorModel.message !=
-                        "token seems to have expired or invalid"
+                onPressed: apiErrorModel.message != S.of(context).token_expired
                     ? () {
                         context.pushNamed(Routes.cardsScreen);
                       }
@@ -109,14 +107,13 @@ class ExpensesBody extends StatelessWidget {
                         DioFactory.setTokenAfterLogin(null);
                       },
                 // onPressed: () {
-                //   apiErrorModel.message != "token seems to have expired or invalid"
+                //   apiErrorModel.message != S.of(context).token_expired
                 //       ? context.pop()
                 //       : context.pushNamedAndRemoveUntill(Routes.loginScreen);
                 // },
                 child: Text(
-                  apiErrorModel.message !=
-                          "token seems to have expired or invalid"
-                      ? 'Got it'
+                  apiErrorModel.message != S.of(context).token_expired
+                      ? S.of(context).close_it
                       : S.of(context).Login_button,
                   style: TextStyles.font14BlueSemiBold,
                 ),

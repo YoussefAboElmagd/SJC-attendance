@@ -178,6 +178,25 @@
   "you_should_edit_at_least_one": "يجب ان تقوم بتعديل واحد منهم علي الاقل",
   "Expenses_description": "وصف المصروف",
   "select_choice": "تاكيد الاختيار",
-  "reason_text": "سبب الرفض"
-  ,"there_is_no_amout":"لا يوجد مبلغ"
+  "reason_text": "سبب الرفض",
+  "there_is_no_amout": "لا يوجد مبلغ",
+  "Payroll_and_Tax": "الرواتب والضرائب",
+  "Overtime_text": "العمل الإضافي",
+  "Payroll_Details": "تفاصيل الرواتب",
+  "Details_about_payroll": "تفاصيل حول الرواتب",
+  "Basic_Salary": "الراتب الأساسي",
+  "Tax": "الضريبة",
+  "Reimbursement": "التعويض",
+  "Bonus": "المكافأة",
+  "Salary_Slip": "قسيمة الراتب",
+  "Period": "الفترة",
+  "Net_Salary": "صافي الراتب",
+  "Allowances": "البدلات",
+  "Deductions": "الخصومات",
+  "Overtime": "العمل الإضافي",
+  "Total_Salary": "إجمالي الراتب",
+  "hrs": "ساعات",
+  "token_expired": "يبدو أن رمز التحقق منتهي الصلاحية أو غير صالح",
+  "This_Pay_Period": "فترة الدفع الحالية",
+  "close_it":"اغلاق"
 }

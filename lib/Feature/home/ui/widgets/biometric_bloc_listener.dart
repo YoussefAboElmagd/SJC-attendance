@@ -21,41 +21,47 @@ class BiometricBlocListener extends StatelessWidget {
           current is HomeAuthenticated ||
           current is HomeAuthenticationLockedOut,
       listener: (context, state) {
-        state.whenOrNull(authenticating: () {
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (context) => const Center(
-              child: CircularProgressIndicator(
-                color: ColorsManager.mainColor2,
+        state.whenOrNull(
+          authenticating: () {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => const Center(
+                child: CircularProgressIndicator(
+                  color: ColorsManager.mainColor2,
+                ),
               ),
-            ),
-          );
-        }, authenticationFailed: () {
-          context.popAlert();
-          _showErrorDialog(
-            context,
-            S.of(context).Authentication_Failed,
-            S.of(context).Biometric_authentication_failed_Please_try_again,
-          );
-        }, authError: (apiError) {
-          context.popAlert();
-          _showErrorDialog(
-            context,
-            S.of(context).Authentication_Failed,
-            '${apiError.message}',
-          );
-        }, lockedOut: () {
-          context.popAlert();
-          _showErrorDialog(
-            context,
-            S.of(context).Locked_Out,
-            S.of(context).Too_many_failed_attempts_Try_again_later,
-          );
-        }, authenticated: (v) {
-          context.popAlert();
-          context.read<HomeCubit>().checkUser(context);
-        });
+            );
+          },
+          authenticationFailed: () {
+            context.popAlert();
+            _showErrorDialog(
+              context,
+              S.of(context).Authentication_Failed,
+              S.of(context).Biometric_authentication_failed_Please_try_again,
+            );
+          },
+          authError: (apiError) {
+            context.popAlert();
+            _showErrorDialog(
+              context,
+              S.of(context).Authentication_Failed,
+              '${apiError.message}',
+            );
+          },
+          lockedOut: () {
+            context.popAlert();
+            _showErrorDialog(
+              context,
+              S.of(context).Locked_Out,
+              S.of(context).Too_many_failed_attempts_Try_again_later,
+            );
+          },
+          authenticated: (v) {
+            context.popAlert();
+            context.read<HomeCubit>().checkUser(context);
+          },
+        );
       },
       child: const SizedBox.shrink(),
     );
@@ -67,15 +73,12 @@ class BiometricBlocListener extends StatelessWidget {
       builder: (context) => AlertDialog(
         icon: Icon(Icons.error, color: Colors.red, size: 32.w),
         title: Text(title),
-        content: Text(
-          message,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
+        content: Text(message, style: TextStyles.font15DarkBlueMedium),
         actions: [
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              'Got it',
+              S.of(context).close_it,
               style: TextStyles.font14BlueSemiBold,
             ),
           ),

@@ -7,11 +7,10 @@ import 'package:madarj/Feature/tasks/send_tasks/logic/cubit/send_tasks_state.dar
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Feature/tasks/send_tasks/ui/widget/build_file_preview.dart';
 import 'package:madarj/Feature/tasks/send_tasks/ui/widget/upload_task_doc.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class UploadTaskPhotos extends StatelessWidget {
-  const UploadTaskPhotos({
-    super.key,
-  });
+  const UploadTaskPhotos({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,22 +65,15 @@ class UploadTaskPhotos extends StatelessWidget {
           },
           fileValidationError: (error) {
             return AlertDialog(
-              icon: Icon(
-                Icons.error,
-                color: Colors.red,
-                size: 32.w,
-              ),
-              content: Text(
-                error,
-                style: TextStyles.font15DarkBlueMedium,
-              ),
+              icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+              content: Text(error, style: TextStyles.font15DarkBlueMedium),
               actions: [
                 TextButton(
                   onPressed: () {
                     context.pop();
                   },
                   child: Text(
-                    'Got it',
+                    S.of(context).close_it,
                     style: TextStyles.font14BlueSemiBold,
                   ),
                 ),

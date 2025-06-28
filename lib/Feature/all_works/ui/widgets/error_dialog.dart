@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class ErrorDialog extends StatelessWidget {
   final String message;
@@ -16,7 +17,10 @@ class ErrorDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => context.pop(),
-          child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+          child: Text(
+            S.of(context).close_it,
+            style: TextStyles.font14BlueSemiBold,
+          ),
         ),
       ],
     );

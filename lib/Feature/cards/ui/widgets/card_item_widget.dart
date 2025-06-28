@@ -18,7 +18,10 @@ class CardItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.pushNamed(screen),
+      onTap: () {
+        // if(screen)
+        context.pushNamed(screen);
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
