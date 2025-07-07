@@ -86,14 +86,18 @@ class AppRouter {
       case Routes.language:
         return MaterialPageRoute(builder: (_) => const Languageoptions());
       case Routes.payrollDetails:
-        return MaterialPageRoute(builder: (_) => const PayrollDetails());
-      case Routes.payroll:
-              final args = settings.arguments as Map<String, dynamic>?;
+        final args = settings.arguments as Map<String, dynamic>?;
 
+        return MaterialPageRoute(
+          builder: (_) =>  PayrollDetails(payslipId: args?['id'] ?? 0),
+        );
+      case Routes.payroll:
+        final args = settings.arguments as Map<String, dynamic>?;
 
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<PayrollCubit>()..getEmployeePayslips("1"),
+            create: (context) =>
+                getIt<PayrollCubit>()..getEmployeePayslips(context,"0"),
             child: const Payroll(),
           ),
         );
@@ -109,7 +113,7 @@ class AppRouter {
       case Routes.sendLeave:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<SendLeaveCubit>()..getTimeoffTypes(),
+            create: (context) => getIt<SendLeaveCubit>()..getTimeoffTypes(context),
             child: const SendLeave(),
           ),
         );

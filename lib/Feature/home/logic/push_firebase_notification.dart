@@ -11,9 +11,10 @@ import 'package:madarj/Core/networking/api_constants.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/home/logic/firebase_servies_local.dart';
 
+@pragma('vm:entry-point')
 class PushNotificationsService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
-
+  @pragma('vm:entry-point')
   static Future init() async {
     await messaging.requestPermission();
     await messaging.getToken().then((value) {
@@ -41,7 +42,8 @@ class PushNotificationsService {
   // Background handler (also used for terminated app)
   @pragma('vm:entry-point')
   static Future<void> firebaseMessagingBackgroundHandler(
-      RemoteMessage message) async {
+    RemoteMessage message,
+  ) async {
     await Firebase.initializeApp();
     log("Handling a background message: ${message.messageId}");
 
@@ -62,6 +64,7 @@ class PushNotificationsService {
     }
   }
 
+  @pragma('vm:entry-point')
   // Foreground handler
   static void handleForegroundMessage() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
@@ -85,11 +88,12 @@ class PushNotificationsService {
     });
   }
 
+  @pragma('vm:entry-point')
   // Handle when app is terminated
   static void handleBackgroundMessagesWhenAppIsTerminated() {
-    FirebaseMessaging.instance
-        .getInitialMessage()
-        .then((RemoteMessage? message) {
+    FirebaseMessaging.instance.getInitialMessage().then((
+      RemoteMessage? message,
+    ) {
       if (message != null) {
         log("Handling a terminated app message: ${message.messageId}");
 
@@ -99,12 +103,15 @@ class PushNotificationsService {
         if (message.notification!.title == "verify location" ||
             message.notification!.body == "verify location" ||
             message.data["check"] == "location") {
-          log("Location check received in terminated state - will process when app opens");
+          log(
+            "Location check received in terminated state - will process when app opens",
+          );
         }
       }
     });
   }
 
+  @pragma('vm:entry-point')
   // Helper method to try getting location
   static Future<Position?> _tryGetLocation() async {
     try {
@@ -124,6 +131,7 @@ class PushNotificationsService {
     }
   }
 
+  @pragma('vm:entry-point')
   static Future<void> _sendLocationToServer(Position position) async {
     try {
       final dio = await DioFactory.getDio();

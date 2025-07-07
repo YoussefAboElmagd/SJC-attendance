@@ -1852,16 +1852,6 @@ class S {
     );
   }
 
-  /// `Payroll and Tax`
-  String get Payroll_and_Tax {
-    return Intl.message(
-      'Payroll and Tax',
-      name: 'Payroll_and_Tax',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Overtime`
   String get Overtime_text {
     return Intl.message(
@@ -2042,7 +2032,225 @@ class S {
     );
   }
 
-  // skipped getter for the '' key
+  /// `Received`
+  String get Received {
+    return Intl.message(
+      'Received',
+      name: 'Received',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid On`
+  String get Paid_On {
+    return Intl.message(
+      'Paid On',
+      name: 'Paid_On',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll and Tax`
+  String get Payroll_and_Tax {
+    return Intl.message(
+      'Payroll and Tax',
+      name: 'Payroll_and_Tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll`
+  String get Payroll {
+    return Intl.message(
+      'Payroll',
+      name: 'Payroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No biometric authentication available on this device`
+  String get No_biometric {
+    return Intl.message(
+      'No biometric authentication available on this device',
+      name: 'No_biometric',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This device supports face recognition. Would you like to authenticate with your face?`
+  String get This_device_supports {
+    return Intl.message(
+      'This device supports face recognition. Would you like to authenticate with your face?',
+      name: 'This_device_supports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Face ID`
+  String get Use_Face_ID {
+    return Intl.message(
+      'Use Face ID',
+      name: 'Use_Face_ID',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Fingerprint`
+  String get Use_Fingerprint {
+    return Intl.message(
+      'Use Fingerprint',
+      name: 'Use_Fingerprint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to authenticate with your fingerprint instead?`
+  String get Would_you_like {
+    return Intl.message(
+      'Would you like to authenticate with your fingerprint instead?',
+      name: 'Would_you_like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error`
+  String get Unknown_error {
+    return Intl.message(
+      'Unknown error',
+      name: 'Unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connection to server failed due to internet connection`
+  String get Connection_failed {
+    return Intl.message(
+      'Connection to server failed due to internet connection',
+      name: 'Connection_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request to the server was cancelled may be due to internet connection`
+  String get Request_cancelled {
+    return Intl.message(
+      'Request to the server was cancelled may be due to internet connection',
+      name: 'Request_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connection timeout with the server may be due to internet connection`
+  String get Timeout {
+    return Intl.message(
+      'Connection timeout with the server may be due to internet connection',
+      name: 'Timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receive timeout in connection with the server may be due to internet connection`
+  String get Receive_timeout {
+    return Intl.message(
+      'Receive timeout in connection with the server may be due to internet connection',
+      name: 'Receive_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send timeout in connection with the server may be due to internet connection`
+  String get Send_timeout {
+    return Intl.message(
+      'Send timeout in connection with the server may be due to internet connection',
+      name: 'Send_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get Something_wrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'Something_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `try again`
+  String get try_again {
+    return Intl.message(
+      'try again',
+      name: 'try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit_button {
+    return Intl.message(
+      'Edit',
+      name: 'edit_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `succesfully send Leave request`
+  String get succesfully_send_Leave {
+    return Intl.message(
+      'succesfully send Leave request',
+      name: 'succesfully_send_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your payroll during Year`
+  String get no_payroll_first {
+    return Intl.message(
+      'Your payroll during Year',
+      name: 'no_payroll_first',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no Your payroll during Year`
+  String get no_payroll_second {
+    return Intl.message(
+      'There is no Your payroll during Year',
+      name: 'no_payroll_second',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error occurred from server`
+  String get Unknown_server_error {
+    return Intl.message(
+      'Unknown error occurred from server',
+      name: 'Unknown_server_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

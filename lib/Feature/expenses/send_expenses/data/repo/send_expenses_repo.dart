@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_constants.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
@@ -13,37 +14,47 @@ import 'package:madarj/Feature/expenses/show_expenses_details/data/model/get_exp
 class SendExpensesRepo {
   SendExpensesRepo(this._sendExpensesService);
   final SendExpensesService _sendExpensesService;
-  Future<ApiResults<RequestTypesModel>> getRequestTypes() async {
+  Future<ApiResults<RequestTypesModel>> getRequestTypes(
+    BuildContext context,
+  ) async {
     try {
       final response = await _sendExpensesService.getRequestTypes();
       return ApiResults.success(response);
     } catch (error) {
       print(error);
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<SendExpCategResponse>> getCategories() async {
+  Future<ApiResults<SendExpCategResponse>> getCategories(
+    BuildContext context,
+  ) async {
     try {
       final response = await _sendExpensesService.getCategories();
       return ApiResults.success(response);
     } catch (error) {
       print(error);
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<ExpenseDetailsResponse>> getExpenseDetails(int? id) async {
+  Future<ApiResults<ExpenseDetailsResponse>> getExpenseDetails(
+    BuildContext context,
+    int? id,
+  ) async {
     try {
       final response = await _sendExpensesService.getExpenseDetails(id ?? 0);
       return ApiResults.success(response);
     } catch (error) {
       print("error repo $error");
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults> createExpense(CreateExpenseRequest request) async {
+  Future<ApiResults> createExpense(
+    BuildContext context,
+    CreateExpenseRequest request,
+  ) async {
     try {
       final dio = await DioFactory.getDio();
 
@@ -62,11 +73,12 @@ class SendExpensesRepo {
       return ApiResults.success(response);
     } catch (error) {
       print("error $error");
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
   Future<ApiResults> editExpense(
+    BuildContext context,
     int expenseId,
     CreateExpenseRequest request,
   ) async {
@@ -87,7 +99,7 @@ class SendExpensesRepo {
 
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }

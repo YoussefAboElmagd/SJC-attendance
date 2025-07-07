@@ -29,11 +29,7 @@ class ExpensesLogCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            10.r,
-          ),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(10.r)),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 13.w),
@@ -43,13 +39,8 @@ class ExpensesLogCard extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset("assets/svgs/expenses.svg"),
-                const SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  "${data!.date}",
-                  style: TextStyles.font14BlackSemiBold,
-                ),
+                const SizedBox(width: 4),
+                Text("${data!.date}", style: TextStyles.font14BlackSemiBold),
                 const Spacer(),
                 isApproved == true
                     ? Text(
@@ -74,21 +65,18 @@ class ExpensesLogCard extends StatelessWidget {
                         buttonWidth: 50.w,
                         buttonHeight: 20.h,
                         borderRadius: 15,
-                        buttonText: "Edit",
+                        buttonText: S.of(context).edit_button,
                         backgroundColor: ColorsManager.mainColor1,
                         textStyle: TextStyles.font14WhiteSemiBold,
                         onPressed: () {
                           context.pushNamed(
                             Routes.sendExpenses,
-                            arguments: {
-                              "update": true,
-                              "id": data!.id,
-                            },
+                            arguments: {"update": true, "id": data!.id},
                           );
                         },
-                        hintText: "Edit",
+                        hintText: S.of(context).edit_button,
                       )
-                    : Container()
+                    : Container(),
               ],
             ),
             SizedBox(height: 8.h),
@@ -109,12 +97,7 @@ class ExpensesLogCard extends StatelessWidget {
                         S.of(context).Request_type,
                         style: TextStyles.font14BlackSemiBold.copyWith(
                           fontSize: 12.sp,
-                          color: const Color.fromRGBO(
-                            71,
-                            84,
-                            103,
-                            1,
-                          ),
+                          color: const Color.fromRGBO(71, 84, 103, 1),
                         ),
                       ),
                       SizedBox(height: 4.h),
@@ -131,12 +114,7 @@ class ExpensesLogCard extends StatelessWidget {
                         S.of(context).Total_Expense_Text,
                         style: TextStyles.font14BlackSemiBold.copyWith(
                           fontSize: 12.sp,
-                          color: const Color.fromRGBO(
-                            71,
-                            84,
-                            103,
-                            1,
-                          ),
+                          color: const Color.fromRGBO(71, 84, 103, 1),
                         ),
                       ),
                       SizedBox(height: 4.h),

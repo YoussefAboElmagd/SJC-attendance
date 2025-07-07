@@ -39,8 +39,7 @@ class ApiErrorModel {
   int? code;
   String? message;
   String? status;
-  @JsonKey(name: "error")
-  // final Map<String, dynamic>? errors;
+  @JsonKey(name: "data")
   final Map<String, dynamic>? errors;
 
   ApiErrorModel({this.errors, this.code, this.message, this.status});

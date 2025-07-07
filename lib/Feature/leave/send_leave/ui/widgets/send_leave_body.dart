@@ -99,8 +99,8 @@ class SendLeaveListener extends StatelessWidget {
             context.popAlert();
 
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('succesfully send Leave'),
+              SnackBar(
+                content: Text(S.of(context).succesfully_send_Leave),
                 backgroundColor: Colors.green,
               ),
             );

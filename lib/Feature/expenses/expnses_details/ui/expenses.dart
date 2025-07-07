@@ -14,26 +14,18 @@ class Expenses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        context.pushNamed(Routes.cardsScreen);
-
-        // SystemNavigator.pop();
-        return true;
-      },
-      child: BlocProvider(
-        create: (context) => getIt<ExpensesCubit>()..getAllExpenses(context),
-        child: Scaffold(
-          backgroundColor: ColorsManager.mainGray,
-          body: Stack(
-            children: [
-              const ExpensesBody(),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 40.h),
-                child: const HomeTopIcons(),
-              ),
-            ],
-          ),
+    return BlocProvider(
+      create: (context) => getIt<ExpensesCubit>()..getAllExpenses(context),
+      child: Scaffold(
+        backgroundColor: ColorsManager.mainGray,
+        body: Stack(
+          children: [
+            const ExpensesBody(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 40.h),
+              child: const HomeTopIcons(),
+            ),
+          ],
         ),
       ),
     );

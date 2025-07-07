@@ -17,10 +17,10 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
     emit(const LeaveDetailsState.getAllLeaveLoading());
 
     try {
-      final timeoffBalance = _leaveDetailsRepo.getTimeoffBalance();
-      final requestsApproved = _leaveDetailsRepo.getRequestsApproved();
-      final requestsPending = _leaveDetailsRepo.getRequestsPending();
-      final requestsRefused = _leaveDetailsRepo.getRequestsRefused();
+      final timeoffBalance = _leaveDetailsRepo.getTimeoffBalance(context);
+      final requestsApproved = _leaveDetailsRepo.getRequestsApproved(context);
+      final requestsPending = _leaveDetailsRepo.getRequestsPending(context);
+      final requestsRefused = _leaveDetailsRepo.getRequestsRefused(context);
 
       final responses = await Future.wait([
         timeoffBalance,
@@ -71,7 +71,7 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
         for (var error in errors) {
-          final msg = error.message ?? 'Unknown error';
+          final msg = error.message ?? S.of(context).Unknown_error;
           uniqueMessages.add(msg);
         }
 
@@ -134,14 +134,11 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
     }
   } // Added cancel functionality
 
-  Future<void> cancelTimeOff(
-    BuildContext context,
-    int? id,
-  ) async {
+  Future<void> cancelTimeOff(BuildContext context, int? id) async {
     emit(const LeaveDetailsState.cancelTimeOffLoading());
 
     try {
-      final result = await _leaveDetailsRepo.cancelTimeOff(id);
+      final result = await _leaveDetailsRepo.cancelTimeOff(context,id);
 
       result.when(
         success: (data) {

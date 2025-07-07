@@ -45,7 +45,7 @@ class BottomSendLeaveButton extends StatelessWidget {
               return;
             }
 
-            cubit.submitLeaveRequest(
+            cubit.submitLeaveRequest(context,
               HolidayRequestModel(
                 requestDateFrom: formatDate(cubit.startDate),
                 requestDateTo: formatDate(cubit.endDate),

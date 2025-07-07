@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/payroll/apis/payroll_service.dart';
@@ -9,28 +10,27 @@ class PayrollRepo {
   PayrollRepo(this._payrollService);
 
   Future<ApiResults<PayslipResponse>> getEmployeePayslips(
+    BuildContext context,
     String? employeeId,
   ) async {
     try {
       final response = await _payrollService.getEmployeePayslips(employeeId);
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<PayslipDetailsResponse>> getPayslipDetails({
+  Future<ApiResults<PayslipDetailsResponse>> getPayslipDetails(
+    BuildContext context, {
     required String payslipId,
-    required String employeeId,
   }) async {
     try {
-      final response = await _payrollService.getPayslipDetails(
-        payslipId,
-        employeeId,
-      );
+      final response = await _payrollService.getPayslipDetails(payslipId);
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      print(error);
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }

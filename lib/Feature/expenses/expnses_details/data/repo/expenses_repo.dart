@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
@@ -5,44 +6,44 @@ import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_mode
 import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_service.dart';
 
 class ExpensesRepo {
-  ExpensesRepo(
-    this._expensesService,
-  );
+  ExpensesRepo(this._expensesService);
   final ExpensesService _expensesService;
 
-  Future getExpenseCategories() async {
+  Future getExpenseCategories(BuildContext context) async {
     try {
       final response = await _expensesService.getExpenseCategories();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<ExpensesListResponse>> getNewExpenses() async {
+  Future<ApiResults<ExpensesListResponse>> getNewExpenses(
+    BuildContext context,
+  ) async {
     try {
       final response = await _expensesService.getNewExpenses();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<ExpensesListResponse>> getPendingExpenses() async {
+  Future<ApiResults<ExpensesListResponse>> getPendingExpenses(BuildContext context,) async {
     try {
       final response = await _expensesService.getPendingExpenses();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<ExpensesListResponse>> getDoneExpenses() async {
+  Future<ApiResults<ExpensesListResponse>> getDoneExpenses(BuildContext context,) async {
     try {
       final response = await _expensesService.getDoneExpenses();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }

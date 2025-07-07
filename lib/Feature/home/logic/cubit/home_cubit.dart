@@ -72,19 +72,19 @@ class HomeCubit extends Cubit<HomeState> {
       if (!canCheckBiometrics ||
           !isDeviceSupported ||
           availableBiometrics.isEmpty) {
-        emit(HomeState.authError(
-          ApiErrorModel(
-            message: 'No biometric authentication available on this device',
-            status: '400',
+        emit(
+          HomeState.authError(
+            ApiErrorModel(message: S.of(context).No_biometric, status: '400'),
           ),
-        ));
+        );
         return;
       }
 
       // More precise face recognition detection
       final hasFace = availableBiometrics.contains(BiometricType.face);
-      final hasFingerprint =
-          availableBiometrics.contains(BiometricType.fingerprint);
+      final hasFingerprint = availableBiometrics.contains(
+        BiometricType.fingerprint,
+      );
       final hasStrongAuth = availableBiometrics.contains(BiometricType.strong);
 
       if (hasFace) {
@@ -125,16 +125,18 @@ class HomeCubit extends Cubit<HomeState> {
       await _performBiometricAuth(isCheckIn, context);
     } catch (e) {
       debugPrint('Authentication error: $e');
-      emit(HomeState.authError(
-        ApiErrorModel(
-          message: '${S.of(context).Authentication_failed} ${e.toString()}',
-          status: '500',
+      emit(
+        HomeState.authError(
+          ApiErrorModel(
+            message: '${S.of(context).Authentication_failed} ${e.toString()}',
+            status: '500',
+          ),
         ),
-      ));
+      );
     }
   }
 
-// New generic biometric dialog for devices with "strong" auth type
+  // New generic biometric dialog for devices with "strong" auth type
   Future<bool> showGenericBiometricDialog(
     BuildContext context, {
     bool? isFace,
@@ -146,10 +148,7 @@ class HomeCubit extends Cubit<HomeState> {
           barrierDismissible: false,
           builder: (context) => CustomAlert(
             content: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15.w,
-                vertical: 15.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
               child: SizedBox(
                 height: 250.h,
                 child: Column(
@@ -163,16 +162,9 @@ class HomeCubit extends Cubit<HomeState> {
                                 "assets/svgs/face-id.svg",
                               )
                             : Container(),
-                        SizedBox(
-                          width: 25.w,
-                        ),
-                        Text(
-                          "Or",
-                          style: TextStyles.font24CyranBold,
-                        ),
-                        SizedBox(
-                          width: 25.w,
-                        ),
+                        SizedBox(width: 25.w),
+                        Text("Or", style: TextStyles.font24CyranBold),
+                        SizedBox(width: 25.w),
                         isFinger != null && isFinger
                             ? SvgPicture.asset(
                                 "assets/svgs/finger.svg",
@@ -181,9 +173,7 @@ class HomeCubit extends Cubit<HomeState> {
                             : Container(),
                       ],
                     ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
+                    SizedBox(height: 15.h),
                     Text(
                       textAlign: TextAlign.center,
                       text ?? S.of(context).Would_face_finger,
@@ -198,9 +188,7 @@ class HomeCubit extends Cubit<HomeState> {
                       textStyle: TextStyles.font14WhiteSemiBold,
                       color: ColorsManager.mainColor1,
                     ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
+                    SizedBox(height: 15.h),
                     CustomButton(
                       onTap: () async {
                         Navigator.pop(context, false);
@@ -223,19 +211,16 @@ class HomeCubit extends Cubit<HomeState> {
           context: context,
           barrierDismissible: false,
           builder: (context) => AlertDialog(
-            title: SvgPicture.asset(
-              "assets/svgs/face-id.svg",
-            ),
-            content: const Text(
-                'This device supports face recognition. Would you like to authenticate with your face?'),
+            title: SvgPicture.asset("assets/svgs/face-id.svg"),
+            content: Text(S.of(context).This_device_supports),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(S.of(context).Cancel),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Use Face ID'),
+                child: Text(S.of(context).Use_Face_ID),
               ),
             ],
           ),
@@ -248,19 +233,16 @@ class HomeCubit extends Cubit<HomeState> {
           context: context,
           barrierDismissible: false,
           builder: (context) => AlertDialog(
-            title: SvgPicture.asset(
-              "assets/svgs/finger.svg",
-            ),
-            content: const Text(
-                'Would you like to authenticate with your fingerprint instead?'),
+            title: SvgPicture.asset("assets/svgs/finger.svg"),
+            content: Text(S.of(context).Would_you_like),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(S.of(context).Cancel),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Use Fingerprint'),
+                child: Text(S.of(context).Use_Fingerprint),
               ),
             ],
           ),
@@ -269,7 +251,9 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> _performBiometricAuth(
-      bool isCheckIn, BuildContext context) async {
+    bool isCheckIn,
+    BuildContext context,
+  ) async {
     try {
       final authenticated = await auth!.authenticate(
         localizedReason: 'Authenticate to continue',
@@ -286,12 +270,14 @@ class HomeCubit extends Cubit<HomeState> {
       }
     } on PlatformException catch (e) {
       // Handle platform-specific errors
-      emit(HomeState.authError(
-        ApiErrorModel(
-          message: '${S.of(context).Authentication_error} ${e.message}',
-          status: '400',
+      emit(
+        HomeState.authError(
+          ApiErrorModel(
+            message: '${S.of(context).Authentication_error} ${e.message}',
+            status: '400',
+          ),
         ),
-      ));
+      );
     }
   }
 
@@ -304,13 +290,17 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.loading());
 
     try {
-      final periodFuture = _homeRepo.getthisPayPeriod();
-      final hoursFuture = _homeRepo.gettotalHours();
-      final totalWorkingMonth = _homeRepo.getTotalTodayWork();
-      final todayAttendanceState = _homeRepo.getAttendanceState();
+      final periodFuture = _homeRepo.getthisPayPeriod(context);
+      final hoursFuture = _homeRepo.gettotalHours(context);
+      final totalWorkingMonth = _homeRepo.getTotalTodayWork(context);
+      final todayAttendanceState = _homeRepo.getAttendanceState(context);
 
-      final responses = await Future.wait(
-          [periodFuture, hoursFuture, totalWorkingMonth, todayAttendanceState]);
+      final responses = await Future.wait([
+        periodFuture,
+        hoursFuture,
+        totalWorkingMonth,
+        todayAttendanceState,
+      ]);
 
       // Cast responses to their specific types
       final periodResult = responses[0] as ApiResults<PayPeriodResponse>;
@@ -351,7 +341,7 @@ class HomeCubit extends Cubit<HomeState> {
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
         for (var error in errors) {
-          final msg = error.message ?? 'Unknown error';
+          final msg = error.message ?? S.of(context).Unknown_error;
           uniqueMessages.add(msg);
         }
 
@@ -377,10 +367,7 @@ class HomeCubit extends Cubit<HomeState> {
         failure: (_) {}, // Already handled
       );
 
-      hoursResult.when(
-        success: (data) => hoursData = data,
-        failure: (_) {},
-      );
+      hoursResult.when(success: (data) => hoursData = data, failure: (_) {});
 
       totalWorkingResult.when(
         success: (data) => totalWorksData = data,
@@ -391,28 +378,34 @@ class HomeCubit extends Cubit<HomeState> {
         failure: (_) {},
       );
 
-      emit(HomeState.combinedSuccess(
-        period: periodData,
-        hours: hoursData,
-        totalWorks: totalWorksData,
-        todayAttendanceResult: todayAttendanceSuccess,
-      ));
+      emit(
+        HomeState.combinedSuccess(
+          period: periodData,
+          hours: hoursData,
+          totalWorks: totalWorksData,
+          todayAttendanceResult: todayAttendanceSuccess,
+        ),
+      );
     } catch (e) {
       // Handle any unexpected errors
       print("Unexpected error in getAllHome2: $e");
-      emit(HomeState.error(ApiErrorModel(
-        message: S.of(context).An_unexpected_error,
-        status: '500',
-      )));
+      emit(
+        HomeState.error(
+          ApiErrorModel(
+            message: S.of(context).An_unexpected_error,
+            status: '500',
+          ),
+        ),
+      );
     }
   }
 
-  Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
-    return {
-      for (var i = 0; i < errors.length; i++)
-        'error_$i': errors[i].message ?? 'Unknown error'
-    };
-  }
+  // Map<String, dynamic> _buildErrorMap(List<ApiErrorModel> errors) {
+  //   return {
+  //     for (var i = 0; i < errors.length; i++)
+  //       'error_$i': errors[i].message ?? S.of(context).Unknown_error,
+  //   };
+  // }
 
   Future<void> checkUser(BuildContext context) async {
     emit(const HomeState.checkUserLoading());
@@ -421,7 +414,7 @@ class HomeCubit extends Cubit<HomeState> {
       final ipAddress = await _getIpAddress();
       final uuid = await getDeviceIdentifier();
 
-      final response = await _homeRepo.checkUser(
+      final response = await _homeRepo.checkUser(context,
         CheckRequest(
           longitude: position.longitude,
           latitude: position.latitude,
@@ -441,11 +434,7 @@ class HomeCubit extends Cubit<HomeState> {
       );
     } catch (e) {
       print(e.toString());
-      emit(HomeState.checkUserError(
-        ApiErrorModel(
-          message: e.toString(),
-        ),
-      ));
+      emit(HomeState.checkUserError(ApiErrorModel(message: e.toString())));
     }
   }
 
@@ -453,10 +442,12 @@ class HomeCubit extends Cubit<HomeState> {
   Future<String> _getIpAddress() async {
     try {
       // Try to get public IP first
-      final response = await http.get(
-        Uri.parse('https://api.ipify.org'),
-        headers: {'Accept': 'application/json'},
-      ).timeout(const Duration(seconds: 5));
+      final response = await http
+          .get(
+            Uri.parse('https://api.ipify.org'),
+            headers: {'Accept': 'application/json'},
+          )
+          .timeout(const Duration(seconds: 5));
 
       if (response.statusCode == 200) {
         return response.body;
@@ -545,9 +536,9 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  sendToken(NotificationRequest notificationRequest) async {
+  sendToken(BuildContext context,NotificationRequest notificationRequest) async {
     emit(state);
-    var resoponse = await _homeRepo.snedToken(notificationRequest);
+    var resoponse = await _homeRepo.snedToken(context,notificationRequest);
     resoponse.when(
       success: (data) {
         emit(state);

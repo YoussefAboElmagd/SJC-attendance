@@ -21,12 +21,18 @@ Map<String, dynamic> _$PayslipResponseToJson(PayslipResponse instance) =>
     };
 
 PayslipData _$PayslipDataFromJson(Map<String, dynamic> json) => PayslipData(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
+      id: (json['payslip_id'] as num?)?.toInt(),
+      month: json['month'] as String?,
+      netSalary: (json['net_salary'] as num?)?.toDouble(),
+      period: json['period'] as String?,
+      status: json['status'] as String?,
     );
 
 Map<String, dynamic> _$PayslipDataToJson(PayslipData instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
+      'payslip_id': instance.id,
+      'month': instance.month,
+      'period': instance.period,
+      'net_salary': instance.netSalary,
+      'status': instance.status,
     };

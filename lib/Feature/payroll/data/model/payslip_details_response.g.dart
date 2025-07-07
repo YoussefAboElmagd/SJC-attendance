@@ -24,24 +24,40 @@ Map<String, dynamic> _$PayslipDetailsResponseToJson(
 
 PayslipDetailsData _$PayslipDetailsDataFromJson(Map<String, dynamic> json) =>
     PayslipDetailsData(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
-      dateFrom: json['date_from'] as String?,
-      dateTo: json['date_to'] as String?,
+      period: json['period'] as String?,
+      netSalary: (json['net_salary'] as num?)?.toDouble(),
+      state: json['state'] as String?,
+      lines: (json['lines'] as List<dynamic>?)
+          ?.map((e) => Lines.fromJson(e as Map<String, dynamic>))
+          .toList(),
       status: json['status'] as String?,
-      payslipNet: (json['payslip_net'] as num?)?.toDouble(),
-      totalSalary: (json['total_salary'] as num?)?.toDouble(),
-      xTotal: (json['x_total'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$PayslipDetailsDataToJson(PayslipDetailsData instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'date_from': instance.dateFrom,
-      'date_to': instance.dateTo,
       'status': instance.status,
-      'payslip_net': instance.payslipNet,
-      'total_salary': instance.totalSalary,
-      'x_total': instance.xTotal,
+      'period': instance.period,
+      'net_salary': instance.netSalary,
+      'state': instance.state,
+      'lines': instance.lines,
+    };
+
+Lines _$LinesFromJson(Map<String, dynamic> json) => Lines(
+      code: json['code'] as String?,
+      name: json['name'] as String?,
+      category: json['category'] as String?,
+      total: (json['total'] as num?)?.toDouble(),
+      amount: (json['amount'] as num?)?.toDouble(),
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      rate: (json['rate'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$LinesToJson(Lines instance) => <String, dynamic>{
+      'code': instance.code,
+      'name': instance.name,
+      'category': instance.category,
+      'total': instance.total,
+      'amount': instance.amount,
+      'quantity': instance.quantity,
+      'rate': instance.rate,
     };

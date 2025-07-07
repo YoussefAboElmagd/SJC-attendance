@@ -30,7 +30,7 @@ class PayslipDetailsCard extends StatelessWidget {
           SizedBox(height: 16.h),
           PayslipTotalSalary(payslipData: payslipData),
           SizedBox(height: 16.h),
-          PayslipStatusBadge(status: payslipData.status ?? 'draft'),
+          PayslipStatusBadge(status: payslipData.state ?? 'draft'),
         ],
       ),
     );

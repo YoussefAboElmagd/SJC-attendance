@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/registration/login/apis/login_services.dart';
@@ -10,12 +10,14 @@ class LoginRepo {
   LoginRepo(this._loginService);
 
   Future<ApiResults<LoginResponseBody>> login(
-      LoginRequestBody loginRequestBody) async {
+    BuildContext context,
+    LoginRequestBody loginRequestBody,
+  ) async {
     try {
       final response = await _loginService.login(loginRequestBody);
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
@@ -26,9 +28,7 @@ class LoginRepo {
   //     );
   //     return ApiResults.success(response);
   //   } catch (error) {
-  //     return ApiResults.failure(ApiErrorHandler.handle(error));
+  //     return ApiResults.failure(ApiErrorHandler.handle(context,error));
   //   }
   // }
-
-
 }

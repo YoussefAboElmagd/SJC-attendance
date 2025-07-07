@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/data/repo/get_expense_details_repo.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_state.dart';
@@ -32,10 +33,13 @@ class ExpensesDetailsCubit extends Cubit<ExpensesDetailsState> {
     emit(ExpensesDetailsState.changeImage(selectedAttachmentIndex));
   }
 
-  getExpenseDetails(int id) async {
+  getExpenseDetails(BuildContext context, int id) async {
     emit(const ExpensesDetailsState.getExpenseDetaailsloading());
     try {
-      final response = await _getExpenseDetailsRepo.getExpenseDetails(id);
+      final response = await _getExpenseDetailsRepo.getExpenseDetails(
+        context,
+        id,
+      );
       response.when(
         success: (data) {
           emit(ExpensesDetailsState.getExpenseDetaailssuccess(data));

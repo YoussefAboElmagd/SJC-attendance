@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Clock_Out": MessageLookupByLibrary.simpleMessage("Clock Out"),
         "Clock_in_Out": MessageLookupByLibrary.simpleMessage("Clock in & Out"),
         "Close_Message": MessageLookupByLibrary.simpleMessage("Close Message"),
+        "Connection_failed": MessageLookupByLibrary.simpleMessage(
+            "Connection to server failed due to internet connection"),
         "Create_New_Task":
             MessageLookupByLibrary.simpleMessage("Create New Task"),
         "Create_Task_button":
@@ -157,6 +159,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "No_Expense": MessageLookupByLibrary.simpleMessage("No Expense"),
         "No_Leave_Submitted":
             MessageLookupByLibrary.simpleMessage("No Leave Submitted!"),
+        "No_biometric": MessageLookupByLibrary.simpleMessage(
+            "No biometric authentication available on this device"),
         "No_checkIn": MessageLookupByLibrary.simpleMessage("No checkIn"),
         "No_checkout": MessageLookupByLibrary.simpleMessage("No checkout"),
         "No_date": MessageLookupByLibrary.simpleMessage("No date"),
@@ -166,7 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No Working Time Available"),
         "Overtime": MessageLookupByLibrary.simpleMessage("Overtime"),
         "Overtime_text": MessageLookupByLibrary.simpleMessage("Overtime"),
+        "Paid_On": MessageLookupByLibrary.simpleMessage("Paid On"),
         "Paid_Period": MessageLookupByLibrary.simpleMessage("Paid Period"),
+        "Payroll": MessageLookupByLibrary.simpleMessage("Payroll"),
         "Payroll_Details":
             MessageLookupByLibrary.simpleMessage("Payroll Details"),
         "Payroll_and_Tax":
@@ -177,9 +183,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Priority": MessageLookupByLibrary.simpleMessage("Priority"),
         "Ready_to_catch_some_fresh_air": MessageLookupByLibrary.simpleMessage(
             "Ready to catch some fresh air? Click “Submit Leave” and \ntake that well-deserved break!"),
+        "Receive_timeout": MessageLookupByLibrary.simpleMessage(
+            "Receive timeout in connection with the server may be due to internet connection"),
+        "Received": MessageLookupByLibrary.simpleMessage("Received"),
         "Reimbursement": MessageLookupByLibrary.simpleMessage("Reimbursement"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("Rejected"),
         "Remember_Me": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "Request_cancelled": MessageLookupByLibrary.simpleMessage(
+            "Request to the server was cancelled may be due to internet connection"),
         "Request_type": MessageLookupByLibrary.simpleMessage("Request type"),
         "Review_Text": MessageLookupByLibrary.simpleMessage("Review"),
         "Review_text": MessageLookupByLibrary.simpleMessage("Review"),
@@ -200,6 +211,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Select_Request_type":
             MessageLookupByLibrary.simpleMessage("Select Request type"),
         "Select_tag": MessageLookupByLibrary.simpleMessage("Select tag"),
+        "Send_timeout": MessageLookupByLibrary.simpleMessage(
+            "Send timeout in connection with the server may be due to internet connection"),
+        "Something_wrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "Sprint_Burnout_Stats":
             MessageLookupByLibrary.simpleMessage("Sprint 20 - Burnout Stats"),
         "Submit_Date": MessageLookupByLibrary.simpleMessage("Submit Date"),
@@ -223,6 +238,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "This_Pay_Period":
             MessageLookupByLibrary.simpleMessage("This Pay Period"),
+        "This_device_supports": MessageLookupByLibrary.simpleMessage(
+            "This device supports face recognition. Would you like to authenticate with your face?"),
+        "Timeout": MessageLookupByLibrary.simpleMessage(
+            "Connection timeout with the server may be due to internet connection"),
         "To_Do": MessageLookupByLibrary.simpleMessage("To Do"),
         "Today": MessageLookupByLibrary.simpleMessage("Today"),
         "Today_schedule":
@@ -241,8 +260,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Transaction_Date":
             MessageLookupByLibrary.simpleMessage("Transaction Date"),
         "Type_text": MessageLookupByLibrary.simpleMessage("Type"),
+        "Unknown_error": MessageLookupByLibrary.simpleMessage("Unknown error"),
+        "Unknown_server_error": MessageLookupByLibrary.simpleMessage(
+            "Unknown error occurred from server"),
         "Upload_Claim_Document":
             MessageLookupByLibrary.simpleMessage("Upload Claim Document"),
+        "Use_Face_ID": MessageLookupByLibrary.simpleMessage("Use Face ID"),
+        "Use_Fingerprint":
+            MessageLookupByLibrary.simpleMessage("Use Fingerprint"),
         "Wiring_Dashboard_Analytics":
             MessageLookupByLibrary.simpleMessage("Wiring Dashboard Analytics"),
         "Working_Period_text":
@@ -252,6 +277,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Would_face_finger": MessageLookupByLibrary.simpleMessage(
             "Would you like to authenticate using your device biometrics?"),
         "Would_fingerprint": MessageLookupByLibrary.simpleMessage(
+            "Would you like to authenticate with your fingerprint instead?"),
+        "Would_you_like": MessageLookupByLibrary.simpleMessage(
             "Would you like to authenticate with your fingerprint instead?"),
         "amount": MessageLookupByLibrary.simpleMessage("amount"),
         "challanges_awaiting":
@@ -265,6 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("Your current task progress"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("Done"),
+        "edit_button": MessageLookupByLibrary.simpleMessage("Edit"),
         "email_mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":
@@ -291,6 +319,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("mustn\'t be empty"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("New"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("No"),
+        "no_payroll_first":
+            MessageLookupByLibrary.simpleMessage("Your payroll during Year"),
+        "no_payroll_second": MessageLookupByLibrary.simpleMessage(
+            "There is no Your payroll during Year"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
             "Increase your work management & career development radically"),
         "on_borading_title": MessageLookupByLibrary.simpleMessage(
@@ -320,12 +352,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in to my account"),
         "sign_text": MessageLookupByLibrary.simpleMessage("Sign In"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "succesfully_send_Leave": MessageLookupByLibrary.simpleMessage(
+            "succesfully send Leave request"),
         "there_is_no_amout":
             MessageLookupByLibrary.simpleMessage("there is no amout"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("there is no description"),
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "token seems to have expired or invalid"),
+        "try_again": MessageLookupByLibrary.simpleMessage("try again"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("view month work"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),

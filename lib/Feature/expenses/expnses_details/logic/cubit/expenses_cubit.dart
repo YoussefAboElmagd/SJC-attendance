@@ -11,10 +11,10 @@ class ExpensesCubit extends Cubit<ExpensesState> {
 
   final ExpensesRepo _expensesRepo;
 
-  Future<void> getExpenseCategories() async {
+  Future<void> getExpenseCategories(BuildContext context,) async {
     emit(const ExpensesState.getExpensesLoading());
 
-    final result = await _expensesRepo.getExpenseCategories();
+    final result = await _expensesRepo.getExpenseCategories(context);
 
     result.when(
       success: (data) {
@@ -30,9 +30,9 @@ class ExpensesCubit extends Cubit<ExpensesState> {
     emit(const ExpensesState.getAllExpensesLoading());
 
     try {
-      final newExpenses = _expensesRepo.getNewExpenses();
-      final pendingExpenses = _expensesRepo.getPendingExpenses();
-      final doneExpenses = _expensesRepo.getDoneExpenses();
+      final newExpenses = _expensesRepo.getNewExpenses(context);
+      final pendingExpenses = _expensesRepo.getPendingExpenses(context);
+      final doneExpenses = _expensesRepo.getDoneExpenses(context);
 
       final responses = await Future.wait([
         newExpenses,
@@ -71,7 +71,7 @@ class ExpensesCubit extends Cubit<ExpensesState> {
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
         for (var error in errors) {
-          final msg = error.message ?? 'Unknown error';
+          final msg = error.message ?? S.of(context).Unknown_error;
           uniqueMessages.add(msg);
         }
 
@@ -116,11 +116,14 @@ class ExpensesCubit extends Cubit<ExpensesState> {
     } catch (e) {
       // Handle any unexpected errors
       print("Unexpected error in getAllHome2: $e");
-      emit(ExpensesState.getAllExpensesError(ApiErrorModel(
-        message: S.of(context).An_unexpected_error,
-        status: '500',
-      )));
+      emit(
+        ExpensesState.getAllExpensesError(
+          ApiErrorModel(
+            message: S.of(context).An_unexpected_error,
+            status: '500',
+          ),
+        ),
+      );
     }
   }
-
 }

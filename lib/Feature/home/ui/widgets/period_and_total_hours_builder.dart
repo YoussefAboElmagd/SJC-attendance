@@ -77,7 +77,7 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
   final errorMessage = isMultipleErrors
       ? apiErrorModel.errors!.values.join('\n')
       : apiErrorModel.message ?? 'An unexpected error occurred';
-  if (apiErrorModel.message == S.of(context).token_expired) {
+  if (apiErrorModel.message == "token seems to have expired or invalid") {
     CachHelper.removeData(key: SharedKeys.userToken);
     CachHelper.clearAllSecuredData();
     context.pushNamedAndRemoveUntill(Routes.loginScreen);
@@ -135,39 +135,4 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
       },
     );
   }
-  // showDialog(
-  //   barrierDismissible: false,
-  //   context: context,
-  //   builder: (context) => AlertDialog(
-  //     icon: Icon(Icons.error, color: Colors.red, size: 32.w),
-  //     content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
-  //     actions: [
-  //       TextButton(
-  //         onPressed:
-  //             apiErrorModel.message != S.of(context).token_expired
-  //             ? () {
-  //                 context.pop();
-  //               }
-  //             : ()async {
-
-  //                     CachHelper.removeData(key: SharedKeys.userToken);
-  //                     CachHelper.clearAllSecuredData();
-  //                     context.pushNamedAndRemoveUntill(Routes.loginScreen);
-  //                     AppConstants.isLogged = false;
-  //                     await CachHelper.saveData(
-  //                       key: SharedKeys.isLogged,
-  //                       value: false,
-  //                     );
-  //                     DioFactory.setTokenAfterLogin(null);
-  //               },
-  //         child: Text(
-  //           apiErrorModel.message != S.of(context).token_expired
-  //               ? S.of(context).close_it
-  //               : S.of(context).Login_button,
-  //           style: TextStyles.font14BlueSemiBold,
-  //         ),
-  //       ),
-  //     ],
-  //   ),
-  // );
 }

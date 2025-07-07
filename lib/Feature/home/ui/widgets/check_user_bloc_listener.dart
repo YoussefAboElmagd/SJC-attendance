@@ -76,6 +76,7 @@ class CheckUserBlocListener extends StatelessWidget {
               ),
             );
             context.read<HomeCubit>().sendToken(
+              context,
               NotificationRequest(
                 fcmToken:
                     CachHelper.getData(key: SharedKeys.fcmToken) ??
@@ -111,10 +112,14 @@ class CheckUserBlocListener extends StatelessWidget {
               Navigator.of(context).pop();
               context.pushNamedAndRemoveUntill(Routes.homeScreen);
             },
-            child: Text('try again', style: TextStyles.font14BlueSemiBold),
+            child: Text(S.of(context).try_again, style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),
     );
   }
 }
+
+
+
+

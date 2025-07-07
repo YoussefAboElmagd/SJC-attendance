@@ -47,11 +47,11 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
     emit(const SendExpensesState.loading());
 
     try {
-      final periodFuture = _expensesRepo.getRequestTypes();
-      final categoriesFuture = _expensesRepo.getCategories();
+      final periodFuture = _expensesRepo.getRequestTypes(context);
+      final categoriesFuture = _expensesRepo.getCategories(context);
       Future<ApiResults<ExpenseDetailsResponse>>? expenseDetails;
       if (id != null) {
-        expenseDetails = _expensesRepo.getExpenseDetails(id);
+        expenseDetails = _expensesRepo.getExpenseDetails(context, id);
       }
       var responses;
       if (expenseDetails != null) {
@@ -98,7 +98,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
         for (var error in errors) {
-          final msg = error.message ?? 'Unknown error';
+          final msg = error.message ?? S.of(context).Unknown_error;
           uniqueMessages.add(msg);
         }
 
@@ -171,10 +171,10 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   //   };
   // }
 
-  createExpense(CreateExpenseRequest request) async {
+  createExpense(BuildContext context, CreateExpenseRequest request) async {
     emit(const SendExpensesState.createExpensesLoading());
     try {
-      final response = await _expensesRepo.createExpense(request);
+      final response = await _expensesRepo.createExpense(context, request);
 
       response.when(
         success: (totalHoursResponse) async {
@@ -196,13 +196,18 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   }
 
   Future<void> editExpense(
+    BuildContext context,
     int expenseId,
     CreateExpenseRequest request,
     // List?files,
   ) async {
     emit(const SendExpensesState.createExpensesLoading());
     try {
-      final response = await _expensesRepo.editExpense(expenseId, request);
+      final response = await _expensesRepo.editExpense(
+        context,
+        expenseId,
+        request,
+      );
       response.when(
         success: (response) async {
           emit(SendExpensesState.createExpensesSuccess(response));
@@ -312,7 +317,8 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
     } catch (e) {
       emit(SendExpensesState.fileValidationError(e.toString()));
     }
-  } // Add this validation method
+  } 
+  // Add this validation method
 
   String? departmentError;
   String? requestTypeError;

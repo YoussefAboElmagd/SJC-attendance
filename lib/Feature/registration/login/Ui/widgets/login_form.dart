@@ -250,6 +250,6 @@ void validateThenLogin(BuildContext context) {
       email: context.read<LoginCubit>().emailController.text,
       password: context.read<LoginCubit>().passwordController.text,
     );
-    context.read<LoginCubit>().emitLogin(loginRequestBody);
+    context.read<LoginCubit>().emitLogin(context,loginRequestBody);
   }
 }

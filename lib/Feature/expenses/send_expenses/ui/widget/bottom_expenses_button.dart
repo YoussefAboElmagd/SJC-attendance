@@ -28,6 +28,7 @@ class BottomSendExpensesButton extends StatelessWidget {
                       .validate() &&
                   context.read<SendExpensesCubit>().validateForm()) {
                 context.read<SendExpensesCubit>().createExpense(
+                  context,
                   CreateExpenseRequest(
                     categoryId: context
                         .read<SendExpensesCubit>()
@@ -72,6 +73,7 @@ class BottomSendExpensesButton extends StatelessWidget {
                 );
               } else {
                 context.read<SendExpensesCubit>().editExpense(
+                  context,
                   id!,
                   CreateExpenseRequest(
                     categoryId:

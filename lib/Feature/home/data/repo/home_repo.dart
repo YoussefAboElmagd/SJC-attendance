@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/home/apis/home_services.dart';
@@ -18,65 +19,75 @@ class HomeRepo {
   //     final response = await _homeServices.getTodayAtt();
   //     return ApiResults.success(response);
   //   } catch (error) {
-  //     return ApiResults.failure(ApiErrorHandler.handle(error));
+  //     return ApiResults.failure(ApiErrorHandler.handle(context,error));
   //   }
   // }
-  Future<ApiResults<PayPeriodResponse>> getthisPayPeriod() async {
+  Future<ApiResults<PayPeriodResponse>> getthisPayPeriod(
+    BuildContext context,
+  ) async {
     try {
       final response = await _homeServices.getthisPayPeriod();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<TotalHours>> gettotalHours() async {
+  Future<ApiResults<TotalHours>> gettotalHours(BuildContext context) async {
     try {
       final response = await _homeServices.gettotalHours();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
   Future<ApiResults<AttendanceResponse>> checkUser(
-      CheckRequest checkRequest) async {
+    BuildContext context,
+    CheckRequest checkRequest,
+  ) async {
     try {
       final response = await _homeServices.checkUser(checkRequest);
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<List<TodayWorkDayEntry>>> getTotalTodayWork() async {
+  Future<ApiResults<List<TodayWorkDayEntry>>> getTotalTodayWork(
+    BuildContext context,
+  ) async {
     try {
       final response = await _homeServices.getTotalTodayWork();
       return ApiResults.success(response);
     } catch (error) {
       print("error repo $error");
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<ClockStatusResponse>> getAttendanceState() async {
+  Future<ApiResults<ClockStatusResponse>> getAttendanceState(
+    BuildContext context,
+  ) async {
     try {
       final response = await _homeServices.getClockStatus();
       return ApiResults.success(response);
     } catch (error) {
       print("error repo $error");
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
   Future<ApiResults<ClockStatusResponse>> snedToken(
-      NotificationRequest notificationRequest) async {
+    BuildContext context,
+    NotificationRequest notificationRequest,
+  ) async {
     try {
       final response = await _homeServices.sendFcmToken(notificationRequest);
       return ApiResults.success(response);
     } catch (error) {
       print("error repo $error");
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }

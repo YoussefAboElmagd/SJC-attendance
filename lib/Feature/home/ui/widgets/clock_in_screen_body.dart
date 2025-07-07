@@ -16,25 +16,15 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        context.pushNamed(Routes.cardsScreen);
-        return true;
-        // SystemNavigator.pop();
-        // return false;
-      },
-      child: Scaffold(
-        backgroundColor: ColorsManager.mainGray,
-        body: const HomeBody(),
-      ),
+    return Scaffold(
+      backgroundColor: ColorsManager.mainGray,
+      body: const HomeBody(),
     );
   }
 }
-
+// WillPopScope(
 class HomeBody extends StatelessWidget {
-  const HomeBody({
-    super.key,
-  });
+  const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {

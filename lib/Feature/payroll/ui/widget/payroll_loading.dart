@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/colors.dart';
@@ -23,12 +22,12 @@ class PayrollDetailsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PayslipHeaderCard(payslipData: payslipData),
-          SizedBox(height: 16.h),
+          SizedBox(height: 15.h),
           PayslipDetailsCard(payslipData: payslipData),
         ],
       ),

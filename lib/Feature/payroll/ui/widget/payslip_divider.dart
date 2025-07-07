@@ -24,7 +24,7 @@ class PayslipTotalSalary extends StatelessWidget {
       children: [
         Text(S.of(context).Total_Salary, style: TextStyles.font16BlackSemiBold),
         Text(
-          "\$${(payslipData.totalSalary ?? 0).toStringAsFixed(2)}",
+          "\$${(payslipData.netSalary ?? 0).toStringAsFixed(2)}",
           style: TextStyles.font16BlackSemiBold,
         ),
       ],

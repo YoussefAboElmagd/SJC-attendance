@@ -10,10 +10,7 @@ class PayslipResponse {
   @JsonKey(name: 'data')
   List<PayslipData>? data;
 
-  PayslipResponse({
-    this.count,
-    this.data,
-  });
+  PayslipResponse({this.count, this.data});
 
   factory PayslipResponse.fromJson(Map<String, dynamic> json) =>
       _$PayslipResponseFromJson(json);
@@ -23,15 +20,24 @@ class PayslipResponse {
 
 @JsonSerializable()
 class PayslipData {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'payslip_id')
   int? id;
-
-  @JsonKey(name: 'name')
-  String? name;
+  @JsonKey(name: 'month')
+  String? month;
+  @JsonKey(name: 'period')
+  String? period;
+  @JsonKey(name: 'net_salary')
+  double? netSalary;
+  @JsonKey(name: 'status')
+  String? status;
 
   PayslipData({
     this.id,
-    this.name,
+    this.month,
+    this.netSalary,
+    this.period,
+    this.status,
+    // this.name,
   });
 
   factory PayslipData.fromJson(Map<String, dynamic> json) =>

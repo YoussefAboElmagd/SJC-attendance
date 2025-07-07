@@ -17,7 +17,6 @@ abstract class PayrollService {
   @GET("employee/payslip")
   Future<PayslipDetailsResponse> getPayslipDetails(
     @Query("payslip_id") String payslipId,
-    @Query("employee_id") String employeeId,
   );
 
 }

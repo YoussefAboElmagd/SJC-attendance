@@ -34,7 +34,7 @@ class AllMonthWorks extends StatelessWidget {
         ),
       ),
       body: BlocProvider(
-        create: (context) => getIt<AllWorkCubit>()..getAllMonthWork(),
+        create: (context) => getIt<AllWorkCubit>()..getAllMonthWork(context),
         child: const AllMonthWorksBody(),
       ),
     );

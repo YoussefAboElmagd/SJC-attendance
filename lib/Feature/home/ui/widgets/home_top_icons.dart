@@ -24,7 +24,7 @@ class HomeTopIcons extends StatelessWidget {
                     transform: Matrix4.rotationY(math.pi),
                     child: GestureDetector(
                       onTap: () {
-                        context.pop();
+                        context.pushNamed(Routes.cardsScreen);
                         // setupLogout(context);
                       },
                       child: CircleAvatar(
@@ -40,7 +40,8 @@ class HomeTopIcons extends StatelessWidget {
                   )
                 : GestureDetector(
                     onTap: () {
-                      context.pop();
+                      context.pushNamed(Routes.cardsScreen);
+                      // context.pop();
                       // setupLogout(context);
                     },
                     child: CircleAvatar(

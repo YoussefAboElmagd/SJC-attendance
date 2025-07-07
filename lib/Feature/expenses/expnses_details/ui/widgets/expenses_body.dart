@@ -65,7 +65,7 @@ class ExpensesBody extends StatelessWidget {
     final errorMessage = isMultipleErrors
         ? apiErrorModel.errors!.values.join('\n')
         : apiErrorModel.message ?? 'An unexpected error occurred';
-    if (apiErrorModel.message == S.of(context).token_expired) {
+  if (apiErrorModel.message == "token seems to have expired or invalid") {
       CachHelper.removeData(key: SharedKeys.userToken);
       CachHelper.clearAllSecuredData();
       context.pushNamedAndRemoveUntill(Routes.loginScreen);

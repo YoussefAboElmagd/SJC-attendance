@@ -25,11 +25,11 @@ class SendLeaveCubit extends Cubit<SendLeaveState> {
     emit(SendLeaveState.changeDragDownHintSuccess(text));
   }
 
-  Future<void> submitLeaveRequest(HolidayRequestModel request) async {
+  Future<void> submitLeaveRequest(BuildContext context,HolidayRequestModel request) async {
     emit(const SendLeaveState.submitLeaveRequestLoading());
 
     try {
-      final result = await _sendLeaveRepo.createTimeoff(request);
+      final result = await _sendLeaveRepo.createTimeoff(context,request);
 
       result.when(
         success: (response) {
@@ -48,11 +48,11 @@ class SendLeaveCubit extends Cubit<SendLeaveState> {
     }
   }
 
-  Future<void> getTimeoffTypes() async {
+  Future<void> getTimeoffTypes(BuildContext context,) async {
     emit(const SendLeaveState.timeoffTypesLoading());
 
     try {
-      final result = await _sendLeaveRepo.getTimeoffTypes();
+      final result = await _sendLeaveRepo.getTimeoffTypes(context);
 
       result.when(
         success: (response) {

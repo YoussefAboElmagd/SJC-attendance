@@ -58,15 +58,9 @@ class _PayrollService implements PayrollService {
   }
 
   @override
-  Future<PayslipDetailsResponse> getPayslipDetails(
-    String payslipId,
-    String employeeId,
-  ) async {
+  Future<PayslipDetailsResponse> getPayslipDetails(String payslipId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'payslip_id': payslipId,
-      r'employee_id': employeeId,
-    };
+    final queryParameters = <String, dynamic>{r'payslip_id': payslipId};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<PayslipDetailsResponse>(Options(

@@ -18,7 +18,7 @@ class HomeHeader extends StatelessWidget {
     bool isArabic = ApplicationCubit.get(context).isArabic;
 
     return SizedBox(
-      height: 100.h,
+      height: 130.h,
       width: MediaQuery.sizeOf(context).width,
       child: Container(
         decoration: BoxDecoration(
@@ -31,6 +31,7 @@ class HomeHeader extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
                 onTap: () => setupLogout(context),
@@ -48,9 +49,12 @@ class HomeHeader extends StatelessWidget {
               GestureDetector(
                 onTap: () => context.pushNamed(Routes.language),
                 child: CircleAvatar(
-                  radius: 17.w,
+                  radius: 23.w,
                   backgroundColor: Colors.white,
-                  child: SvgPicture.asset("assets/svgs/language2.svg"),
+                  child: SvgPicture.asset(
+                    "assets/svgs/language2.svg",
+                    height: 45.w,
+                  ),
                 ),
               ),
             ],
@@ -62,11 +66,11 @@ class HomeHeader extends StatelessWidget {
 
   Widget _buildLogoutIcon() {
     return CircleAvatar(
-      radius: 15.w,
+      radius: 23.w,
       backgroundColor: Colors.white,
       child: Image.asset(
         "assets/images/logout.png",
-        width: 35.w,
+        width: 45.w,
         color: Colors.red,
       ),
     );

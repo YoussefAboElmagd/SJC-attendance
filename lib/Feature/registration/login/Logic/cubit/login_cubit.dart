@@ -23,9 +23,9 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginState.changeObsecuredState(isObsecur: !isObsecure));
   }
 
-  emitLogin(LoginRequestBody loginRequestBody) async {
+  emitLogin(BuildContext context,LoginRequestBody loginRequestBody) async {
     emit(const LoginState.loginLoading());
-    final response = await _loginRepo.login(loginRequestBody);
+    final response = await _loginRepo.login(context,loginRequestBody);
 
     response.when(
       success: (loginResonse) async {

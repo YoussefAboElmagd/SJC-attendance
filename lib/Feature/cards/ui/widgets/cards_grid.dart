@@ -34,7 +34,7 @@ class CardsGrid extends StatelessWidget {
       // S.of(context).Tasks,
       S.of(context).Expense,
       S.of(context).Leave,
-      S.of(context).Leave,
+      S.of(context).Payroll,
     ];
     return GridView.builder(
       shrinkWrap: true,

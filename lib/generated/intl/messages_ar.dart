@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Clock_in_Out":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول والخروج"),
         "Close_Message": MessageLookupByLibrary.simpleMessage("إغلاق الرسالة"),
+        "Connection_failed": MessageLookupByLibrary.simpleMessage(
+            "فشل الاتصال بالخادم بسبب ضعف الاتصال بالإنترنت"),
         "Create_New_Task":
             MessageLookupByLibrary.simpleMessage("إنشاء مهمة جديدة"),
         "Create_Task_button":
@@ -154,6 +156,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "No_Expense": MessageLookupByLibrary.simpleMessage("لا يوجد مصروفات"),
         "No_Leave_Submitted":
             MessageLookupByLibrary.simpleMessage("لم يتم تقديم أي إجازة!"),
+        "No_biometric": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد وسيلة تحقق بيومترية متاحة على هذا الجهاز"),
         "No_checkIn": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "No_checkout": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "No_date": MessageLookupByLibrary.simpleMessage("لا يوجد تاريخ"),
@@ -163,7 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد وقت عمل متاح"),
         "Overtime": MessageLookupByLibrary.simpleMessage("العمل الإضافي"),
         "Overtime_text": MessageLookupByLibrary.simpleMessage("العمل الإضافي"),
+        "Paid_On": MessageLookupByLibrary.simpleMessage("تاريخ الدفع"),
         "Paid_Period": MessageLookupByLibrary.simpleMessage("الفترة المدفوعة"),
+        "Payroll": MessageLookupByLibrary.simpleMessage("الرواتب"),
         "Payroll_Details":
             MessageLookupByLibrary.simpleMessage("تفاصيل الرواتب"),
         "Payroll_and_Tax":
@@ -175,9 +181,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Priority": MessageLookupByLibrary.simpleMessage("الأولوية"),
         "Ready_to_catch_some_fresh_air": MessageLookupByLibrary.simpleMessage(
             "هل أنت مستعد للحصول على بعض الهواء النقي؟ انقر على \'تقديم الإجازة\' وخذ استراحتك المستحقة!"),
+        "Receive_timeout": MessageLookupByLibrary.simpleMessage(
+            "انتهت مهلة الاستلام من الخادم ربما بسبب الاتصال بالإنترنت"),
+        "Received": MessageLookupByLibrary.simpleMessage("تم الاستلام"),
         "Reimbursement": MessageLookupByLibrary.simpleMessage("التعويض"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("مرفوض"),
         "Remember_Me": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "Request_cancelled": MessageLookupByLibrary.simpleMessage(
+            "تم إلغاء الطلب إلى الخادم ربما بسبب الاتصال بالإنترنت"),
         "Request_type": MessageLookupByLibrary.simpleMessage("نوع الطلب"),
         "Review_Text": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
         "Review_text": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
@@ -195,6 +206,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Select_Request_type":
             MessageLookupByLibrary.simpleMessage("اختر نوع الطلب"),
         "Select_tag": MessageLookupByLibrary.simpleMessage("اختر الوسم"),
+        "Send_timeout": MessageLookupByLibrary.simpleMessage(
+            "انتهت مهلة الإرسال إلى الخادم ربما بسبب الاتصال بالإنترنت"),
+        "Something_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "Sprint_Burnout_Stats": MessageLookupByLibrary.simpleMessage(
             "Sprint 20 - إحصائيات الإرهاق"),
         "Submit_Date": MessageLookupByLibrary.simpleMessage("تاريخ الإرسال"),
@@ -216,6 +230,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
         "This_Pay_Period":
             MessageLookupByLibrary.simpleMessage("فترة الدفع الحالية"),
+        "This_device_supports": MessageLookupByLibrary.simpleMessage(
+            "هذا الجهاز يدعم التعرف على الوجه. هل ترغب في التحقق باستخدام وجهك؟"),
+        "Timeout": MessageLookupByLibrary.simpleMessage(
+            "انتهت مهلة الاتصال بالخادم ربما بسبب الاتصال بالإنترنت"),
         "To_Do": MessageLookupByLibrary.simpleMessage("للقيام"),
         "Today": MessageLookupByLibrary.simpleMessage("اليوم"),
         "Today_schedule": MessageLookupByLibrary.simpleMessage("جدول اليوم"),
@@ -233,8 +251,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Transaction_Date":
             MessageLookupByLibrary.simpleMessage("تاريخ المعاملة"),
         "Type_text": MessageLookupByLibrary.simpleMessage("النوع"),
+        "Unknown_error": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
+        "Unknown_server_error":
+            MessageLookupByLibrary.simpleMessage("حدث خطأ غير معروف من الخادم"),
         "Upload_Claim_Document":
             MessageLookupByLibrary.simpleMessage("رفع مستندات المطالبة"),
+        "Use_Face_ID": MessageLookupByLibrary.simpleMessage("استخدام Face ID"),
+        "Use_Fingerprint":
+            MessageLookupByLibrary.simpleMessage("استخدام البصمة"),
         "Wiring_Dashboard_Analytics":
             MessageLookupByLibrary.simpleMessage("تحليلات لوحة التحكم للأسلاك"),
         "Working_Period_text":
@@ -245,6 +269,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل ترغب في المصادقة باستخدام البيانات البيومترية للجهاز؟"),
         "Would_fingerprint": MessageLookupByLibrary.simpleMessage(
             "هل ترغب في المصادقة باستخدام بصمة الإصبع؟"),
+        "Would_you_like": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في التحقق باستخدام بصمتك بدلاً من ذلك؟"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("تحديات في الانتظار"),
@@ -257,6 +283,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("تقدم المهام الحالي"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("تم"),
+        "edit_button": MessageLookupByLibrary.simpleMessage("تعديل"),
         "email_mustnot_be_empty": MessageLookupByLibrary.simpleMessage(
             "يجب ألا يكون البريد الإلكتروني فارغًا"),
         "email_validation":
@@ -283,6 +310,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يجب ألا يكون فارغًا"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("جديد"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("لا العودة"),
+        "no_payroll_first": MessageLookupByLibrary.simpleMessage(
+            "كشف الرواتب الخاص بك خلال السنة"),
+        "no_payroll_second": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد كشف رواتب لك خلال السنة"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
             "قم بزيادة إدارة عملك وتطوير مسارك المهني بشكل جذري"),
         "on_borading_title": MessageLookupByLibrary.simpleMessage(
@@ -313,12 +344,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابي"),
         "sign_text": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "succesfully_send_Leave":
+            MessageLookupByLibrary.simpleMessage("تم ارسال طلب الاجازه بنجاح"),
         "there_is_no_amout":
             MessageLookupByLibrary.simpleMessage("لا يوجد مبلغ"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("لا يوجد وصف للمصروف"),
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "يبدو أن رمز التحقق منتهي الصلاحية أو غير صالح"),
+        "try_again": MessageLookupByLibrary.simpleMessage("حاول مجددا"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("عرض عمل الشهر"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),

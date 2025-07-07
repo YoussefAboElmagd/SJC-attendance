@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/leave/send_leave/apis/send_leave_service.dart';
@@ -10,22 +11,25 @@ class SendLeaveRepo {
   final SendLeaveService _sendLeaveService;
 
   Future<ApiResults<TimeoffCreationResponse>> createTimeoff(
+    BuildContext context,
     HolidayRequestModel request,
   ) async {
     try {
       final response = await _sendLeaveService.createTimeoff(request);
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 
-  Future<ApiResults<TimeoffTypesResponse>> getTimeoffTypes() async {
+  Future<ApiResults<TimeoffTypesResponse>> getTimeoffTypes(
+    BuildContext context,
+  ) async {
     try {
       final response = await _sendLeaveService.getTimeoffTypes();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }
