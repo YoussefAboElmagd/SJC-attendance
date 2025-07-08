@@ -23,6 +23,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   LocalNotificationService.init();
+
   PushNotificationsService.init();
   await checkUserLogged();
 

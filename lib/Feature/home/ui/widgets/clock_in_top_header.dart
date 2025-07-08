@@ -12,7 +12,7 @@ class ClockInTopHeader extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 233.h,
+          // height: 233.h,
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.w),
           decoration: const BoxDecoration(
             color: Color.fromRGBO(42, 49, 131, 1),

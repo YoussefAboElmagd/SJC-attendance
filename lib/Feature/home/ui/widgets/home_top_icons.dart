@@ -20,28 +20,11 @@ class HomeTopIcons extends StatelessWidget {
           children: [
             !ApplicationCubit.get(context).isArabic
                 ? Transform(
-                    alignment: Alignment.center,
-                    transform: Matrix4.rotationY(math.pi),
-                    child: GestureDetector(
-                      onTap: () {
-                        context.pushNamed(Routes.cardsScreen);
-                        // setupLogout(context);
-                      },
-                      child: CircleAvatar(
-                        radius: 17.w,
-                        backgroundColor: Colors.white,
-                        child: Image.asset(
-                          width: 35.w,
-                          "assets/images/arrow-back.png",
-                          color: arrowColor ?? Colors.blue,
-                        ),
-                      ),
-                    ),
-                  )
-                : GestureDetector(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationY(math.pi),
+                  child: GestureDetector(
                     onTap: () {
                       context.pushNamed(Routes.cardsScreen);
-                      // context.pop();
                       // setupLogout(context);
                     },
                     child: CircleAvatar(
@@ -54,16 +37,44 @@ class HomeTopIcons extends StatelessWidget {
                       ),
                     ),
                   ),
+                )
+                : GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.cardsScreen);
+                    // context.pop();
+                    // setupLogout(context);
+                  },
+                  child: CircleAvatar(
+                    radius: 17.w,
+                    backgroundColor: Colors.white,
+                    child: Image.asset(
+                      width: 35.w,
+                      "assets/images/arrow-back.png",
+                      color: arrowColor ?? Colors.blue,
+                    ),
+                  ),
+                ),
             GestureDetector(
-              onTap: () {
-                context.pushNamed(Routes.language);
-              },
+              onTap: () => context.pushNamed(Routes.language),
               child: CircleAvatar(
-                radius: 17.w,
+                radius: 23.w,
                 backgroundColor: Colors.white,
-                child: SvgPicture.asset("assets/svgs/language2.svg"),
+                child: SvgPicture.asset(
+                  "assets/svgs/language2.svg",
+                  height: 45.w,
+                ),
               ),
             ),
+            // GestureDetector(
+            //   onTap: () {
+            //     context.pushNamed(Routes.language);
+            //   },
+            //   child: CircleAvatar(
+            //     radius: 25.w,
+            //     backgroundColor: Colors.white,
+            //     child: SvgPicture.asset("assets/svgs/language2.svg"),
+            //   ),
+            // ),
           ],
         );
       },

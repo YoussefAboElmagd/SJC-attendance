@@ -12,7 +12,7 @@ class LeaveTopHeader extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 235.h,
+          // height: 235.h,
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.w),
           decoration: const BoxDecoration(
             color: Color.fromRGBO(42, 49, 131, 1),
