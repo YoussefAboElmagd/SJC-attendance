@@ -2271,6 +2271,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Validate`
+  String get validate {
+    return Intl.message(
+      'Validate',
+      name: 'validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve`
+  String get approve {
+    return Intl.message(
+      'Approve',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refuse`
+  String get refuse {
+    return Intl.message(
+      'Refuse',
+      name: 'refuse',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

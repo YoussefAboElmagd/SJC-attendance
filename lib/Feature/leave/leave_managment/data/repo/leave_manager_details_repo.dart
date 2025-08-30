@@ -76,6 +76,8 @@ class LeaveManagerDetailsRepo {
     int? id,
   ) async {
     try {
+      print("id in repo $id");
+
       final response = await _managerService.cancelTimeOff({
         "request_id": id ?? 0,
       });
@@ -90,6 +92,7 @@ class LeaveManagerDetailsRepo {
     int? id,
   ) async {
     try {
+      print("id in repo $id");
       final response = await _managerService.approveTimeOff({
         "request_id": id ?? 0,
       });
@@ -104,6 +107,8 @@ class LeaveManagerDetailsRepo {
     int? id,
   ) async {
     try {
+      print("id in repo $id");
+
       final response = await _managerService.refuseTimeOff({
         "request_id": id ?? 0,
       });

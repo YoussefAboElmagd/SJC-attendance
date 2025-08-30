@@ -42,11 +42,11 @@ abstract class LeaveManagerDetailsService {
   Future<HolidayRequestResponse> cancelTimeOff(Map<String, int> body);
 
   @POST(LeaveManagerDetailsConstants.approveTimeoff)
-  Future approveTimeOff(Map<String, int> body);
+  Future approveTimeOff(@Body() Map<String, int> body);
 
   @POST(LeaveManagerDetailsConstants.refuseTimeoff)
-  Future refuseTimeOff(Map<String, int> body);
+  Future refuseTimeOff(@Body() Map<String, int> body);
 
   @POST(LeaveManagerDetailsConstants.validateTimeoff)
-  Future<HolidayRequestResponse> validateTimeOff(Map<String, int> body);
+  Future validateTimeOff(@Body() Map<String, int> body);
 }

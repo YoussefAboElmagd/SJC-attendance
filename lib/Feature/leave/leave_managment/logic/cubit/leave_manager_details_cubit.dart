@@ -295,6 +295,7 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
     emit(const LeaveManagerDetailsState.approveTimeOffLoading());
 
     try {
+      print("id in cubit $id");
       final result = await _leaveDetailsRepo.approveTimeOff(context, id);
 
       result.when(

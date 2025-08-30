@@ -211,7 +211,8 @@ class _LeaveManagerDetailsService implements LeaveManagerDetailsService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
     final _options = _setStreamType<dynamic>(Options(
       method: 'POST',
       headers: _headers,
@@ -238,7 +239,8 @@ class _LeaveManagerDetailsService implements LeaveManagerDetailsService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
     final _options = _setStreamType<dynamic>(Options(
       method: 'POST',
       headers: _headers,
@@ -261,12 +263,13 @@ class _LeaveManagerDetailsService implements LeaveManagerDetailsService {
   }
 
   @override
-  Future<HolidayRequestResponse> validateTimeOff(Map<String, int> body) async {
+  Future<dynamic> validateTimeOff(Map<String, int> body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<HolidayRequestResponse>(Options(
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<dynamic>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -282,14 +285,8 @@ class _LeaveManagerDetailsService implements LeaveManagerDetailsService {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late HolidayRequestResponse _value;
-    try {
-      _value = HolidayRequestResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
     return _value;
   }
 

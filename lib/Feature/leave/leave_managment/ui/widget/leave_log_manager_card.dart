@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Core/widgets/app_button.dart';
 import 'package:madarj/Feature/leave/leave_managment/data/model/new_holiday_response.dart';
+import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_cubit.dart';
 // import 'package:madarj/Feature/leave/leave_managment/data/model/holiday_request.dart';
 // import 'package:madarj/Feature/leave/leave_managment/data/model/holiday_request.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -42,23 +46,23 @@ class LeaveManagerLogCard extends StatelessWidget {
                   data.createDate!.split(" ")[0],
                   style: TextStyles.font14BlackSemiBold,
                 ),
-                // const Spacer(),
-                // isNew == true
-                //     ? AppTextButton(
-                //         buttonText: "Cancel",
-                //         buttonHeight: 30.h,
-                //         buttonWidth: 100.w,
-                //         textStyle: TextStyles.font14WhiteSemiBold,
-                //         onPressed: () {
-                //           context.read<LeaveDetailsCubit>().cancelTimeOff(
-                //             context,
-                //             data.id,
-                //           );
-                //         },
-                //         hintText: "Cancel",
-                //         backgroundColor: ColorsManager.mainColor1,
-                //       )
-                //     : const SizedBox(),
+                const Spacer(),
+                data.state == "validate"
+                    ? AppTextButton(
+                      buttonText: S.of(context).validate,
+                      buttonHeight: 30.h,
+                      buttonWidth: 100.w,
+                      textStyle: TextStyles.font14WhiteSemiBold,
+                      onPressed: () {
+                        print("data.id ${data.id}");
+                        context
+                            .read<LeaveManagerDetailsCubit>()
+                            .validateTimeOff(context, data.id);
+                      },
+                      hintText: S.of(context).validate,
+                      backgroundColor: ColorsManager.mainColor1,
+                    )
+                    : const SizedBox.shrink(),
               ],
             ),
             SizedBox(height: 8.h),
@@ -109,6 +113,45 @@ class LeaveManagerLogCard extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 8.h),
+            data.state == "confirm" ||
+                    data.stateDisplay == "To Approve"
+                ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppTextButton(
+                      buttonText: S.of(context).refuse,
+                      buttonHeight: 30.h,
+                      buttonWidth: 100.w,
+                      textStyle: TextStyles.font14WhiteSemiBold,
+                      onPressed: () {
+                        print("data.id ${data.id}");
+                        context.read<LeaveManagerDetailsCubit>().refuseTimeOff(
+                          context,
+                          data.id,
+                        );
+                      },
+                      hintText: S.of(context).refuse,
+                      backgroundColor: ColorsManager.red,
+                    ),
+                    AppTextButton(
+                      buttonText: S.of(context).approve,
+                      buttonHeight: 30.h,
+                      buttonWidth: 100.w,
+                      textStyle: TextStyles.font14WhiteSemiBold,
+                      onPressed: () {
+                        print("data.id ${data.id}");
+                        context.read<LeaveManagerDetailsCubit>().approveTimeOff(
+                          context,
+                          data.id,
+                        );
+                      },
+                      hintText: S.of(context).approve,
+                      backgroundColor: ColorsManager.mainColor1,
+                    ),
+                  ],
+                )
+                : const SizedBox.shrink(),
           ],
         ),
       ),

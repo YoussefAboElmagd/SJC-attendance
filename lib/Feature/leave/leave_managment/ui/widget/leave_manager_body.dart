@@ -13,7 +13,7 @@ import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
+// import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 // import 'package:madarj/Feature/leave/leave_managment/data/model/new_holiday_response.dart';
 // import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_state.dart';
 import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_cubit.dart';
@@ -73,9 +73,7 @@ class LeavesManagerContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    LeaveBodyManagerWidgets(
-                      timeoffBalanceData: data1,
-                    ),
+                    LeaveBodyManagerWidgets(timeoffBalanceData: data1),
                     const SendLeaveManagerListener(),
                   ],
                 ),
@@ -123,24 +121,101 @@ class SendLeaveManagerListener extends StatelessWidget {
           },
           cancelTimeOffSuccess: () {
             context.popAlert();
-
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('canel Leave'),
                 backgroundColor: Colors.green,
               ),
             );
-            context.read<LeaveDetailsCubit>().getAllLeaves(context);
+            context.read<LeaveManagerDetailsCubit>().getAllLeaves(context);
+          },
+          approveTimeOffError: (e) {
+            context.popAlert();
+            setUpErrorState(context, e);
+          },
+          approveTimeOffLoading: () {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor,
+                    ),
+                  ),
+            );
+          },
+          approveTimeOffSuccess: (data) {
+            context.popAlert();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Approve Leave'),
+                backgroundColor: Colors.green,
+              ),
+            );
+            context.read<LeaveManagerDetailsCubit>().getAllLeaves(context);
+          },
+          refuseTimeOffError: (e) {
+            context.popAlert();
+            setUpErrorState(context, e);
+          },
+          refuseTimeOffLoading: () {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor,
+                    ),
+                  ),
+            );
+          },
+          refuseTimeOffSuccess: (data) {
+            context.popAlert();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Refuse Leave'),
+                backgroundColor: Colors.green,
+              ),
+            );
+            context.read<LeaveManagerDetailsCubit>().getAllLeaves(context);
+          },
+          validateTimeOffError: (e) {
+            context.popAlert();
+            setUpErrorState(context, e);
+          },
+          validateTimeOffLoading: () {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor,
+                    ),
+                  ),
+            );
+          },
+          validateTimeOffSuccess: (data) {
+            context.popAlert();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Validate Leave'),
+                backgroundColor: Colors.green,
+              ),
+            );
+            context.read<LeaveManagerDetailsCubit>().getAllLeaves(context);
           },
         );
       },
+
       child: const SizedBox.shrink(),
     );
   }
 }
 
 void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
-  // Only show dialog if the widget is still mounted
   if (!context.mounted) return;
 
   final isMultipleErrors =

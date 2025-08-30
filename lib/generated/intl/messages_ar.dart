@@ -273,6 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Would_you_like": MessageLookupByLibrary.simpleMessage(
             "هل ترغب في التحقق باستخدام بصمتك بدلاً من ذلك؟"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
+        "approve": MessageLookupByLibrary.simpleMessage("موافقة"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("تحديات في الانتظار"),
         "change_language_button":
@@ -337,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "permission_permanently_denied":
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن بشكل دائم"),
         "reason_text": MessageLookupByLibrary.simpleMessage("سبب الرفض"),
+        "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
         "select_choice": MessageLookupByLibrary.simpleMessage("تاكيد الاختيار"),
         "select_file_type":
             MessageLookupByLibrary.simpleMessage("اختر نوع الملف"),
@@ -356,6 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "يبدو أن رمز التحقق منتهي الصلاحية أو غير صالح"),
         "try_again": MessageLookupByLibrary.simpleMessage("حاول مجددا"),
+        "validate": MessageLookupByLibrary.simpleMessage("تحقق"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("عرض عمل الشهر"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),

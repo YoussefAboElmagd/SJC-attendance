@@ -283,6 +283,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Would_you_like": MessageLookupByLibrary.simpleMessage(
             "Would you like to authenticate with your fingerprint instead?"),
         "amount": MessageLookupByLibrary.simpleMessage("amount"),
+        "approve": MessageLookupByLibrary.simpleMessage("Approve"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("Challanges Awaiting"),
         "change_language_button":
@@ -346,6 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "permission_permanently_denied": MessageLookupByLibrary.simpleMessage(
             "permission permanently denied"),
         "reason_text": MessageLookupByLibrary.simpleMessage("reason"),
+        "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
         "select_choice": MessageLookupByLibrary.simpleMessage("Select"),
         "select_file_type":
             MessageLookupByLibrary.simpleMessage("Select file type"),
@@ -365,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "token seems to have expired or invalid"),
         "try_again": MessageLookupByLibrary.simpleMessage("try again"),
+        "validate": MessageLookupByLibrary.simpleMessage("Validate"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("view month work"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),

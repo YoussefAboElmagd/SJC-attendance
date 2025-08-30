@@ -221,5 +221,8 @@
   "no_payroll_first": "Your payroll during Year",
   "no_payroll_second": "There is no Your payroll during Year",
   "Unknown_server_error": "Unknown error occurred from server",
-  "non_accepted_period": "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave."
+  "non_accepted_period": "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.",
+  "validate": "Validate",
+  "approve": "Approve",
+  "refuse": "Refuse"
 }
