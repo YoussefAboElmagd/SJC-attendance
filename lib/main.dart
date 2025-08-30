@@ -25,7 +25,6 @@ void main() async {
   LocalNotificationService.init();
   PushNotificationsService.init();
   await checkUserLogged();
-
   runApp(const MadarjApp());
 }
 

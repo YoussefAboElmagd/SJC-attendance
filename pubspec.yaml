@@ -1,10 +1,10 @@
 name: madarj
 description: "A new Flutter project."
 publish_to: "none"
-version: 1.0.0+4
+version: 1.0.0+7
 
 environment:
-  sdk: ^3.8.1
+  sdk: ">=3.7.0 <3.8.0"
 
 dependencies:
   build_runner: ^2.4.9
@@ -15,7 +15,7 @@ dependencies:
   dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
   easy_localization: ^3.0.7
-  file_picker: 8.3.2
+  file_picker: ^8.3.2
   firebase_core: ^3.13.0
   firebase_messaging: ^15.2.5
   flutter:
@@ -55,7 +55,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: "^0.14.4"
 flutter:
   uses-material-design: true
   assets:
@@ -63,16 +63,12 @@ flutter:
     - assets/svgs/
     - assets/images/bottom_nav/
     - assets/images/cards/
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+
+flutter_launcher_icons:
+  android: "launcher_icon2"
+  ios: true
+  image_path: "assets/images/company2.jpg"
+  min_sdk_android: 21
+
 flutter_intl:
   enabled: true

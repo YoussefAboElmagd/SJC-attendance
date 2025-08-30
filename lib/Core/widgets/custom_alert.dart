@@ -13,22 +13,17 @@ import 'package:madarj/Feature/home/ui/widgets/alert_design.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class CustomAlert extends StatelessWidget {
-  const CustomAlert({
-    super.key,
-    this.content,
-  });
+  const CustomAlert({super.key, this.content});
   final Widget? content;
   @override
   Widget build(BuildContext context) {
     return AlertDesign(
-      content: content ??
+      content:
+          content ??
           SizedBox(
             height: 400.h,
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20.w,
-                vertical: 20.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -37,16 +32,12 @@ class CustomAlert extends StatelessWidget {
                     height: 150.h,
                     "assets/images/logoutAlert.png",
                   ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
+                  SizedBox(height: 30.h),
                   Text(
                     S.of(context).logout_and_login_again,
                     style: TextStyles.font18BlackBold,
                   ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
+                  SizedBox(height: 30.h),
                   CustomButton(
                     onTap: () {
                       Navigator.pop(context);
@@ -55,9 +46,7 @@ class CustomAlert extends StatelessWidget {
                     textStyle: TextStyles.font14WhiteSemiBold,
                     color: ColorsManager.mainColor1,
                   ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
+                  SizedBox(height: 15.h),
                   CustomButton(
                     onTap: () async {
                       CachHelper.removeData(key: SharedKeys.userToken);
@@ -69,7 +58,10 @@ class CustomAlert extends StatelessWidget {
                         value: false,
                       );
                       DioFactory.setTokenAfterLogin(null);
-
+                      await CachHelper.removeData(key: SharedKeys.isAttendance);
+                      await CachHelper.removeData(key: SharedKeys.isExpenses);
+                      await CachHelper.removeData(key: SharedKeys.isTimeOff);
+                      await CachHelper.removeData(key: SharedKeys.isPayroll);
                       // await DioFactory.setTokenAfterLogin(null);
                       // await CachHelper.removeData(key: 'token');
                       // await context.pushNamedAndRemoveUntill(Routes.login);

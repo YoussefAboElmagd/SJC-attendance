@@ -3,6 +3,7 @@
   "Tasks": "Tasks",
   "Expense": "Expense",
   "Leave": "Leaves",
+  "Leave_manager": "Leaves management",
   "Dont_have_an_account": "Don’t have an account ?",
   "Login_button": "Login",
   "Login_text": "Login",
@@ -219,5 +220,6 @@
   "succesfully_send_Leave": "succesfully send Leave request",
   "no_payroll_first": "Your payroll during Year",
   "no_payroll_second": "There is no Your payroll during Year",
-  "Unknown_server_error": "Unknown error occurred from server"
+  "Unknown_server_error": "Unknown error occurred from server",
+  "non_accepted_period": "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave."
 }

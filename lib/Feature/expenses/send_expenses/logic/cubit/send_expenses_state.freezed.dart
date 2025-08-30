@@ -32,6 +32,9 @@ mixin _$SendExpensesState<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -61,6 +64,9 @@ mixin _$SendExpensesState<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -89,6 +95,9 @@ mixin _$SendExpensesState<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -122,6 +131,9 @@ mixin _$SendExpensesState<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -155,6 +167,9 @@ mixin _$SendExpensesState<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -185,6 +200,9 @@ mixin _$SendExpensesState<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -272,6 +290,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -304,6 +325,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -335,6 +359,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -374,6 +401,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -410,6 +440,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -443,6 +476,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -551,6 +587,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -583,6 +622,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -614,6 +656,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -653,6 +698,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -689,6 +737,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -722,6 +773,9 @@ class _$ChangeDragDownHintSuccessImpl<T>
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -809,6 +863,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -841,6 +898,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -872,6 +932,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -911,6 +974,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -947,6 +1013,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -980,6 +1049,9 @@ class _$FileSelectionInProgressImpl<T> implements FileSelectionInProgress<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -1083,6 +1155,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -1115,6 +1190,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -1146,6 +1224,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -1185,6 +1266,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -1221,6 +1305,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -1254,6 +1341,9 @@ class _$FileSelectedImpl<T> implements FileSelected<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -1339,6 +1429,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -1371,6 +1464,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -1402,6 +1498,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -1441,6 +1540,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -1477,6 +1579,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -1510,6 +1615,9 @@ class _$FileSelectionCancelledImpl<T> implements FileSelectionCancelled<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -1614,6 +1722,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -1646,6 +1757,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -1677,6 +1791,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -1716,6 +1833,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -1752,6 +1872,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -1785,6 +1908,9 @@ class _$FileSelectionErrorImpl<T> implements FileSelectionError<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -1895,6 +2021,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -1927,6 +2056,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -1958,6 +2090,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -1997,6 +2132,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -2033,6 +2171,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -2066,6 +2207,9 @@ class _$FileValidationErrorImpl<T> implements FileValidationError<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -2148,6 +2292,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -2180,6 +2327,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -2211,6 +2361,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -2250,6 +2403,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -2286,6 +2442,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -2319,6 +2478,9 @@ class _$UploadingImpl<T> implements Uploading<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -2422,6 +2584,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -2454,6 +2619,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -2485,6 +2653,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -2524,6 +2695,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -2560,6 +2734,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -2593,6 +2770,9 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -2701,6 +2881,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -2733,6 +2916,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -2764,6 +2950,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -2803,6 +2992,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -2839,6 +3031,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -2872,6 +3067,9 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -2989,6 +3187,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -3021,6 +3222,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -3052,6 +3256,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -3091,6 +3298,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -3127,6 +3337,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -3160,6 +3373,9 @@ class _$MultipleFilesSelectedImpl<T> implements MultipleFilesSelected<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -3270,6 +3486,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -3302,6 +3521,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -3333,6 +3555,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -3372,6 +3597,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -3408,6 +3636,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -3441,6 +3672,9 @@ class _$UploadProgressImpl<T> implements UploadProgress<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -3554,6 +3788,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -3586,6 +3823,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -3617,6 +3857,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -3656,6 +3899,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -3692,6 +3938,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -3725,6 +3974,9 @@ class _$RemoveFileImpl<T> implements RemoveFile<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -3807,6 +4059,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -3839,6 +4094,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -3870,6 +4128,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -3909,6 +4170,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -3945,6 +4209,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -3978,6 +4245,9 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -4000,6 +4270,803 @@ class _$PermissionDeniedImpl<T> implements PermissionDenied<T> {
 
 abstract class PermissionDenied<T> implements SendExpensesState<T> {
   const factory PermissionDenied() = _$PermissionDeniedImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ImagePickedSuccessImplCopyWith<T, $Res> {
+  factory _$$ImagePickedSuccessImplCopyWith(_$ImagePickedSuccessImpl<T> value,
+          $Res Function(_$ImagePickedSuccessImpl<T>) then) =
+      __$$ImagePickedSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ImagePickedSuccessImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res,
+        _$ImagePickedSuccessImpl<T>>
+    implements _$$ImagePickedSuccessImplCopyWith<T, $Res> {
+  __$$ImagePickedSuccessImplCopyWithImpl(_$ImagePickedSuccessImpl<T> _value,
+      $Res Function(_$ImagePickedSuccessImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ImagePickedSuccessImpl<T> implements ImagePickedSuccess<T> {
+  const _$ImagePickedSuccessImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.imagePickedSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImagePickedSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
+  }) {
+    return imagePickedSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
+  }) {
+    return imagePickedSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (imagePickedSuccess != null) {
+      return imagePickedSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
+  }) {
+    return imagePickedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+  }) {
+    return imagePickedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (imagePickedSuccess != null) {
+      return imagePickedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagePickedSuccess<T> implements SendExpensesState<T> {
+  const factory ImagePickedSuccess() = _$ImagePickedSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$UserCanceledImplCopyWith<T, $Res> {
+  factory _$$UserCanceledImplCopyWith(_$UserCanceledImpl<T> value,
+          $Res Function(_$UserCanceledImpl<T>) then) =
+      __$$UserCanceledImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UserCanceledImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$UserCanceledImpl<T>>
+    implements _$$UserCanceledImplCopyWith<T, $Res> {
+  __$$UserCanceledImplCopyWithImpl(
+      _$UserCanceledImpl<T> _value, $Res Function(_$UserCanceledImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserCanceledImpl<T> implements UserCanceled<T> {
+  const _$UserCanceledImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.userCanceled()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserCanceledImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
+  }) {
+    return userCanceled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
+  }) {
+    return userCanceled?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (userCanceled != null) {
+      return userCanceled();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
+  }) {
+    return userCanceled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+  }) {
+    return userCanceled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (userCanceled != null) {
+      return userCanceled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserCanceled<T> implements SendExpensesState<T> {
+  const factory UserCanceled() = _$UserCanceledImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$NoNewFilesAddedImplCopyWith<T, $Res> {
+  factory _$$NoNewFilesAddedImplCopyWith(_$NoNewFilesAddedImpl<T> value,
+          $Res Function(_$NoNewFilesAddedImpl<T>) then) =
+      __$$NoNewFilesAddedImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$NoNewFilesAddedImplCopyWithImpl<T, $Res>
+    extends _$SendExpensesStateCopyWithImpl<T, $Res, _$NoNewFilesAddedImpl<T>>
+    implements _$$NoNewFilesAddedImplCopyWith<T, $Res> {
+  __$$NoNewFilesAddedImplCopyWithImpl(_$NoNewFilesAddedImpl<T> _value,
+      $Res Function(_$NoNewFilesAddedImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoNewFilesAddedImpl<T> implements NoNewFilesAdded<T> {
+  const _$NoNewFilesAddedImpl();
+
+  @override
+  String toString() {
+    return 'SendExpensesState<$T>.noNewFilesAdded()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoNewFilesAddedImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? text) changeDragDownHintSuccess,
+    required TResult Function() fileSelectionInProgress,
+    required TResult Function(File file) fileSelected,
+    required TResult Function() fileSelectionCancelled,
+    required TResult Function(String message) fileSelectionError,
+    required TResult Function(String message) fileValidationError,
+    required TResult Function() uploading,
+    required TResult Function(File file) uploadSuccess,
+    required TResult Function(String message) uploadError,
+    required TResult Function(List<File> files) multipleFilesSelected,
+    required TResult Function(double progress) uploadProgress,
+    required TResult Function(List<File> files) removeFile,
+    required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
+    required TResult Function() permissionPermanentlyDenied,
+    required TResult Function() loading,
+    required TResult Function(ApiErrorModel error) error,
+    required TResult Function(T requestType, T categories) combinedSuccess,
+    required TResult Function(
+            T requestType, T categories, T expenseDetailsResult)
+        combinedSuccessForUpdate,
+    required TResult Function() createExpensesLoading,
+    required TResult Function(T response) createExpensesSuccess,
+    required TResult Function(ApiErrorModel error) createExpensesError,
+    required TResult Function() errorChooseDragDrop,
+  }) {
+    return noNewFilesAdded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? text)? changeDragDownHintSuccess,
+    TResult? Function()? fileSelectionInProgress,
+    TResult? Function(File file)? fileSelected,
+    TResult? Function()? fileSelectionCancelled,
+    TResult? Function(String message)? fileSelectionError,
+    TResult? Function(String message)? fileValidationError,
+    TResult? Function()? uploading,
+    TResult? Function(File file)? uploadSuccess,
+    TResult? Function(String message)? uploadError,
+    TResult? Function(List<File> files)? multipleFilesSelected,
+    TResult? Function(double progress)? uploadProgress,
+    TResult? Function(List<File> files)? removeFile,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
+    TResult? Function()? permissionPermanentlyDenied,
+    TResult? Function()? loading,
+    TResult? Function(ApiErrorModel error)? error,
+    TResult? Function(T requestType, T categories)? combinedSuccess,
+    TResult? Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult? Function()? createExpensesLoading,
+    TResult? Function(T response)? createExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? createExpensesError,
+    TResult? Function()? errorChooseDragDrop,
+  }) {
+    return noNewFilesAdded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? text)? changeDragDownHintSuccess,
+    TResult Function()? fileSelectionInProgress,
+    TResult Function(File file)? fileSelected,
+    TResult Function()? fileSelectionCancelled,
+    TResult Function(String message)? fileSelectionError,
+    TResult Function(String message)? fileValidationError,
+    TResult Function()? uploading,
+    TResult Function(File file)? uploadSuccess,
+    TResult Function(String message)? uploadError,
+    TResult Function(List<File> files)? multipleFilesSelected,
+    TResult Function(double progress)? uploadProgress,
+    TResult Function(List<File> files)? removeFile,
+    TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
+    TResult Function()? permissionPermanentlyDenied,
+    TResult Function()? loading,
+    TResult Function(ApiErrorModel error)? error,
+    TResult Function(T requestType, T categories)? combinedSuccess,
+    TResult Function(T requestType, T categories, T expenseDetailsResult)?
+        combinedSuccessForUpdate,
+    TResult Function()? createExpensesLoading,
+    TResult Function(T response)? createExpensesSuccess,
+    TResult Function(ApiErrorModel error)? createExpensesError,
+    TResult Function()? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (noNewFilesAdded != null) {
+      return noNewFilesAdded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeDragDownHintSuccess<T> value)
+        changeDragDownHintSuccess,
+    required TResult Function(FileSelectionInProgress<T> value)
+        fileSelectionInProgress,
+    required TResult Function(FileSelected<T> value) fileSelected,
+    required TResult Function(FileSelectionCancelled<T> value)
+        fileSelectionCancelled,
+    required TResult Function(FileSelectionError<T> value) fileSelectionError,
+    required TResult Function(FileValidationError<T> value) fileValidationError,
+    required TResult Function(Uploading<T> value) uploading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(MultipleFilesSelected<T> value)
+        multipleFilesSelected,
+    required TResult Function(UploadProgress<T> value) uploadProgress,
+    required TResult Function(RemoveFile<T> value) removeFile,
+    required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
+    required TResult Function(PermissionPermanentlyDenied<T> value)
+        permissionPermanentlyDenied,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(CombinedSuccess<T> value) combinedSuccess,
+    required TResult Function(CombinedSuccessForUpdate<T> value)
+        combinedSuccessForUpdate,
+    required TResult Function(CreateExpensesLoading<T> value)
+        createExpensesLoading,
+    required TResult Function(CreateExpensesSuccess<T> value)
+        createExpensesSuccess,
+    required TResult Function(CreateExpensesError<T> value) createExpensesError,
+    required TResult Function(ErrorChooseDragDrop<T> value) errorChooseDragDrop,
+  }) {
+    return noNewFilesAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult? Function(FileSelectionInProgress<T> value)?
+        fileSelectionInProgress,
+    TResult? Function(FileSelected<T> value)? fileSelected,
+    TResult? Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult? Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult? Function(FileValidationError<T> value)? fileValidationError,
+    TResult? Function(Uploading<T> value)? uploading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult? Function(UploadProgress<T> value)? uploadProgress,
+    TResult? Function(RemoveFile<T> value)? removeFile,
+    TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult? Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult? Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult? Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult? Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult? Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult? Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+  }) {
+    return noNewFilesAdded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeDragDownHintSuccess<T> value)?
+        changeDragDownHintSuccess,
+    TResult Function(FileSelectionInProgress<T> value)? fileSelectionInProgress,
+    TResult Function(FileSelected<T> value)? fileSelected,
+    TResult Function(FileSelectionCancelled<T> value)? fileSelectionCancelled,
+    TResult Function(FileSelectionError<T> value)? fileSelectionError,
+    TResult Function(FileValidationError<T> value)? fileValidationError,
+    TResult Function(Uploading<T> value)? uploading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(MultipleFilesSelected<T> value)? multipleFilesSelected,
+    TResult Function(UploadProgress<T> value)? uploadProgress,
+    TResult Function(RemoveFile<T> value)? removeFile,
+    TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
+    TResult Function(PermissionPermanentlyDenied<T> value)?
+        permissionPermanentlyDenied,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Error<T> value)? error,
+    TResult Function(CombinedSuccess<T> value)? combinedSuccess,
+    TResult Function(CombinedSuccessForUpdate<T> value)?
+        combinedSuccessForUpdate,
+    TResult Function(CreateExpensesLoading<T> value)? createExpensesLoading,
+    TResult Function(CreateExpensesSuccess<T> value)? createExpensesSuccess,
+    TResult Function(CreateExpensesError<T> value)? createExpensesError,
+    TResult Function(ErrorChooseDragDrop<T> value)? errorChooseDragDrop,
+    required TResult orElse(),
+  }) {
+    if (noNewFilesAdded != null) {
+      return noNewFilesAdded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoNewFilesAdded<T> implements SendExpensesState<T> {
+  const factory NoNewFilesAdded() = _$NoNewFilesAddedImpl<T>;
 }
 
 /// @nodoc
@@ -4059,6 +5126,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -4091,6 +5161,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -4122,6 +5195,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -4161,6 +5237,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -4197,6 +5276,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -4230,6 +5312,9 @@ class _$PermissionPermanentlyDeniedImpl<T>
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -4307,6 +5392,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -4339,6 +5427,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -4370,6 +5461,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -4409,6 +5503,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -4445,6 +5542,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -4478,6 +5578,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -4580,6 +5683,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -4612,6 +5718,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -4643,6 +5752,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -4682,6 +5794,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -4718,6 +5833,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -4751,6 +5869,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -4873,6 +5994,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -4905,6 +6029,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -4936,6 +6063,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -4975,6 +6105,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -5011,6 +6144,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -5044,6 +6180,9 @@ class _$CombinedSuccessImpl<T> implements CombinedSuccess<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -5184,6 +6323,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -5217,6 +6359,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -5249,6 +6394,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -5289,6 +6437,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -5325,6 +6476,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -5358,6 +6512,9 @@ class _$CombinedSuccessForUpdateImpl<T> implements CombinedSuccessForUpdate<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -5449,6 +6606,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -5481,6 +6641,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -5512,6 +6675,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -5551,6 +6717,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -5587,6 +6756,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -5620,6 +6792,9 @@ class _$CreateExpensesLoadingImpl<T> implements CreateExpensesLoading<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -5727,6 +6902,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -5759,6 +6937,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -5790,6 +6971,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -5829,6 +7013,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -5865,6 +7052,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -5898,6 +7088,9 @@ class _$CreateExpensesSuccessImpl<T> implements CreateExpensesSuccess<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -6008,6 +7201,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -6040,6 +7236,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -6071,6 +7270,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -6110,6 +7312,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -6146,6 +7351,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -6179,6 +7387,9 @@ class _$CreateExpensesErrorImpl<T> implements CreateExpensesError<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,
@@ -6263,6 +7474,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     required TResult Function(double progress) uploadProgress,
     required TResult Function(List<File> files) removeFile,
     required TResult Function() permissionDenied,
+    required TResult Function() imagePickedSuccess,
+    required TResult Function() userCanceled,
+    required TResult Function() noNewFilesAdded,
     required TResult Function() permissionPermanentlyDenied,
     required TResult Function() loading,
     required TResult Function(ApiErrorModel error) error,
@@ -6295,6 +7509,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     TResult? Function(double progress)? uploadProgress,
     TResult? Function(List<File> files)? removeFile,
     TResult? Function()? permissionDenied,
+    TResult? Function()? imagePickedSuccess,
+    TResult? Function()? userCanceled,
+    TResult? Function()? noNewFilesAdded,
     TResult? Function()? permissionPermanentlyDenied,
     TResult? Function()? loading,
     TResult? Function(ApiErrorModel error)? error,
@@ -6326,6 +7543,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     TResult Function(double progress)? uploadProgress,
     TResult Function(List<File> files)? removeFile,
     TResult Function()? permissionDenied,
+    TResult Function()? imagePickedSuccess,
+    TResult Function()? userCanceled,
+    TResult Function()? noNewFilesAdded,
     TResult Function()? permissionPermanentlyDenied,
     TResult Function()? loading,
     TResult Function(ApiErrorModel error)? error,
@@ -6365,6 +7585,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     required TResult Function(UploadProgress<T> value) uploadProgress,
     required TResult Function(RemoveFile<T> value) removeFile,
     required TResult Function(PermissionDenied<T> value) permissionDenied,
+    required TResult Function(ImagePickedSuccess<T> value) imagePickedSuccess,
+    required TResult Function(UserCanceled<T> value) userCanceled,
+    required TResult Function(NoNewFilesAdded<T> value) noNewFilesAdded,
     required TResult Function(PermissionPermanentlyDenied<T> value)
         permissionPermanentlyDenied,
     required TResult Function(Loading<T> value) loading,
@@ -6401,6 +7624,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     TResult? Function(UploadProgress<T> value)? uploadProgress,
     TResult? Function(RemoveFile<T> value)? removeFile,
     TResult? Function(PermissionDenied<T> value)? permissionDenied,
+    TResult? Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult? Function(UserCanceled<T> value)? userCanceled,
+    TResult? Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult? Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult? Function(Loading<T> value)? loading,
@@ -6434,6 +7660,9 @@ class _$ErrorChooseDragDropImpl<T> implements ErrorChooseDragDrop<T> {
     TResult Function(UploadProgress<T> value)? uploadProgress,
     TResult Function(RemoveFile<T> value)? removeFile,
     TResult Function(PermissionDenied<T> value)? permissionDenied,
+    TResult Function(ImagePickedSuccess<T> value)? imagePickedSuccess,
+    TResult Function(UserCanceled<T> value)? userCanceled,
+    TResult Function(NoNewFilesAdded<T> value)? noNewFilesAdded,
     TResult Function(PermissionPermanentlyDenied<T> value)?
         permissionPermanentlyDenied,
     TResult Function(Loading<T> value)? loading,

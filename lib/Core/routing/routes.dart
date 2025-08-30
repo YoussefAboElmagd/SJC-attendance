@@ -12,6 +12,7 @@ class Routes {
   static const String baseLayer = "/baseLayer";
   static const String homeScreen = "/homeScreen";
   static const String leaveScreen = "/leaveScreen";
+  static const String leaveManager = "/leaveManager";
   static const String expenseScreen = "/expenseScreen";
   static const String tasksScreen = "/tasksScreen";
 
@@ -26,8 +27,7 @@ class Routes {
   static const String cardsScreen = "/cardsScreen";
 
   static const String taskDetails = "/taskDetails";
-  static const String payroll = "/taskDetails";
+  static const String payroll = "/payroll";
   static const String payrollDetails = "/payrollDetails";
 
-  //
 }

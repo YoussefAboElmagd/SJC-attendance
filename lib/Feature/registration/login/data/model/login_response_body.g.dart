@@ -9,6 +9,7 @@ part of 'login_response_body.dart';
 LoginResponseBody _$LoginResponseBodyFromJson(Map<String, dynamic> json) =>
     LoginResponseBody(
       uid: (json['uid'] as num).toInt(),
+      access: Access.fromJson(json['access'] as Map<String, dynamic>),
       companyId: (json['company_id'] as num).toInt(),
       companyIds: (json['company_ids'] as List<dynamic>)
           .map((e) => (e as num).toInt())
@@ -30,4 +31,21 @@ Map<String, dynamic> _$LoginResponseBodyToJson(LoginResponseBody instance) =>
       'company_name': instance.companyName,
       'country': instance.country,
       'contact_address': instance.contactAddress,
+      'access': instance.access,
+    };
+
+Access _$AccessFromJson(Map<String, dynamic> json) => Access(
+      attendance: json['attendance'] as String?,
+      expenses: json['expenses'] as String?,
+      payroll: json['payroll'] as String?,
+      timeoff: json['timeoff'] as String?,
+      skipBiometric: json['skip_biometric'] as bool?,
+    );
+
+Map<String, dynamic> _$AccessToJson(Access instance) => <String, dynamic>{
+      'attendance': instance.attendance,
+      'expenses': instance.expenses,
+      'payroll': instance.payroll,
+      'timeoff': instance.timeoff,
+      'skip_biometric': instance.skipBiometric,
     };

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_svg/svg.dart';
+import 'package:madarj/Core/helpers/cach_helper.dart';
+// import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/home/data/model/clock_status_response.dart';
 import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
@@ -29,11 +33,7 @@ class ClockIn extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                15.r,
-              ),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
@@ -48,12 +48,7 @@ class ClockIn extends StatelessWidget {
                 Text(
                   '${S.of(context).Paid_Period} 1 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year} - 30 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}',
                   style: TextStyles.font14BlackSemiBold.copyWith(
-                    color: const Color.fromRGBO(
-                      71,
-                      84,
-                      103,
-                      1,
-                    ),
+                    color: const Color.fromRGBO(71, 84, 103, 1),
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                   ),
@@ -81,21 +76,29 @@ class ClockIn extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () async {
-                      context.read<HomeCubit>().checkBiometricsAndAuthenticate(
-                            context: context,
-                            isCheckIn: true,
-                          );
-                      String? device =
-                          await context.read<HomeCubit>().getDeviceIdentifier();
+                      if (CachHelper.getData(key: SharedKeys.skipBiometric) ==
+                          true) {
+                        // context.popAlert();
+                        context.read<HomeCubit>().checkUser(context);
+                      } else {
+                        context
+                            .read<HomeCubit>()
+                            .checkBiometricsAndAuthenticate(
+                              context: context,
+                              isCheckIn: true,
+                            );
+                      }
+                      // String? device =
+                      //     await context.read<HomeCubit>().getDeviceIdentifier();
 
-                      print(device);
+                      // print(device);
                     },
                     child: Text(
                       context.read<HomeCubit>().clockInText != null
                           ? context.read<HomeCubit>().clockInText!
                           : clockStatusResponse.attendanceState == "clock_in"
-                              ? S.of(context).Clock_In
-                              : S.of(context).Clock_Out,
+                          ? S.of(context).Clock_In
+                          : S.of(context).Clock_Out,
                       style: TextStyles.font16WhiteSemiBold,
                     ),
                   ),
@@ -109,4 +112,3 @@ class ClockIn extends StatelessWidget {
     );
   }
 }
-

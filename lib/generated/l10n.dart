@@ -90,6 +90,16 @@ class S {
     );
   }
 
+  /// `Leaves management`
+  String get Leave_manager {
+    return Intl.message(
+      'Leaves management',
+      name: 'Leave_manager',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Don’t have an account ?`
   String get Dont_have_an_account {
     return Intl.message(
@@ -2247,6 +2257,16 @@ class S {
     return Intl.message(
       'Unknown error occurred from server',
       name: 'Unknown_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.`
+  String get non_accepted_period {
+    return Intl.message(
+      'The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.',
+      name: 'non_accepted_period',
       desc: '',
       args: [],
     );

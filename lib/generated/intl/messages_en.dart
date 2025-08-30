@@ -142,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Leave Duration"),
         "Leave_Summary": MessageLookupByLibrary.simpleMessage("Leave Summary"),
         "Leave_Used": MessageLookupByLibrary.simpleMessage("Leave Used"),
+        "Leave_manager":
+            MessageLookupByLibrary.simpleMessage("Leaves management"),
         "Lets_Clock_In":
             MessageLookupByLibrary.simpleMessage("Let’s Clock-In!"),
         "Lets_tackle_your_to_do_list": MessageLookupByLibrary.simpleMessage(
@@ -323,6 +325,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Your payroll during Year"),
         "no_payroll_second": MessageLookupByLibrary.simpleMessage(
             "There is no Your payroll during Year"),
+        "non_accepted_period": MessageLookupByLibrary.simpleMessage(
+            "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave."),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
             "Increase your work management & career development radically"),
         "on_borading_title": MessageLookupByLibrary.simpleMessage(

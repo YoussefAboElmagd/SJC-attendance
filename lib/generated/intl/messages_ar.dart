@@ -138,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Leave_Summary": MessageLookupByLibrary.simpleMessage("ملخص الإجازات"),
         "Leave_Used":
             MessageLookupByLibrary.simpleMessage("الإجازات المستخدمة"),
+        "Leave_manager": MessageLookupByLibrary.simpleMessage("ادارة الاجازات"),
         "Lets_Clock_In":
             MessageLookupByLibrary.simpleMessage("هيا لنسجل الدخول!"),
         "Lets_tackle_your_to_do_list": MessageLookupByLibrary.simpleMessage(
@@ -314,6 +315,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "كشف الرواتب الخاص بك خلال السنة"),
         "no_payroll_second": MessageLookupByLibrary.simpleMessage(
             "لا يوجد كشف رواتب لك خلال السنة"),
+        "non_accepted_period": MessageLookupByLibrary.simpleMessage(
+            "فتره الاجازه التي تم اختيارها تتعارض مع اجازه اخري.برجاء اختيار فتره اخري لا تتعارض مع اي اجازه"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
             "قم بزيادة إدارة عملك وتطوير مسارك المهني بشكل جذري"),
         "on_borading_title": MessageLookupByLibrary.simpleMessage(

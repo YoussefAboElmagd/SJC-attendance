@@ -38,6 +38,9 @@ class SendExpensesState<T> with _$SendExpensesState<T> {
 
   // permissions
   const factory SendExpensesState.permissionDenied() = PermissionDenied;
+  const factory SendExpensesState.imagePickedSuccess() = ImagePickedSuccess;
+  const factory SendExpensesState.userCanceled() = UserCanceled;
+  const factory SendExpensesState.noNewFilesAdded() = NoNewFilesAdded;
   const factory SendExpensesState.permissionPermanentlyDenied() =
       PermissionPermanentlyDenied;
 

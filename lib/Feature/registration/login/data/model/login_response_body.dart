@@ -17,9 +17,12 @@ class LoginResponseBody {
   final dynamic country;
   @JsonKey(name: 'contact_address')
   final String contactAddress;
+  @JsonKey(name: 'access')
+  final Access access;
 
   LoginResponseBody({
     required this.uid,
+    required this.access,
     required this.companyId,
     required this.companyIds,
     required this.partnerId,
@@ -33,4 +36,30 @@ class LoginResponseBody {
       _$LoginResponseBodyFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseBodyToJson(this);
+}
+
+@JsonSerializable()
+class Access {
+  @JsonKey(name: 'attendance')
+  final String? attendance;
+  @JsonKey(name: 'expenses')
+  final String? expenses;
+  @JsonKey(name: 'payroll')
+  final String? payroll;
+  @JsonKey(name: 'timeoff')
+  final String? timeoff;
+  @JsonKey(name: 'skip_biometric')
+  final bool? skipBiometric;
+
+  Access({
+    required this.attendance,
+    required this.expenses,
+    required this.payroll,
+    required this.timeoff,
+    required this.skipBiometric,
+  });
+
+  factory Access.fromJson(Map<String, dynamic> json) => _$AccessFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AccessToJson(this);
 }

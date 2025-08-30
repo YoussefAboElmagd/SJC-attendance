@@ -20,10 +20,11 @@ class SendLeaveBody extends StatelessWidget {
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: BlocBuilder<SendLeaveCubit, SendLeaveState>(
-        buildWhen: (previous, current) =>
-            current is TimeoffTypesLoading ||
-            current is TimeoffTypesSuccess ||
-            current is TimeoffTypesError,
+        buildWhen:
+            (previous, current) =>
+                current is TimeoffTypesLoading ||
+                current is TimeoffTypesSuccess ||
+                current is TimeoffTypesError,
 
         builder: (context, state) {
           return state.maybeWhen(
@@ -82,17 +83,20 @@ class SendLeaveListener extends StatelessWidget {
           // orElse: () {},
           submitLeaveRequestError: (e) {
             context.popAlert();
+            // print(e.message);
+            // print(e.getAllErrorMessages());
             setUpErrorState(context, e);
           },
           submitLeaveRequestLoading: () {
             showDialog(
               barrierDismissible: false,
               context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainColor,
-                ),
-              ),
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor,
+                    ),
+                  ),
             );
           },
           submitLeaveRequestSuccess: (e) {
@@ -116,24 +120,28 @@ class SendLeaveListener extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => AlertDialog(
-        icon: const Icon(Icons.error, color: Colors.red, size: 32),
-        content: Text(
-          apiErrorModel.message!,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.popAlert();
-            },
-            child: Text(
-              S.of(context).close_it,
-              style: TextStyles.font14BlueSemiBold,
+      builder:
+          (context) => AlertDialog(
+            icon: const Icon(Icons.error, color: Colors.red, size: 32),
+            content: Text(
+              apiErrorModel.message ==
+                      "type 'String' is not a subtype of type 'int' of 'index'"
+                  ? S.of(context).non_accepted_period
+                  : apiErrorModel.message!,
+              style: TextStyles.font15DarkBlueMedium,
             ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  context.popAlert();
+                },
+                child: Text(
+                  S.of(context).close_it,
+                  style: TextStyles.font14BlueSemiBold,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

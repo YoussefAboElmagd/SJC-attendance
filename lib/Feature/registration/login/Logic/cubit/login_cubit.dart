@@ -4,6 +4,7 @@ import 'package:madarj/Core/helpers/cach_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
+import 'package:madarj/Feature/registration/login/data/model/login_response_body.dart';
 import 'package:madarj/Feature/registration/login/data/repos/login_repo.dart';
 
 import '../../../../../Core/helpers/constants.dart';
@@ -23,32 +24,39 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginState.changeObsecuredState(isObsecur: !isObsecure));
   }
 
-  emitLogin(BuildContext context,LoginRequestBody loginRequestBody) async {
+  emitLogin(BuildContext context, LoginRequestBody loginRequestBody) async {
     emit(const LoginState.loginLoading());
-    final response = await _loginRepo.login(context,loginRequestBody);
+    final response = await _loginRepo.login(context, loginRequestBody);
 
     response.when(
       success: (loginResonse) async {
         print(loginResonse.accessToken);
-        await saveUserToken(loginResonse.accessToken);
+        await saveUserToken(loginResonse.accessToken, loginResonse.access);
         emit(LoginState.loginSuccess(loginResonse));
       },
       failure: (apiErrorModel) {
         // print("error cubit");
         print("Login failed: ${apiErrorModel.message}");
 
-        emit(
-          LoginState.loginError(apiErrorModel),
-        );
+        emit(LoginState.loginError(apiErrorModel));
       },
     );
   }
 
-  Future<void> saveUserToken(String token) async {
-    await CachHelper.setSecuredString(
-      key: SharedKeys.userToken,
-      value: token,
+  Future<void> saveUserToken(String token, Access access) async {
+    await CachHelper.setSecuredString(key: SharedKeys.userToken, value: token);
+    await CachHelper.saveData(
+      key: SharedKeys.isAttendance,
+      value: access.attendance,
     );
+    await CachHelper.saveData(
+      key: SharedKeys.isExpenses,
+      value: access.expenses,
+    );
+    await CachHelper.saveData(key: SharedKeys.isTimeOff, value: access.timeoff);
+    await CachHelper.saveData(key: SharedKeys.isPayroll, value: access.payroll);
+    await CachHelper.saveData(key: SharedKeys.skipBiometric, value: access.skipBiometric);
+    
     AppConstants.isLogged = true;
     DioFactory.setTokenAfterLogin(token);
   }

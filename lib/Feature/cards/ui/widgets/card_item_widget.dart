@@ -9,23 +9,28 @@ class CardItemWidget extends StatelessWidget {
     required this.image,
     required this.title,
     required this.screen,
+    this.isManagent,
   });
 
   final String image;
   final String title;
   final String screen;
-
+  final bool? isManagent;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // if(screen)
         context.pushNamed(screen);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image, height: 100.h, width: 100.h),
+          Image.asset(
+            image,
+            height: 100.h,
+            width: 100.h,
+            color: isManagent == true ? Colors.red : null,
+          ),
           SizedBox(height: 10.h),
           Text(title, style: TextStyles.font16BlackSemiBold),
         ],

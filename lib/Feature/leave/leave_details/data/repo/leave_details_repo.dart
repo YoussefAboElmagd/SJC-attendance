@@ -9,7 +9,9 @@ class LeaveDetailsRepo {
   LeaveDetailsRepo(this._detailsService);
   final LeaveDetailsService _detailsService;
 
-  Future<ApiResults<HolidaySummaryResponse>> getTimeoffBalance(BuildContext context,) async {
+  Future<ApiResults<HolidaySummaryResponse>> getTimeoffBalance(
+    BuildContext context,
+  ) async {
     try {
       final response = await _detailsService.getTimeoffBalance();
       return ApiResults.success(response);
@@ -18,7 +20,9 @@ class LeaveDetailsRepo {
     }
   }
 
-  Future<ApiResults<HolidayRequestResponse>> getRequestsPending(BuildContext context,) async {
+  Future<ApiResults<HolidayRequestResponse>> getRequestsPending(
+    BuildContext context,
+  ) async {
     try {
       final response = await _detailsService.getRequestsPending();
       return ApiResults.success(response);
@@ -28,7 +32,9 @@ class LeaveDetailsRepo {
     }
   }
 
-  Future<ApiResults<HolidayRequestResponse>> getRequestsApproved(BuildContext context,) async {
+  Future<ApiResults<HolidayRequestResponse>> getRequestsApproved(
+    BuildContext context,
+  ) async {
     try {
       final response = await _detailsService.getRequestsApproved();
       return ApiResults.success(response);
@@ -37,7 +43,9 @@ class LeaveDetailsRepo {
     }
   }
 
-  Future<ApiResults<HolidayRequestResponse>> getRequestsRefused(BuildContext context,) async {
+  Future<ApiResults<HolidayRequestResponse>> getRequestsRefused(
+    BuildContext context,
+  ) async {
     try {
       final response = await _detailsService.getRequestsRefused();
       return ApiResults.success(response);
@@ -46,7 +54,10 @@ class LeaveDetailsRepo {
     }
   } // Added cancel functionality
 
-  Future<ApiResults<dynamic>> cancelTimeOff(BuildContext context,int? id) async {
+  Future<ApiResults<dynamic>> cancelTimeOff(
+    BuildContext context,
+    int? id,
+  ) async {
     try {
       final response = await _detailsService.cancelTimeOff({
         "request_id": id ?? 0,
