@@ -12,20 +12,10 @@ import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_d
 import 'package:madarj/generated/l10n.dart';
 
 class LeaveManagerLogCard extends StatelessWidget {
-  const LeaveManagerLogCard({
-    super.key,
-    this.isApproved,
-    this.rejected,
-    this.pending,
-    this.isNew,
-    required this.data,
-  });
+  const LeaveManagerLogCard({super.key, required this.data, this.isPending});
   final HolidayRequestData data;
 
-  final bool? isApproved;
-  final bool? rejected;
-  final bool? pending;
-  final bool? isNew;
+  final bool? isPending;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,23 +36,6 @@ class LeaveManagerLogCard extends StatelessWidget {
                   data.createDate!.split(" ")[0],
                   style: TextStyles.font14BlackSemiBold,
                 ),
-                const Spacer(),
-                data.state == "validate"
-                    ? AppTextButton(
-                      buttonText: S.of(context).validate,
-                      buttonHeight: 30.h,
-                      buttonWidth: 100.w,
-                      textStyle: TextStyles.font14WhiteSemiBold,
-                      onPressed: () {
-                        print("data.id ${data.id}");
-                        context
-                            .read<LeaveManagerDetailsCubit>()
-                            .validateTimeOff(context, data.id);
-                      },
-                      hintText: S.of(context).validate,
-                      backgroundColor: ColorsManager.mainColor1,
-                    )
-                    : const SizedBox.shrink(),
               ],
             ),
             SizedBox(height: 8.h),
@@ -114,12 +87,11 @@ class LeaveManagerLogCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8.h),
-            data.state == "confirm" ||
-                    data.stateDisplay == "To Approve"
-                ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppTextButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                isPending == true
+                    ? AppTextButton(
                       buttonText: S.of(context).refuse,
                       buttonHeight: 30.h,
                       buttonWidth: 100.w,
@@ -133,10 +105,26 @@ class LeaveManagerLogCard extends StatelessWidget {
                       },
                       hintText: S.of(context).refuse,
                       backgroundColor: ColorsManager.red,
-                    ),
-                    AppTextButton(
+                    )
+                    : const SizedBox.shrink(),
+                data.state == "validate1"
+                    ? AppTextButton(
+                      buttonText: S.of(context).validate,
+                      buttonHeight: 50.h,
+                      buttonWidth: 100.w,
+                      textStyle: TextStyles.font14WhiteSemiBold,
+                      onPressed: () {
+                        print("data.id ${data.id}");
+                        context
+                            .read<LeaveManagerDetailsCubit>()
+                            .validateTimeOff(context, data.id);
+                      },
+                      hintText: S.of(context).validate,
+                      backgroundColor: ColorsManager.mainColor1,
+                    )
+                    : AppTextButton(
                       buttonText: S.of(context).approve,
-                      buttonHeight: 30.h,
+                      buttonHeight: 50.h,
                       buttonWidth: 100.w,
                       textStyle: TextStyles.font14WhiteSemiBold,
                       onPressed: () {
@@ -149,9 +137,8 @@ class LeaveManagerLogCard extends StatelessWidget {
                       hintText: S.of(context).approve,
                       backgroundColor: ColorsManager.mainColor1,
                     ),
-                  ],
-                )
-                : const SizedBox.shrink(),
+              ],
+            ),
           ],
         ),
       ),

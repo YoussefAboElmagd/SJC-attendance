@@ -273,7 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Would_you_like": MessageLookupByLibrary.simpleMessage(
             "هل ترغب في التحقق باستخدام بصمتك بدلاً من ذلك؟"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
-        "approve": MessageLookupByLibrary.simpleMessage("موافقة"),
+        "approve": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("تحديات في الانتظار"),
         "change_language_button":

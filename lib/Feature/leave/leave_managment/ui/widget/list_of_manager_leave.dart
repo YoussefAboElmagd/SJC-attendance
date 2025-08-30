@@ -12,14 +12,13 @@ class ListOfManagerLeave extends StatefulWidget {
   const ListOfManagerLeave({
     super.key,
     this.data,
-    this.isNew,
     required this.selectedIndex,
+    this.isPending,
   });
   final List<HolidayRequestData>? data;
 
-  // final NewHolidayResponse? data;
-  final bool? isNew;
   final int selectedIndex;
+  final bool? isPending;
 
   @override
   State<ListOfManagerLeave> createState() => _ListOfManagerLeaveState();
@@ -107,12 +106,12 @@ class _ListOfManagerLeaveState extends State<ListOfManagerLeave> {
                                   padding: EdgeInsets.only(bottom: 25.h),
                                   child: LeaveManagerLogCard(
                                     data: widget.data![index],
-                                    isNew: widget.isNew ?? false,
+                                    isPending: widget.isPending ?? false,
                                   ),
                                 )
                                 : LeaveManagerLogCard(
                                   data: widget.data![index],
-                                  isNew: widget.isNew ?? false,
+                                  isPending: widget.isPending ?? false,
                                 );
                           },
                           separatorBuilder:
