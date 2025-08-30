@@ -2,106 +2,105 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>CFBundleDisplayName</key>
-    <string>SJC attendance</string>
-    <key>CFBundleExecutable</key>
-    <string>$(EXECUTABLE_NAME)</string>
-    <key>CFBundleIdentifier</key>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    <key>CFBundleInfoDictionaryVersion</key>
-    <string>6.0</string>
-    <key>CFBundleName</key>
-    <string>madarj</string>
-    <key>CFBundlePackageType</key>
-    <string>APPL</string>
-    <key>CFBundleShortVersionString</key>
-    <string>$(FLUTTER_BUILD_NAME)</string>
-    <key>CFBundleSignature</key>
-    <string>????</string>
-    <key>CFBundleVersion</key>
-    <string>$(FLUTTER_BUILD_NUMBER)</string>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    
-    <!-- Location Usage Descriptions -->
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Your location is required to verify attendance check-ins</string>
-    
-    <!-- Only include these if you need background location -->
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Your location is required even when the app is in background as we take it to check if you are on the specific area you shoud be in or not </string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Your location is required even when the app is in background as we take it to check if you are on the specific area you shoud be in or not</string>
-    
-    <!-- App Transport Security -->
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
-    <!-- pdf viewer -->
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>https</string>
-        <string>file</string>
-    </array>
-    <key>io.flutter.embedded_views_preview</key>
-    <true/>
-    <!-- pick files -->
-    <!-- 1 -->
-    <key>UIFileSharingEnabled</key>
-    <true/>
-    <key>LSSupportsOpeningDocumentsInPlace</key>
-    <true/>
-    <!-- 2 -->
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Need photos permission to upload images</string>
-    <key>NSDocumentsFolderUsageDescription</key>
-    <string>Need documents permission to upload files</string>
-    
-    <!-- local auth -->
-    <key>NSFaceIDUsageDescription</key>
-    <string>To ensure secure clock-in, we need to verify you're the authorized phone owner using Face ID</string>
-        
-    <!-- Launch Screen Settings -->
-    <key>UILaunchStoryboardName</key>
-    <string>LaunchScreen</string>
-    <key>UIMainStoryboardFile</key>
-    <string>Main</string>
-    
-    <!-- Supported Orientations -->
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationPortraitUpsideDown</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <!-- background -->
-    <key>UIBackgroundModes</key>
-    <array>    
-    <string>location</string>
-    <string>fetch</string>
-    </array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>SJC attendance</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>madarj</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>https</string>
+		<string>file</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Need documents permission to upload files</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>To ensure secure clock-in, we need to verify you're the authorized phone owner using Face ID</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app needs access to local network to enable Flutter debugging tools and hot reload functionality during development</string>
+	
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location is required even when the app is in background as we take it to check if you are on the specific area you shoud be in or not </string>
+	
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is required even when the app is in background as we take it to check if you are on the specific area you shoud be in or not</string>
+	
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required to verify attendance check-ins</string>
+	
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need photos permission to upload images</string>
 
-    <!-- notification -->
-    <key>NSUserTrackingUsageDescription</key>
-    <string>نستخدم هذا لتتبع ساعات  للتطبيق.</string>
-    <key>NSLocalNetworkUsageDescription</key>
-    <string>نحتاج إرسال إشعارات للاستخدام الزائد.</string>
 
-    <!-- Performance Settings -->
-    <key>CADisableMinimumFrameDurationOnPhone</key>
-    <true/>
-    <key>UIApplicationSupportsIndirectInputEvents</key>
-    <true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+
+
+	<!-- For local notifications -->
+	<key>NSUserNotificationAlertStyle</key>
+	<string>alert</string>
+
+	<!-- Firebase configuration -->
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+	</array>
 </dict>
 </plist>
