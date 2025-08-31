@@ -32,14 +32,19 @@ class _TabsManagerScreenState extends State<TabsManagerScreen> {
     List<Widget> screens = [
       ListOfManagerLeave(
         data: cubit.pendingData,
-        isNew: true,
+        isPending: true,
         selectedIndex: selectedIndex,
       ),
       ListOfManagerLeave(
         data: cubit.approvedData,
+        isPending: false,
         selectedIndex: selectedIndex,
       ),
-      ListOfManagerLeave(data: cubit.refusedData, selectedIndex: selectedIndex),
+      ListOfManagerLeave(
+        data: cubit.refusedData,
+        isPending: false,
+        selectedIndex: selectedIndex,
+      ),
     ];
 
     return Column(
