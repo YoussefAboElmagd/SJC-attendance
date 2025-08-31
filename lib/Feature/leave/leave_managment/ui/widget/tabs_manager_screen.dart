@@ -9,16 +9,7 @@ import 'package:madarj/Feature/leave/leave_managment/ui/widget/list_of_manager_l
 import 'package:madarj/generated/l10n.dart';
 
 class TabsManagerScreen extends StatefulWidget {
-  const TabsManagerScreen({
-    super.key,
-    // this.requestsApprovedData,
-    // this.requestsPendingData,
-    // this.requestsRefusedData,
-  });
-  // final NewHolidayResponse? requestsApprovedData;
-  // final NewHolidayResponse? requestsPendingData;
-  // final NewHolidayResponse? requestsRefusedData;
-
+  const TabsManagerScreen({super.key});
   @override
   State<TabsManagerScreen> createState() => _TabsManagerScreenState();
 }

@@ -32,7 +32,9 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
     int limitApproved = 10,
   }) async {
     emit(const LeaveManagerDetailsState.getAllLeaveLoading());
-
+    pendingData = [];
+    approvedData = [];
+    refusedData = [];
     try {
       final timeoffBalance = _leaveDetailsRepo.getTimeoffBalance(context);
       final requestsApproved = _leaveDetailsRepo.getRequestsApproved(

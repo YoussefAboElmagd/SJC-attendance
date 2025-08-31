@@ -107,36 +107,37 @@ class LeaveManagerLogCard extends StatelessWidget {
                       backgroundColor: ColorsManager.red,
                     )
                     : const SizedBox.shrink(),
-                data.state == "validate1"
-                    ? AppTextButton(
-                      buttonText: S.of(context).validate,
-                      buttonHeight: 50.h,
-                      buttonWidth: 100.w,
-                      textStyle: TextStyles.font14WhiteSemiBold,
-                      onPressed: () {
-                        print("data.id ${data.id}");
-                        context
-                            .read<LeaveManagerDetailsCubit>()
-                            .validateTimeOff(context, data.id);
-                      },
-                      hintText: S.of(context).validate,
-                      backgroundColor: ColorsManager.mainColor1,
-                    )
-                    : AppTextButton(
-                      buttonText: S.of(context).approve,
-                      buttonHeight: 50.h,
-                      buttonWidth: 100.w,
-                      textStyle: TextStyles.font14WhiteSemiBold,
-                      onPressed: () {
-                        print("data.id ${data.id}");
-                        context.read<LeaveManagerDetailsCubit>().approveTimeOff(
-                          context,
-                          data.id,
-                        );
-                      },
-                      hintText: S.of(context).approve,
-                      backgroundColor: ColorsManager.mainColor1,
-                    ),
+                isPending == true
+                    ? data.state == "validate1"
+                        ? AppTextButton(
+                          buttonText: S.of(context).validate,
+                          buttonHeight: 50.h,
+                          buttonWidth: 100.w,
+                          textStyle: TextStyles.font14WhiteSemiBold,
+                          onPressed: () {
+                            print("data.id ${data.id}");
+                            context
+                                .read<LeaveManagerDetailsCubit>()
+                                .validateTimeOff(context, data.id);
+                          },
+                          hintText: S.of(context).validate,
+                          backgroundColor: ColorsManager.mainColor1,
+                        )
+                        : AppTextButton(
+                          buttonText: S.of(context).approve,
+                          buttonHeight: 50.h,
+                          buttonWidth: 100.w,
+                          textStyle: TextStyles.font14WhiteSemiBold,
+                          onPressed: () {
+                            print("data.id ${data.id}");
+                            context
+                                .read<LeaveManagerDetailsCubit>()
+                                .approveTimeOff(context, data.id);
+                          },
+                          hintText: S.of(context).approve,
+                          backgroundColor: ColorsManager.mainColor1,
+                        )
+                    : const SizedBox.shrink(),
               ],
             ),
           ],
