@@ -23,13 +23,9 @@ class LeaveBodyManagerWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TotalManagerLeave(timeoffBalanceData: timeoffBalanceData),
-        SizedBox(height: 15.h),
-        const TabsManagerScreen(
-          // requestsApprovedData: requestsApprovedData,
-          // requestsPendingData: requestsPendingData,
-          // requestsRefusedData: requestsRefusedData,
-        ),
+        // TotalManagerLeave(timeoffBalanceData: timeoffBalanceData),
+        // SizedBox(height: 15.h),
+        TabsManagerScreen(),
       ],
     );
   }

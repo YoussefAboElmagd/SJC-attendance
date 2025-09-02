@@ -368,6 +368,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("there is no amout"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("there is no description"),
+        "time_off_managment":
+            MessageLookupByLibrary.simpleMessage("Time Off Managment"),
+        "time_off_requests":
+            MessageLookupByLibrary.simpleMessage("Time Off Requests"),
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "token seems to have expired or invalid"),
         "try_again": MessageLookupByLibrary.simpleMessage("try again"),

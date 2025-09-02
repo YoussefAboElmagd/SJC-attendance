@@ -22,17 +22,19 @@ class LeaveManagerTopHeader extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 25.h),
                   Text(
-                    S.of(context).Leave_Summary,
-                    style: TextStyles.font26WhiteBold,
+                    S.of(context).time_off_managment,
+                    style: TextStyles.font22WhiteBold,
                   ),
                   Text(
-                    S.of(context).Submit_Leave_text,
+                    S.of(context).time_off_requests,
                     style: TextStyles.font14GreyRegular.copyWith(
                       color: const Color.fromRGBO(217, 214, 254, 1),
                     ),
@@ -43,7 +45,7 @@ class LeaveManagerTopHeader extends StatelessWidget {
               SizedBox(
                 height: 150.h,
                 child: Align(
-                  alignment: Alignment.topRight,
+                  alignment: Alignment.center,
                   child: SvgPicture.asset(
                     "assets/svgs/leave_header.svg",
                     fit: BoxFit.cover,

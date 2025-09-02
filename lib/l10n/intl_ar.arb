@@ -229,5 +229,7 @@
   "leave_type": "نوع الاجازه",
   "Approve_Leave":  "الموافقة على الاجازه",
   "Refuse_Leave": "رفض الاجازه",
-  "validation_Leave": "التحقق من الاجازه"
+  "validation_Leave": "التحقق من الاجازه",
+  "time_off_managment": "إدارة الإجازات",
+  "time_off_requests": "طلبات الإجازات"
 }

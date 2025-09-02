@@ -360,6 +360,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد مبلغ"),
         "there_is_no_description":
             MessageLookupByLibrary.simpleMessage("لا يوجد وصف للمصروف"),
+        "time_off_managment":
+            MessageLookupByLibrary.simpleMessage("إدارة الإجازات"),
+        "time_off_requests":
+            MessageLookupByLibrary.simpleMessage("طلبات الإجازات"),
         "token_expired": MessageLookupByLibrary.simpleMessage(
             "يبدو أن رمز التحقق منتهي الصلاحية أو غير صالح"),
         "try_again": MessageLookupByLibrary.simpleMessage("حاول مجددا"),

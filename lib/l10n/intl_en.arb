@@ -229,5 +229,8 @@
   "leave_type": "Leave Type",
   "Approve_Leave": "Approve Leave",
   "Refuse_Leave": "Refuse Leave",
-  "validation_Leave": "Validate Leave"
+  "validation_Leave": "Validate Leave",
+  "time_off_managment": "Time Off Managment"
+  ,  "time_off_requests": "Time Off Requests"
+
 }
