@@ -90,7 +90,7 @@ class _ListOfManagerLeaveState extends State<ListOfManagerLeave> {
           return const SizedBox.shrink();
         }
         return SizedBox(
-          height: (MediaQuery.sizeOf(context).height - 550.h),
+          height: (MediaQuery.sizeOf(context).height - 270.h),
           child:
               widget.data == null || widget.data!.isEmpty
                   ? const NoLeaveToday()

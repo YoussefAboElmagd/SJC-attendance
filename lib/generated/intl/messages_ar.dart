@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Allowances": MessageLookupByLibrary.simpleMessage("البدلات"),
         "An_unexpected_error":
             MessageLookupByLibrary.simpleMessage("حدث خطأ غير متوقع"),
+        "Approve_Leave":
+            MessageLookupByLibrary.simpleMessage("الموافقة على الاجازه"),
         "Approved_Text": MessageLookupByLibrary.simpleMessage("مقبول"),
         "Assign_To": MessageLookupByLibrary.simpleMessage("تعيين إلى"),
         "Attachment_text": MessageLookupByLibrary.simpleMessage("مرفق"),
@@ -185,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Receive_timeout": MessageLookupByLibrary.simpleMessage(
             "انتهت مهلة الاستلام من الخادم ربما بسبب الاتصال بالإنترنت"),
         "Received": MessageLookupByLibrary.simpleMessage("تم الاستلام"),
+        "Refuse_Leave": MessageLookupByLibrary.simpleMessage("رفض الاجازه"),
         "Reimbursement": MessageLookupByLibrary.simpleMessage("التعويض"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("مرفوض"),
         "Remember_Me": MessageLookupByLibrary.simpleMessage("تذكرني"),
@@ -273,7 +276,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Would_you_like": MessageLookupByLibrary.simpleMessage(
             "هل ترغب في التحقق باستخدام بصمتك بدلاً من ذلك؟"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
-        "approve": MessageLookupByLibrary.simpleMessage("تاكيد"),
+        "approve": MessageLookupByLibrary.simpleMessage("موافقة"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("تحديات في الانتظار"),
         "change_language_button":
@@ -290,6 +293,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب ألا يكون البريد الإلكتروني فارغًا"),
         "email_validation":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال بريدك الإلكتروني"),
+        "employee_name": MessageLookupByLibrary.simpleMessage("اسم الموظف"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("حدثت بعض الأخطاء"),
         "have_any_month_working_text": MessageLookupByLibrary.simpleMessage(
@@ -301,6 +305,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image_text": MessageLookupByLibrary.simpleMessage("صورة"),
         "lang_arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "lang_en": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "leave_type": MessageLookupByLibrary.simpleMessage("نوع الاجازه"),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد تسجيل الخروج؟"),
         "logout_button": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -359,6 +364,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "يبدو أن رمز التحقق منتهي الصلاحية أو غير صالح"),
         "try_again": MessageLookupByLibrary.simpleMessage("حاول مجددا"),
         "validate": MessageLookupByLibrary.simpleMessage("تحقق"),
+        "validation_Leave":
+            MessageLookupByLibrary.simpleMessage("التحقق من الاجازه"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("عرض عمل الشهر"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),

@@ -2301,6 +2301,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Employee Name`
+  String get employee_name {
+    return Intl.message(
+      'Employee Name',
+      name: 'employee_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leave Type`
+  String get leave_type {
+    return Intl.message(
+      'Leave Type',
+      name: 'leave_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Leave`
+  String get Approve_Leave {
+    return Intl.message(
+      'Approve Leave',
+      name: 'Approve_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refuse Leave`
+  String get Refuse_Leave {
+    return Intl.message(
+      'Refuse Leave',
+      name: 'Refuse_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate Leave`
+  String get validation_Leave {
+    return Intl.message(
+      'Validate Leave',
+      name: 'validation_Leave',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

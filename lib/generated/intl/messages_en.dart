@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Allowances": MessageLookupByLibrary.simpleMessage("Allowances"),
         "An_unexpected_error": MessageLookupByLibrary.simpleMessage(
             "An unexpected error occurred"),
+        "Approve_Leave": MessageLookupByLibrary.simpleMessage("Approve Leave"),
         "Approved_Text": MessageLookupByLibrary.simpleMessage("Approved"),
         "Assign_To": MessageLookupByLibrary.simpleMessage("Assign To"),
         "Attachment_text": MessageLookupByLibrary.simpleMessage("Attachment"),
@@ -188,6 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Receive_timeout": MessageLookupByLibrary.simpleMessage(
             "Receive timeout in connection with the server may be due to internet connection"),
         "Received": MessageLookupByLibrary.simpleMessage("Received"),
+        "Refuse_Leave": MessageLookupByLibrary.simpleMessage("Refuse Leave"),
         "Reimbursement": MessageLookupByLibrary.simpleMessage("Reimbursement"),
         "Rejected_text": MessageLookupByLibrary.simpleMessage("Rejected"),
         "Remember_Me": MessageLookupByLibrary.simpleMessage("Remember Me"),
@@ -300,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":
             MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "employee_name": MessageLookupByLibrary.simpleMessage("Employee Name"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("some errors occurred"),
         "have_any_month_working_text": MessageLookupByLibrary.simpleMessage(
@@ -311,6 +314,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image_text": MessageLookupByLibrary.simpleMessage("image"),
         "lang_arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "lang_en": MessageLookupByLibrary.simpleMessage("English"),
+        "leave_type": MessageLookupByLibrary.simpleMessage("Leave Type"),
         "logout_and_login_again":
             MessageLookupByLibrary.simpleMessage("Are you sure to logout ?"),
         "logout_button": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -368,6 +372,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "token seems to have expired or invalid"),
         "try_again": MessageLookupByLibrary.simpleMessage("try again"),
         "validate": MessageLookupByLibrary.simpleMessage("Validate"),
+        "validation_Leave":
+            MessageLookupByLibrary.simpleMessage("Validate Leave"),
         "view_month_work":
             MessageLookupByLibrary.simpleMessage("view month work"),
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),
