@@ -224,5 +224,10 @@
   "non_accepted_period": "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.",
   "validate": "Validate",
   "approve": "Approve",
-  "refuse": "Refuse"
+  "refuse": "Refuse",
+  "employee_name": "Employee Name",
+  "leave_type": "Leave Type",
+  "Approve_Leave": "Approve Leave",
+  "Refuse_Leave": "Refuse Leave",
+  "validation_Leave": "Validate Leave"
 }

@@ -148,8 +148,8 @@ class SendLeaveManagerListener extends StatelessWidget {
           approveTimeOffSuccess: (data) {
             context.popAlert();
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Approve Leave'),
+              SnackBar(
+                content: Text(S.of(context).Approve_Leave),
                 backgroundColor: Colors.green,
               ),
             );
@@ -174,8 +174,8 @@ class SendLeaveManagerListener extends StatelessWidget {
           refuseTimeOffSuccess: (data) {
             context.popAlert();
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Refuse Leave'),
+              SnackBar(
+                content: Text(S.of(context).Refuse_Leave),
                 backgroundColor: Colors.green,
               ),
             );
@@ -200,8 +200,8 @@ class SendLeaveManagerListener extends StatelessWidget {
           validateTimeOffSuccess: (data) {
             context.popAlert();
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Validate Leave'),
+              SnackBar(
+                content: Text(S.of(context).validation_Leave),
                 backgroundColor: Colors.green,
               ),
             );
