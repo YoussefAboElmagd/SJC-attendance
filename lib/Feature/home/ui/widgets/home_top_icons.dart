@@ -20,28 +20,11 @@ class HomeTopIcons extends StatelessWidget {
           children: [
             !ApplicationCubit.get(context).isArabic
                 ? Transform(
-                    alignment: Alignment.center,
-                    transform: Matrix4.rotationY(math.pi),
-                    child: GestureDetector(
-                      onTap: () {
-                        context.pushNamed(Routes.cardsScreen);
-                        // setupLogout(context);
-                      },
-                      child: CircleAvatar(
-                        radius: 17.w,
-                        backgroundColor: Colors.white,
-                        child: Image.asset(
-                          width: 35.w,
-                          "assets/images/arrow-back.png",
-                          color: arrowColor ?? Colors.blue,
-                        ),
-                      ),
-                    ),
-                  )
-                : GestureDetector(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationY(math.pi),
+                  child: GestureDetector(
                     onTap: () {
                       context.pushNamed(Routes.cardsScreen);
-                      // context.pop();
                       // setupLogout(context);
                     },
                     child: CircleAvatar(
@@ -54,6 +37,23 @@ class HomeTopIcons extends StatelessWidget {
                       ),
                     ),
                   ),
+                )
+                : GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.cardsScreen);
+                    // context.pop();
+                    // setupLogout(context);
+                  },
+                  child: CircleAvatar(
+                    radius: 17.w,
+                    backgroundColor: Colors.white,
+                    child: Image.asset(
+                      width: 35.w,
+                      "assets/images/arrow-back.png",
+                      color: arrowColor ?? Colors.blue,
+                    ),
+                  ),
+                ),
             GestureDetector(
               onTap: () {
                 context.pushNamed(Routes.language);
@@ -72,5 +72,9 @@ class HomeTopIcons extends StatelessWidget {
 }
 
 void setupLogout(BuildContext context) {
-  showDialog(context: context, builder: (context) => const CustomAlert());
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (context) => const CustomAlert(),
+  );
 }

@@ -30,6 +30,8 @@ class PayrollErrorHandler extends StatelessWidget {
       await _handleTokenExpiration(context);
     } else {
       showDialog(
+        barrierDismissible: false,
+
         context: context,
         builder: (context) => PayrollErrorDialog(errorMessage: errorMessage),
       );

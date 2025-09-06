@@ -14,23 +14,25 @@ class BiometricBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeCubit, HomeState>(
-      listenWhen: (previous, current) =>
-          current is HomeAuthenticating ||
-          current is HomeAuthenticationFailed ||
-          current is AuthError ||
-          current is HomeAuthenticated ||
-          current is HomeAuthenticationLockedOut,
+      listenWhen:
+          (previous, current) =>
+              current is HomeAuthenticating ||
+              current is HomeAuthenticationFailed ||
+              current is AuthError ||
+              current is HomeAuthenticated ||
+              current is HomeAuthenticationLockedOut,
       listener: (context, state) {
         state.whenOrNull(
           authenticating: () {
             showDialog(
               context: context,
               barrierDismissible: false,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainColor2,
-                ),
-              ),
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor2,
+                    ),
+                  ),
             );
           },
           authenticationFailed: () {
@@ -69,21 +71,24 @@ class BiometricBlocListener extends StatelessWidget {
 
   void _showErrorDialog(BuildContext context, String title, String message) {
     showDialog(
+      barrierDismissible: false,
+
       context: context,
-      builder: (context) => AlertDialog(
-        icon: Icon(Icons.error, color: Colors.red, size: 32.w),
-        title: Text(title),
-        content: Text(message, style: TextStyles.font15DarkBlueMedium),
-        actions: [
-          TextButton(
-            onPressed: () => context.pop(),
-            child: Text(
-              S.of(context).close_it,
-              style: TextStyles.font14BlueSemiBold,
-            ),
+      builder:
+          (context) => AlertDialog(
+            icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+            title: Text(title),
+            content: Text(message, style: TextStyles.font15DarkBlueMedium),
+            actions: [
+              TextButton(
+                onPressed: () => context.pop(),
+                child: Text(
+                  S.of(context).close_it,
+                  style: TextStyles.font14BlueSemiBold,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

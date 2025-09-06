@@ -2351,6 +2351,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Time Off Managment`
+  String get time_off_managment {
+    return Intl.message(
+      'Time Off Managment',
+      name: 'time_off_managment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Off Requests`
+  String get time_off_requests {
+    return Intl.message(
+      'Time Off Requests',
+      name: 'time_off_requests',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

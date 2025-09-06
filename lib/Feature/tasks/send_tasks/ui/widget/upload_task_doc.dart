@@ -70,6 +70,8 @@ class UploadTaskDoc extends StatelessWidget {
 Future<void> _showFileTypeDialog(BuildContext context) async {
   final cubit = context.read<SendTasksCubit>();
   await showDialog(
+    barrierDismissible: false,
+
     context: context,
     builder: (context) => SelectUploadClaimFile(cubit: cubit),
   );

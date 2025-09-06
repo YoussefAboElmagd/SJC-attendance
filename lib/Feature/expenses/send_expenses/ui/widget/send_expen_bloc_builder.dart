@@ -17,11 +17,12 @@ class SendExpenBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SendExpensesCubit, SendExpensesState>(
-      buildWhen: (prev, current) =>
-          current is Loading ||
-          current is Error ||
-          current is CombinedSuccess ||
-          current is CombinedSuccessForUpdate,
+      buildWhen:
+          (prev, current) =>
+              current is Loading ||
+              current is Error ||
+              current is CombinedSuccess ||
+              current is CombinedSuccessForUpdate,
       builder: (context, state) {
         return state.maybeWhen(
           loading: () {
@@ -63,25 +64,28 @@ class SendExpenBlocBuilder extends StatelessWidget {
 
 void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   showDialog(
+    barrierDismissible: false,
+
     context: context,
-    builder: (context) => AlertDialog(
-      icon: Icon(Icons.error, color: Colors.red, size: 32.w),
-      content: Text(
-        apiErrorModel.getAllErrorMessages(),
-        style: TextStyles.font15DarkBlueMedium,
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            context.pop();
-            context.popAlert();
-          },
-          child: Text(
-            S.of(context).close_it,
-            style: TextStyles.font14BlueSemiBold,
+    builder:
+        (context) => AlertDialog(
+          icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+          content: Text(
+            apiErrorModel.getAllErrorMessages(),
+            style: TextStyles.font15DarkBlueMedium,
           ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                context.pop();
+                context.popAlert();
+              },
+              child: Text(
+                S.of(context).close_it,
+                style: TextStyles.font14BlueSemiBold,
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
   );
 }

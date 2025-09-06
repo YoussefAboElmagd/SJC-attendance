@@ -185,6 +185,8 @@ class ExpensesImages extends StatelessWidget {
     if (!context.mounted) return;
 
     showDialog(
+      barrierDismissible: false,
+
       context: context,
       builder: (BuildContext dialogContext) {
         return AlertDialog(
@@ -296,8 +298,9 @@ class ExpensesImages extends StatelessWidget {
           child: Image.memory(
             imageBytes,
             fit: BoxFit.contain,
-            errorBuilder: (context, error, stackTrace) =>
-                const Icon(Icons.error, size: 40),
+            errorBuilder:
+                (context, error, stackTrace) =>
+                    const Icon(Icons.error, size: 40),
           ),
         );
       } else {
@@ -357,9 +360,10 @@ class ExpensesImages extends StatelessWidget {
               width: 2,
             ),
           ),
-          child: _isImage(attachment)
-              ? _buildImageThumbnail(attachment)
-              : _buildFileThumbnail(attachment),
+          child:
+              _isImage(attachment)
+                  ? _buildImageThumbnail(attachment)
+                  : _buildFileThumbnail(attachment),
         ),
       ),
     );
@@ -373,12 +377,13 @@ class ExpensesImages extends StatelessWidget {
         height: 60.h,
         width: 60.h,
         fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) => Container(
-          height: 60.h,
-          width: 60.h,
-          color: Colors.grey[200],
-          child: const Icon(Icons.error),
-        ),
+        errorBuilder:
+            (context, error, stackTrace) => Container(
+              height: 60.h,
+              width: 60.h,
+              color: Colors.grey[200],
+              child: const Icon(Icons.error),
+            ),
       );
     } else {
       return Container(
@@ -442,17 +447,18 @@ class _PDFViewerScreenState extends State<PDFViewerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.attachment.name ?? 'PDF')),
-      body: tempFilePath == null
-          ? const Center(child: CircularProgressIndicator())
-          : const PDF().fromPath(
-              tempFilePath!,
-              // errorWidget: (error) {
-              //   print('PDF Error: $error');
-              //   return Center(
-              //     child: Text('Error loading PDF: ${error.toString()}'),
-              //   );
-              // },
-            ),
+      body:
+          tempFilePath == null
+              ? const Center(child: CircularProgressIndicator())
+              : const PDF().fromPath(
+                tempFilePath!,
+                // errorWidget: (error) {
+                //   print('PDF Error: $error');
+                //   return Center(
+                //     child: Text('Error loading PDF: ${error.toString()}'),
+                //   );
+                // },
+              ),
     );
   }
 

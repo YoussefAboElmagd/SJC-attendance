@@ -22,10 +22,11 @@ class ExpensesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ExpensesCubit, ExpensesState>(
-      buildWhen: (previous, current) =>
-          current is GetAllExpensesLoading ||
-          current is GetAllExpensesError ||
-          current is GetAllExpensesCombinedSuccess,
+      buildWhen:
+          (previous, current) =>
+              current is GetAllExpensesLoading ||
+              current is GetAllExpensesError ||
+              current is GetAllExpensesCombinedSuccess,
       builder: (context, state) {
         return state.maybeWhen(
           getAllExpensesLoading: () {
@@ -62,10 +63,11 @@ class ExpensesBody extends StatelessWidget {
     final isMultipleErrors =
         apiErrorModel.errors != null && apiErrorModel.errors!.isNotEmpty;
 
-    final errorMessage = isMultipleErrors
-        ? apiErrorModel.errors!.values.join('\n')
-        : apiErrorModel.message ?? 'An unexpected error occurred';
-  if (apiErrorModel.message == "token seems to have expired or invalid") {
+    final errorMessage =
+        isMultipleErrors
+            ? apiErrorModel.errors!.values.join('\n')
+            : apiErrorModel.message ?? 'An unexpected error occurred';
+    if (apiErrorModel.message == "token seems to have expired or invalid") {
       CachHelper.removeData(key: SharedKeys.userToken);
       CachHelper.clearAllSecuredData();
       context.pushNamedAndRemoveUntill(Routes.loginScreen);
@@ -84,6 +86,8 @@ class ExpensesBody extends StatelessWidget {
       context.pushNamedAndRemoveUntill(Routes.loginScreen);
     } else {
       showDialog(
+        barrierDismissible: false,
+
         context: context,
         builder: (context) {
           return AlertDialog(
@@ -91,21 +95,22 @@ class ExpensesBody extends StatelessWidget {
             content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
             actions: [
               TextButton(
-                onPressed: apiErrorModel.message != S.of(context).token_expired
-                    ? () {
-                        context.pushNamed(Routes.cardsScreen);
-                      }
-                    : () async {
-                        CachHelper.removeData(key: SharedKeys.userToken);
-                        CachHelper.clearAllSecuredData();
-                        context.pushNamedAndRemoveUntill(Routes.loginScreen);
-                        AppConstants.isLogged = false;
-                        await CachHelper.saveData(
-                          key: SharedKeys.isLogged,
-                          value: false,
-                        );
-                        DioFactory.setTokenAfterLogin(null);
-                      },
+                onPressed:
+                    apiErrorModel.message != S.of(context).token_expired
+                        ? () {
+                          context.pushNamed(Routes.cardsScreen);
+                        }
+                        : () async {
+                          CachHelper.removeData(key: SharedKeys.userToken);
+                          CachHelper.clearAllSecuredData();
+                          context.pushNamedAndRemoveUntill(Routes.loginScreen);
+                          AppConstants.isLogged = false;
+                          await CachHelper.saveData(
+                            key: SharedKeys.isLogged,
+                            value: false,
+                          );
+                          DioFactory.setTokenAfterLogin(null);
+                        },
                 // onPressed: () {
                 //   apiErrorModel.message != S.of(context).token_expired
                 //       ? context.pop()

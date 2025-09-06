@@ -20,20 +20,24 @@ class CheckUserBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeCubit, HomeState>(
-      listenWhen: (prevoius, current) =>
-          current is CheckUserLoading ||
-          current is CheckUserSuccess ||
-          current is CheckUserError,
+      listenWhen:
+          (prevoius, current) =>
+              current is CheckUserLoading ||
+              current is CheckUserSuccess ||
+              current is CheckUserError,
       listener: (BuildContext context, state) {
         state.whenOrNull(
           checkUserLoading: () {
             showDialog(
+              barrierDismissible: false,
+
               context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainColor2,
-                ),
-              ),
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor2,
+                    ),
+                  ),
             );
           },
           checkUserSuccess: (checkResponse) async {
@@ -50,30 +54,33 @@ class CheckUserBlocListener extends StatelessWidget {
 
             context.read<HomeCubit>().getAllHome2(context);
             showDialog(
+              barrierDismissible: false,
+
               context: context,
-              builder: (context) => AlertDialog(
-                icon: Icon(
-                  Icons.verified,
-                  color: const Color.fromARGB(255, 0, 255, 13),
-                  size: 32.w,
-                ),
-                content: Text(
-                  // context.read<HomeCubit>().clockInText!,
-                  checkResponse.data[0].message,
-                  style: TextStyles.font15DarkBlueMedium,
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(
-                      S.of(context).close_it,
-                      style: TextStyles.font14BlueSemiBold,
+              builder:
+                  (context) => AlertDialog(
+                    icon: Icon(
+                      Icons.verified,
+                      color: const Color.fromARGB(255, 0, 255, 13),
+                      size: 32.w,
                     ),
+                    content: Text(
+                      // context.read<HomeCubit>().clockInText!,
+                      checkResponse.data[0].message,
+                      style: TextStyles.font15DarkBlueMedium,
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          S.of(context).close_it,
+                          style: TextStyles.font14BlueSemiBold,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
             );
             context.read<HomeCubit>().sendToken(
               context,
@@ -98,28 +105,30 @@ class CheckUserBlocListener extends StatelessWidget {
 
   void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
+      barrierDismissible: false,
+
       context: context,
-      builder: (context) => AlertDialog(
-        icon: Icon(Icons.error, color: Colors.red, size: 32.w),
-        content: Text(
-          apiErrorModel.message!,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              // context.pop();
-              Navigator.of(context).pop();
-              context.pushNamedAndRemoveUntill(Routes.homeScreen);
-            },
-            child: Text(S.of(context).try_again, style: TextStyles.font14BlueSemiBold),
+      builder:
+          (context) => AlertDialog(
+            icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+            content: Text(
+              apiErrorModel.message!,
+              style: TextStyles.font15DarkBlueMedium,
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  // context.pop();
+                  Navigator.of(context).pop();
+                  context.pushNamedAndRemoveUntill(Routes.homeScreen);
+                },
+                child: Text(
+                  S.of(context).try_again,
+                  style: TextStyles.font14BlueSemiBold,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }
-
-
-
-

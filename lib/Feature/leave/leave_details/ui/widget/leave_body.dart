@@ -162,6 +162,7 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
     context.pushNamedAndRemoveUntill(Routes.loginScreen);
   } else {
     showDialog(
+      barrierDismissible: false,
       context: context,
       builder: (context) {
         return AlertDialog(

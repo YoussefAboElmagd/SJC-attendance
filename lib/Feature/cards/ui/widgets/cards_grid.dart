@@ -40,43 +40,45 @@ class CardsGrid extends StatelessWidget {
       S.of(context).Payroll,
       S.of(context).Leave_manager,
     ];
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return SingleChildScrollView(
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemCount:
+            CachHelper.getData(key: SharedKeys.isTimeOff) != "manager"
+                ? 4
+                : images.length,
+        itemBuilder: (context, index) {
+          final hasRightBorder = index % 2 == 0;
+          final hasBottomBorder = index < 2;
+          return Container(
+            decoration: BoxDecoration(
+              border: Border(
+                right:
+                    hasRightBorder
+                        ? const BorderSide(color: Colors.grey, width: 2)
+                        : BorderSide.none,
+                bottom:
+                    hasBottomBorder
+                        ? const BorderSide(color: Colors.grey, width: 2)
+                        : BorderSide.none,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CardItemWidget(
+                image: images[index],
+                title: texts[index],
+                screen: screens[index],
+                isManagent: index > 3,
+              ),
+            ),
+          );
+        },
       ),
-      itemCount:
-          CachHelper.getData(key: SharedKeys.isTimeOff) != "manager"
-              ? 4
-              : images.length,
-      itemBuilder: (context, index) {
-        final hasRightBorder = index % 2 == 0;
-        final hasBottomBorder = index < 2;
-        return Container(
-          decoration: BoxDecoration(
-            border: Border(
-              right:
-                  hasRightBorder
-                      ? const BorderSide(color: Colors.grey, width: 2)
-                      : BorderSide.none,
-              bottom:
-                  hasBottomBorder
-                      ? const BorderSide(color: Colors.grey, width: 2)
-                      : BorderSide.none,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CardItemWidget(
-              image: images[index],
-              title: texts[index],
-              screen: screens[index],
-              isManagent: index > 3,
-            ),
-          ),
-        );
-      },
     );
   }
 }

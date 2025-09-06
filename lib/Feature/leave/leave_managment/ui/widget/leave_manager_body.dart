@@ -18,7 +18,7 @@ import 'package:madarj/Core/themes/styles.dart';
 // import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_state.dart';
 import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_state.dart';
-import 'package:madarj/Feature/leave/leave_managment/ui/leave_manager_screen.dart';
+// import 'package:madarj/Feature/leave/leave_managment/ui/leave_manager_screen.dart';
 import 'package:madarj/Feature/leave/leave_managment/ui/widget/leave_body_manager_widgets.dart';
 import 'package:madarj/Feature/leave/leave_managment/ui/widget/leave_top_manager_header.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -37,7 +37,7 @@ class LeaveManagerBody extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [LeaveManagerTopHeader(), LeavesManagerContent()],
             ),
-            BottomLeaveManagerButton(),
+            // BottomLeaveManagerButton(),
           ],
         );
       },
@@ -244,6 +244,8 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
     context.pushNamedAndRemoveUntill(Routes.loginScreen);
   } else {
     showDialog(
+      barrierDismissible: false,
+
       context: context,
       builder: (context) {
         return AlertDialog(
