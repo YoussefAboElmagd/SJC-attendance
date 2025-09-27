@@ -32,6 +32,12 @@ class LoginCubit extends Cubit<LoginState> {
       success: (loginResonse) async {
         print(loginResonse.accessToken);
         await saveUserToken(loginResonse.accessToken, loginResonse.access);
+
+        final remember = await CachHelper.getData(key: SharedKeys.isLogged);
+        if (remember == true) {
+          await CachHelper.saveData(key: SharedKeys.isLogged, value: true);
+        }
+
         emit(LoginState.loginSuccess(loginResonse));
       },
       failure: (apiErrorModel) {
@@ -55,8 +61,11 @@ class LoginCubit extends Cubit<LoginState> {
     );
     await CachHelper.saveData(key: SharedKeys.isTimeOff, value: access.timeoff);
     await CachHelper.saveData(key: SharedKeys.isPayroll, value: access.payroll);
-    await CachHelper.saveData(key: SharedKeys.skipBiometric, value: access.skipBiometric);
-    
+    await CachHelper.saveData(
+      key: SharedKeys.skipBiometric,
+      value: access.skipBiometric,
+    );
+
     AppConstants.isLogged = true;
     DioFactory.setTokenAfterLogin(token);
   }

@@ -25,7 +25,7 @@ void main() async {
   LocalNotificationService.init();
   PushNotificationsService.init();
   await checkUserLogged();
-  runApp(const MadarjApp());
+  runApp(MadarjApp(isLogged: AppConstants.isLogged));
 }
 
 Future<void> checkUserLogged() async {

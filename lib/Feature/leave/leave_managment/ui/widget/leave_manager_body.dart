@@ -37,7 +37,7 @@ class LeaveManagerBody extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [LeaveManagerTopHeader(), LeavesManagerContent()],
             ),
-            BottomLeaveManagerButton(),
+            // BottomLeaveManagerButton(),
           ],
         );
       },

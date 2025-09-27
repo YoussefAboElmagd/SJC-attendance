@@ -15,7 +15,9 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class MadarjApp extends StatefulWidget {
-  const MadarjApp({super.key});
+  final bool isLogged;
+
+  const MadarjApp({super.key, required this.isLogged});
 
   @override
   State<MadarjApp> createState() => LlabaiiMmo3tmerState();
@@ -39,7 +41,8 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
           builder: (context, state) {
             String language = CachHelper.getData(key: "app_lang") ?? "ar";
             print(
-                "CachHelper.getData(key:)${CachHelper.getData(key: "app_lang")} ");
+              "CachHelper.getData(key:)${CachHelper.getData(key: "app_lang")} ",
+            );
             if (state is ChangeTheLanguageOfApp) {
               language = state.language;
             }
@@ -61,9 +64,10 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
               ),
               debugShowCheckedModeBanner: false,
               // initialRoute: Routes.cardsScreen,
-              initialRoute: AppConstants.isLogged
-                  ? Routes.cardsScreen
-                  : Routes.onBoardingScreen,
+              initialRoute:
+                  AppConstants.isLogged
+                      ? Routes.cardsScreen
+                      : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );
           },
