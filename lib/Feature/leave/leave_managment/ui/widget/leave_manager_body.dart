@@ -7,18 +7,12 @@ import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Core/themes/colors.dart';
-// import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
-// import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_state.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/styles.dart';
-// import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
-// import 'package:madarj/Feature/leave/leave_managment/data/model/new_holiday_response.dart';
-// import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_state.dart';
 import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_state.dart';
-import 'package:madarj/Feature/leave/leave_managment/ui/leave_manager_screen.dart';
 import 'package:madarj/Feature/leave/leave_managment/ui/widget/leave_body_manager_widgets.dart';
 import 'package:madarj/Feature/leave/leave_managment/ui/widget/leave_top_manager_header.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -64,8 +58,8 @@ class LeavesManagerContent extends StatelessWidget {
           getAllLeaveCombinedSuccess: (data1, data2, data3, data4) {
             // print(data1);
             // print(data2);
-            print(data3.data);
-            print("data4.data ${data4.data}");
+            // print(data3.data);
+            // print("data4.data ${data4.data}");
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.w),
               child: SizedBox(

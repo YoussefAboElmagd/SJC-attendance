@@ -20,10 +20,10 @@ class MadarjApp extends StatefulWidget {
   const MadarjApp({super.key, required this.isLogged});
 
   @override
-  State<MadarjApp> createState() => LlabaiiMmo3tmerState();
+  State<MadarjApp> createState() => MadarjAppState();
 }
 
-class LlabaiiMmo3tmerState extends State<MadarjApp> {
+class MadarjAppState extends State<MadarjApp> {
   @override
   void initState() {
     super.initState();

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -17,49 +16,26 @@ class PushNotificationsService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
   @pragma('vm:entry-point')
   static Future init() async {
-    // Request permission first
-    await messaging.requestPermission(alert: true, badge: true, sound: true);
+    await messaging.requestPermission();
+    await messaging.getToken().then((value) {
+      print(value);
+      AppConstants.fcmToken = value;
+      CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
+    });
+
+    messaging.onTokenRefresh.listen((value) {
+      print(value);
+      AppConstants.fcmToken = value;
+      CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
+    });
 
     // Handle messages in all states
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     handleForegroundMessage();
     handleBackgroundMessagesWhenAppIsTerminated();
 
-    try {
-      // For iOS, wait for APNS token before proceeding
-      if (Platform.isIOS) {
-        String? apnsToken;
-        // Retry up to 3 times with a delay
-        for (int i = 0; i < 3 && apnsToken == null; i++) {
-          apnsToken = await messaging.getAPNSToken();
-          if (apnsToken == null) {
-            await Future.delayed(const Duration(seconds: 1));
-          }
-        }
-        if (apnsToken == null) {
-          log('Warning: APNS token still not available after retries');
-        }
-      }
-
-      // Get FCM token after APNS token is available (for iOS)
-      final token = await messaging.getToken();
-      if (token != null) {
-        log('FCM Token: $token');
-        AppConstants.fcmToken = token;
-        await CachHelper.saveData(key: SharedKeys.fcmToken, value: token);
-
-        // Only subscribe to topic after we have a valid token
-        await messaging.subscribeToTopic('shift');
-        log('Subscribed to shift topic');
-      }
-    } catch (e) {
-      log('Error in FCM initialization: $e');
-    }
-
-    messaging.onTokenRefresh.listen((value) {
-      log('FCM token refreshed: $value');
-      AppConstants.fcmToken = value;
-      CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
+    messaging.subscribeToTopic('shift').then((val) {
+      log('Subscribed to shift topic');
     });
   }
 
@@ -69,12 +45,13 @@ class PushNotificationsService {
     RemoteMessage message,
   ) async {
     await Firebase.initializeApp();
+    log("Handling a background message: ${message.messageId}");
 
     // Show notification even if it's a location check message
-    // LocalNotificationService.showBasicNotification(message);
+    LocalNotificationService.showBasicNotification(message);
 
-    if (message.notification!.title == "verify location" ||
-        message.notification!.body == "verify location" ||
+    if (message.notification!.title == "verify location" ||
+        message.notification!.body == "verify location" ||
         message.data["check"] == "location") {
       try {
         final position = await _tryGetLocation();
@@ -85,17 +62,19 @@ class PushNotificationsService {
         log('Error in background location handler: $e');
       }
     }
-    LocalNotificationService.showBasicNotification(message);
-    log("Handling a background message: ${message.messageId}");
   }
 
+  @pragma('vm:entry-point')
+  // Foreground handler
   static void handleForegroundMessage() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       log("Handling a foreground message: ${message.messageId}");
 
-      // Check if it's a location verification notification
-      if (message.notification?.title == "verify location" ||
-          message.notification?.body == "verify location" ||
+      // Always show notification
+      LocalNotificationService.showBasicNotification(message);
+
+      if (message.notification!.title == "verify location" ||
+          message.notification!.body == "verify location" ||
           message.data["check"] == "location") {
         try {
           final position = await _tryGetLocation();
@@ -106,12 +85,6 @@ class PushNotificationsService {
           log('Error in foreground location handler: $e');
         }
       }
-
-      // Pass isBackgroundMessage=false to prevent showing notification in foreground
-      LocalNotificationService.showBasicNotification(
-        message,
-        isBackgroundMessage: false,
-      );
     });
   }
 
@@ -127,8 +100,8 @@ class PushNotificationsService {
         // Show notification
         LocalNotificationService.showBasicNotification(message);
 
-        if (message.notification!.title == "verify location" ||
-            message.notification!.body == "verify location" ||
+        if (message.notification!.title == "verify location" ||
+            message.notification!.body == "verify location" ||
             message.data["check"] == "location") {
           log(
             "Location check received in terminated state - will process when app opens",

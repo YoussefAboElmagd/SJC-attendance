@@ -230,7 +230,24 @@
   "Approve_Leave": "Approve Leave",
   "Refuse_Leave": "Refuse Leave",
   "validation_Leave": "Validate Leave",
-  "time_off_managment": "Time Off Managment"
-  ,  "time_off_requests": "Time Off Requests"
-
+  "time_off_managment": "Time Off Managment",
+  "time_off_requests": "Time Off Requests",
+  "request_attendance": "edit the attendance request",
+  "your_attendance_request_is_done_wait_approved_by_admin": "your edit attendance request is done wait approved by admin",
+  "checkin_old": "Old Check in",
+  "Checkoutn_old": "Old Check Out",
+  "attendance_managment": "Attendance managment",
+  "attendance_requests": "Attendance Requests",
+  "approve_request": "Approve Request",
+  "employee": "Employee",
+  "check_in_time": "Check In Time",
+  "check_out_time": "Check Out Time",
+  "select_check_in_time": "Select check in time",
+  "select_check_out_time": "Select check out time",
+  "please_select_both_times": "Please select both times",
+  "checkout_must_be_after_checkin": "Check out must be after check in",
+  "invalid_date_format": "Invalid date format",
+  "cancel": "Cancel",
+  "no_name":"No name",
+  "edit_attendance_time_approved":"Edit attendance time approved succesfully"
 }

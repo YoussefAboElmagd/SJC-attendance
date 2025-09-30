@@ -4,6 +4,7 @@ import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/LanguageOption/Ui/language_options.dart';
 import 'package:madarj/Feature/all_works/ui/all_works.dart';
+import 'package:madarj/Feature/attendance_manager/ui/attendance_manager.dart';
 import 'package:madarj/Feature/base/ui/views/base_layer.dart';
 import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
@@ -148,6 +149,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ShowTaskDetails());
       case Routes.cardsScreen:
         return MaterialPageRoute(builder: (_) => const CardsScreen());
+      case Routes.attendanceManager:
+        return MaterialPageRoute(builder: (_) => const AttendanceManager());
     }
     return null;
   }

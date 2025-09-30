@@ -2371,6 +2371,186 @@ class S {
       args: [],
     );
   }
+
+  /// `edit the attendance request`
+  String get request_attendance {
+    return Intl.message(
+      'edit the attendance request',
+      name: 'request_attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your edit attendance request is done wait approved by admin`
+  String get your_attendance_request_is_done_wait_approved_by_admin {
+    return Intl.message(
+      'your edit attendance request is done wait approved by admin',
+      name: 'your_attendance_request_is_done_wait_approved_by_admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Check in`
+  String get checkin_old {
+    return Intl.message(
+      'Old Check in',
+      name: 'checkin_old',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Check Out`
+  String get Checkoutn_old {
+    return Intl.message(
+      'Old Check Out',
+      name: 'Checkoutn_old',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attendance managment`
+  String get attendance_managment {
+    return Intl.message(
+      'Attendance managment',
+      name: 'attendance_managment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attendance Requests`
+  String get attendance_requests {
+    return Intl.message(
+      'Attendance Requests',
+      name: 'attendance_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Request`
+  String get approve_request {
+    return Intl.message(
+      'Approve Request',
+      name: 'approve_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee`
+  String get employee {
+    return Intl.message(
+      'Employee',
+      name: 'employee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check In Time`
+  String get check_in_time {
+    return Intl.message(
+      'Check In Time',
+      name: 'check_in_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check Out Time`
+  String get check_out_time {
+    return Intl.message(
+      'Check Out Time',
+      name: 'check_out_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select check in time`
+  String get select_check_in_time {
+    return Intl.message(
+      'Select check in time',
+      name: 'select_check_in_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select check out time`
+  String get select_check_out_time {
+    return Intl.message(
+      'Select check out time',
+      name: 'select_check_out_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select both times`
+  String get please_select_both_times {
+    return Intl.message(
+      'Please select both times',
+      name: 'please_select_both_times',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check out must be after check in`
+  String get checkout_must_be_after_checkin {
+    return Intl.message(
+      'Check out must be after check in',
+      name: 'checkout_must_be_after_checkin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid date format`
+  String get invalid_date_format {
+    return Intl.message(
+      'Invalid date format',
+      name: 'invalid_date_format',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No name`
+  String get no_name {
+    return Intl.message(
+      'No name',
+      name: 'no_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit attendance time approved succesfully`
+  String get edit_attendance_time_approved {
+    return Intl.message(
+      'Edit attendance time approved succesfully',
+      name: 'edit_attendance_time_approved',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

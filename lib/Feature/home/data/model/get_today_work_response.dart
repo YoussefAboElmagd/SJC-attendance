@@ -4,29 +4,36 @@ part 'get_today_work_response.g.dart';
 
 @JsonSerializable()
 class TodayWorkDayEntry {
+  @JsonKey(name: 'id')
+  double? id;
 
   @JsonKey(name: 'check_in')
-   String? checkIn;
+  String? checkIn;
 
   @JsonKey(name: 'check_out')
-   String? checkOut;
+  String? checkOut;
 
   @JsonKey(name: 'worked_hours')
-   String? workedHours;
+  String? workedHours;
 
   @JsonKey(name: 'in_longitude')
-   double? inLongitude;
+  double? inLongitude;
 
   @JsonKey(name: 'in_latitude')
-   double? inLatitude;
+  double? inLatitude;
 
   @JsonKey(name: 'out_longitude')
-   double? outLongitude;
+  double? outLongitude;
 
   @JsonKey(name: 'out_latitude')
-   double? outLatitude;
+  double? outLatitude;
+
+  @JsonKey(name: 'has_request')
+  bool? hasRequest;
 
   TodayWorkDayEntry({
+    this.id,
+    this.hasRequest,
     this.checkIn,
     this.checkOut,
     this.workedHours,

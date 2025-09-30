@@ -146,62 +146,66 @@ class HomeCubit extends Cubit<HomeState> {
     return await showDialog<bool>(
           context: context,
           barrierDismissible: false,
-          builder: (context) => CustomAlert(
-            content: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
-              child: SizedBox(
-                height: 250.h,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+          builder:
+              (context) => CustomAlert(
+                content: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 15.w,
+                    vertical: 15.h,
+                  ),
+                  child: SizedBox(
+                    height: 250.h,
+                    child: Column(
                       children: [
-                        isFace != null && isFace
-                            ? SvgPicture.asset(
-                                width: 60.h,
-                                "assets/svgs/face-id.svg",
-                              )
-                            : Container(),
-                        SizedBox(width: 25.w),
-                        Text("Or", style: TextStyles.font24CyranBold),
-                        SizedBox(width: 25.w),
-                        isFinger != null && isFinger
-                            ? SvgPicture.asset(
-                                "assets/svgs/finger.svg",
-                                width: 60.h,
-                              )
-                            : Container(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            isFace != null && isFace
+                                ? SvgPicture.asset(
+                                  width: 60.h,
+                                  "assets/svgs/face-id.svg",
+                                )
+                                : Container(),
+                            SizedBox(width: 25.w),
+                            Text("Or", style: TextStyles.font24CyranBold),
+                            SizedBox(width: 25.w),
+                            isFinger != null && isFinger
+                                ? SvgPicture.asset(
+                                  "assets/svgs/finger.svg",
+                                  width: 60.h,
+                                )
+                                : Container(),
+                          ],
+                        ),
+                        SizedBox(height: 15.h),
+                        Text(
+                          textAlign: TextAlign.center,
+                          text ?? S.of(context).Would_face_finger,
+                          style: TextStyles.font16BlackSemiBold,
+                        ),
+                        const Spacer(),
+                        CustomButton(
+                          onTap: () {
+                            Navigator.pop(context, true);
+                          },
+                          title: S.of(context).Authenticate_button,
+                          textStyle: TextStyles.font14WhiteSemiBold,
+                          color: ColorsManager.mainColor1,
+                        ),
+                        SizedBox(height: 15.h),
+                        CustomButton(
+                          onTap: () async {
+                            Navigator.pop(context, false);
+                          },
+                          title: S.of(context).Cancel,
+                          textStyle: TextStyles.font14WhiteSemiBold,
+                          color: ColorsManager.red,
+                        ),
                       ],
                     ),
-                    SizedBox(height: 15.h),
-                    Text(
-                      textAlign: TextAlign.center,
-                      text ?? S.of(context).Would_face_finger,
-                      style: TextStyles.font16BlackSemiBold,
-                    ),
-                    const Spacer(),
-                    CustomButton(
-                      onTap: () {
-                        Navigator.pop(context, true);
-                      },
-                      title: S.of(context).Authenticate_button,
-                      textStyle: TextStyles.font14WhiteSemiBold,
-                      color: ColorsManager.mainColor1,
-                    ),
-                    SizedBox(height: 15.h),
-                    CustomButton(
-                      onTap: () async {
-                        Navigator.pop(context, false);
-                      },
-                      title: S.of(context).Cancel,
-                      textStyle: TextStyles.font14WhiteSemiBold,
-                      color: ColorsManager.red,
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ),
         ) ??
         false;
   }
@@ -210,20 +214,21 @@ class HomeCubit extends Cubit<HomeState> {
     return await showDialog<bool>(
           context: context,
           barrierDismissible: false,
-          builder: (context) => AlertDialog(
-            title: SvgPicture.asset("assets/svgs/face-id.svg"),
-            content: Text(S.of(context).This_device_supports),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: Text(S.of(context).Cancel),
+          builder:
+              (context) => AlertDialog(
+                title: SvgPicture.asset("assets/svgs/face-id.svg"),
+                content: Text(S.of(context).This_device_supports),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text(S.of(context).Cancel),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: Text(S.of(context).Use_Face_ID),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, true),
-                child: Text(S.of(context).Use_Face_ID),
-              ),
-            ],
-          ),
         ) ??
         false;
   }
@@ -232,20 +237,21 @@ class HomeCubit extends Cubit<HomeState> {
     return await showDialog<bool>(
           context: context,
           barrierDismissible: false,
-          builder: (context) => AlertDialog(
-            title: SvgPicture.asset("assets/svgs/finger.svg"),
-            content: Text(S.of(context).Would_you_like),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: Text(S.of(context).Cancel),
+          builder:
+              (context) => AlertDialog(
+                title: SvgPicture.asset("assets/svgs/finger.svg"),
+                content: Text(S.of(context).Would_you_like),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text(S.of(context).Cancel),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: Text(S.of(context).Use_Fingerprint),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, true),
-                child: Text(S.of(context).Use_Fingerprint),
-              ),
-            ],
-          ),
         ) ??
         false;
   }
@@ -414,7 +420,8 @@ class HomeCubit extends Cubit<HomeState> {
       final ipAddress = await _getIpAddress();
       final uuid = await getDeviceIdentifier();
 
-      final response = await _homeRepo.checkUser(context,
+      final response = await _homeRepo.checkUser(
+        context,
         CheckRequest(
           longitude: position.longitude,
           latitude: position.latitude,
@@ -536,15 +543,31 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  sendToken(BuildContext context,NotificationRequest notificationRequest) async {
+  sendToken(
+    BuildContext context,
+    NotificationRequest notificationRequest,
+  ) async {
     emit(state);
-    var resoponse = await _homeRepo.snedToken(context,notificationRequest);
+    var resoponse = await _homeRepo.snedToken(context, notificationRequest);
     resoponse.when(
       success: (data) {
         emit(state);
       },
       failure: (ApiErrorModel apiErrorModel) {
         emit(state);
+      },
+    );
+  }
+
+  Future<void> createEditRequest(BuildContext context, int attendanceId) async {
+    emit(const HomeState.editRequestLoading());
+    var response = await _homeRepo.createEditRequest(context, attendanceId);
+    response.when(
+      success: (data) {
+        emit(HomeState.editRequestSuccess(data));
+      },
+      failure: (ApiErrorModel apiErrorModel) {
+        emit(HomeState.editRequestError(apiErrorModel));
       },
     );
   }

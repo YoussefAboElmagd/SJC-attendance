@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Core/widgets/app_text_formField.dart';
+import 'package:madarj/Core/widgets/app_text_form_field.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class BuildTextField extends StatelessWidget {

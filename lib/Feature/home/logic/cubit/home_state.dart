@@ -39,7 +39,8 @@ class HomeState<T> with _$HomeState<T> {
   //
   const factory HomeState.notificationLoading() = NotificationLoading;
   const factory HomeState.notificationSuccess(T data) = NotificationSuccess<T>;
-  const factory HomeState.notificationError(ApiErrorModel error) = NotificationError;
+  const factory HomeState.notificationError(ApiErrorModel error) =
+      NotificationError;
 
   //
   const factory HomeState.supported() = HomeSupportedState;
@@ -50,4 +51,15 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.authError(ApiErrorModel error) = AuthError;
   const factory HomeState.authenticated({required bool isCheckIn}) =
       HomeAuthenticated;
+
+  const factory HomeState.editRequestLoading() = EditRequestLoading;
+  const factory HomeState.editRequestSuccess(T data) = EditRequestSuccess<T>;
+  const factory HomeState.editRequestError(ApiErrorModel error) =
+      EditRequestError;
+
+  const factory HomeState.getEditRequestsLoading() = GetEditRequestsLoading;
+  const factory HomeState.getEditRequestsSuccess(T data) =
+      GetEditRequestsSuccess<T>;
+  const factory HomeState.getEditRequestsError(ApiErrorModel error) =
+      GetEditRequestsError;
 }

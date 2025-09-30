@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Biometric authentication failed. Please try again."),
         "Bonus": MessageLookupByLibrary.simpleMessage("Bonus"),
         "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "Checkoutn_old": MessageLookupByLibrary.simpleMessage("Old Check Out"),
         "Claim_expenses":
             MessageLookupByLibrary.simpleMessage("Claim your expenses here."),
         "Clock_In": MessageLookupByLibrary.simpleMessage("Clock In"),
@@ -286,10 +287,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "Would you like to authenticate with your fingerprint instead?"),
         "amount": MessageLookupByLibrary.simpleMessage("amount"),
         "approve": MessageLookupByLibrary.simpleMessage("Approve"),
+        "approve_request":
+            MessageLookupByLibrary.simpleMessage("Approve Request"),
+        "attendance_managment":
+            MessageLookupByLibrary.simpleMessage("Attendance managment"),
+        "attendance_requests":
+            MessageLookupByLibrary.simpleMessage("Attendance Requests"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "challanges_awaiting":
             MessageLookupByLibrary.simpleMessage("Challanges Awaiting"),
         "change_language_button":
             MessageLookupByLibrary.simpleMessage("language"),
+        "check_in_time": MessageLookupByLibrary.simpleMessage("Check In Time"),
+        "check_out_time":
+            MessageLookupByLibrary.simpleMessage("Check Out Time"),
+        "checkin_old": MessageLookupByLibrary.simpleMessage("Old Check in"),
+        "checkout_must_be_after_checkin": MessageLookupByLibrary.simpleMessage(
+            "Check out must be after check in"),
         "close_button": MessageLookupByLibrary.simpleMessage("Close"),
         "close_it": MessageLookupByLibrary.simpleMessage("Close it"),
         "completed_tasks_maintain": MessageLookupByLibrary.simpleMessage(
@@ -297,11 +311,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("Your current task progress"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("Done"),
+        "edit_attendance_time_approved": MessageLookupByLibrary.simpleMessage(
+            "Edit attendance time approved succesfully"),
         "edit_button": MessageLookupByLibrary.simpleMessage("Edit"),
         "email_mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":
             MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "employee_name": MessageLookupByLibrary.simpleMessage("Employee Name"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("some errors occurred"),
@@ -312,6 +329,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_text": MessageLookupByLibrary.simpleMessage("Home"),
         "hrs": MessageLookupByLibrary.simpleMessage("hrs"),
         "image_text": MessageLookupByLibrary.simpleMessage("image"),
+        "invalid_date_format":
+            MessageLookupByLibrary.simpleMessage("Invalid date format"),
         "lang_arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "lang_en": MessageLookupByLibrary.simpleMessage("English"),
         "leave_type": MessageLookupByLibrary.simpleMessage("Leave Type"),
@@ -326,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("mustn\'t be empty"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("New"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("No"),
+        "no_name": MessageLookupByLibrary.simpleMessage("No name"),
         "no_payroll_first":
             MessageLookupByLibrary.simpleMessage("Your payroll during Year"),
         "no_payroll_second": MessageLookupByLibrary.simpleMessage(
@@ -350,8 +370,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Permission denied"),
         "permission_permanently_denied": MessageLookupByLibrary.simpleMessage(
             "permission permanently denied"),
+        "please_select_both_times":
+            MessageLookupByLibrary.simpleMessage("Please select both times"),
         "reason_text": MessageLookupByLibrary.simpleMessage("reason"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
+        "request_attendance":
+            MessageLookupByLibrary.simpleMessage("edit the attendance request"),
+        "select_check_in_time":
+            MessageLookupByLibrary.simpleMessage("Select check in time"),
+        "select_check_out_time":
+            MessageLookupByLibrary.simpleMessage("Select check out time"),
         "select_choice": MessageLookupByLibrary.simpleMessage("Select"),
         "select_file_type":
             MessageLookupByLibrary.simpleMessage("Select file type"),
@@ -383,7 +411,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "word_document": MessageLookupByLibrary.simpleMessage("DOCS"),
         "working_time_text": MessageLookupByLibrary.simpleMessage(
             "Your working time in this paid period"),
-        "you_should_edit_at_least_one":
-            MessageLookupByLibrary.simpleMessage("you should edit at least one")
+        "you_should_edit_at_least_one": MessageLookupByLibrary.simpleMessage(
+            "you should edit at least one"),
+        "your_attendance_request_is_done_wait_approved_by_admin":
+            MessageLookupByLibrary.simpleMessage(
+                "your edit attendance request is done wait approved by admin")
       };
 }

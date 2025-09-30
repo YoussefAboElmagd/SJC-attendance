@@ -7,6 +7,9 @@ import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
 import 'package:madarj/Feature/all_works/data/repo/all_work_repo.dart';
 import 'package:madarj/Feature/all_works/logic/cubit/all_work_cubit.dart';
+import 'package:madarj/Feature/attendance_manager/apis/attendance_manager_services.dart';
+import 'package:madarj/Feature/attendance_manager/data/repo/attendance_manager_repo.dart';
+import 'package:madarj/Feature/attendance_manager/logic/attendance_manager_cubit.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/apis/show_expenses_details_service.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/data/repo/get_expense_details_repo.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_cubit.dart';
@@ -120,5 +123,15 @@ Future<void> setGetIt() async {
   );
   getIt.registerFactory<ExpensesDetailsCubit>(
     () => ExpensesDetailsCubit(getIt()),
+  );
+  // Attendance Manager
+  getIt.registerLazySingleton<AttendanceManagerServices>(
+    () => AttendanceManagerServices(dio),
+  );
+  getIt.registerLazySingleton<AttendanceManagerRepo>(
+    () => AttendanceManagerRepo(getIt()),
+  );
+  getIt.registerFactory<AttendanceManagerCubit>(
+    () => AttendanceManagerCubit(getIt()),
   );
 }

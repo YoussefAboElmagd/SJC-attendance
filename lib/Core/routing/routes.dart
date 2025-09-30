@@ -13,6 +13,7 @@ class Routes {
   static const String homeScreen = "/homeScreen";
   static const String leaveScreen = "/leaveScreen";
   static const String leaveManager = "/leaveManager";
+  static const String attendanceManager = "/attendanceManager";
   static const String expenseScreen = "/expenseScreen";
   static const String tasksScreen = "/tasksScreen";
 

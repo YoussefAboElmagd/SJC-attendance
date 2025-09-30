@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/colors.dart';
-import 'package:madarj/Core/widgets/app_text_formField.dart';
+import 'package:madarj/Core/widgets/app_text_form_field.dart';
 
 class CommentSection extends StatelessWidget {
   const CommentSection({super.key});

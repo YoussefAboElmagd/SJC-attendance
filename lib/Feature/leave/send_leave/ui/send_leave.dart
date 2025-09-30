@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/bottom_send_leave_button.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/send_leave_body.dart';
 import 'package:madarj/generated/l10n.dart';
