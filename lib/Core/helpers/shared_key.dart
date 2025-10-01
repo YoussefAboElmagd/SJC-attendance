@@ -1,5 +1,6 @@
 class SharedKeys {
   static String userToken = "userToken";
+  static String userEmail = "userEmail";
   static String isTimeOff = "isTimeOff";
   static String isAttendance = "isAttendance";
   static String isExpenses = "isExpenses";

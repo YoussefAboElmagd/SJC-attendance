@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:madarj/Core/helpers/cach_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
+import 'package:madarj/Feature/home/logic/push_firebase_notification.dart';
 import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
 import 'package:madarj/Feature/registration/login/data/model/login_response_body.dart';
 import 'package:madarj/Feature/registration/login/data/repos/login_repo.dart';
@@ -34,16 +37,34 @@ class LoginCubit extends Cubit<LoginState> {
         await saveUserToken(loginResonse.accessToken, loginResonse.access);
 
         final remember = await CachHelper.getData(key: SharedKeys.isLogged);
+        await CachHelper.saveData(
+          key: SharedKeys.userEmail,
+          value: loginRequestBody.email,
+        );
         if (remember == true) {
           await CachHelper.saveData(key: SharedKeys.isLogged, value: true);
         }
 
+        // print(loginRequestBody.email.split("@")[0]);
+        String sanitizedEmail =
+            loginRequestBody.email
+                .split("@")[0]
+                .replaceAll('.', '_')
+                .toLowerCase();
+        PushNotificationsService.messaging
+            .subscribeToTopic('user_$sanitizedEmail')
+            .then((val) {
+              log('user_${loginRequestBody.email.split("@")[0]}');
+            });
+        PushNotificationsService.messaging.subscribeToTopic('shift').then((
+          val,
+        ) {
+          log('Subscribed to shift topic');
+        });
         emit(LoginState.loginSuccess(loginResonse));
       },
       failure: (apiErrorModel) {
-        // print("error cubit");
         print("Login failed: ${apiErrorModel.message}");
-
         emit(LoginState.loginError(apiErrorModel));
       },
     );

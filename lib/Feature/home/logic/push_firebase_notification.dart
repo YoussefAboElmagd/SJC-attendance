@@ -34,9 +34,9 @@ class PushNotificationsService {
     handleForegroundMessage();
     handleBackgroundMessagesWhenAppIsTerminated();
 
-    messaging.subscribeToTopic('shift').then((val) {
-      log('Subscribed to shift topic');
-    });
+    // messaging.subscribeToTopic('shift').then((val) {
+    //   log('Subscribed to shift topic');
+    // });
   }
 
   // Background handler (also used for terminated app)
