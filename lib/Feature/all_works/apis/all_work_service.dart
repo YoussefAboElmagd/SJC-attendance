@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 part 'all_work_service.g.dart';
 
-@RestApi(baseUrl: ApiConstants.apiBaseUrl)
+@RestApi(baseUrl: ApiConstants.prodBaseDomain)
 abstract class AllWorkService {
   factory AllWorkService(Dio dio, {String baseUrl}) = _AllWorkService;
 

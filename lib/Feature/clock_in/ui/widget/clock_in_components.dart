@@ -17,8 +17,10 @@ class ClockInActionButton extends StatelessWidget {
           decoration: _buttonDecoration,
           child: TextButton(
             onPressed: () => _handleClockIn(context),
-            child: Text('Selfie To Clock In',
-                style: TextStyles.font16WhiteSemiBold),
+            child: Text(
+              'Selfie To Clock In',
+              style: TextStyles.font16WhiteSemiBold,
+            ),
           ),
         ),
       ),
@@ -59,8 +61,3 @@ class ClockInActionButton extends StatelessWidget {
         end: Alignment.bottomCenter,
       );
 }
-
-
-
-
-

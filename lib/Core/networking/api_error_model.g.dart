@@ -8,7 +8,7 @@ part of 'api_error_model.dart';
 
 ApiErrorModel _$ApiErrorModelFromJson(Map<String, dynamic> json) =>
     ApiErrorModel(
-      errors: json['errors'] as Map<String, dynamic>?,
+      errors: json['data'] as Map<String, dynamic>?,
       code: (json['code'] as num?)?.toInt(),
       message: json['message'] as String?,
       status: json['status'] as String?,
@@ -19,5 +19,5 @@ Map<String, dynamic> _$ApiErrorModelToJson(ApiErrorModel instance) =>
       'code': instance.code,
       'message': instance.message,
       'status': instance.status,
-      'errors': instance.errors,
+      'data': instance.errors,
     };

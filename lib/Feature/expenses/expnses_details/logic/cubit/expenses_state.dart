@@ -11,4 +11,15 @@ class ExpensesState<T> with _$ExpensesState<T> {
       GetExpensesSuccess<T>;
   const factory ExpensesState.getExpensesError(ApiErrorModel error) =
       GetExpensesError;
+
+  const factory ExpensesState.getAllExpensesLoading() = GetAllExpensesLoading;
+
+  const factory ExpensesState.getAllExpensesError(ApiErrorModel error) =
+      GetAllExpensesError;
+
+  const factory ExpensesState.getAllExpensesCombinedSuccess({
+    required T newExpenses,
+    required T pendingExpenses,
+    required T doneExpenses,
+  }) = GetAllExpensesCombinedSuccess<T>;
 }

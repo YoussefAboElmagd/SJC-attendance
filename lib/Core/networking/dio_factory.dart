@@ -101,7 +101,7 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'access_token':
+      'access-token':
           '${await CachHelper.getSecuredString(key: SharedKeys.userToken)}',
     };
   }
@@ -109,7 +109,7 @@ class DioFactory {
   static void setTokenAfterLogin(String? token) async {
     print(token);
     dio?.options.headers = {
-      'access_token': "$token",
+      'access-token': "$token",
     };
   }
 

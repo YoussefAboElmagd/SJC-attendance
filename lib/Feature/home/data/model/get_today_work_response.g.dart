@@ -8,6 +8,8 @@ part of 'get_today_work_response.dart';
 
 TodayWorkDayEntry _$TodayWorkDayEntryFromJson(Map<String, dynamic> json) =>
     TodayWorkDayEntry(
+      id: (json['id'] as num?)?.toDouble(),
+      hasRequest: json['has_request'] as bool?,
       checkIn: json['check_in'] as String?,
       checkOut: json['check_out'] as String?,
       workedHours: json['worked_hours'] as String?,
@@ -19,6 +21,7 @@ TodayWorkDayEntry _$TodayWorkDayEntryFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$TodayWorkDayEntryToJson(TodayWorkDayEntry instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'check_in': instance.checkIn,
       'check_out': instance.checkOut,
       'worked_hours': instance.workedHours,
@@ -26,4 +29,5 @@ Map<String, dynamic> _$TodayWorkDayEntryToJson(TodayWorkDayEntry instance) =>
       'in_latitude': instance.inLatitude,
       'out_longitude': instance.outLongitude,
       'out_latitude': instance.outLatitude,
+      'has_request': instance.hasRequest,
     };

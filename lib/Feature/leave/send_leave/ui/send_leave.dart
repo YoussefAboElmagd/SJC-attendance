@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
+import 'package:madarj/Feature/leave/send_leave/ui/widgets/bottom_send_leave_button.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/widgets/send_leave_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
@@ -23,11 +21,7 @@ class SendLeave extends StatelessWidget {
           onTap: () {
             context.pop();
           },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-            size: 20.w,
-          ),
+          child: Icon(Icons.arrow_back_ios, color: Colors.black, size: 20.w),
         ),
         centerTitle: true,
         title: Text(
@@ -35,52 +29,8 @@ class SendLeave extends StatelessWidget {
           style: TextStyles.font20BlackSemiBold,
         ),
       ),
-      body: BlocProvider(
-        create: (context) => getIt<SendLeaveCubit>(),
-        child: const SendLeaveBody(),
-      ),
+      body: const SendLeaveBody(),
       bottomNavigationBar: const BottomSendLeaveButton(),
-    );
-  }
-}
-
-class BottomSendLeaveButton extends StatelessWidget {
-  const BottomSendLeaveButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: ColorsManager.white,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: InkWell(
-          onTap: () {
-            // context.pushNamed(Routes.sendLeave);
-          },
-          child: Container(
-            width: double.infinity,
-            height: 50.h,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color.fromRGBO(42, 49, 131, 1),
-                  Color.fromRGBO(42, 49, 131, 1),
-                  Color.fromRGBO(91, 46, 212, 1),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Center(
-              child: Text(
-                S.of(context).Submit_Leave_button,
-                style: TextStyles.font16WhiteSemiBold,
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

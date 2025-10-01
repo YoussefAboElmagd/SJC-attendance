@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:madarj/Core/networking/api_error_model.dart';
 
 part 'send_expenses_state.freezed.dart';
 
 @freezed
-class SendExpensesState with _$SendExpensesState {
+class SendExpensesState<T> with _$SendExpensesState<T> {
   const factory SendExpensesState.initial() = _Initial;
 
   // change drop down
@@ -33,11 +34,38 @@ class SendExpensesState with _$SendExpensesState {
       MultipleFilesSelected;
   const factory SendExpensesState.uploadProgress(double progress) =
       UploadProgress;
-  const factory SendExpensesState.removeFile(List<File> files) =
-        RemoveFile;
-  
+  const factory SendExpensesState.removeFile(List<File> files) = RemoveFile;
+
   // permissions
   const factory SendExpensesState.permissionDenied() = PermissionDenied;
+  const factory SendExpensesState.imagePickedSuccess() = ImagePickedSuccess;
+  const factory SendExpensesState.userCanceled() = UserCanceled;
+  const factory SendExpensesState.noNewFilesAdded() = NoNewFilesAdded;
   const factory SendExpensesState.permissionPermanentlyDenied() =
       PermissionPermanentlyDenied;
+
+  // get request type
+  const factory SendExpensesState.loading() = Loading;
+
+  const factory SendExpensesState.error(ApiErrorModel error) = Error;
+
+  const factory SendExpensesState.combinedSuccess({
+    required T requestType,
+    required T categories,
+  }) = CombinedSuccess<T>;
+
+  const factory SendExpensesState.combinedSuccessForUpdate({
+    required T requestType,
+    required T categories,
+    required T expenseDetailsResult,
+  }) = CombinedSuccessForUpdate<T>;
+  // create expenses
+  const factory SendExpensesState.createExpensesLoading() =
+      CreateExpensesLoading;
+  const factory SendExpensesState.createExpensesSuccess(T response) =
+      CreateExpensesSuccess<T>;
+  const factory SendExpensesState.createExpensesError(ApiErrorModel error) =
+      CreateExpensesError;
+
+  const factory SendExpensesState.errorChooseDragDrop() = ErrorChooseDragDrop;
 }

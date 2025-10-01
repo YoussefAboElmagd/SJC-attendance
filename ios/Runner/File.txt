@@ -1,0 +1,2 @@
+FlutterView implements focusItemsInRect: - caching for linear focus movement is limited as long as this view is on screen.
+11.10.0 - [FirebaseCore][I-COR000012] Could not locate configuration file: 'GoogleService-Info.plist'.

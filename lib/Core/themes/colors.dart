@@ -27,6 +27,7 @@ class ColorsManager {
   static const Color lightblack = Color.fromRGBO(71, 84, 103, 1);
   static const Color purple = Color.fromRGBO(244, 243, 255, 1);
   static const Color gold = Color.fromRGBO(246, 171, 39, 1);
+  static const Color green = Colors.green;
   static const Color normalBlack = Color(0x00000000);
   static const Color white = Colors.white;
   static const Color red = Colors.red;

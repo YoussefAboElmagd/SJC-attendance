@@ -10,14 +10,18 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.initial() = _Initial;
 
   const factory HomeState.getthisPayPeriodLoading() = GetthisPayPeriodLoading;
-  const factory HomeState.getthisPayPeriodSuccess(T data) = GetthisPayPeriodSuccess<T>;
-  const factory HomeState.getthisPayPeriodError(ApiErrorModel error) = GetthisPayPeriodError;
+  const factory HomeState.getthisPayPeriodSuccess(T data) =
+      GetthisPayPeriodSuccess<T>;
+  const factory HomeState.getthisPayPeriodError(ApiErrorModel error) =
+      GetthisPayPeriodError;
 
   const factory HomeState.gettotalHoursLoading() = GettotalHoursLoading;
-  const factory HomeState.gettotalHoursSuccess(T data) = GettotalHoursSuccess<T>;
-  const factory HomeState.gettotalHoursError(ApiErrorModel error) = GettotalHoursError;
+  const factory HomeState.gettotalHoursSuccess(T data) =
+      GettotalHoursSuccess<T>;
+  const factory HomeState.gettotalHoursError(ApiErrorModel error) =
+      GettotalHoursError;
 
-    const factory HomeState.loading() = Loading;
+  const factory HomeState.loading() = Loading;
 
   const factory HomeState.error(ApiErrorModel error) = Error;
 
@@ -28,11 +32,15 @@ class HomeState<T> with _$HomeState<T> {
     required T todayAttendanceResult,
   }) = CombinedSuccess<T>;
 
-
-  // 
+  //
   const factory HomeState.checkUserLoading() = CheckUserLoading;
   const factory HomeState.checkUserSuccess(T data) = CheckUserSuccess<T>;
   const factory HomeState.checkUserError(ApiErrorModel error) = CheckUserError;
+  //
+  const factory HomeState.notificationLoading() = NotificationLoading;
+  const factory HomeState.notificationSuccess(T data) = NotificationSuccess<T>;
+  const factory HomeState.notificationError(ApiErrorModel error) =
+      NotificationError;
 
   //
   const factory HomeState.supported() = HomeSupportedState;
@@ -41,6 +49,17 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.authenticationFailed() = HomeAuthenticationFailed;
   const factory HomeState.lockedOut() = HomeAuthenticationLockedOut;
   const factory HomeState.authError(ApiErrorModel error) = AuthError;
-  const factory HomeState.authenticated({required bool isCheckIn}) = HomeAuthenticated;
-}
+  const factory HomeState.authenticated({required bool isCheckIn}) =
+      HomeAuthenticated;
 
+  const factory HomeState.editRequestLoading() = EditRequestLoading;
+  const factory HomeState.editRequestSuccess(T data) = EditRequestSuccess<T>;
+  const factory HomeState.editRequestError(ApiErrorModel error) =
+      EditRequestError;
+
+  const factory HomeState.getEditRequestsLoading() = GetEditRequestsLoading;
+  const factory HomeState.getEditRequestsSuccess(T data) =
+      GetEditRequestsSuccess<T>;
+  const factory HomeState.getEditRequestsError(ApiErrorModel error) =
+      GetEditRequestsError;
+}

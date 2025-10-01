@@ -39,8 +39,7 @@ class ApiErrorModel {
   int? code;
   String? message;
   String? status;
-  @JsonKey(name: "errors")
-  // final Map<String, dynamic>? errors;
+  @JsonKey(name: "data")
   final Map<String, dynamic>? errors;
 
   ApiErrorModel({this.errors, this.code, this.message, this.status});
@@ -51,11 +50,14 @@ class ApiErrorModel {
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
 
   String getAllErrorMessages() {
-    if (errors!.isNotEmptyOrNull()) return message ?? "error is unknown";
-    final errorMessage = errors!.entries.map((val) {
-      var value = val.value;
-      return "${value.join(",")}";
-    }).join("\n");
+    if (errors.isNotEmptyOrNull()) return message ?? "error is unknown";
+    final errorMessage = errors!.entries
+        .map((val) {
+          var value = val.value;
+          return "${value.join(",")}";
+        })
+        .join("\n");
+        
     return errorMessage;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/themes/styles.dart';
+
 class ShowButtomSheetForm extends StatelessWidget {
   const ShowButtomSheetForm({
     super.key,
@@ -13,9 +14,6 @@ class ShowButtomSheetForm extends StatelessWidget {
   final String? icon;
   final void Function()? onTap;
   @override
-
-// () => _showBottomSheet(context)
-
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,

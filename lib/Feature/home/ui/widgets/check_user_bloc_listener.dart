@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/home/data/model/notification_request.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_state.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -16,20 +20,36 @@ class CheckUserBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeCubit, HomeState>(
-      listenWhen: (prevoius, current) =>
-          current is CheckUserLoading ||
-          current is CheckUserSuccess ||
-          current is CheckUserError,
+      listenWhen:
+          (prevoius, current) =>
+              current is CheckUserLoading ||
+              current is CheckUserSuccess ||
+              current is CheckUserError ||
+              current is EditRequestLoading ||
+              current is EditRequestSuccess ||
+              current is EditRequestError,
       listener: (BuildContext context, state) {
         state.whenOrNull(
           checkUserLoading: () {
             showDialog(
               context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainColor2,
-                ),
-              ),
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor2,
+                    ),
+                  ),
+            );
+          },
+          editRequestLoading: () {
+            showDialog(
+              context: context,
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor2,
+                    ),
+                  ),
             );
           },
           checkUserSuccess: (checkResponse) async {
@@ -37,48 +57,91 @@ class CheckUserBlocListener extends StatelessWidget {
             context.popAlert();
             if (checkResponse.data[0].attendanceState == "checked_out") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_In;
+              // await context.read<HomeCubit>().startShift();
             }
             if (checkResponse.data[0].attendanceState == "checked_in") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_Out;
+              // await context.read<HomeCubit>().endShift();
             }
 
             context.read<HomeCubit>().getAllHome2(context);
             showDialog(
               context: context,
-              builder: (context) => AlertDialog(
-                icon: Icon(
-                  Icons.verified,
-                  color: const Color.fromARGB(255, 0, 255, 13),
-                  size: 32.w,
-                ),
-                content: Text(
-                  // context.read<HomeCubit>().clockInText!,
-                  checkResponse.data[0].message,
-                  style: TextStyles.font15DarkBlueMedium,
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      // context.pop();
-                      // Navigator.of(context).pop();
-                      // context.read<HomeCubit>().getAllHome2();
-                      Navigator.of(context).pop();
-
-                      // context.pushNamed(Routes.homeScreen);
-
-                      // context.pushReplacementNamed(Routes.loginScreen);
-                    },
-                    child: Text(
-                      'got it',
-                      style: TextStyles.font14BlueSemiBold,
+              builder:
+                  (context) => AlertDialog(
+                    icon: Icon(
+                      Icons.verified,
+                      color: const Color.fromARGB(255, 0, 255, 13),
+                      size: 32.w,
                     ),
+                    content: Text(
+                      // context.read<HomeCubit>().clockInText!,
+                      checkResponse.data[0].message,
+                      style: TextStyles.font15DarkBlueMedium,
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          S.of(context).close_it,
+                          style: TextStyles.font14BlueSemiBold,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+            );
+            context.read<HomeCubit>().sendToken(
+              context,
+              NotificationRequest(
+                fcmToken:
+                    CachHelper.getData(key: SharedKeys.fcmToken) ??
+                    AppConstants.fcmToken ??
+                    "",
               ),
             );
           },
+          editRequestSuccess: (checkResponse) async {
+            context.popAlert();
+            context.read<HomeCubit>().getAllHome2(context);
+            showDialog(
+              context: context,
+              builder:
+                  (context) => AlertDialog(
+                    icon: Icon(
+                      Icons.verified,
+                      color: const Color.fromARGB(255, 0, 255, 13),
+                      size: 32.w,
+                    ),
+                    content: Text(
+                      S
+                          .of(context)
+                          .your_attendance_request_is_done_wait_approved_by_admin,
+                      style: TextStyles.font15DarkBlueMedium,
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          S.of(context).close_it,
+                          style: TextStyles.font14BlueSemiBold,
+                        ),
+                      ),
+                    ],
+                  ),
+            );
+          },
           checkUserError: (error) {
-            context.pop();
+            context.popAlert();
+
+            setUpErrorState(context, error);
+          },
+          editRequestError: (error) {
+            context.popAlert();
+
             setUpErrorState(context, error);
           },
         );
@@ -90,30 +153,27 @@ class CheckUserBlocListener extends StatelessWidget {
   void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        icon: Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32.w,
-        ),
-        content: Text(
-          apiErrorModel.message!,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              // context.pop();
-              Navigator.of(context).pop();
-              context.pushNamedAndRemoveUntill(Routes.homeScreen);
-            },
-            child: Text(
-              'try again',
-              style: TextStyles.font14BlueSemiBold,
+      builder:
+          (context) => AlertDialog(
+            icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+            content: Text(
+              apiErrorModel.message!,
+              style: TextStyles.font15DarkBlueMedium,
             ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  // context.pop();
+                  Navigator.of(context).pop();
+                  context.pushNamedAndRemoveUntill(Routes.homeScreen);
+                },
+                child: Text(
+                  S.of(context).try_again,
+                  style: TextStyles.font14BlueSemiBold,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

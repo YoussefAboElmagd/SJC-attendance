@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "613393083428",
+    "project_id": "sjc-internal",
+    "storage_bucket": "sjc-internal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613393083428:android:29909ad6170d50c9f1fcb1",
+        "android_client_info": {
+          "package_name": "com.sjc.mdarj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlXm-zRQhKY6ie01w41YD7704lzbCZ0WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

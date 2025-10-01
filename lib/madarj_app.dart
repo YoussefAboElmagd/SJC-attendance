@@ -15,13 +15,15 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class MadarjApp extends StatefulWidget {
-  const MadarjApp({super.key});
+  final bool isLogged;
+
+  const MadarjApp({super.key, required this.isLogged});
 
   @override
-  State<MadarjApp> createState() => LlabaiiMmo3tmerState();
+  State<MadarjApp> createState() => MadarjAppState();
 }
 
-class LlabaiiMmo3tmerState extends State<MadarjApp> {
+class MadarjAppState extends State<MadarjApp> {
   @override
   void initState() {
     super.initState();
@@ -37,13 +39,15 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
         create: (context) => getIt<ApplicationCubit>(),
         child: BlocBuilder<ApplicationCubit, ApplicationState>(
           builder: (context, state) {
-            String language = CachHelper.getData(key: "app_lang") ?? "en";
-
+            String language = CachHelper.getData(key: "app_lang") ?? "ar";
+            print(
+              "CachHelper.getData(key:)${CachHelper.getData(key: "app_lang")} ",
+            );
             if (state is ChangeTheLanguageOfApp) {
               language = state.language;
             }
-            print(language);
-            print(language);
+            // print(language);
+            // print(language);
             return MaterialApp(
               locale: Locale(language),
               localizationsDelegates: const [
@@ -53,16 +57,17 @@ class LlabaiiMmo3tmerState extends State<MadarjApp> {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-              title: "Attendance",
+              title: "SJC",
               theme: ThemeData(
                 primaryColor: ColorsManager.mainBlue,
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
               // initialRoute: Routes.cardsScreen,
-              initialRoute: AppConstants.isLogged
-                  ? Routes.
-                  : Routes.onBoardingScreen,
+              initialRoute:
+                  AppConstants.isLogged
+                      ? Routes.cardsScreen
+                      : Routes.onBoardingScreen,
               onGenerateRoute: AppRouter().generateRoute,
             );
           },

@@ -50,6 +50,56 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Attendance`
+  String get Attendance {
+    return Intl.message(
+      'Attendance',
+      name: 'Attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasks`
+  String get Tasks {
+    return Intl.message(
+      'Tasks',
+      name: 'Tasks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get Expense {
+    return Intl.message(
+      'Expense',
+      name: 'Expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leaves`
+  String get Leave {
+    return Intl.message(
+      'Leaves',
+      name: 'Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leaves management`
+  String get Leave_manager {
+    return Intl.message(
+      'Leaves management',
+      name: 'Leave_manager',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Don’t have an account ?`
   String get Dont_have_an_account {
     return Intl.message(
@@ -960,10 +1010,10 @@ class S {
     );
   }
 
-  /// `Expense Amount ($USD)`
+  /// `Expense Amount`
   String get Expense_Amount {
     return Intl.message(
-      'Expense Amount (\$USD)',
+      'Expense Amount',
       name: 'Expense_Amount',
       desc: '',
       args: [],
@@ -1592,7 +1642,915 @@ class S {
 
   // skipped getter for the 'Task Details' key
 
-  // skipped getter for the '' key
+  /// `amount`
+  String get amount {
+    return Intl.message(
+      'amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Department`
+  String get Department_text {
+    return Intl.message(
+      'Department',
+      name: 'Department_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request type`
+  String get Request_type {
+    return Intl.message(
+      'Request type',
+      name: 'Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Department`
+  String get Select_Department {
+    return Intl.message(
+      'Select Department',
+      name: 'Select_Department',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Department`
+  String get Enter_Department {
+    return Intl.message(
+      'Enter Department',
+      name: 'Enter_Department',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Request type`
+  String get Select_Request_type {
+    return Intl.message(
+      'Select Request type',
+      name: 'Select_Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Request type`
+  String get Enter_Request_type {
+    return Intl.message(
+      'Enter Request type',
+      name: 'Enter_Request_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New`
+  String get new_section_text {
+    return Intl.message(
+      'New',
+      name: 'new_section_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get Pending_section_text {
+    return Intl.message(
+      'Pending',
+      name: 'Pending_section_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done_section_text {
+    return Intl.message(
+      'Done',
+      name: 'done_section_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses Details`
+  String get Expenses_Details {
+    return Intl.message(
+      'Expenses Details',
+      name: 'Expenses_Details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mustn't be empty`
+  String get mustnot_be_empty {
+    return Intl.message(
+      'mustn\'t be empty',
+      name: 'mustnot_be_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully sent expenses`
+  String get Successfully_sent_expenses {
+    return Intl.message(
+      'Successfully sent expenses',
+      name: 'Successfully_sent_expenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get Expense_text {
+    return Intl.message(
+      'Expense',
+      name: 'Expense_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Expense`
+  String get No_Expense {
+    return Intl.message(
+      'No Expense',
+      name: 'No_Expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It looks like you dont have any expense approved. Dont worry, this space will be updated as`
+  String get It_looks_like_you_have_any_expense {
+    return Intl.message(
+      'It looks like you dont have any expense approved. Dont worry, this space will be updated as',
+      name: 'It_looks_like_you_have_any_expense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `there is no description`
+  String get there_is_no_description {
+    return Intl.message(
+      'there is no description',
+      name: 'there_is_no_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses description`
+  String get Expenses_description {
+    return Intl.message(
+      'Expenses description',
+      name: 'Expenses_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you should edit at least one`
+  String get you_should_edit_at_least_one {
+    return Intl.message(
+      'you should edit at least one',
+      name: 'you_should_edit_at_least_one',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select`
+  String get select_choice {
+    return Intl.message(
+      'Select',
+      name: 'select_choice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reason`
+  String get reason_text {
+    return Intl.message(
+      'reason',
+      name: 'reason_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `there is no amout`
+  String get there_is_no_amout {
+    return Intl.message(
+      'there is no amout',
+      name: 'there_is_no_amout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overtime`
+  String get Overtime_text {
+    return Intl.message(
+      'Overtime',
+      name: 'Overtime_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll Details`
+  String get Payroll_Details {
+    return Intl.message(
+      'Payroll Details',
+      name: 'Payroll_Details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details about payroll`
+  String get Details_about_payroll {
+    return Intl.message(
+      'Details about payroll',
+      name: 'Details_about_payroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basic Salary`
+  String get Basic_Salary {
+    return Intl.message(
+      'Basic Salary',
+      name: 'Basic_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax`
+  String get Tax {
+    return Intl.message(
+      'Tax',
+      name: 'Tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reimbursement`
+  String get Reimbursement {
+    return Intl.message(
+      'Reimbursement',
+      name: 'Reimbursement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bonus`
+  String get Bonus {
+    return Intl.message(
+      'Bonus',
+      name: 'Bonus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overtime`
+  String get Overtime {
+    return Intl.message(
+      'Overtime',
+      name: 'Overtime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Salary`
+  String get Total_Salary {
+    return Intl.message(
+      'Total Salary',
+      name: 'Total_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salary Slip`
+  String get Salary_Slip {
+    return Intl.message(
+      'Salary Slip',
+      name: 'Salary_Slip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Period`
+  String get Period {
+    return Intl.message(
+      'Period',
+      name: 'Period',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Net Salary`
+  String get Net_Salary {
+    return Intl.message(
+      'Net Salary',
+      name: 'Net_Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allowances`
+  String get Allowances {
+    return Intl.message(
+      'Allowances',
+      name: 'Allowances',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deductions`
+  String get Deductions {
+    return Intl.message(
+      'Deductions',
+      name: 'Deductions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This Pay Period`
+  String get This_Pay_Period {
+    return Intl.message(
+      'This Pay Period',
+      name: 'This_Pay_Period',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hrs`
+  String get hrs {
+    return Intl.message(
+      'hrs',
+      name: 'hrs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `token seems to have expired or invalid`
+  String get token_expired {
+    return Intl.message(
+      'token seems to have expired or invalid',
+      name: 'token_expired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close it`
+  String get close_it {
+    return Intl.message(
+      'Close it',
+      name: 'close_it',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Received`
+  String get Received {
+    return Intl.message(
+      'Received',
+      name: 'Received',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid On`
+  String get Paid_On {
+    return Intl.message(
+      'Paid On',
+      name: 'Paid_On',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll and Tax`
+  String get Payroll_and_Tax {
+    return Intl.message(
+      'Payroll and Tax',
+      name: 'Payroll_and_Tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payroll`
+  String get Payroll {
+    return Intl.message(
+      'Payroll',
+      name: 'Payroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No biometric authentication available on this device`
+  String get No_biometric {
+    return Intl.message(
+      'No biometric authentication available on this device',
+      name: 'No_biometric',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This device supports face recognition. Would you like to authenticate with your face?`
+  String get This_device_supports {
+    return Intl.message(
+      'This device supports face recognition. Would you like to authenticate with your face?',
+      name: 'This_device_supports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Face ID`
+  String get Use_Face_ID {
+    return Intl.message(
+      'Use Face ID',
+      name: 'Use_Face_ID',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Fingerprint`
+  String get Use_Fingerprint {
+    return Intl.message(
+      'Use Fingerprint',
+      name: 'Use_Fingerprint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to authenticate with your fingerprint instead?`
+  String get Would_you_like {
+    return Intl.message(
+      'Would you like to authenticate with your fingerprint instead?',
+      name: 'Would_you_like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error`
+  String get Unknown_error {
+    return Intl.message(
+      'Unknown error',
+      name: 'Unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connection to server failed due to internet connection`
+  String get Connection_failed {
+    return Intl.message(
+      'Connection to server failed due to internet connection',
+      name: 'Connection_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request to the server was cancelled may be due to internet connection`
+  String get Request_cancelled {
+    return Intl.message(
+      'Request to the server was cancelled may be due to internet connection',
+      name: 'Request_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connection timeout with the server may be due to internet connection`
+  String get Timeout {
+    return Intl.message(
+      'Connection timeout with the server may be due to internet connection',
+      name: 'Timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receive timeout in connection with the server may be due to internet connection`
+  String get Receive_timeout {
+    return Intl.message(
+      'Receive timeout in connection with the server may be due to internet connection',
+      name: 'Receive_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send timeout in connection with the server may be due to internet connection`
+  String get Send_timeout {
+    return Intl.message(
+      'Send timeout in connection with the server may be due to internet connection',
+      name: 'Send_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get Something_wrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'Something_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `try again`
+  String get try_again {
+    return Intl.message(
+      'try again',
+      name: 'try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit_button {
+    return Intl.message(
+      'Edit',
+      name: 'edit_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `succesfully send Leave request`
+  String get succesfully_send_Leave {
+    return Intl.message(
+      'succesfully send Leave request',
+      name: 'succesfully_send_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your payroll during Year`
+  String get no_payroll_first {
+    return Intl.message(
+      'Your payroll during Year',
+      name: 'no_payroll_first',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no Your payroll during Year`
+  String get no_payroll_second {
+    return Intl.message(
+      'There is no Your payroll during Year',
+      name: 'no_payroll_second',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error occurred from server`
+  String get Unknown_server_error {
+    return Intl.message(
+      'Unknown error occurred from server',
+      name: 'Unknown_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.`
+  String get non_accepted_period {
+    return Intl.message(
+      'The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave.',
+      name: 'non_accepted_period',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate`
+  String get validate {
+    return Intl.message(
+      'Validate',
+      name: 'validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve`
+  String get approve {
+    return Intl.message(
+      'Approve',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refuse`
+  String get refuse {
+    return Intl.message(
+      'Refuse',
+      name: 'refuse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee Name`
+  String get employee_name {
+    return Intl.message(
+      'Employee Name',
+      name: 'employee_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leave Type`
+  String get leave_type {
+    return Intl.message(
+      'Leave Type',
+      name: 'leave_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Leave`
+  String get Approve_Leave {
+    return Intl.message(
+      'Approve Leave',
+      name: 'Approve_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refuse Leave`
+  String get Refuse_Leave {
+    return Intl.message(
+      'Refuse Leave',
+      name: 'Refuse_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate Leave`
+  String get validation_Leave {
+    return Intl.message(
+      'Validate Leave',
+      name: 'validation_Leave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Off Managment`
+  String get time_off_managment {
+    return Intl.message(
+      'Time Off Managment',
+      name: 'time_off_managment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Off Requests`
+  String get time_off_requests {
+    return Intl.message(
+      'Time Off Requests',
+      name: 'time_off_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `edit the attendance request`
+  String get request_attendance {
+    return Intl.message(
+      'edit the attendance request',
+      name: 'request_attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your edit attendance request is done wait approved by admin`
+  String get your_attendance_request_is_done_wait_approved_by_admin {
+    return Intl.message(
+      'your edit attendance request is done wait approved by admin',
+      name: 'your_attendance_request_is_done_wait_approved_by_admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Check in`
+  String get checkin_old {
+    return Intl.message(
+      'Old Check in',
+      name: 'checkin_old',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Check Out`
+  String get Checkoutn_old {
+    return Intl.message(
+      'Old Check Out',
+      name: 'Checkoutn_old',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attendance managment`
+  String get attendance_managment {
+    return Intl.message(
+      'Attendance managment',
+      name: 'attendance_managment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attendance Requests`
+  String get attendance_requests {
+    return Intl.message(
+      'Attendance Requests',
+      name: 'attendance_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Request`
+  String get approve_request {
+    return Intl.message(
+      'Approve Request',
+      name: 'approve_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee`
+  String get employee {
+    return Intl.message(
+      'Employee',
+      name: 'employee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check In Time`
+  String get check_in_time {
+    return Intl.message(
+      'Check In Time',
+      name: 'check_in_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check Out Time`
+  String get check_out_time {
+    return Intl.message(
+      'Check Out Time',
+      name: 'check_out_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select check in time`
+  String get select_check_in_time {
+    return Intl.message(
+      'Select check in time',
+      name: 'select_check_in_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select check out time`
+  String get select_check_out_time {
+    return Intl.message(
+      'Select check out time',
+      name: 'select_check_out_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select both times`
+  String get please_select_both_times {
+    return Intl.message(
+      'Please select both times',
+      name: 'please_select_both_times',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check out must be after check in`
+  String get checkout_must_be_after_checkin {
+    return Intl.message(
+      'Check out must be after check in',
+      name: 'checkout_must_be_after_checkin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid date format`
+  String get invalid_date_format {
+    return Intl.message(
+      'Invalid date format',
+      name: 'invalid_date_format',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No name`
+  String get no_name {
+    return Intl.message(
+      'No name',
+      name: 'no_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit attendance time approved succesfully`
+  String get edit_attendance_time_approved {
+    return Intl.message(
+      'Edit attendance time approved succesfully',
+      name: 'edit_attendance_time_approved',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

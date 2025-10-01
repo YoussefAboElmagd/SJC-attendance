@@ -2,11 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/leave/leave_details/ui/widget/list_of_leave.dart';
+import 'package:madarj/Feature/leave/leave_details/data/model/holiday_summary.dart';
+import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_card.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class TotalLeave extends StatelessWidget {
-  const TotalLeave({super.key});
+  const TotalLeave({super.key, this.timeoffBalanceData});
+  final HolidaySummaryResponse? timeoffBalanceData;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +18,7 @@ class TotalLeave extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  15.r,
-                ),
-              ),
+              borderRadius: BorderRadius.all(Radius.circular(15.r)),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
@@ -35,18 +33,13 @@ class TotalLeave extends StatelessWidget {
                   Text(
                     '${S.of(context).Period_text} 1 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year} - 30 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}',
                     style: TextStyles.font14BlackSemiBold.copyWith(
-                      color: const Color.fromRGBO(
-                        71,
-                        84,
-                        103,
-                        1,
-                      ),
+                      color: const Color.fromRGBO(71, 84, 103, 1),
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   SizedBox(height: 15.h),
-                  const ListOLeave(),
+                  LeaveCard(timeoffBalanceData: timeoffBalanceData),
                 ],
               ),
             ),

@@ -10,7 +10,7 @@ import 'package:madarj/Feature/registration/login/data/model/login_request_body.
 import 'package:madarj/Feature/registration/login/Ui/widgets/login_bloc_listener.dart';
 import 'package:madarj/generated/l10n.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     super.key,
     required this.rememberMe,
@@ -23,6 +23,28 @@ class LoginForm extends StatelessWidget {
   final bool obscurePassword;
   final Function(bool) onRememberMeChanged;
   final VoidCallback onTogglePassword;
+
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  late final FocusNode _emailFocus;
+  late final FocusNode _passwordFocus;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailFocus = FocusNode();
+    _passwordFocus = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _emailFocus.dispose();
+    _passwordFocus.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +66,10 @@ class LoginForm extends StatelessWidget {
               key: context.read<LoginCubit>().formKey,
               child: Column(
                 children: [
-                  Text(S.of(context).sign_text,
-                      style: TextStyles.font32BlackBold),
+                  Text(
+                    S.of(context).sign_text,
+                    style: TextStyles.font32BlackBold,
+                  ),
                   SizedBox(height: 6.h),
                   Text(S.of(context).sign_sub_text),
                   SizedBox(height: 30.h),
@@ -57,17 +81,11 @@ class LoginForm extends StatelessWidget {
                   _buildSignInButton(context),
                   SizedBox(height: 20.h),
                   Container(
-                    // width: MediaQuery.sizeOf(context).width * .29,
-                    decoration: const BoxDecoration(
-                        // borderRadius: BorderRadius.circular(
-                        //   25,
-                        // ),
-                        // border: Border.all(
-                        //   color: const Color.fromRGBO(42, 49, 131, 1),
-                        // ),
-                        ),
+                    decoration: const BoxDecoration(),
                     child: GestureDetector(
                       onTap: () {
+                        // Unfocus any active fields before navigation
+                        _unfocusAllFields();
                         context.pushNamed(Routes.language);
                       },
                       child: Padding(
@@ -82,9 +100,7 @@ class LoginForm extends StatelessWidget {
                               S.of(context).change_language_button,
                               style: TextStyles.font16BlackSemiBold,
                             ),
-                            SizedBox(
-                              width: 2.w,
-                            ),
+                            SizedBox(width: 2.w),
                             CircleAvatar(
                               radius: 20.w,
                               backgroundColor: Colors.white,
@@ -95,7 +111,7 @@ class LoginForm extends StatelessWidget {
                                   BlendMode.srcIn,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -113,8 +129,13 @@ class LoginForm extends StatelessWidget {
 
   Widget _buildEmailField(BuildContext context) {
     return TextFormField(
+      focusNode: _emailFocus,
       controller: context.read<LoginCubit>().emailController,
       keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+      onFieldSubmitted: (_) {
+        FocusScope.of(context).requestFocus(_passwordFocus);
+      },
       decoration: InputDecoration(
         labelText: S.of(context).Email,
         hintText: S.of(context).Email_hint,
@@ -124,10 +145,7 @@ class LoginForm extends StatelessWidget {
           height: 25.h,
           fit: BoxFit.scaleDown,
         ),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-          12.r,
-        )),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(color: Colors.grey, width: 1.5.w),
@@ -148,17 +166,23 @@ class LoginForm extends StatelessWidget {
 
   Widget _buildPasswordField(BuildContext context) {
     return TextFormField(
+      focusNode: _passwordFocus,
       controller: context.read<LoginCubit>().passwordController,
-      obscureText: obscurePassword,
+      obscureText: widget.obscurePassword,
+      textInputAction: TextInputAction.done,
+      onFieldSubmitted: (_) {
+        _unfocusAllFields();
+        _validateThenLogin();
+      },
       decoration: InputDecoration(
         labelText: S.of(context).password,
         hintText: S.of(context).password_hint,
         suffixIcon: IconButton(
           icon: Icon(
-            obscurePassword ? Icons.visibility_off : Icons.visibility,
+            widget.obscurePassword ? Icons.visibility_off : Icons.visibility,
             color: Colors.grey,
           ),
-          onPressed: onTogglePassword,
+          onPressed: widget.onTogglePassword,
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
         enabledBorder: OutlineInputBorder(
@@ -170,9 +194,11 @@ class LoginForm extends StatelessWidget {
           borderSide: BorderSide(color: Colors.deepPurple, width: 1.5.w),
         ),
       ),
-      validator: (value) => (value == null || value.isEmpty)
-          ? S.of(context).password_validation
-          : null,
+      validator:
+          (value) =>
+              (value == null || value.isEmpty)
+                  ? S.of(context).password_validation
+                  : null,
     );
   }
 
@@ -180,8 +206,8 @@ class LoginForm extends StatelessWidget {
     return Row(
       children: [
         Checkbox(
-          value: rememberMe,
-          onChanged: (value) => onRememberMeChanged(value!),
+          value: widget.rememberMe,
+          onChanged: (value) => widget.onRememberMeChanged(value!),
           checkColor: Colors.white,
           fillColor: WidgetStateProperty.resolveWith<Color>((states) {
             if (states.contains(WidgetState.selected)) {
@@ -198,17 +224,6 @@ class LoginForm extends StatelessWidget {
           S.of(context).Remember_Me,
           style: TextStyles.font14BlackSemiBold.copyWith(fontSize: 12.sp),
         ),
-        const Spacer(),
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            S.of(context).Forgot_Password,
-            style: TextStyles.font11WhiteRegular.copyWith(
-              color: const Color.fromRGBO(42, 49, 131, 1),
-              fontSize: 12.sp,
-            ),
-          ),
-        ),
       ],
     );
   }
@@ -216,7 +231,9 @@ class LoginForm extends StatelessWidget {
   Widget _buildSignInButton(BuildContext context) {
     return InkWell(
       onTap: () {
-        validateThenLogin(context);
+        // Unfocus all fields first to dismiss keyboard
+        _unfocusAllFields();
+        _validateThenLogin();
       },
       child: Container(
         width: double.infinity,
@@ -242,14 +259,22 @@ class LoginForm extends StatelessWidget {
       ),
     );
   }
-}
 
-void validateThenLogin(BuildContext context) {
-  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    LoginRequestBody loginRequestBody = LoginRequestBody(
-      email: context.read<LoginCubit>().emailController.text,
-      password: context.read<LoginCubit>().passwordController.text,
-    );
-    context.read<LoginCubit>().emitLogin(loginRequestBody);
+  // Helper method to unfocus all fields
+  void _unfocusAllFields() {
+    _emailFocus.unfocus();
+    _passwordFocus.unfocus();
+    FocusScope.of(context).unfocus();
+  }
+
+  // Validation and login method
+  void _validateThenLogin() {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      LoginRequestBody loginRequestBody = LoginRequestBody(
+        email: context.read<LoginCubit>().emailController.text,
+        password: context.read<LoginCubit>().passwordController.text,
+      );
+      context.read<LoginCubit>().emitLogin(context, loginRequestBody);
+    }
   }
 }

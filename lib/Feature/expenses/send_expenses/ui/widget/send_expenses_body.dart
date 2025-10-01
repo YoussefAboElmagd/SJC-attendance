@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/request_types_model_response.dart';
+import 'package:madarj/Feature/expenses/send_expenses/data/model/send_exp_categories_model_response.dart';
+import 'package:madarj/Feature/expenses/send_expenses/ui/widget/create_expenses_blocListener.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/ensure_claim.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/expenses_forms.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_task_photos.dart';
-// import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_claim_doc.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/data/model/get_expense_details.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class SendExpensesBody extends StatelessWidget {
-  const SendExpensesBody({super.key});
-
+  const SendExpensesBody({
+    super.key,
+    required this.requests,
+    required this.categories,
+    this.update,
+    this.id,
+    this.expenseDetail,
+  });
+  final RequestTypesModel requests;
+  final SendExpCategResponse categories;
+  final ExpenseDetailsResponse? expenseDetail;
+  final bool? update;
+  final int? id;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,7 +53,13 @@ class SendExpensesBody extends StatelessWidget {
                 SizedBox(height: 20.h),
                 const UploadTaskPhotos(),
                 SizedBox(height: 20.h),
-                const ExpensesForms(),
+                ExpensesForms(
+                  requests: requests,
+                  categories: categories,
+                  update: update,
+                  expenseDetail: expenseDetail,
+                ),
+                const CreateExpensesBlocListener(),
               ],
             ),
           ),

@@ -1,56 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/themes/colors.dart';
-import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_details_number.dart';
-import 'package:madarj/generated/l10n.dart';
+import 'package:madarj/Feature/leave/leave_details/data/model/holiday_request.dart';
+import 'package:madarj/Feature/leave/leave_details/ui/widget/leave_log_card.dart';
+import 'package:madarj/Feature/leave/leave_details/ui/widget/no_leave_today.dart';
 
-class ListOLeave extends StatelessWidget {
-  const ListOLeave({super.key});
+class ListOfLeave extends StatelessWidget {
+  const ListOfLeave({super.key, this.data, this.isNew});
+  final HolidayRequestResponse? data;
+  final bool? isNew;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
-      child: Row(
-        children: [
-          Expanded(
-            child: LeaveDetailsNumber(
-              image: 'assets/images/orange_circle.png',
-              title: S.of(context).Available_text,
-              price: "1",
-              widget: Container(
-                width: 12.w,
-                height: 12.h,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(
-                    20,
-                  ),
-                ),
-              ),
+      height: (MediaQuery.sizeOf(context).height - 550.h),
+      child: data?.data == null || data!.data!.isEmpty
+          ? const NoLeaveToday()
+          : ListView.separated(
+              padding: EdgeInsets.symmetric(vertical: 10.h),
+              itemBuilder: (context, index) {
+                return index == data!.data!.length - 1
+                    ? Padding(
+                        padding: EdgeInsets.only(bottom: 25.h),
+                        child: LeaveLogCard(
+                          data: data!.data![index],
+                          isNew: isNew ?? false,
+                        ),
+                      )
+                    : LeaveLogCard(
+                        data: data!.data![index],
+                        isNew: isNew ?? false,
+                      );
+              },
+              separatorBuilder: (context, index) => SizedBox(height: 15.h),
+              itemCount: data!.data!.length,
             ),
-          ),
-          SizedBox(
-            width: 10.w,
-          ),
-          Expanded(
-            child: LeaveDetailsNumber(
-              image: 'assets/images/orange_circle.png',
-              title: S.of(context).Leave_Used,
-              price: '15',
-              widget: Container(
-                width: 12.w,
-                height: 12.h,
-                decoration: BoxDecoration(
-                  color: ColorsManager.mainColor1,
-                  borderRadius: BorderRadius.circular(
-                    20,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

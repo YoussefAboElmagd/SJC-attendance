@@ -12,7 +12,7 @@ class ExpensesTopHeader extends StatelessWidget {
       children: [
         Container(
           height: 235.h,
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.w),
           decoration: const BoxDecoration(
             color: Color.fromRGBO(42, 49, 131, 1),
             borderRadius: BorderRadius.only(
@@ -32,7 +32,6 @@ class ExpensesTopHeader extends StatelessWidget {
                   ),
                   Text(
                     S.of(context).Claim_expenses,
-                    // "Don’t miss your clock in schedule",
                     style: TextStyles.font14GreyRegular.copyWith(
                       color: const Color.fromRGBO(217, 214, 254, 1),
                     ),
@@ -42,10 +41,7 @@ class ExpensesTopHeader extends StatelessWidget {
               SizedBox(width: 15.w),
               Align(
                 alignment: Alignment.topRight,
-                child: Image.asset(
-                  "assets/images/visa.png",
-                  height: 100.h,
-                ),
+                child: Image.asset("assets/images/visa.png", height: 100.h),
               ),
             ],
           ),

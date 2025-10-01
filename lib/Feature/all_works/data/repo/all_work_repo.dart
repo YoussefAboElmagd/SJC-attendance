@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
 import 'package:madarj/Feature/all_works/apis/all_work_service.dart';
@@ -7,13 +8,14 @@ class AllWorkRepo {
   final AllWorkService _allWorkService;
   AllWorkRepo(this._allWorkService);
 
-
-  Future<ApiResults<List<WorkDayEntry>>> getTotalWorkingMonthAt() async {
+  Future<ApiResults<List<WorkDayEntry>>> getTotalWorkingMonthAt(
+    BuildContext context,
+  ) async {
     try {
       final response = await _allWorkService.getTotalWorkingMonthAt();
       return ApiResults.success(response);
     } catch (error) {
-      return ApiResults.failure(ApiErrorHandler.handle(error));
+      return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
 }

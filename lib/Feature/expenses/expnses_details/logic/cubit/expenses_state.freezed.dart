@@ -22,6 +22,10 @@ mixin _$ExpensesState<T> {
     required TResult Function() getExpensesLoading,
     required TResult Function(T data) getExpensesSuccess,
     required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +34,10 @@ mixin _$ExpensesState<T> {
     TResult? Function()? getExpensesLoading,
     TResult? Function(T data)? getExpensesSuccess,
     TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +46,10 @@ mixin _$ExpensesState<T> {
     TResult Function()? getExpensesLoading,
     TResult Function(T data)? getExpensesSuccess,
     TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +59,11 @@ mixin _$ExpensesState<T> {
     required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
     required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
     required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +72,10 @@ mixin _$ExpensesState<T> {
     TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +84,10 @@ mixin _$ExpensesState<T> {
     TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +153,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() getExpensesLoading,
     required TResult Function(T data) getExpensesSuccess,
     required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
   }) {
     return initial();
   }
@@ -139,6 +168,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? getExpensesLoading,
     TResult? Function(T data)? getExpensesSuccess,
     TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
   }) {
     return initial?.call();
   }
@@ -150,6 +183,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? getExpensesLoading,
     TResult Function(T data)? getExpensesSuccess,
     TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +202,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
     required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
     required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
   }) {
     return initial(this);
   }
@@ -176,6 +218,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +233,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -243,6 +293,10 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     required TResult Function() getExpensesLoading,
     required TResult Function(T data) getExpensesSuccess,
     required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesLoading();
   }
@@ -254,6 +308,10 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     TResult? Function()? getExpensesLoading,
     TResult? Function(T data)? getExpensesSuccess,
     TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesLoading?.call();
   }
@@ -265,6 +323,10 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     TResult Function()? getExpensesLoading,
     TResult Function(T data)? getExpensesSuccess,
     TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesLoading != null) {
@@ -280,6 +342,11 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
     required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
     required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesLoading(this);
   }
@@ -291,6 +358,10 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesLoading?.call(this);
   }
@@ -302,6 +373,10 @@ class _$GetExpensesLoadingImpl<T> implements GetExpensesLoading<T> {
     TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesLoading != null) {
@@ -385,6 +460,10 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     required TResult Function() getExpensesLoading,
     required TResult Function(T data) getExpensesSuccess,
     required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesSuccess(data);
   }
@@ -396,6 +475,10 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     TResult? Function()? getExpensesLoading,
     TResult? Function(T data)? getExpensesSuccess,
     TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesSuccess?.call(data);
   }
@@ -407,6 +490,10 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     TResult Function()? getExpensesLoading,
     TResult Function(T data)? getExpensesSuccess,
     TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesSuccess != null) {
@@ -422,6 +509,11 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
     required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
     required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesSuccess(this);
   }
@@ -433,6 +525,10 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesSuccess?.call(this);
   }
@@ -444,6 +540,10 @@ class _$GetExpensesSuccessImpl<T> implements GetExpensesSuccess<T> {
     TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesSuccess != null) {
@@ -531,6 +631,10 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     required TResult Function() getExpensesLoading,
     required TResult Function(T data) getExpensesSuccess,
     required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesError(error);
   }
@@ -542,6 +646,10 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     TResult? Function()? getExpensesLoading,
     TResult? Function(T data)? getExpensesSuccess,
     TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesError?.call(error);
   }
@@ -553,6 +661,10 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     TResult Function()? getExpensesLoading,
     TResult Function(T data)? getExpensesSuccess,
     TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesError != null) {
@@ -568,6 +680,11 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
     required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
     required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesError(this);
   }
@@ -579,6 +696,10 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
   }) {
     return getExpensesError?.call(this);
   }
@@ -590,6 +711,10 @@ class _$GetExpensesErrorImpl<T> implements GetExpensesError<T> {
     TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
     TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
     TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
     required TResult orElse(),
   }) {
     if (getExpensesError != null) {
@@ -607,4 +732,529 @@ abstract class GetExpensesError<T> implements ExpensesState<T> {
   @JsonKey(ignore: true)
   _$$GetExpensesErrorImplCopyWith<T, _$GetExpensesErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetAllExpensesLoadingImplCopyWith<T, $Res> {
+  factory _$$GetAllExpensesLoadingImplCopyWith(
+          _$GetAllExpensesLoadingImpl<T> value,
+          $Res Function(_$GetAllExpensesLoadingImpl<T>) then) =
+      __$$GetAllExpensesLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$GetAllExpensesLoadingImplCopyWithImpl<T, $Res>
+    extends _$ExpensesStateCopyWithImpl<T, $Res, _$GetAllExpensesLoadingImpl<T>>
+    implements _$$GetAllExpensesLoadingImplCopyWith<T, $Res> {
+  __$$GetAllExpensesLoadingImplCopyWithImpl(
+      _$GetAllExpensesLoadingImpl<T> _value,
+      $Res Function(_$GetAllExpensesLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetAllExpensesLoadingImpl<T> implements GetAllExpensesLoading<T> {
+  const _$GetAllExpensesLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ExpensesState<$T>.getAllExpensesLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetAllExpensesLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getExpensesLoading,
+    required TResult Function(T data) getExpensesSuccess,
+    required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getExpensesLoading,
+    TResult? Function(T data)? getExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getExpensesLoading,
+    TResult Function(T data)? getExpensesSuccess,
+    TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesLoading != null) {
+      return getAllExpensesLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
+    required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
+    required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesLoading != null) {
+      return getAllExpensesLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllExpensesLoading<T> implements ExpensesState<T> {
+  const factory GetAllExpensesLoading() = _$GetAllExpensesLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$GetAllExpensesErrorImplCopyWith<T, $Res> {
+  factory _$$GetAllExpensesErrorImplCopyWith(_$GetAllExpensesErrorImpl<T> value,
+          $Res Function(_$GetAllExpensesErrorImpl<T>) then) =
+      __$$GetAllExpensesErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({ApiErrorModel error});
+}
+
+/// @nodoc
+class __$$GetAllExpensesErrorImplCopyWithImpl<T, $Res>
+    extends _$ExpensesStateCopyWithImpl<T, $Res, _$GetAllExpensesErrorImpl<T>>
+    implements _$$GetAllExpensesErrorImplCopyWith<T, $Res> {
+  __$$GetAllExpensesErrorImplCopyWithImpl(_$GetAllExpensesErrorImpl<T> _value,
+      $Res Function(_$GetAllExpensesErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$GetAllExpensesErrorImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetAllExpensesErrorImpl<T> implements GetAllExpensesError<T> {
+  const _$GetAllExpensesErrorImpl(this.error);
+
+  @override
+  final ApiErrorModel error;
+
+  @override
+  String toString() {
+    return 'ExpensesState<$T>.getAllExpensesError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetAllExpensesErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAllExpensesErrorImplCopyWith<T, _$GetAllExpensesErrorImpl<T>>
+      get copyWith => __$$GetAllExpensesErrorImplCopyWithImpl<T,
+          _$GetAllExpensesErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getExpensesLoading,
+    required TResult Function(T data) getExpensesSuccess,
+    required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getExpensesLoading,
+    TResult? Function(T data)? getExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getExpensesLoading,
+    TResult Function(T data)? getExpensesSuccess,
+    TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesError != null) {
+      return getAllExpensesError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
+    required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
+    required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesError != null) {
+      return getAllExpensesError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllExpensesError<T> implements ExpensesState<T> {
+  const factory GetAllExpensesError(final ApiErrorModel error) =
+      _$GetAllExpensesErrorImpl<T>;
+
+  ApiErrorModel get error;
+  @JsonKey(ignore: true)
+  _$$GetAllExpensesErrorImplCopyWith<T, _$GetAllExpensesErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetAllExpensesCombinedSuccessImplCopyWith<T, $Res> {
+  factory _$$GetAllExpensesCombinedSuccessImplCopyWith(
+          _$GetAllExpensesCombinedSuccessImpl<T> value,
+          $Res Function(_$GetAllExpensesCombinedSuccessImpl<T>) then) =
+      __$$GetAllExpensesCombinedSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T newExpenses, T pendingExpenses, T doneExpenses});
+}
+
+/// @nodoc
+class __$$GetAllExpensesCombinedSuccessImplCopyWithImpl<T, $Res>
+    extends _$ExpensesStateCopyWithImpl<T, $Res,
+        _$GetAllExpensesCombinedSuccessImpl<T>>
+    implements _$$GetAllExpensesCombinedSuccessImplCopyWith<T, $Res> {
+  __$$GetAllExpensesCombinedSuccessImplCopyWithImpl(
+      _$GetAllExpensesCombinedSuccessImpl<T> _value,
+      $Res Function(_$GetAllExpensesCombinedSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newExpenses = freezed,
+    Object? pendingExpenses = freezed,
+    Object? doneExpenses = freezed,
+  }) {
+    return _then(_$GetAllExpensesCombinedSuccessImpl<T>(
+      newExpenses: freezed == newExpenses
+          ? _value.newExpenses
+          : newExpenses // ignore: cast_nullable_to_non_nullable
+              as T,
+      pendingExpenses: freezed == pendingExpenses
+          ? _value.pendingExpenses
+          : pendingExpenses // ignore: cast_nullable_to_non_nullable
+              as T,
+      doneExpenses: freezed == doneExpenses
+          ? _value.doneExpenses
+          : doneExpenses // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetAllExpensesCombinedSuccessImpl<T>
+    implements GetAllExpensesCombinedSuccess<T> {
+  const _$GetAllExpensesCombinedSuccessImpl(
+      {required this.newExpenses,
+      required this.pendingExpenses,
+      required this.doneExpenses});
+
+  @override
+  final T newExpenses;
+  @override
+  final T pendingExpenses;
+  @override
+  final T doneExpenses;
+
+  @override
+  String toString() {
+    return 'ExpensesState<$T>.getAllExpensesCombinedSuccess(newExpenses: $newExpenses, pendingExpenses: $pendingExpenses, doneExpenses: $doneExpenses)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetAllExpensesCombinedSuccessImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.newExpenses, newExpenses) &&
+            const DeepCollectionEquality()
+                .equals(other.pendingExpenses, pendingExpenses) &&
+            const DeepCollectionEquality()
+                .equals(other.doneExpenses, doneExpenses));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(newExpenses),
+      const DeepCollectionEquality().hash(pendingExpenses),
+      const DeepCollectionEquality().hash(doneExpenses));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAllExpensesCombinedSuccessImplCopyWith<T,
+          _$GetAllExpensesCombinedSuccessImpl<T>>
+      get copyWith => __$$GetAllExpensesCombinedSuccessImplCopyWithImpl<T,
+          _$GetAllExpensesCombinedSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getExpensesLoading,
+    required TResult Function(T data) getExpensesSuccess,
+    required TResult Function(ApiErrorModel error) getExpensesError,
+    required TResult Function() getAllExpensesLoading,
+    required TResult Function(ApiErrorModel error) getAllExpensesError,
+    required TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesCombinedSuccess(
+        newExpenses, pendingExpenses, doneExpenses);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getExpensesLoading,
+    TResult? Function(T data)? getExpensesSuccess,
+    TResult? Function(ApiErrorModel error)? getExpensesError,
+    TResult? Function()? getAllExpensesLoading,
+    TResult? Function(ApiErrorModel error)? getAllExpensesError,
+    TResult? Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesCombinedSuccess?.call(
+        newExpenses, pendingExpenses, doneExpenses);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getExpensesLoading,
+    TResult Function(T data)? getExpensesSuccess,
+    TResult Function(ApiErrorModel error)? getExpensesError,
+    TResult Function()? getAllExpensesLoading,
+    TResult Function(ApiErrorModel error)? getAllExpensesError,
+    TResult Function(T newExpenses, T pendingExpenses, T doneExpenses)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesCombinedSuccess != null) {
+      return getAllExpensesCombinedSuccess(
+          newExpenses, pendingExpenses, doneExpenses);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetExpensesLoading<T> value) getExpensesLoading,
+    required TResult Function(GetExpensesSuccess<T> value) getExpensesSuccess,
+    required TResult Function(GetExpensesError<T> value) getExpensesError,
+    required TResult Function(GetAllExpensesLoading<T> value)
+        getAllExpensesLoading,
+    required TResult Function(GetAllExpensesError<T> value) getAllExpensesError,
+    required TResult Function(GetAllExpensesCombinedSuccess<T> value)
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesCombinedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult? Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult? Function(GetExpensesError<T> value)? getExpensesError,
+    TResult? Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult? Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult? Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+  }) {
+    return getAllExpensesCombinedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetExpensesLoading<T> value)? getExpensesLoading,
+    TResult Function(GetExpensesSuccess<T> value)? getExpensesSuccess,
+    TResult Function(GetExpensesError<T> value)? getExpensesError,
+    TResult Function(GetAllExpensesLoading<T> value)? getAllExpensesLoading,
+    TResult Function(GetAllExpensesError<T> value)? getAllExpensesError,
+    TResult Function(GetAllExpensesCombinedSuccess<T> value)?
+        getAllExpensesCombinedSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllExpensesCombinedSuccess != null) {
+      return getAllExpensesCombinedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllExpensesCombinedSuccess<T> implements ExpensesState<T> {
+  const factory GetAllExpensesCombinedSuccess(
+      {required final T newExpenses,
+      required final T pendingExpenses,
+      required final T doneExpenses}) = _$GetAllExpensesCombinedSuccessImpl<T>;
+
+  T get newExpenses;
+  T get pendingExpenses;
+  T get doneExpenses;
+  @JsonKey(ignore: true)
+  _$$GetAllExpensesCombinedSuccessImplCopyWith<T,
+          _$GetAllExpensesCombinedSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

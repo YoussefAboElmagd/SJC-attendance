@@ -6,13 +6,11 @@ import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_state.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/build_file_preview.dart';
-import 'package:madarj/Feature/expenses/send_expenses/ui/widget/select_upload_claim_file.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/widget/upload_task_doc.dart';
+import 'package:madarj/generated/l10n.dart';
 
 class UploadTaskPhotos extends StatelessWidget {
-  const UploadTaskPhotos({
-    super.key,
-  });
+  const UploadTaskPhotos({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,6 @@ class UploadTaskPhotos extends StatelessWidget {
           current is RemoveFile ||
           current is FileValidationError ||
           current is FileSelectionInProgress,
-      // current is Initial,
       builder: (context, state) {
         return state.maybeWhen(
           multipleFilesSelected: (files) {
@@ -67,22 +64,15 @@ class UploadTaskPhotos extends StatelessWidget {
           },
           fileValidationError: (error) {
             return AlertDialog(
-              icon: Icon(
-                Icons.error,
-                color: Colors.red,
-                size: 32.w,
-              ),
-              content: Text(
-                error,
-                style: TextStyles.font15DarkBlueMedium,
-              ),
+              icon: Icon(Icons.error, color: Colors.red, size: 32.w),
+              content: Text(error, style: TextStyles.font15DarkBlueMedium),
               actions: [
                 TextButton(
                   onPressed: () {
                     context.pop();
                   },
                   child: Text(
-                    'Got it',
+                    S.of(context).close_it,
                     style: TextStyles.font14BlueSemiBold,
                   ),
                 ),
@@ -96,10 +86,10 @@ class UploadTaskPhotos extends StatelessWidget {
   }
 }
 
-Future<void> _showFileTypeDialog(BuildContext context) async {
-  final cubit = context.read<SendExpensesCubit>();
-  await showDialog(
-    context: context,
-    builder: (context) => SelectUploadClaimFile(cubit: cubit),
-  );
-}
+// Future<void> _showFileTypeDialog(BuildContext context) async {
+//   final cubit = context.read<SendExpensesCubit>();
+//   await showDialog(
+//     context: context,
+//     builder: (context) => SelectUploadClaimFile(cubit: cubit),
+//   );
+// }

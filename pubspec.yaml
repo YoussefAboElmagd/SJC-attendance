@@ -1,10 +1,10 @@
 name: madarj
 description: "A new Flutter project."
 publish_to: "none"
-version: 1.0.0+4
+version: 4.0.0+1
 
 environment:
-  sdk: ">=3.4.3 <4.0.0"
+  sdk: ">=3.7.0 <3.8.0"
 
 dependencies:
   build_runner: ^2.4.9
@@ -13,13 +13,19 @@ dependencies:
   device_info_plus: ^11.3.0
   device_preview: ^1.2.0
   dotted_border: ^2.1.0
+  dropdown_button2: ^2.3.9
   easy_localization: ^3.0.7
-  file_picker: 8.3.2
+  file_picker: ^8.3.2
+  firebase_core: ^3.13.0
+  firebase_messaging: ^15.2.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_cached_pdfview: ^0.4.3
+  flutter_local_notifications: ^19.2.1
   flutter_localization: ^0.2.1
   flutter_native_splash: ^2.4.1
+  flutter_pdfview: ^1.4.0+1
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.2
   flutter_svg: ^2.1.0
@@ -34,38 +40,35 @@ dependencies:
   local_auth: ^2.3.0
   location: ^7.0.0
   logger: ^2.4.0
-  pdf_render: ^1.4.12
+  path_provider: ^2.1.5
+  pdfx: ^2.9.1
   permission_handler: ^11.3.1
   pretty_dio_logger: ^1.4.0
-  retrofit: ^4.1.0 
+  retrofit: ^4.1.0
   retrofit_generator: ^8.1.2
   shared_preferences: ^2.3.1
   shimmer: ^3.0.0
-  table_calendar: 3.1.3
-
+  table_calendar: ^3.1.3
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: "^0.14.4"
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
     - assets/svgs/
     - assets/images/bottom_nav/
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+    - assets/images/cards/
+
+flutter_launcher_icons:
+  android: "launcher_icon2"
+  ios: true
+  image_path: "assets/images/company2.jpg"
+  min_sdk_android: 21
+
 flutter_intl:
   enabled: true
