@@ -18,9 +18,11 @@ class AttendanceLogManagerCard extends StatelessWidget {
     super.key,
     required this.data,
     this.isPending,
+    this.isApprove,
   });
-  final RequestItem data;
 
+  final RequestItem data;
+  final bool? isApprove;
   final bool? isPending;
   @override
   Widget build(BuildContext context) {
@@ -113,6 +115,51 @@ class AttendanceLogManagerCard extends StatelessWidget {
                       ),
                     ],
                   ),
+                  isApprove == true
+                      ? SizedBox(height: 8.h)
+                      : SizedBox(height: 0.h),
+                  isApprove == true
+                      ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            S.of(context).checkin_new,
+                            style: TextStyles.font14BlackSemiBold.copyWith(
+                              fontSize: 12.sp,
+                              color: const Color.fromRGBO(71, 84, 103, 1),
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
+                          Text(
+                            "${data.checkInNeW!.toArabicDate().split(" ")[0]}  <= ${data.checkInOld!.toArabicDate().split(" ")[1].split(":")[0]}:${data.checkInOld!.toArabicDate().split(" ")[1].split(":")[1]}",
+                            style: TextStyles.font14BlackSemiBold,
+                          ),
+                        ],
+                      )
+                      : const SizedBox.shrink(),
+
+                  isApprove == true
+                      ? SizedBox(height: 8.h)
+                      : SizedBox(height: 0.h),
+                  isApprove == true
+                      ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            S.of(context).Checkoutn_new,
+                            style: TextStyles.font14BlackSemiBold.copyWith(
+                              fontSize: 12.sp,
+                              color: const Color.fromRGBO(71, 84, 103, 1),
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
+                          Text(
+                            "${data.checkOutNeW!.toArabicDate().split(" ")[0]}  <= ${data.checkOutOld!.toArabicDate().split(" ")[1].split(":")[0]}:${data.checkOutOld!.toArabicDate().split(" ")[1].split(":")[1]}",
+                            style: TextStyles.font14BlackSemiBold,
+                          ),
+                        ],
+                      )
+                      : const SizedBox.shrink(),
                 ],
               ),
             ),
@@ -131,22 +178,29 @@ class AttendanceLogManagerCard extends StatelessWidget {
                       onPressed: () async {
                         final result = await showApproveRequestBottomSheet(
                           context,
+                          initialCheckIn: data.checkInOld,
+                          initialCheckOut: data.checkOutOld,
                           employeeName: data.employeeName,
                         );
 
                         if (result != null) {
                           var checkIn =
-                              "${result.checkInNew!.split("=>")[0]}${result.checkInNew!.split("=>")[1]}"
-                                  .replaceFirst("  ", " ");
+                              result.checkInNew!.split("=>").length == 2
+                                  ? "${result.checkInNew!.split("=>")[0]}${result.checkInNew!.split("=>")[1]}"
+                                      .replaceFirst("  ", " ")
+                                  : result.checkInNew!;
                           var checkOut =
-                              "${result.checkOutNew!.split("=>")[0]}${result.checkOutNew!.split("=>")[1]}"
-                                  .replaceFirst("  ", " ");
-
+                              result.checkOutNew!.split("=>").length == 2
+                                  ? "${result.checkOutNew!.split("=>")[0]}${result.checkOutNew!.split("=>")[1]}"
+                                      .replaceFirst("  ", " ")
+                                  : result.checkOutNew;
+                          print(checkIn);
+                          print(checkOut);
                           context.read<AttendanceManagerCubit>().approveRequest(
                             context,
                             requestId: data.id!,
                             checkInNew: checkIn,
-                            checkOutNew: checkOut,
+                            checkOutNew: checkOut!,
                           );
                         }
                       },

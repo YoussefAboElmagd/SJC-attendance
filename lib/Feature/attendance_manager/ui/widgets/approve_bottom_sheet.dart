@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +5,6 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/app_button.dart';
 import 'package:madarj/Core/widgets/app_text_form_field.dart';
-
 import 'package:madarj/generated/l10n.dart';
 
 class ApproveRequestResult {
@@ -44,12 +42,8 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
   @override
   void initState() {
     super.initState();
-    checkInController = TextEditingController(
-      text: widget.initialCheckIn ?? '',
-    );
-    checkOutController = TextEditingController(
-      text: widget.initialCheckOut ?? '',
-    );
+    checkInController = TextEditingController(text: '');
+    checkOutController = TextEditingController(text: '');
   }
 
   @override
@@ -112,9 +106,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
           'yyyy-MM-dd',
           'en',
         ).format(fullDateTime);
-
         final formattedTime = DateFormat('HH:mm:ss', 'en').format(fullDateTime);
-
         final displayText = '$formattedDate => $formattedTime';
 
         setState(() {
@@ -133,10 +125,12 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
   }
 
   void _handleApprove() {
-    if (checkInController.text.isEmpty || checkOutController.text.isEmpty) {
+    // التحقق من اختيار على الأقل تاريخ واحد
+    if (checkInController.text.isEmpty && checkOutController.text.isEmpty) {
+      Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(S.of(context).please_select_both_times),
+          content: Text(S.of(context).please_select_at_least_one_time),
           backgroundColor: Colors.orange,
         ),
       );
@@ -144,40 +138,134 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
     }
 
     try {
-      final checkInParts = checkInController.text.split(' => ');
-      final checkOutParts = checkOutController.text.split(' => ');
+      DateTime? newCheckIn;
+      DateTime? newCheckOut;
+      DateTime? oldCheckIn;
+      DateTime? oldCheckOut;
 
-      if (checkInParts.length != 2 || checkOutParts.length != 2) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(S.of(context).invalid_date_format),
-            backgroundColor: Colors.red,
-          ),
-        );
-        return;
+      // تحويل القيم القديمة (Initial Values)
+      if (widget.initialCheckIn != null && widget.initialCheckIn!.isNotEmpty) {
+        try {
+          // محاولة parse مباشر أولاً (لو جاي بفورمات كامل)
+          oldCheckIn = DateFormat(
+            'yyyy-MM-dd HH:mm:ss',
+            'en',
+          ).parse(widget.initialCheckIn!.replaceAll(' => ', ' '));
+        } catch (e) {
+          print("Error parsing initialCheckIn: $e");
+        }
       }
 
-      final checkInDateTimeStr = '${checkInParts[0]} ${checkInParts[1]}';
-      final checkOutDateTimeStr = '${checkOutParts[0]} ${checkOutParts[1]}';
-
-      final checkIn = DateFormat(
-        'yyyy-MM-dd HH:mm:ss',
-        'en',
-      ).parse(checkInDateTimeStr);
-      final checkOut = DateFormat(
-        'yyyy-MM-dd HH:mm:ss',
-        'en',
-      ).parse(checkOutDateTimeStr);
-
-      if (checkOut.isBefore(checkIn)) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(S.of(context).checkout_must_be_after_checkin),
-            backgroundColor: Colors.red,
-          ),
-        );
-        return;
+      if (widget.initialCheckOut != null &&
+          widget.initialCheckOut!.isNotEmpty) {
+        try {
+          // محاولة parse مباشر أولاً (لو جاي بفورمات كامل)
+          oldCheckOut = DateFormat(
+            'yyyy-MM-dd HH:mm:ss',
+            'en',
+          ).parse(widget.initialCheckOut!.replaceAll(' => ', ' '));
+        } catch (e) {
+          print("Error parsing initialCheckOut: $e");
+        }
       }
+
+      // تحويل القيم الجديدة المختارة
+      if (checkInController.text.isNotEmpty) {
+        final parts = checkInController.text.split(' => ');
+        if (parts.length != 2) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(S.of(context).invalid_date_format),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+        newCheckIn = DateFormat(
+          'yyyy-MM-dd HH:mm:ss',
+          'en',
+        ).parse('${parts[0]} ${parts[1]}');
+      }
+
+      if (checkOutController.text.isNotEmpty) {
+        final parts = checkOutController.text.split(' => ');
+        if (parts.length != 2) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(S.of(context).invalid_date_format),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+        newCheckOut = DateFormat(
+          'yyyy-MM-dd HH:mm:ss',
+          'en',
+        ).parse('${parts[0]} ${parts[1]}');
+      }
+      print("Raw initialCheckIn: '${widget.initialCheckIn}'");
+      print("Raw initialCheckOut: '${widget.initialCheckOut}'");
+      // السيناريو 1: لو اختار يعدل الحضور بس
+      if (newCheckIn != null && newCheckOut == null) {
+        if (oldCheckOut != null && newCheckIn.isAfter(oldCheckOut)) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                S.of(context).new_checkin_must_be_before_old_checkout,
+              ),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+      }
+
+      // السيناريو 2: لو اختار يعدل الانصراف بس
+      if (newCheckOut != null && newCheckIn == null) {
+        if (oldCheckIn != null && newCheckOut.isBefore(oldCheckIn)) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                S.of(context).new_checkout_must_be_after_old_checkin,
+              ),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+      }
+
+      // السيناريو 3: لو اختار يعدل الاتنين
+      if (newCheckIn != null && newCheckOut != null) {
+        Navigator.pop(context);
+
+        if (newCheckOut.isBefore(newCheckIn)) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(S.of(context).checkout_must_be_after_checkin),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+      }
+
+      // إرجاع النتيجة - لو معدلش يرجع القديم
+      final result = ApproveRequestResult(
+        checkInNew:
+            checkInController.text.isNotEmpty
+                ? checkInController.text
+                : widget.initialCheckIn,
+        checkOutNew:
+            checkOutController.text.isNotEmpty
+                ? checkOutController.text
+                : widget.initialCheckOut,
+      );
+      Navigator.pop(context, result);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -185,15 +273,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
           backgroundColor: Colors.red,
         ),
       );
-      return;
     }
-
-    // إرجاع النتيجة
-    final result = ApproveRequestResult(
-      checkInNew: checkInController.text,
-      checkOutNew: checkOutController.text,
-    );
-    Navigator.pop(context, result);
   }
 
   @override
@@ -259,7 +339,9 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
                   child: AppTextFormField(
                     controller: checkInController,
                     readOnly: true,
-                    hintText: S.of(context).select_check_in_time,
+                    hintText:
+                        widget.initialCheckIn ??
+                        S.of(context).select_check_in_time,
                     inputTextStyle: TextStyles.font14BlackRegular,
                     hintStyle: TextStyles.font14GreyRegular,
                     backgroundColor: Colors.white,
@@ -300,7 +382,9 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
                   child: AppTextFormField(
                     controller: checkOutController,
                     readOnly: true,
-                    hintText: S.of(context).select_check_out_time,
+                    hintText:
+                        widget.initialCheckOut ??
+                        S.of(context).select_check_out_time,
                     inputTextStyle: TextStyles.font14BlackRegular,
                     hintStyle: TextStyles.font14GreyRegular,
                     backgroundColor: Colors.white,
@@ -361,7 +445,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
   }
 }
 
-// 3. Helper Function لفتح الـ Bottom Sheet
+// Helper Function لفتح الـ Bottom Sheet
 Future<ApproveRequestResult?> showApproveRequestBottomSheet(
   BuildContext context, {
   String? initialCheckIn,

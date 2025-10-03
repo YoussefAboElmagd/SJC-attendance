@@ -2412,6 +2412,26 @@ class S {
     );
   }
 
+  /// `New Check in`
+  String get checkin_new {
+    return Intl.message(
+      'New Check in',
+      name: 'checkin_new',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Check Out`
+  String get Checkoutn_new {
+    return Intl.message(
+      'New Check Out',
+      name: 'Checkoutn_new',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Attendance managment`
   String get attendance_managment {
     return Intl.message(
@@ -2547,6 +2567,76 @@ class S {
     return Intl.message(
       'Edit attendance time approved succesfully',
       name: 'edit_attendance_time_approved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please select at least one time`
+  String get please_select_at_least_one_time {
+    return Intl.message(
+      'please select at least one time',
+      name: 'please_select_at_least_one_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New check-in time must be before the old check-out time`
+  String get new_checkin_must_be_before_old_checkout {
+    return Intl.message(
+      'New check-in time must be before the old check-out time',
+      name: 'new_checkin_must_be_before_old_checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New check-out time must be after the old check-in time`
+  String get new_checkout_must_be_after_old_checkin {
+    return Intl.message(
+      'New check-out time must be after the old check-in time',
+      name: 'new_checkout_must_be_after_old_checkin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refused attendance requests`
+  String get refused_attendance {
+    return Intl.message(
+      'Refused attendance requests',
+      name: 'refused_attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can follow up on rejected requests`
+  String get follow_refused_attendance {
+    return Intl.message(
+      'You can follow up on rejected requests',
+      name: 'follow_refused_attendance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Refused Requests`
+  String get no_refused_requests {
+    return Intl.message(
+      'No Refused Requests',
+      name: 'no_refused_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There are no refused attendance requests at the moment`
+  String get no_refused_requests_description {
+    return Intl.message(
+      'There are no refused attendance requests at the moment',
+      name: 'no_refused_requests_description',
       desc: '',
       args: [],
     );

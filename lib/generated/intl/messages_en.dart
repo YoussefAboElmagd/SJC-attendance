@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Biometric authentication failed. Please try again."),
         "Bonus": MessageLookupByLibrary.simpleMessage("Bonus"),
         "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "Checkoutn_new": MessageLookupByLibrary.simpleMessage("New Check Out"),
         "Checkoutn_old": MessageLookupByLibrary.simpleMessage("Old Check Out"),
         "Claim_expenses":
             MessageLookupByLibrary.simpleMessage("Claim your expenses here."),
@@ -301,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "check_in_time": MessageLookupByLibrary.simpleMessage("Check In Time"),
         "check_out_time":
             MessageLookupByLibrary.simpleMessage("Check Out Time"),
+        "checkin_new": MessageLookupByLibrary.simpleMessage("New Check in"),
         "checkin_old": MessageLookupByLibrary.simpleMessage("Old Check in"),
         "checkout_must_be_after_checkin": MessageLookupByLibrary.simpleMessage(
             "Check out must be after check in"),
@@ -322,6 +324,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "employee_name": MessageLookupByLibrary.simpleMessage("Employee Name"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("some errors occurred"),
+        "follow_refused_attendance": MessageLookupByLibrary.simpleMessage(
+            "You can follow up on rejected requests"),
         "have_any_month_working_text": MessageLookupByLibrary.simpleMessage(
             "It looks like you don’t have any working time in this month. Don’t worry, this space will be updated as new working time submitted."),
         "have_any_working_text": MessageLookupByLibrary.simpleMessage(
@@ -343,6 +347,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your working time in this month"),
         "mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("mustn\'t be empty"),
+        "new_checkin_must_be_before_old_checkout":
+            MessageLookupByLibrary.simpleMessage(
+                "New check-in time must be before the old check-out time"),
+        "new_checkout_must_be_after_old_checkin":
+            MessageLookupByLibrary.simpleMessage(
+                "New check-out time must be after the old check-in time"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("New"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("No"),
         "no_name": MessageLookupByLibrary.simpleMessage("No name"),
@@ -350,6 +360,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Your payroll during Year"),
         "no_payroll_second": MessageLookupByLibrary.simpleMessage(
             "There is no Your payroll during Year"),
+        "no_refused_requests":
+            MessageLookupByLibrary.simpleMessage("No Refused Requests"),
+        "no_refused_requests_description": MessageLookupByLibrary.simpleMessage(
+            "There are no refused attendance requests at the moment"),
         "non_accepted_period": MessageLookupByLibrary.simpleMessage(
             "The selected leave period conflicts with another leave. Please choose another period that does not conflict with any leave."),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
@@ -370,10 +384,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Permission denied"),
         "permission_permanently_denied": MessageLookupByLibrary.simpleMessage(
             "permission permanently denied"),
+        "please_select_at_least_one_time": MessageLookupByLibrary.simpleMessage(
+            "please select at least one time"),
         "please_select_both_times":
             MessageLookupByLibrary.simpleMessage("Please select both times"),
         "reason_text": MessageLookupByLibrary.simpleMessage("reason"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
+        "refused_attendance":
+            MessageLookupByLibrary.simpleMessage("Refused attendance requests"),
         "request_attendance":
             MessageLookupByLibrary.simpleMessage("edit the attendance request"),
         "select_check_in_time":

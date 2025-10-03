@@ -236,6 +236,8 @@
   "your_attendance_request_is_done_wait_approved_by_admin": "your edit attendance request is done wait approved by admin",
   "checkin_old": "Old Check in",
   "Checkoutn_old": "Old Check Out",
+  "checkin_new": "New Check in",
+  "Checkoutn_new": "New Check Out",
   "attendance_managment": "Attendance managment",
   "attendance_requests": "Attendance Requests",
   "approve_request": "Approve Request",
@@ -248,6 +250,13 @@
   "checkout_must_be_after_checkin": "Check out must be after check in",
   "invalid_date_format": "Invalid date format",
   "cancel": "Cancel",
-  "no_name":"No name",
-  "edit_attendance_time_approved":"Edit attendance time approved succesfully"
+  "no_name": "No name",
+  "edit_attendance_time_approved": "Edit attendance time approved succesfully",
+  "please_select_at_least_one_time": "please select at least one time",
+  "new_checkin_must_be_before_old_checkout": "New check-in time must be before the old check-out time",
+  "new_checkout_must_be_after_old_checkin": "New check-out time must be after the old check-in time",
+  "refused_attendance": "Refused attendance requests",
+  "follow_refused_attendance": "You can follow up on rejected requests",
+  "no_refused_requests": "No Refused Requests",
+  "no_refused_requests_description": "There are no refused attendance requests at the moment"
 }

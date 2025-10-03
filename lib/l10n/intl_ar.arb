@@ -236,6 +236,8 @@
   "your_attendance_request_is_done_wait_approved_by_admin": "تم ارسال تعديل طلب الحضور بنجاح. انتظر موافقة الإدارة",
   "checkin_old": "تسجيل الحضور القديم",
   "Checkoutn_old": "تسجيل الانصراف القديم",
+  "checkin_new": "تسجيل الحضور الجديد",
+  "Checkoutn_new": "تسجيل الانصراف الجديد",
   "attendance_managment": "اداره الحضور والانصراف",
   "attendance_requests": "طلبات الحضور والانصراف",
   "approve_request": "الموافقة على الطلب",
@@ -249,5 +251,12 @@
   "invalid_date_format": "صيغة التاريخ غير صحيحة",
   "cancel": "إلغاء",
   "no_name": "لا يوجد اسم",
-  "edit_attendance_time_approved":"طلب تعديل الحضور والانصراف تم الموافقه عليه بنجاح"
+  "edit_attendance_time_approved": "طلب تعديل الحضور والانصراف تم الموافقه عليه بنجاح",
+  "please_select_at_least_one_time": "يرجي تعديل احد الوقتين سواء الحضور او الانصراف",
+  "new_checkin_must_be_before_old_checkout": "وقت الحضور الجديد يجب أن يكون قبل وقت الانصراف القديم",
+  "new_checkout_must_be_after_old_checkin": "وقت الانصراف الجديد يجب أن يكون بعد وقت الحضور القديم",
+  "refused_attendance": "اداره الحضور والانصراف المرفوضه",
+  "follow_refused_attendance": "يمكنك متابعة الطلبات التي تم رفضها",
+  "no_refused_requests": "لا توجد طلبات مرفوضة",
+  "no_refused_requests_description": "لا توجد طلبات حضور وانصراف مرفوضة في الوقت الحالي"
 }
