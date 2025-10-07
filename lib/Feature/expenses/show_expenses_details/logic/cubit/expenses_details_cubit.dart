@@ -45,7 +45,7 @@ class ExpensesDetailsCubit extends Cubit<ExpensesDetailsState> {
           emit(ExpensesDetailsState.getExpenseDetaailssuccess(data));
         },
         failure: (error) {
-          print(error);
+          // print(error);
           emit(ExpensesDetailsState.getExpenseDetaailserror(error));
         },
       );

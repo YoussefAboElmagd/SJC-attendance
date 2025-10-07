@@ -155,7 +155,7 @@ class LeaveManagerLogCard extends StatelessWidget {
                       buttonWidth: 100.w,
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
-                        print("data.id ${data.id}");
+                        // print("data.id ${data.id}");
                         context.read<LeaveManagerDetailsCubit>().refuseTimeOff(
                           context,
                           data.id,
@@ -173,7 +173,7 @@ class LeaveManagerLogCard extends StatelessWidget {
                           buttonWidth: 100.w,
                           textStyle: TextStyles.font16WhiteSemiBold,
                           onPressed: () {
-                            print("data.id ${data.id}");
+                            // print("data.id ${data.id}");
                             context
                                 .read<LeaveManagerDetailsCubit>()
                                 .validateTimeOff(context, data.id);
@@ -187,7 +187,7 @@ class LeaveManagerLogCard extends StatelessWidget {
                           buttonWidth: 100.w,
                           textStyle: TextStyles.font16WhiteSemiBold,
                           onPressed: () {
-                            print("data.id ${data.id}");
+                            // print("data.id ${data.id}");
                             context
                                 .read<LeaveManagerDetailsCubit>()
                                 .approveTimeOff(context, data.id);

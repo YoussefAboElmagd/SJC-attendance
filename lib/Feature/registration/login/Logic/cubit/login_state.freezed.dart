@@ -26,6 +26,7 @@ mixin _$LoginState<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$LoginState<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$LoginState<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$LoginState<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +80,7 @@ mixin _$LoginState<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +93,7 @@ mixin _$LoginState<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +163,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return initial();
   }
@@ -172,6 +179,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return initial?.call();
   }
@@ -187,6 +195,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -207,6 +216,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return initial(this);
   }
@@ -222,6 +232,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return initial?.call(this);
   }
@@ -237,6 +248,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -325,6 +337,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return changeObsecuredState(isObsecur);
   }
@@ -340,6 +353,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return changeObsecuredState?.call(isObsecur);
   }
@@ -355,6 +369,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (changeObsecuredState != null) {
@@ -375,6 +390,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return changeObsecuredState(this);
   }
@@ -390,6 +406,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return changeObsecuredState?.call(this);
   }
@@ -405,6 +422,7 @@ class _$ChangeObsecuredStateImpl<T> implements ChangeObsecuredState<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (changeObsecuredState != null) {
@@ -470,6 +488,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return loginLoading();
   }
@@ -485,6 +504,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return loginLoading?.call();
   }
@@ -500,6 +520,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -520,6 +541,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return loginLoading(this);
   }
@@ -535,6 +557,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return loginLoading?.call(this);
   }
@@ -550,6 +573,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -637,6 +661,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return loginSuccess(data);
   }
@@ -652,6 +677,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return loginSuccess?.call(data);
   }
@@ -667,6 +693,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -687,6 +714,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return loginSuccess(this);
   }
@@ -702,6 +730,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return loginSuccess?.call(this);
   }
@@ -717,6 +746,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -808,6 +838,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return loginError(apiErrorModel);
   }
@@ -823,6 +854,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return loginError?.call(apiErrorModel);
   }
@@ -838,6 +870,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginError != null) {
@@ -858,6 +891,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return loginError(this);
   }
@@ -873,6 +907,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return loginError?.call(this);
   }
@@ -888,6 +923,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (loginError != null) {
@@ -953,6 +989,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return getMeLoading();
   }
@@ -968,6 +1005,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return getMeLoading?.call();
   }
@@ -983,6 +1021,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeLoading != null) {
@@ -1003,6 +1042,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return getMeLoading(this);
   }
@@ -1018,6 +1058,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return getMeLoading?.call(this);
   }
@@ -1033,6 +1074,7 @@ class _$GetMeLoadingImpl<T> implements GetMeLoading<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeLoading != null) {
@@ -1120,6 +1162,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return getMeSuccess(data);
   }
@@ -1135,6 +1178,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return getMeSuccess?.call(data);
   }
@@ -1150,6 +1194,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeSuccess != null) {
@@ -1170,6 +1215,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return getMeSuccess(this);
   }
@@ -1185,6 +1231,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return getMeSuccess?.call(this);
   }
@@ -1200,6 +1247,7 @@ class _$GetMeSuccessImpl<T> implements GetMeSuccess<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeSuccess != null) {
@@ -1291,6 +1339,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     required TResult Function() getMeLoading,
     required TResult Function(T data) getMeSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
   }) {
     return getMeError(apiErrorModel);
   }
@@ -1306,6 +1355,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     TResult? Function()? getMeLoading,
     TResult? Function(T data)? getMeSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
   }) {
     return getMeError?.call(apiErrorModel);
   }
@@ -1321,6 +1371,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     TResult Function()? getMeLoading,
     TResult Function(T data)? getMeSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeError != null) {
@@ -1341,6 +1392,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     required TResult Function(GetMeLoading<T> value) getMeLoading,
     required TResult Function(GetMeSuccess<T> value) getMeSuccess,
     required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
   }) {
     return getMeError(this);
   }
@@ -1356,6 +1408,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     TResult? Function(GetMeLoading<T> value)? getMeLoading,
     TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
   }) {
     return getMeError?.call(this);
   }
@@ -1371,6 +1424,7 @@ class _$GetMeErrorImpl<T> implements GetMeError<T> {
     TResult Function(GetMeLoading<T> value)? getMeLoading,
     TResult Function(GetMeSuccess<T> value)? getMeSuccess,
     TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
     required TResult orElse(),
   }) {
     if (getMeError != null) {
@@ -1388,4 +1442,196 @@ abstract class GetMeError<T> implements LoginState<T> {
   @JsonKey(ignore: true)
   _$$GetMeErrorImplCopyWith<T, _$GetMeErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CredentialsLoadedImplCopyWith<T, $Res> {
+  factory _$$CredentialsLoadedImplCopyWith(_$CredentialsLoadedImpl<T> value,
+          $Res Function(_$CredentialsLoadedImpl<T>) then) =
+      __$$CredentialsLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T email, T password});
+}
+
+/// @nodoc
+class __$$CredentialsLoadedImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$CredentialsLoadedImpl<T>>
+    implements _$$CredentialsLoadedImplCopyWith<T, $Res> {
+  __$$CredentialsLoadedImplCopyWithImpl(_$CredentialsLoadedImpl<T> _value,
+      $Res Function(_$CredentialsLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? password = freezed,
+  }) {
+    return _then(_$CredentialsLoadedImpl<T>(
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as T,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CredentialsLoadedImpl<T> implements CredentialsLoaded<T> {
+  const _$CredentialsLoadedImpl({required this.email, required this.password});
+
+  @override
+  final T email;
+  @override
+  final T password;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.credentialsLoaded(email: $email, password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CredentialsLoadedImpl<T> &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CredentialsLoadedImplCopyWith<T, _$CredentialsLoadedImpl<T>>
+      get copyWith =>
+          __$$CredentialsLoadedImplCopyWithImpl<T, _$CredentialsLoadedImpl<T>>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool isObsecur) changeObsecuredState,
+    required TResult Function() loginLoading,
+    required TResult Function(T data) loginSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function() getMeLoading,
+    required TResult Function(T data) getMeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) getMeError,
+    required TResult Function(T email, T password) credentialsLoaded,
+  }) {
+    return credentialsLoaded(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool isObsecur)? changeObsecuredState,
+    TResult? Function()? loginLoading,
+    TResult? Function(T data)? loginSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function()? getMeLoading,
+    TResult? Function(T data)? getMeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult? Function(T email, T password)? credentialsLoaded,
+  }) {
+    return credentialsLoaded?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool isObsecur)? changeObsecuredState,
+    TResult Function()? loginLoading,
+    TResult Function(T data)? loginSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function()? getMeLoading,
+    TResult Function(T data)? getMeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? getMeError,
+    TResult Function(T email, T password)? credentialsLoaded,
+    required TResult orElse(),
+  }) {
+    if (credentialsLoaded != null) {
+      return credentialsLoaded(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChangeObsecuredState<T> value)
+        changeObsecuredState,
+    required TResult Function(LoginLoading<T> value) loginLoading,
+    required TResult Function(LoginSuccess<T> value) loginSuccess,
+    required TResult Function(LoginError<T> value) loginError,
+    required TResult Function(GetMeLoading<T> value) getMeLoading,
+    required TResult Function(GetMeSuccess<T> value) getMeSuccess,
+    required TResult Function(GetMeError<T> value) getMeError,
+    required TResult Function(CredentialsLoaded<T> value) credentialsLoaded,
+  }) {
+    return credentialsLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChangeObsecuredState<T> value)? changeObsecuredState,
+    TResult? Function(LoginLoading<T> value)? loginLoading,
+    TResult? Function(LoginSuccess<T> value)? loginSuccess,
+    TResult? Function(LoginError<T> value)? loginError,
+    TResult? Function(GetMeLoading<T> value)? getMeLoading,
+    TResult? Function(GetMeSuccess<T> value)? getMeSuccess,
+    TResult? Function(GetMeError<T> value)? getMeError,
+    TResult? Function(CredentialsLoaded<T> value)? credentialsLoaded,
+  }) {
+    return credentialsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChangeObsecuredState<T> value)? changeObsecuredState,
+    TResult Function(LoginLoading<T> value)? loginLoading,
+    TResult Function(LoginSuccess<T> value)? loginSuccess,
+    TResult Function(LoginError<T> value)? loginError,
+    TResult Function(GetMeLoading<T> value)? getMeLoading,
+    TResult Function(GetMeSuccess<T> value)? getMeSuccess,
+    TResult Function(GetMeError<T> value)? getMeError,
+    TResult Function(CredentialsLoaded<T> value)? credentialsLoaded,
+    required TResult orElse(),
+  }) {
+    if (credentialsLoaded != null) {
+      return credentialsLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CredentialsLoaded<T> implements LoginState<T> {
+  const factory CredentialsLoaded(
+      {required final T email,
+      required final T password}) = _$CredentialsLoadedImpl<T>;
+
+  T get email;
+  T get password;
+  @JsonKey(ignore: true)
+  _$$CredentialsLoadedImplCopyWith<T, _$CredentialsLoadedImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

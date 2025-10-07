@@ -125,7 +125,7 @@ class AppRouter {
         );
       case Routes.sendExpenses:
         final args = settings.arguments as Map<String, dynamic>?;
-        print(args?['id']);
+        // print(args?['id']);
         return MaterialPageRoute(
           builder:
               (_) => SendExpenses(

@@ -44,7 +44,7 @@ class DailyLogCard extends StatelessWidget {
                     ? AppTextButton(
                       buttonWidth: MediaQuery.sizeOf(context).width * .4,
                       onPressed: () {
-                        print(workDayEntry.id);
+                        // print(workDayEntry.id);
                         context.read<HomeCubit>().createEditRequest(
                           context,
                           workDayEntry.id!.toInt(),

@@ -57,7 +57,7 @@ class ExpensesImages extends StatelessWidget {
     try {
       return base64Decode(base64String);
     } catch (e) {
-      print('Error decoding base64: $e');
+      // print('Error decoding base64: $e');
       return null;
     }
   }
@@ -101,7 +101,7 @@ class ExpensesImages extends StatelessWidget {
         return directory.path;
       }
     } catch (e) {
-      print('Error getting download path: $e');
+      // print('Error getting download path: $e');
       return null;
     }
   }
@@ -291,7 +291,7 @@ class ExpensesImages extends StatelessWidget {
       if (imageBytes != null) {
         return GestureDetector(
           onTap: () {
-            print('Selected image: ${displayAttachment.name}');
+            // print('Selected image: ${displayAttachment.name}');
           },
           child: Image.memory(
             imageBytes,
@@ -434,7 +434,7 @@ class _PDFViewerScreenState extends State<PDFViewerScreen> {
         });
       }
     } catch (e) {
-      print('Error creating temp file: $e');
+      // print('Error creating temp file: $e');
     }
   }
 

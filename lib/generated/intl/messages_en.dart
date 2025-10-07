@@ -306,16 +306,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "checkin_old": MessageLookupByLibrary.simpleMessage("Old Check in"),
         "checkout_must_be_after_checkin": MessageLookupByLibrary.simpleMessage(
             "Check out must be after check in"),
+        "clear_saved_credentials":
+            MessageLookupByLibrary.simpleMessage("Clear Saved Emails"),
         "close_button": MessageLookupByLibrary.simpleMessage("Close"),
         "close_it": MessageLookupByLibrary.simpleMessage("Close it"),
         "completed_tasks_maintain": MessageLookupByLibrary.simpleMessage(
             "You\'ve completed 8 more tasks than usual, maintain your task with your supervisor"),
+        "credentials_cleared": MessageLookupByLibrary.simpleMessage(
+            "Credentials cleared successfully"),
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("Your current task progress"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("Done"),
         "edit_attendance_time_approved": MessageLookupByLibrary.simpleMessage(
             "Edit attendance time approved succesfully"),
         "edit_button": MessageLookupByLibrary.simpleMessage("Edit"),
+        "email_format_validation": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid email address"),
         "email_mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("email mustn\'t be empty"),
         "email_validation":

@@ -2641,6 +2641,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Clear Saved Emails`
+  String get clear_saved_credentials {
+    return Intl.message(
+      'Clear Saved Emails',
+      name: 'clear_saved_credentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credentials cleared successfully`
+  String get credentials_cleared {
+    return Intl.message(
+      'Credentials cleared successfully',
+      name: 'credentials_cleared',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get email_format_validation {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'email_format_validation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

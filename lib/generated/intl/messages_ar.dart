@@ -302,16 +302,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل الحضور القديم"),
         "checkout_must_be_after_checkin": MessageLookupByLibrary.simpleMessage(
             "يجب أن يكون وقت الخروج بعد وقت الدخول"),
+        "clear_saved_credentials":
+            MessageLookupByLibrary.simpleMessage("مسح الايميلات المحفوظه"),
         "close_button": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "close_it": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "completed_tasks_maintain": MessageLookupByLibrary.simpleMessage(
             "لقد أكملت 8 مهام أكثر من المعتاد، استمر في متابعة المهام مع المشرف الخاص بك"),
+        "credentials_cleared": MessageLookupByLibrary.simpleMessage(
+            "تم مسح بيانات الاعتماد بنجاح"),
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("تقدم المهام الحالي"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("تم"),
         "edit_attendance_time_approved": MessageLookupByLibrary.simpleMessage(
             "طلب تعديل الحضور والانصراف تم الموافقه عليه بنجاح"),
         "edit_button": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "email_format_validation": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال عنوان بريد إلكتروني صحيح"),
         "email_mustnot_be_empty": MessageLookupByLibrary.simpleMessage(
             "يجب ألا يكون البريد الإلكتروني فارغًا"),
         "email_validation":

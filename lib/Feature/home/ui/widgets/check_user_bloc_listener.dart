@@ -53,7 +53,7 @@ class CheckUserBlocListener extends StatelessWidget {
             );
           },
           checkUserSuccess: (checkResponse) async {
-            print(checkResponse.data[0].message);
+            // print(checkResponse.data[0].message);
             context.popAlert();
             if (checkResponse.data[0].attendanceState == "checked_out") {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_In;

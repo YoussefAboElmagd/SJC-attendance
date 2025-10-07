@@ -1,0 +1,12 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/sjc.png
+  android_12:
+    color: "#FFFFFF"
+    image: assets/images/sjc.png
+    branding: assets/images/sjc.png  
+    branding_mode: bottom 
+  android: true
+  ios: true
+  web: false  
+  fullscreen: true 

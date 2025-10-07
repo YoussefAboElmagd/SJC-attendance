@@ -11,4 +11,9 @@ class SharedKeys {
   static String isLogged = "isLogged";
   static String clockUser = "Clock-In";
   static String fcmToken = "fcmToken";
+
+  static const String savedEmail = 'saved_email';
+  static const String savedPassword = 'saved_password';
+  static const String rememberMe = 'remember_me';
+  static const String savedUsers = 'savedUsers';
 }

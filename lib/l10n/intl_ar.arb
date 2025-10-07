@@ -258,5 +258,8 @@
   "refused_attendance": "اداره الحضور والانصراف المرفوضه",
   "follow_refused_attendance": "يمكنك متابعة الطلبات التي تم رفضها",
   "no_refused_requests": "لا توجد طلبات مرفوضة",
-  "no_refused_requests_description": "لا توجد طلبات حضور وانصراف مرفوضة في الوقت الحالي"
+  "no_refused_requests_description": "لا توجد طلبات حضور وانصراف مرفوضة في الوقت الحالي",
+  "clear_saved_credentials": "مسح الايميلات المحفوظه",
+  "credentials_cleared": "تم مسح بيانات الاعتماد بنجاح",
+  "email_format_validation": "يرجى إدخال عنوان بريد إلكتروني صحيح"
 }

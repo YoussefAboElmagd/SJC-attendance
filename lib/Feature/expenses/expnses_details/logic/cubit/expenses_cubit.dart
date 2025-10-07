@@ -49,7 +49,7 @@ class ExpensesCubit extends Cubit<ExpensesState> {
 
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
-        print("$type error: $error");
+        // print("$type error: $error");
         errors.add(error);
       }
 
@@ -115,7 +115,7 @@ class ExpensesCubit extends Cubit<ExpensesState> {
       );
     } catch (e) {
       // Handle any unexpected errors
-      print("Unexpected error in getAllHome2: $e");
+      // print("Unexpected error in getAllHome2: $e");
       emit(
         ExpensesState.getAllExpensesError(
           ApiErrorModel(

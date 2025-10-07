@@ -21,7 +21,7 @@ class SendExpensesRepo {
       final response = await _sendExpensesService.getRequestTypes();
       return ApiResults.success(response);
     } catch (error) {
-      print(error);
+      // print(error);
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -33,7 +33,7 @@ class SendExpensesRepo {
       final response = await _sendExpensesService.getCategories();
       return ApiResults.success(response);
     } catch (error) {
-      print(error);
+      // print(error);
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -46,7 +46,7 @@ class SendExpensesRepo {
       final response = await _sendExpensesService.getExpenseDetails(id ?? 0);
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -69,10 +69,10 @@ class SendExpensesRepo {
         data: await request.toFormData(),
         options: options,
       );
-      print(response.data["success"]);
+      // print(response.data["success"]);
       return ApiResults.success(response);
     } catch (error) {
-      print("error $error");
+      // print("error $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }

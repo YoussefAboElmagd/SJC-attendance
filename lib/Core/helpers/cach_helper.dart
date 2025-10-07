@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CachHelper {
@@ -10,9 +13,9 @@ class CachHelper {
   static Future<void> init() async {
     try {
       _sharedPreferences = await SharedPreferences.getInstance();
-      debugPrint('CachHelper: SharedPreferences initialized successfully');
+      // debugPrint('CachHelper: SharedPreferences initialized successfully');
     } catch (e) {
-      debugPrint('CachHelper: Error initializing SharedPreferences: $e');
+      // debugPrint('CachHelper: Error initializing SharedPreferences: $e');
       rethrow;
     }
   }
@@ -24,7 +27,7 @@ class CachHelper {
   }) async {
     try {
       await _ensureInitialized();
-
+      // print(value);
       if (value is String) {
         return await _sharedPreferences!.setString(key, value);
       } else if (value is int) {
@@ -39,7 +42,7 @@ class CachHelper {
         throw ArgumentError('Unsupported data type: ${value.runtimeType}');
       }
     } catch (e) {
-      debugPrint('CachHelper: Error saving data for key $key: $e');
+      // debugPrint('CachHelper: Error saving data for key $key: $e');
       rethrow;
     }
   }
@@ -50,7 +53,7 @@ class CachHelper {
       _ensureInitialized();
       return _sharedPreferences!.get(key);
     } catch (e) {
-      debugPrint('CachHelper: Error getting data for key $key: $e');
+      // debugPrint('CachHelper: Error getting data for key $key: $e');
       return null;
     }
   }
@@ -61,7 +64,7 @@ class CachHelper {
       await _ensureInitialized();
       return await _sharedPreferences!.remove(key);
     } catch (e) {
-      debugPrint('CachHelper: Error removing data for key $key: $e');
+      // debugPrint('CachHelper: Error removing data for key $key: $e');
       return false;
     }
   }
@@ -72,7 +75,7 @@ class CachHelper {
       await _ensureInitialized();
       return await _sharedPreferences!.clear();
     } catch (e) {
-      debugPrint('CachHelper: Error clearing all data: $e');
+      // debugPrint('CachHelper: Error clearing all data: $e');
       return false;
     }
   }
@@ -83,243 +86,158 @@ class CachHelper {
     required String value,
   }) async {
     try {
-      debugPrint('SecureStorage: Saving key: $key');
+      // debugPrint('SecureStorage: Saving key: $key');
       await _secureStorage.write(key: key, value: value);
     } catch (e) {
-      debugPrint('SecureStorage: Error saving key $key: $e');
+      // debugPrint('SecureStorage: Error saving key $key: $e');
       rethrow;
     }
   }
 
   static Future<String?> getSecuredString({required String key}) async {
     try {
-      debugPrint('SecureStorage: Reading key: $key');
+      // debugPrint('SecureStorage: Reading key: $key');
       return await _secureStorage.read(key: key);
     } catch (e) {
-      debugPrint('SecureStorage: Error reading key $key: $e');
+      // debugPrint('SecureStorage: Error reading key $key: $e');
       return null;
     }
   }
 
   static Future<void> clearAllSecuredData() async {
     try {
-      debugPrint('SecureStorage: Clearing all data');
+      // debugPrint('SecureStorage: Clearing all data');
       await _secureStorage.deleteAll();
     } catch (e) {
-      debugPrint('SecureStorage: Error clearing all data: $e');
+      // debugPrint('SecureStorage: Error clearing all data: $e');
       rethrow;
     }
   }
 
-  /// Helper method to ensure initialization
   static Future<void> _ensureInitialized() async {
     if (_sharedPreferences == null) {
       await init();
     }
   }
+
+  static Future<void> saveUserCredentials({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final existingUsers = await getSavedUsers();
+      final existingUserIndex = existingUsers.indexWhere(
+        (user) => user['email'] == email,
+      );
+      if (existingUserIndex != -1) {
+        existingUsers[existingUserIndex] = {
+          'email': email,
+          'password': password,
+          'lastLogin': DateTime.now().toIso8601String(),
+        };
+      } else {
+        existingUsers.add({
+          'email': email,
+          'password': password,
+          'lastLogin': DateTime.now().toIso8601String(),
+        });
+      }
+
+      await _saveUserList(existingUsers);
+      // debugPrint('CachHelper: User credentials saved for: $email');
+    } catch (e) {
+      // debugPrint('CachHelper: Error saving user credentials: $e');
+      rethrow;
+    }
+  }
+
+  static Future<List<Map<String, String>>> getSavedUsers() async {
+    try {
+      final usersJson = getData(key: SharedKeys.savedUsers) as String?;
+      if (usersJson == null || usersJson.isEmpty) {
+        return [];
+      }
+
+      final List<dynamic> usersList = json.decode(usersJson);
+      return usersList.map((user) {
+        return {
+          'email': user['email'] as String,
+          'password': user['password'] as String,
+          'lastLogin': user['lastLogin'] as String,
+        };
+      }).toList();
+    } catch (e) {
+      // debugPrint('CachHelper: Error getting saved users: $e');
+      return [];
+    }
+  }
+
+  static Future<Map<String, String>?> getLastUser() async {
+    try {
+      final users = await getSavedUsers();
+      if (users.isEmpty) return null;
+
+      users.sort((a, b) {
+        final dateA = DateTime.parse(a['lastLogin']!);
+        final dateB = DateTime.parse(b['lastLogin']!);
+        return dateB.compareTo(dateA);
+      });
+
+      return users.first;
+    } catch (e) {
+      // debugPrint('CachHelper: Error getting last user: $e');
+      return null;
+    }
+  }
+
+  static Future<void> removeUser(String email) async {
+    try {
+      final users = await getSavedUsers();
+      users.removeWhere((user) => user['email'] == email);
+      await _saveUserList(users);
+      // debugPrint('CachHelper: User removed: $email');
+    } catch (e) {
+      // debugPrint('CachHelper: Error removing user: $e');
+      rethrow;
+    }
+  }
+
+  static Future<void> clearAllUsers() async {
+    try {
+      await removeData(key: SharedKeys.savedUsers);
+      // debugPrint('CachHelper: All users cleared');
+    } catch (e) {
+      // debugPrint('CachHelper: Error clearing all users: $e');
+      rethrow;
+    }
+  }
+
+  static Future<void> _saveUserList(List<Map<String, String>> users) async {
+    if (users.length > 5) {
+      users.sort((a, b) {
+        final dateA = DateTime.parse(a['lastLogin']!);
+        final dateB = DateTime.parse(b['lastLogin']!);
+        return dateB.compareTo(dateA);
+      });
+      users.removeRange(5, users.length);
+    }
+
+    final usersJson = json.encode(users);
+    print("usersJson $usersJson");
+    await saveData(key: SharedKeys.savedUsers, value: usersJson);
+  }
+
+  static Future<Map<String, String?>> getSavedLoginCredentials() async {
+    try {
+      final String? email = getData(key: SharedKeys.savedEmail) as String?;
+      final String? password = await getSecuredString(
+        key: SharedKeys.savedPassword,
+      );
+
+      return {'email': email, 'password': password};
+    } catch (e) {
+      // debugPrint('CachHelper: Error getting saved credentials: $e');
+      return {'email': null, 'password': null};
+    }
+  }
 }
-// // // import 'package:shared_preferences/shared_preferences.dart';
-
-// // // class CachHelper {
-// // //   static late SharedPreferences sharedPreferences;
-
-// // //   static init() async {
-// // //     sharedPreferences = await SharedPreferences.getInstance();
-// // //   }
-
-// // //   static Future<bool> saveData({
-// // //     required dynamic value,
-// // //     required String key,
-// // //   }) async {
-// // //     if (value is String) {
-// // //       return await sharedPreferences.setString(key, value);
-// // //     }
-// // //     if (value is int) {
-// // //       return await sharedPreferences.setInt(key, value);
-// // //     }
-// // //     if (value is bool) {
-// // //       return await sharedPreferences.setBool(key, value);
-// // //     }
-// // //     return await sharedPreferences.setDouble(key, value);
-// // //   }
-
-// // //   static dynamic getData({
-// // //     required String key,
-// // //   }) {
-// // //     return sharedPreferences.get(key);
-// // //   }
-
-// // //   static dynamic removeData({
-// // //     required String key,
-// // //   }) {
-// // //     return sharedPreferences.remove(key);
-// // //   }
-// // // }
-// // import 'package:shared_preferences/shared_preferences.dart';
-
-// // class CachHelper {
-// //   static late SharedPreferences sharedPreferences;
-
-// //   static init() async {
-// //     sharedPreferences = await SharedPreferences.getInstance();
-// //   }
-
-// //   static Future<bool> saveData({
-// //     required dynamic value,
-// //     required String key,
-// //   }) async {
-// //     bool result;
-// //     if (value is String) {
-// //       result = await sharedPreferences.setString(key, value);
-// //     } else if (value is int) {
-// //       result = await sharedPreferences.setInt(key, value);
-// //     } else if (value is bool) {
-// //       result = await sharedPreferences.setBool(key, value);
-// //     } else if (value is double) {
-// //       result = await sharedPreferences.setDouble(key, value);
-// //     } else {
-// //       throw Exception("Unsupported data type");
-// //     }
-
-// //     print('Data set: Key = $key, Value = $value');
-// //     return result;
-// //   }
-
-// //   static dynamic getData({
-// //     required String key,
-// //   }) {
-// //     final value = sharedPreferences.get(key);
-// //     print('Data retrieved: Key = $key, Value = $value');
-// //     return value;
-// //   }
-
-// //   static Future<bool> removeData({
-// //     required String key,
-// //   }) async {
-// //     final result = await sharedPreferences.remove(key);
-// //     print('Data removed: Key = $key');
-// //     return result;
-// //   }
-// // }
-// // import 'package:shared_preferences/shared_preferences.dart';
-
-// // class CachHelper {
-// //   static late SharedPreferences sharedPreferences;
-
-// //   static init() async {
-// //     sharedPreferences = await SharedPreferences.getInstance();
-// //   }
-
-// //   static Future<bool> saveData({
-// //     required dynamic value,
-// //     required String key,
-// //   }) async {
-// //     if (value is String) {
-// //       return await sharedPreferences.setString(key, value);
-// //     }
-// //     if (value is int) {
-// //       return await sharedPreferences.setInt(key, value);
-// //     }
-// //     if (value is bool) {
-// //       return await sharedPreferences.setBool(key, value);
-// //     }
-// //     return await sharedPreferences.setDouble(key, value);
-// //   }
-
-// //   static dynamic getData({
-// //     required String key,
-// //   }) {
-// //     return sharedPreferences.get(key);
-// //   }
-
-// //   static dynamic removeData({
-// //     required String key,
-// //   }) {
-// //     return sharedPreferences.remove(key);
-// //   }
-// // }
-// // import 'dart:convert';
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-// // import 'package:labaiik_mo3tmer/Features/registration/login/data/model/get_me_response.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
-
-// class CachHelper {
-//   static late SharedPreferences sharedPreferences;
-
-//   static init() async {
-//     sharedPreferences = await SharedPreferences.getInstance();
-//   }
-
-//   static Future<bool> saveData({
-//     required dynamic value,
-//     required String key,
-//   }) async {
-//     bool result;
-//     if (value is String) {
-//       result = await sharedPreferences.setString(key, value);
-//     } else if (value is int) {
-//       result = await sharedPreferences.setInt(key, value);
-//     } else if (value is bool) {
-//       result = await sharedPreferences.setBool(key, value);
-//     } else if (value is double) {
-//       result = await sharedPreferences.setDouble(key, value);
-//     } else {
-//       throw Exception("Unsupported data type");
-//     }
-
-//     print('Data set: Key = $key, Value = $value');
-//     return result;
-//   }
-
-//   static dynamic getData({
-//     required String key,
-//   }) {
-//     final value = sharedPreferences.get(key);
-//     print('Data retrieved: Key = $key, Value = $value');
-//     return value;
-//   }
-
-//   static Future<bool> removeData({
-//     required String key,
-//   }) async {
-//     final result = await sharedPreferences.remove(key);
-//     print('Data removed: Key = $key');
-//     return result;
-//   }
-
-//   static setSecuredString({required String key, required String value}) async {
-//     const flutterSecureStorage = FlutterSecureStorage();
-//     debugPrint(
-//         "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
-//     await flutterSecureStorage.write(key: key, value: value);
-//   }
-
-//   static getSecuredString({required String key}) async {
-//     const flutterSecureStorage = FlutterSecureStorage();
-//     debugPrint('FlutterSecureStorage : getSecuredString with key :');
-//     return await flutterSecureStorage.read(key: key) ?? '';
-//   }
-
-//   static clearAllSecuredData() async {
-//     const flutterSecureStorage = FlutterSecureStorage();
-//     debugPrint('FlutterSecureStorage : all data has been cleared');
-//     await flutterSecureStorage.deleteAll();
-//   }
-
-//   // static Future<bool> saveUserData(SeekerData userData) async {
-//   //   String userDataJson = jsonEncode(userData.toJson());
-//   //   return await sharedPreferences.setString("seeker_data", userDataJson);
-//   // }
-
-//   // static SeekerData? getUserData() {
-//   //   String? userDataJson = sharedPreferences.getString("seeker_data");
-//   //   if (userDataJson == null) return null;
-//   //   return SeekerData.fromJson(jsonDecode(userDataJson));
-//   // }
-
-//   static Future<bool> removeUserData() async {
-//     return await sharedPreferences.remove("seeker_data");
-//   }
-// }

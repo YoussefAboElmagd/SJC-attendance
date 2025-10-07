@@ -18,7 +18,7 @@ class AttendanceManagerRepo {
           await _attendanceManagerServices.getEmployeeEditRequests();
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -30,7 +30,7 @@ class AttendanceManagerRepo {
       final response = await _attendanceManagerServices.getAllEditRequests();
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -50,7 +50,7 @@ class AttendanceManagerRepo {
       final response = await _attendanceManagerServices.approveRequest(request);
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }

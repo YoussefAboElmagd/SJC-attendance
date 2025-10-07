@@ -76,7 +76,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
       final errors = <ApiErrorModel>[];
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
-        print("$type error: $error");
+        // print("$type error: $error");
         errors.add(error);
       }
 
@@ -94,7 +94,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
           failure: (error) => handleError(error, 'categoriesResult'),
         );
       }
-      print("errors 22222222 $errors");
+      // print("errors 22222222 $errors");
 
       if (errors.isNotEmpty) {
         final uniqueMessages = <String>{};
@@ -109,11 +109,11 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
           message: combinedMessage,
           status: errors.first.status,
         );
-        print("combinedError $combinedError");
+        // print("combinedError $combinedError");
         emit(SendExpensesState.error(combinedError));
         return;
       }
-      print("errors 11111 $errors");
+      // print("errors 11111 $errors");
 
       late final RequestTypesModel requestTypesModel;
       late final SendExpCategResponse categoriesModel;
@@ -151,7 +151,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
         );
       }
     } catch (e) {
-      print("eeeeeeee $e");
+      // print("eeeeeeee $e");
       emit(
         SendExpensesState.error(
           ApiErrorModel(
@@ -177,7 +177,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
         },
       );
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       emit(
         SendExpensesState.createExpensesError(
           ApiErrorModel(message: e.toString()),
@@ -272,7 +272,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
           emit(const SendExpensesState.fileSelectionCancelled());
         }
       } catch (e) {
-        debugPrint('Error picking file: $e');
+        // debugPrint('Error picking file: $e');
         emit(SendExpensesState.fileSelectionError(e.toString()));
       }
     } else {
@@ -338,7 +338,7 @@ class SendExpensesCubit extends Cubit<SendExpensesState> {
   }
 
   void removeFile(File file) {
-    print("file cubit $file");
+    // print("file cubit $file");
     final newFiles = List<File>.from(selectedFiles)..remove(file);
     selectedFiles = newFiles;
 

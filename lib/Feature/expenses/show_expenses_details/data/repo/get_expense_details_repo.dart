@@ -13,7 +13,7 @@ class GetExpenseDetailsRepo {
       final response = await _expensesService.getExpenseDetails(id ?? 0);
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }

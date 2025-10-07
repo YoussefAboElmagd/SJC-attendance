@@ -194,8 +194,8 @@ class AttendanceLogManagerCard extends StatelessWidget {
                                   ? "${result.checkOutNew!.split("=>")[0]}${result.checkOutNew!.split("=>")[1]}"
                                       .replaceFirst("  ", " ")
                                   : result.checkOutNew;
-                          print(checkIn);
-                          print(checkOut);
+                          // print(checkIn);
+                          // print(checkOut);
                           context.read<AttendanceManagerCubit>().approveRequest(
                             context,
                             requestId: data.id!,

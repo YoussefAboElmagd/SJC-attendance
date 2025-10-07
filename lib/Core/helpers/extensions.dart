@@ -443,8 +443,8 @@ extension DateRangeFormatter on String {
 
       return '${formatter.format(startDate)} : ${formatter.format(endDate)}';
     } catch (e) {
-      print('Error formatting date range: $e');
-      print('Input string: $this');
+      // print('Error formatting date range: $e');
+      // print('Input string: $this');
       return 'Invalid date format';
     }
   }

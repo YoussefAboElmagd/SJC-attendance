@@ -258,5 +258,8 @@
   "refused_attendance": "Refused attendance requests",
   "follow_refused_attendance": "You can follow up on rejected requests",
   "no_refused_requests": "No Refused Requests",
-  "no_refused_requests_description": "There are no refused attendance requests at the moment"
+  "no_refused_requests_description": "There are no refused attendance requests at the moment",
+  "clear_saved_credentials": "Clear Saved Emails",
+  "credentials_cleared": "Credentials cleared successfully",
+  "email_format_validation": "Please enter a valid email address"
 }
