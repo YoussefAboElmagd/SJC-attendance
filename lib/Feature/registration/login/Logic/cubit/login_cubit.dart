@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/home/logic/push_firebase_notification.dart';
@@ -36,13 +36,13 @@ class LoginCubit extends Cubit<LoginState> {
         print(loginResonse.accessToken);
         await saveUserToken(loginResonse.accessToken, loginResonse.access);
 
-        final remember = await CachHelper.getData(key: SharedKeys.isLogged);
-        await CachHelper.saveData(
+        final remember = await CacheHelper.getData(key: SharedKeys.isLogged);
+        await CacheHelper.saveData(
           key: SharedKeys.userEmail,
           value: loginRequestBody.email,
         );
         if (remember == true) {
-          await CachHelper.saveData(key: SharedKeys.isLogged, value: true);
+          await CacheHelper.saveData(key: SharedKeys.isLogged, value: true);
         }
 
         // print(loginRequestBody.email.split("@")[0]);
@@ -71,18 +71,24 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> saveUserToken(String token, Access access) async {
-    await CachHelper.setSecuredString(key: SharedKeys.userToken, value: token);
-    await CachHelper.saveData(
+    await CacheHelper.setSecuredString(key: SharedKeys.userToken, value: token);
+    await CacheHelper.saveData(
       key: SharedKeys.isAttendance,
       value: access.attendance,
     );
-    await CachHelper.saveData(
+    await CacheHelper.saveData(
       key: SharedKeys.isExpenses,
       value: access.expenses,
     );
-    await CachHelper.saveData(key: SharedKeys.isTimeOff, value: access.timeoff);
-    await CachHelper.saveData(key: SharedKeys.isPayroll, value: access.payroll);
-    await CachHelper.saveData(
+    await CacheHelper.saveData(
+      key: SharedKeys.isTimeOff,
+      value: access.timeoff,
+    );
+    await CacheHelper.saveData(
+      key: SharedKeys.isPayroll,
+      value: access.payroll,
+    );
+    await CacheHelper.saveData(
       key: SharedKeys.skipBiometric,
       value: access.skipBiometric,
     );

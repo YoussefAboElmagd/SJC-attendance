@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_offline/flutter_offline.dart';
 // import 'package:labaiik_mo3tmer/Core/all_application_cubit/application_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/routing/app_routes.dart';
 import 'package:madarj/Core/routing/routes.dart';
@@ -39,9 +38,9 @@ class MadarjAppState extends State<MadarjApp> {
         create: (context) => getIt<ApplicationCubit>(),
         child: BlocBuilder<ApplicationCubit, ApplicationState>(
           builder: (context, state) {
-            String language = CachHelper.getData(key: "app_lang") ?? "ar";
+            String language = CacheHelper.getData(key: "app_lang") ?? "ar";
             print(
-              "CachHelper.getData(key:)${CachHelper.getData(key: "app_lang")} ",
+              "CachHelper.getData(key:)${CacheHelper.getData(key: "app_lang")} ",
             );
             if (state is ChangeTheLanguageOfApp) {
               language = state.language;

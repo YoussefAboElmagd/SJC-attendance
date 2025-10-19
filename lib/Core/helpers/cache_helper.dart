@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CachHelper {
+class CacheHelper {
   static SharedPreferences? _sharedPreferences;
   static const FlutterSecureStorage _secureStorage = FlutterSecureStorage();
 

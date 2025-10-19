@@ -1,20 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/home/logic/firebase_servies_local.dart';
+import 'package:madarj/Core/bloc_observer/bloc_observer.dart';
+import 'package:madarj/Core/di/dependency_injection.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
+import 'package:madarj/Core/helpers/constants.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
+import 'package:madarj/Feature/home/logic/firebase_services_local.dart';
 import 'package:madarj/Feature/home/logic/push_firebase_notification.dart';
 import 'package:madarj/firebase_options.dart';
 import 'package:madarj/madarj_app.dart';
-import 'package:madarj/Core/bloc_observer/bloc_observer.dart';
-import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
-import 'package:madarj/Core/helpers/constants.dart';
-import 'package:madarj/Core/helpers/shared_key.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await CachHelper.init();
+  await CacheHelper.init();
   await ScreenUtil.ensureScreenSize();
   await setGetIt();
 
@@ -29,8 +29,8 @@ void main() async {
 }
 
 Future<void> checkUserLogged() async {
-  bool? isLogged = await CachHelper.getData(key: SharedKeys.isLogged);
-  String? userToken = await CachHelper.getSecuredString(
+  bool? isLogged = await CacheHelper.getData(key: SharedKeys.isLogged);
+  String? userToken = await CacheHelper.getSecuredString(
     key: SharedKeys.userToken,
   );
   if (isLogged == true && userToken != null) {

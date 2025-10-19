@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Feature/payroll/data/model/payslip_details_response.dart';
 import 'package:madarj/Feature/payroll/ui/widget/payslip_details_data.dart';
@@ -29,7 +29,7 @@ class PayslipHeaderCard extends StatelessWidget {
           SizedBox(height: 15.h),
           PayslipTitle(
             name:
-                '${S.of(context).Paid_Period} 1 ${CachHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[1] : payslipData.period!.split("to")[1].trim().split(" ")[1]}  - ${CachHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[0] : payslipData.period!.split("to")[1].trim().split(" ")[0]} ${CachHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[1] : payslipData.period!.split("to")[1].trim().split(" ")[1]}',
+                '${S.of(context).Paid_Period} 1 ${CacheHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[1] : payslipData.period!.split("to")[1].trim().split(" ")[1]}  - ${CacheHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[0] : payslipData.period!.split("to")[1].trim().split(" ")[0]} ${CacheHelper.getData(key: "app_lang") == "ar" ? payslipData.period!.split("to")[1].trim().toArabicDate().split(" ")[1] : payslipData.period!.split("to")[1].trim().split(" ")[1]}',
           ),
         ],
       ),

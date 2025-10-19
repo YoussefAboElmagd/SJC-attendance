@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'widgets/login_background.dart';
@@ -24,7 +24,6 @@ class _LoginState extends State<Login> {
   //   context.read<LoginCubit>().passwordController.dispose();
   //   super.dispose();
   // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,16 +41,19 @@ class _LoginState extends State<Login> {
                   child: LoginForm(
                     rememberMe: rememberMe,
                     obscurePassword: _obscurePassword,
-                    onRememberMeChanged: (val) => setState(() {
-                      print(val);
-                      CachHelper.saveData(
-                        value: val,
-                        key: SharedKeys.isLogged,
-                      );
-                      rememberMe = val;
-                    }),
-                    onTogglePassword: () =>
-                        setState(() => _obscurePassword = !_obscurePassword),
+                    onRememberMeChanged:
+                        (val) => setState(() {
+                          print(val);
+                          CacheHelper.saveData(
+                            value: val,
+                            key: SharedKeys.isLogged,
+                          );
+                          rememberMe = val;
+                        }),
+                    onTogglePassword:
+                        () => setState(
+                          () => _obscurePassword = !_obscurePassword,
+                        ),
                   ),
                 ),
               ],

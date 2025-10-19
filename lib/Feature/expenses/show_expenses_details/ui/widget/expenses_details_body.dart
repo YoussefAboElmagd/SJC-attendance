@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 // import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/data/model/get_expense_details.dart';
@@ -51,7 +51,7 @@ class ShowExpensesDetailsBody extends StatelessWidget {
               SizedBox(height: 4.h),
               Text(
                 data!.data!.date!.toFormattedDate2(
-                  locale: CachHelper.getData(key: "app_lang") ?? "ar",
+                  locale: CacheHelper.getData(key: "app_lang") ?? "ar",
                 ),
               ),
               // Text(

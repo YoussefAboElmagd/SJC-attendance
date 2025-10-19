@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:local_auth/local_auth.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/networking/api_results.dart';
@@ -501,7 +501,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   String? clockInText;
   changeClockInText(String? clockInText) {
-    CachHelper.saveData(value: clockInText, key: SharedKeys.clockUser);
+    CacheHelper.saveData(value: clockInText, key: SharedKeys.clockUser);
     this.clockInText = clockInText;
   }
 

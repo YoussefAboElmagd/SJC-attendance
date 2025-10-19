@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Feature/cards/ui/widgets/card_item_widget.dart';
@@ -10,10 +10,10 @@ class CardsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? attendancePermission = CachHelper.getData(
+    final String? attendancePermission = CacheHelper.getData(
       key: SharedKeys.isAttendance,
     );
-    final String? timeOffPermission = CachHelper.getData(
+    final String? timeOffPermission = CacheHelper.getData(
       key: SharedKeys.isTimeOff,
     );
 
@@ -132,7 +132,7 @@ class CardsGrid extends StatelessWidget {
         CardData(
           image: 'assets/images/cards/attendance.png',
           svg: 'assets/svgs/attendanceicon.svg',
-          title: '${S.of(context).attendance_managment}',
+          title: S.of(context).attendance_managment,
           screen: Routes.attendanceManager,
           isManager: true,
         ),

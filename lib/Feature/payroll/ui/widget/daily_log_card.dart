@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,11 +88,11 @@ class DailyLogCard extends StatelessWidget {
                           ),
                           SizedBox(height: 8.h),
                           Text(
-                            CachHelper.getData(key: "app_lang") == "ar"
+                            CacheHelper.getData(key: "app_lang") == "ar"
                                 ? payslipData.period!
-                                      .split("to")[1]
-                                      .trim()
-                                      .toArabicDate()
+                                    .split("to")[1]
+                                    .trim()
+                                    .toArabicDate()
                                 : payslipData.period!.split("to")[1].trim(),
                             style: TextStyles.font20BlackSemiBold,
                           ),

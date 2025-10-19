@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
@@ -46,10 +46,11 @@ class LeavesContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LeaveDetailsCubit, LeaveDetailsState>(
-      buildWhen: (previous, current) =>
-          current is GetAllLeaveLoading ||
-          current is GetAllLeaveError ||
-          current is GetAllLeaveCombinedSuccess,
+      buildWhen:
+          (previous, current) =>
+              current is GetAllLeaveLoading ||
+              current is GetAllLeaveError ||
+              current is GetAllLeaveCombinedSuccess,
       builder: (context, state) {
         // Handle error state after build is complete
         if (state is GetAllLeaveError) {
@@ -108,11 +109,12 @@ class SendLeaveListener extends StatelessWidget {
             showDialog(
               barrierDismissible: false,
               context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainColor,
-                ),
-              ),
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.mainColor,
+                    ),
+                  ),
             );
           },
           cancelTimeOffSuccess: () {
@@ -140,15 +142,16 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
   final isMultipleErrors =
       apiErrorModel.errors != null && apiErrorModel.errors!.isNotEmpty;
 
-  final errorMessage = isMultipleErrors
-      ? apiErrorModel.errors!.values.join('\n')
-      : apiErrorModel.message ?? 'An unexpected error occurred';
+  final errorMessage =
+      isMultipleErrors
+          ? apiErrorModel.errors!.values.join('\n')
+          : apiErrorModel.message ?? 'An unexpected error occurred';
   if (apiErrorModel.message == "token seems to have expired or invalid") {
-    CachHelper.removeData(key: SharedKeys.userToken);
-    CachHelper.clearAllSecuredData();
+    CacheHelper.removeData(key: SharedKeys.userToken);
+    CacheHelper.clearAllSecuredData();
     context.pushNamedAndRemoveUntill(Routes.loginScreen);
     AppConstants.isLogged = false;
-    await CachHelper.saveData(key: SharedKeys.isLogged, value: false);
+    await CacheHelper.saveData(key: SharedKeys.isLogged, value: false);
     DioFactory.setTokenAfterLogin(null);
     Fluttertoast.showToast(
       msg: apiErrorModel.message!,
@@ -169,21 +172,22 @@ void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) async {
           content: Text(errorMessage, style: TextStyles.font15DarkBlueMedium),
           actions: [
             TextButton(
-              onPressed: apiErrorModel.message != S.of(context).token_expired
-                  ? () {
-                      context.pushNamed(Routes.cardsScreen);
-                    }
-                  : () async {
-                      CachHelper.removeData(key: SharedKeys.userToken);
-                      CachHelper.clearAllSecuredData();
-                      context.pushNamedAndRemoveUntill(Routes.loginScreen);
-                      AppConstants.isLogged = false;
-                      await CachHelper.saveData(
-                        key: SharedKeys.isLogged,
-                        value: false,
-                      );
-                      DioFactory.setTokenAfterLogin(null);
-                    },
+              onPressed:
+                  apiErrorModel.message != S.of(context).token_expired
+                      ? () {
+                        context.pushNamed(Routes.cardsScreen);
+                      }
+                      : () async {
+                        CacheHelper.removeData(key: SharedKeys.userToken);
+                        CacheHelper.clearAllSecuredData();
+                        context.pushNamedAndRemoveUntill(Routes.loginScreen);
+                        AppConstants.isLogged = false;
+                        await CacheHelper.saveData(
+                          key: SharedKeys.isLogged,
+                          value: false,
+                        );
+                        DioFactory.setTokenAfterLogin(null);
+                      },
               // onPressed: () {
               //   apiErrorModel.message != S.of(context).token_expired
               //       ? context.pop()
