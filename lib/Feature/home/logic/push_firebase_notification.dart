@@ -18,13 +18,13 @@ class PushNotificationsService {
   static Future init() async {
     await messaging.requestPermission();
     await messaging.getToken().then((value) {
-      print(value);
+      // print(value);
       AppConstants.fcmToken = value;
       CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
     });
 
     messaging.onTokenRefresh.listen((value) {
-      print(value);
+      // print(value);
       AppConstants.fcmToken = value;
       CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
     });

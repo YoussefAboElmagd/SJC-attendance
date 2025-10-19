@@ -79,7 +79,7 @@ class SendTasksCubit extends Cubit<SendTasksState> {
   }
 
   void removeFile(File file) {
-    print("file cubit $file");
+    // print("file cubit $file");
     final newFiles = List<File>.from(selectedFiles)..remove(file);
     selectedFiles = newFiles; 
 

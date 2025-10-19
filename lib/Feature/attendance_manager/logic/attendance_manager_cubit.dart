@@ -24,7 +24,7 @@ class AttendanceManagerCubit extends Cubit<AttendanceManagerState> {
     response.when(
       success: (data) {
         for (var e in data.requestItem!) {
-          print(e.state);
+          // print(e.state);
           if (e.state == "pending") {
             pendingRequestItem!.add(e);
           } else if (e.state == "approved") {
@@ -44,19 +44,19 @@ class AttendanceManagerCubit extends Cubit<AttendanceManagerState> {
   Future<void> getAllEditRequests(BuildContext context) async {
     emit(const AttendanceManagerState.getEditRequestsLoading());
 
-    print("pendingRequestItem1 ${pendingRequestItem}");
+    // print("pendingRequestItem1 ${pendingRequestItem}");
     pendingRequestItem = [];
     pendingRequestItem!.clear;
-    print("pendingRequestItem2 ${pendingRequestItem}");
+    // print("pendingRequestItem2 ${pendingRequestItem}");
     acceptRequestItem = [];
     refusedRequestItem = [];
     var response = await _attendanceManagerRepo.getAllEditRequests(context);
     response.when(
       success: (data) {
-        print("pendingRequestItem2 ${pendingRequestItem}");
-        print("data ${data.requestItem!}");
+        // print("pendingRequestItem2 ${pendingRequestItem}");
+        // print("data ${data.requestItem!}");
         for (var e in data.requestItem!) {
-          print(e.state);
+          // print(e.state);
           if (e.state == "pending") {
             pendingRequestItem!.add(e);
           } else if (e.state == "approved") {
@@ -66,7 +66,7 @@ class AttendanceManagerCubit extends Cubit<AttendanceManagerState> {
           }
         }
         // print(pendingRequestItem![0]);
-        print(pendingRequestItem);
+        // print(pendingRequestItem);
         emit(AttendanceManagerState.getEditRequestsSuccess(data));
       },
       failure: (ApiErrorModel apiErrorModel) {

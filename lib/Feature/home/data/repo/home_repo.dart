@@ -64,7 +64,7 @@ class HomeRepo {
       final response = await _homeServices.getTotalTodayWork();
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -76,7 +76,7 @@ class HomeRepo {
       final response = await _homeServices.getClockStatus();
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
@@ -89,7 +89,7 @@ class HomeRepo {
       final response = await _homeServices.sendFcmToken(notificationRequest);
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   } // NEW: Add these methods
@@ -103,7 +103,7 @@ class HomeRepo {
       final response = await _homeServices.createEditRequest(request);
       return ApiResults.success(response);
     } catch (error) {
-      print("error repo $error");
+      // print("error repo $error");
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }

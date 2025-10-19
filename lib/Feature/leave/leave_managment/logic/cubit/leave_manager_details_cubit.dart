@@ -69,7 +69,7 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
 
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
-        print("$type error: $error");
+        // print("$type error: $error");
         errors.add(error);
       }
 
@@ -90,7 +90,7 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
       requestsPendingResult.when(
         success: (_) {},
         failure: (error) {
-          print(error);
+          // print(error);
           handleError(error, 'requests Pending Result Result Error');
         },
       );
@@ -162,7 +162,7 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
         ),
       );
     } catch (e) {
-      print("Unexpected error in getAllHome2: $e");
+      // print("Unexpected error in getAllHome2: $e");
       emit(
         LeaveManagerDetailsState.getAllLeaveError(
           ApiErrorModel(
@@ -276,12 +276,12 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
           emit(const LeaveManagerDetailsState.cancelTimeOffSuccess());
         },
         failure: (error) {
-          print("Cancel timeoff error: $error");
+          // print("Cancel timeoff error: $error");
           emit(LeaveManagerDetailsState.cancelTimeOffError(error));
         },
       );
     } catch (e) {
-      print("Unexpected error in cancelTimeOff: $e");
+      // print("Unexpected error in cancelTimeOff: $e");
       emit(
         LeaveManagerDetailsState.cancelTimeOffError(
           ApiErrorModel(
@@ -297,7 +297,7 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
     emit(const LeaveManagerDetailsState.approveTimeOffLoading());
 
     try {
-      print("id in cubit $id");
+      // print("id in cubit $id");
       final result = await _leaveDetailsRepo.approveTimeOff(context, id);
 
       result.when(
@@ -305,12 +305,12 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
           emit(LeaveManagerDetailsState.approveTimeOffSuccess(data));
         },
         failure: (error) {
-          print("Cancel timeoff error: $error");
+          // print("Cancel timeoff error: $error");
           emit(LeaveManagerDetailsState.approveTimeOffError(error));
         },
       );
     } catch (e) {
-      print("Unexpected error in cancelTimeOff: $e");
+      // print("Unexpected error in cancelTimeOff: $e");
       emit(
         LeaveManagerDetailsState.approveTimeOffError(
           ApiErrorModel(
@@ -333,12 +333,12 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
           emit(LeaveManagerDetailsState.refuseTimeOffSuccess(data));
         },
         failure: (error) {
-          print("Cancel timeoff error: $error");
+          // print("Cancel timeoff error: $error");
           emit(LeaveManagerDetailsState.refuseTimeOffError(error));
         },
       );
     } catch (e) {
-      print("Unexpected error in cancelTimeOff: $e");
+      // print("Unexpected error in cancelTimeOff: $e");
       emit(
         LeaveManagerDetailsState.refuseTimeOffError(
           ApiErrorModel(
@@ -361,12 +361,12 @@ class LeaveManagerDetailsCubit extends Cubit<LeaveManagerDetailsState> {
           emit(LeaveManagerDetailsState.validateTimeOffSuccess(data));
         },
         failure: (error) {
-          print("Cancel timeoff error: $error");
+          // print("Cancel timeoff error: $error");
           emit(LeaveManagerDetailsState.validateTimeOffError(error));
         },
       );
     } catch (e) {
-      print("Unexpected error in cancelTimeOff: $e");
+      // print("Unexpected error in cancelTimeOff: $e");
       emit(
         LeaveManagerDetailsState.validateTimeOffError(
           ApiErrorModel(

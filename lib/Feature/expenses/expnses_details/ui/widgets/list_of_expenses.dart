@@ -32,7 +32,7 @@ class DoneExpenses extends StatelessWidget {
                       SizedBox(height: 5.h),
                       InkWell(
                         onTap: () {
-                          print(doneExpensesData.data![index].status);
+                          // print(doneExpensesData.data![index].status);
                           if (doneExpensesData.data![index].status!
                                   .toLowerCase() ==
                               "refused") {

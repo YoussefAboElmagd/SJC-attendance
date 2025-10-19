@@ -18,17 +18,29 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool rememberMe = false;
   bool _obscurePassword = true;
-  @override
+  // @override
   // void dispose() {
   //   context.read<LoginCubit>().emailController.dispose();
   //   context.read<LoginCubit>().passwordController.dispose();
   //   super.dispose();
   // }
+  // Future<void> _loadLastUser() async {
+  //   // Wait for the cubit to be available
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     context.read<LoginCubit>().loadLastUserCredentials();
+  //   });
+  // }
+
+  // @override
+  // void initState() {
+  //   _loadLastUser();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false, // This prevents the white space
+      resizeToAvoidBottomInset: false,
 
       body: BlocProvider(
         create: (context) => getIt<LoginCubit>(),
@@ -42,16 +54,19 @@ class _LoginState extends State<Login> {
                   child: LoginForm(
                     rememberMe: rememberMe,
                     obscurePassword: _obscurePassword,
-                    onRememberMeChanged: (val) => setState(() {
-                      print(val);
-                      CachHelper.saveData(
-                        value: val,
-                        key: SharedKeys.isLogged,
-                      );
-                      rememberMe = val;
-                    }),
-                    onTogglePassword: () =>
-                        setState(() => _obscurePassword = !_obscurePassword),
+                    onRememberMeChanged:
+                        (val) => setState(() {
+                          // print("val remember $val");
+                          CachHelper.saveData(
+                            value: val,
+                            key: SharedKeys.isLogged,
+                          );
+                          rememberMe = val;
+                        }),
+                    onTogglePassword:
+                        () => setState(
+                          () => _obscurePassword = !_obscurePassword,
+                        ),
                   ),
                 ),
               ],

@@ -27,16 +27,19 @@ class _TabsAttendanceManagerScreenState
       ListOfAttendanceManager(
         data: cubit.pendingRequestItem,
         isPending: true,
+        isApprove: false,
         selectedIndex: selectedIndex,
       ),
       ListOfAttendanceManager(
         data: cubit.acceptRequestItem,
         isPending: false,
+        isApprove: true,
         selectedIndex: selectedIndex,
       ),
       ListOfAttendanceManager(
         data: cubit.refusedRequestItem,
         isPending: false,
+        isApprove: false,
         selectedIndex: selectedIndex,
       ),
     ];

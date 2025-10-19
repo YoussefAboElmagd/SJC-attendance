@@ -95,7 +95,7 @@ class DioFactory {
   // }
 
   static Future<void> addDioHeaders() async {
-    print(await CachHelper.getSecuredString(key: SharedKeys.userToken));
+    // print(await CachHelper.getSecuredString(key: SharedKeys.userToken));
     print(
         'userToken ${await CachHelper.getSecuredString(key: SharedKeys.userToken)}');
     dio?.options.headers = {
@@ -107,7 +107,7 @@ class DioFactory {
   }
 
   static void setTokenAfterLogin(String? token) async {
-    print(token);
+    // print(token);
     dio?.options.headers = {
       'access-token': "$token",
     };

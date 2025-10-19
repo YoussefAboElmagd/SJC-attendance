@@ -45,10 +45,10 @@ class HomeCubit extends Cubit<HomeState> {
     auth ??= LocalAuthentication();
     try {
       final availableBiometrics = await auth!.getAvailableBiometrics();
-      debugPrint('Supported biometrics: $availableBiometrics');
+      // debugPrint('Supported biometrics: $availableBiometrics');
       return availableBiometrics;
     } catch (e) {
-      debugPrint('Error getting biometrics: $e');
+      // debugPrint('Error getting biometrics: $e');
       return [];
     }
   }
@@ -63,7 +63,7 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       // Check what biometrics are available and enrolled
       final availableBiometrics = await auth!.getAvailableBiometrics();
-      debugPrint('Available biometrics: $availableBiometrics');
+      // debugPrint('Available biometrics: $availableBiometrics');
 
       // More accurate device capability checks
       final canCheckBiometrics = await auth!.canCheckBiometrics;
@@ -124,7 +124,7 @@ class HomeCubit extends Cubit<HomeState> {
 
       await _performBiometricAuth(isCheckIn, context);
     } catch (e) {
-      debugPrint('Authentication error: $e');
+      // debugPrint('Authentication error: $e');
       emit(
         HomeState.authError(
           ApiErrorModel(
@@ -321,7 +321,7 @@ class HomeCubit extends Cubit<HomeState> {
 
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
-        print("$type error: $error");
+        // print("$type error: $error");
         errors.add(error);
       }
 
@@ -394,7 +394,7 @@ class HomeCubit extends Cubit<HomeState> {
       );
     } catch (e) {
       // Handle any unexpected errors
-      print("Unexpected error in getAllHome2: $e");
+      // print("Unexpected error in getAllHome2: $e");
       emit(
         HomeState.error(
           ApiErrorModel(
@@ -435,12 +435,12 @@ class HomeCubit extends Cubit<HomeState> {
           emit(HomeState.checkUserSuccess(totalHoursResponse));
         },
         failure: (apiErrorModel) {
-          print("cubit error");
+          // print("cubit error");
           emit(HomeState.checkUserError(apiErrorModel));
         },
       );
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       emit(HomeState.checkUserError(ApiErrorModel(message: e.toString())));
     }
   }
@@ -517,7 +517,7 @@ class HomeCubit extends Cubit<HomeState> {
         return null;
       }
     } catch (e) {
-      debugPrint('Error getting device ID: $e');
+      // debugPrint('Error getting device ID: $e');
       return null;
     }
   }
@@ -527,7 +527,7 @@ class HomeCubit extends Cubit<HomeState> {
       final androidInfo = await deviceInfo.androidInfo;
       return androidInfo.id;
     } catch (e) {
-      debugPrint('Error getting Android device ID: $e');
+      // debugPrint('Error getting Android device ID: $e');
       return null;
     }
   }
@@ -538,7 +538,7 @@ class HomeCubit extends Cubit<HomeState> {
       // On iOS, we use identifierForVendor which persists per app vendor
       return iosInfo.identifierForVendor;
     } catch (e) {
-      debugPrint('Error getting iOS device ID: $e');
+      // debugPrint('Error getting iOS device ID: $e');
       return null;
     }
   }

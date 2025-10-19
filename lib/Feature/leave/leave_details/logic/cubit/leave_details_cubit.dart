@@ -39,7 +39,7 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
 
       // Helper function to handle errors
       void handleError(ApiErrorModel error, String type) {
-        print("$type error: $error");
+        // print("$type error: $error");
         errors.add(error);
       }
 
@@ -58,7 +58,7 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
       requestsPendingResult.when(
         success: (_) {},
         failure: (error) {
-          print(error);
+          // print(error);
           handleError(error, 'requests Pending Result Result Error');
         },
       );
@@ -122,7 +122,7 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
       );
     } catch (e) {
       // Handle any unexpected errors
-      print("Unexpected error in getAllHome2: $e");
+      // print("Unexpected error in getAllHome2: $e");
       emit(
         LeaveDetailsState.getAllLeaveError(
           ApiErrorModel(
@@ -145,12 +145,12 @@ class LeaveDetailsCubit extends Cubit<LeaveDetailsState> {
           emit(const LeaveDetailsState.cancelTimeOffSuccess());
         },
         failure: (error) {
-          print("Cancel timeoff error: $error");
+          // print("Cancel timeoff error: $error");
           emit(LeaveDetailsState.cancelTimeOffError(error));
         },
       );
     } catch (e) {
-      print("Unexpected error in cancelTimeOff: $e");
+      // print("Unexpected error in cancelTimeOff: $e");
       emit(
         LeaveDetailsState.cancelTimeOffError(
           ApiErrorModel(

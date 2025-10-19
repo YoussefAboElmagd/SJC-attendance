@@ -14,14 +14,17 @@ class ListOfAttendanceManager extends StatefulWidget {
     this.data,
     required this.selectedIndex,
     this.isPending,
+    this.isApprove,
   });
   final List<RequestItem>? data;
 
   final int selectedIndex;
   final bool? isPending;
+  final bool? isApprove;
 
   @override
-  State<ListOfAttendanceManager> createState() => _ListOfAttendanceManagerState();
+  State<ListOfAttendanceManager> createState() =>
+      _ListOfAttendanceManagerState();
 }
 
 class _ListOfAttendanceManagerState extends State<ListOfAttendanceManager> {
@@ -107,11 +110,13 @@ class _ListOfAttendanceManagerState extends State<ListOfAttendanceManager> {
                                   child: AttendanceLogManagerCard(
                                     data: widget.data![index],
                                     isPending: widget.isPending ?? false,
+                                    isApprove: widget.isApprove ?? false,
                                   ),
                                 )
                                 : AttendanceLogManagerCard(
                                   data: widget.data![index],
                                   isPending: widget.isPending ?? false,
+                                  isApprove: widget.isApprove ?? false,
                                 );
                           },
                           separatorBuilder:

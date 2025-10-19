@@ -21,7 +21,6 @@ class LoginCubit extends Cubit<LoginState> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-
   changeObsecure() {
     isObsecure = !isObsecure;
     emit(LoginState.changeObsecuredState(isObsecur: !isObsecure));
@@ -33,7 +32,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     response.when(
       success: (loginResonse) async {
-        print(loginResonse.accessToken);
+        // print(loginResonse.accessToken);
         await saveUserToken(loginResonse.accessToken, loginResonse.access);
 
         final remember = await CachHelper.getData(key: SharedKeys.isLogged);
@@ -44,8 +43,11 @@ class LoginCubit extends Cubit<LoginState> {
         if (remember == true) {
           await CachHelper.saveData(key: SharedKeys.isLogged, value: true);
         }
-
-        // print(loginRequestBody.email.split("@")[0]);
+        saveUserCredentials(
+          email: loginRequestBody.email,
+          password: loginRequestBody.password,
+          rememberMe: true,
+        );
         String sanitizedEmail =
             loginRequestBody.email
                 .split("@")[0]
@@ -64,10 +66,39 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginState.loginSuccess(loginResonse));
       },
       failure: (apiErrorModel) {
-        print("Login failed: ${apiErrorModel.message}");
+        // print("Login failed: ${apiErrorModel.message}");
         emit(LoginState.loginError(apiErrorModel));
       },
     );
+  }
+
+  Future<void> loadLastUserCredentials() async {
+    try {
+      final lastUser = await CachHelper.getLastUser();
+      if (lastUser != null) {
+        emailController.text = lastUser['email']!;
+        passwordController.text = lastUser['password']!;
+
+        emit(
+          LoginState.credentialsLoaded(
+            email: lastUser['email'],
+            password: lastUser['password'],
+          ),
+        );
+      }
+    } catch (e) {
+      // debugPrint('Error loading last user credentials: $e');
+    }
+  }
+
+  Future<void> saveUserCredentials({
+    required String email,
+    required String password,
+    bool rememberMe = false,
+  }) async {
+    // if (rememberMe) {
+    await CachHelper.saveUserCredentials(email: email, password: password);
+    // }
   }
 
   Future<void> saveUserToken(String token, Access access) async {
@@ -89,5 +120,58 @@ class LoginCubit extends Cubit<LoginState> {
 
     AppConstants.isLogged = true;
     DioFactory.setTokenAfterLogin(token);
+  }
+
+  Future<void> loadSavedCredentials() async {
+    try {
+      emit(const LoginState.loginLoading());
+
+      final rememberMe =
+          await CachHelper.getData(key: SharedKeys.rememberMe) as bool? ??
+          false;
+
+      if (rememberMe) {
+        final credentials = await CachHelper.getSavedLoginCredentials();
+
+        if (credentials['email'] != null) {
+          emailController.text = credentials['email']!;
+
+          // Only auto-fill password if credentials exist
+          if (credentials['password'] != null) {
+            passwordController.text = credentials['password']!;
+          }
+
+          emit(
+            LoginState.credentialsLoaded(
+              email: credentials['email'],
+              password: credentials['password'],
+            ),
+          );
+        } else {
+          emit(const LoginState.initial());
+        }
+      } else {
+        emit(const LoginState.initial());
+      }
+    } catch (e) {
+      // debugPrint('LoginCubit: Error loading saved credentials: $e');
+      emit(const LoginState.initial());
+    }
+  }
+
+  Future<bool> hasSavedUsers() async {
+    try {
+      final users = await CachHelper.getSavedUsers();
+      return users.isNotEmpty;
+    } catch (e) {
+      // debugPrint('Error checking saved users: $e');
+      return false;
+    }
+  }
+
+  void clearForm() {
+    emailController.clear();
+    passwordController.clear();
+    formKey.currentState?.reset();
   }
 }

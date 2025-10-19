@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "فشل التحقق البيومتري. يرجى المحاولة مرة أخرى."),
         "Bonus": MessageLookupByLibrary.simpleMessage("المكافأة"),
         "Cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "Checkoutn_new":
+            MessageLookupByLibrary.simpleMessage("تسجيل الانصراف الجديد"),
         "Checkoutn_old":
             MessageLookupByLibrary.simpleMessage("تسجيل الانصراف القديم"),
         "Claim_expenses":
@@ -294,20 +296,28 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("وقت تسجيل الدخول"),
         "check_out_time":
             MessageLookupByLibrary.simpleMessage("وقت تسجيل الخروج"),
+        "checkin_new":
+            MessageLookupByLibrary.simpleMessage("تسجيل الحضور الجديد"),
         "checkin_old":
             MessageLookupByLibrary.simpleMessage("تسجيل الحضور القديم"),
         "checkout_must_be_after_checkin": MessageLookupByLibrary.simpleMessage(
             "يجب أن يكون وقت الخروج بعد وقت الدخول"),
+        "clear_saved_credentials":
+            MessageLookupByLibrary.simpleMessage("مسح الايميلات المحفوظه"),
         "close_button": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "close_it": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "completed_tasks_maintain": MessageLookupByLibrary.simpleMessage(
             "لقد أكملت 8 مهام أكثر من المعتاد، استمر في متابعة المهام مع المشرف الخاص بك"),
+        "credentials_cleared": MessageLookupByLibrary.simpleMessage(
+            "تم مسح بيانات الاعتماد بنجاح"),
         "current_task_progress":
             MessageLookupByLibrary.simpleMessage("تقدم المهام الحالي"),
         "done_section_text": MessageLookupByLibrary.simpleMessage("تم"),
         "edit_attendance_time_approved": MessageLookupByLibrary.simpleMessage(
             "طلب تعديل الحضور والانصراف تم الموافقه عليه بنجاح"),
         "edit_button": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "email_format_validation": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال عنوان بريد إلكتروني صحيح"),
         "email_mustnot_be_empty": MessageLookupByLibrary.simpleMessage(
             "يجب ألا يكون البريد الإلكتروني فارغًا"),
         "email_validation":
@@ -316,6 +326,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "employee_name": MessageLookupByLibrary.simpleMessage("اسم الموظف"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("حدثت بعض الأخطاء"),
+        "follow_refused_attendance": MessageLookupByLibrary.simpleMessage(
+            "يمكنك متابعة الطلبات التي تم رفضها"),
         "have_any_month_working_text": MessageLookupByLibrary.simpleMessage(
             "يبدو أنه ليس لديك أي وقت عمل مسجل هذا الشهر. لا تقلق، سيتم تحديث هذه المساحة عند تقديم وقت عمل جديد."),
         "have_any_working_text": MessageLookupByLibrary.simpleMessage(
@@ -337,6 +349,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("وقت عملك في هذا الشهر"),
         "mustnot_be_empty":
             MessageLookupByLibrary.simpleMessage("يجب ألا يكون فارغًا"),
+        "new_checkin_must_be_before_old_checkout":
+            MessageLookupByLibrary.simpleMessage(
+                "وقت الحضور الجديد يجب أن يكون قبل وقت الانصراف القديم"),
+        "new_checkout_must_be_after_old_checkin":
+            MessageLookupByLibrary.simpleMessage(
+                "وقت الانصراف الجديد يجب أن يكون بعد وقت الحضور القديم"),
         "new_section_text": MessageLookupByLibrary.simpleMessage("جديد"),
         "no_continue_button": MessageLookupByLibrary.simpleMessage("لا العودة"),
         "no_name": MessageLookupByLibrary.simpleMessage("لا يوجد اسم"),
@@ -344,6 +362,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "كشف الرواتب الخاص بك خلال السنة"),
         "no_payroll_second": MessageLookupByLibrary.simpleMessage(
             "لا يوجد كشف رواتب لك خلال السنة"),
+        "no_refused_requests":
+            MessageLookupByLibrary.simpleMessage("لا توجد طلبات مرفوضة"),
+        "no_refused_requests_description": MessageLookupByLibrary.simpleMessage(
+            "لا توجد طلبات حضور وانصراف مرفوضة في الوقت الحالي"),
         "non_accepted_period": MessageLookupByLibrary.simpleMessage(
             "فتره الاجازه التي تم اختيارها تتعارض مع اجازه اخري.برجاء اختيار فتره اخري لا تتعارض مع اي اجازه"),
         "on_borading_sub_title": MessageLookupByLibrary.simpleMessage(
@@ -365,10 +387,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن"),
         "permission_permanently_denied":
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن بشكل دائم"),
+        "please_select_at_least_one_time": MessageLookupByLibrary.simpleMessage(
+            "يرجي تعديل احد الوقتين سواء الحضور او الانصراف"),
         "please_select_both_times":
             MessageLookupByLibrary.simpleMessage("يرجى اختيار كلا الوقتين"),
         "reason_text": MessageLookupByLibrary.simpleMessage("سبب الرفض"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
+        "refused_attendance": MessageLookupByLibrary.simpleMessage(
+            "اداره الحضور والانصراف المرفوضه"),
         "request_attendance":
             MessageLookupByLibrary.simpleMessage("تعديل طلب الحضور"),
         "select_check_in_time":

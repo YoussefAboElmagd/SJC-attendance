@@ -27,7 +27,7 @@ class LeaveDetailsRepo {
       final response = await _detailsService.getRequestsPending();
       return ApiResults.success(response);
     } catch (error) {
-      print(error);
+      // print(error);
       return ApiResults.failure(ApiErrorHandler.handle(context, error));
     }
   }
