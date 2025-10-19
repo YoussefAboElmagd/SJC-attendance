@@ -159,7 +159,7 @@
   "Select_Priority": "اختر الأولوية",
   "Tags": "الوسوم",
   "Select_tag": "اختر الوسم",
-  "Task Details": "تفاصيل المهمة",
+  "Task_Details": "تفاصيل المهمة",
   "amount": "المبلغ",
   "Department_text": "القسم",
   "Request_type": "نوع الطلب",
@@ -261,5 +261,7 @@
   "no_refused_requests_description": "لا توجد طلبات حضور وانصراف مرفوضة في الوقت الحالي",
   "clear_saved_credentials": "مسح الايميلات المحفوظه",
   "credentials_cleared": "تم مسح بيانات الاعتماد بنجاح",
-  "email_format_validation": "يرجى إدخال عنوان بريد إلكتروني صحيح"
+  "email_format_validation": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+  "arabic": "عربى",
+  "english": "English"
 }

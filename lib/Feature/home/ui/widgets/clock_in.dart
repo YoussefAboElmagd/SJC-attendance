@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 // import 'package:flutter_svg/svg.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 // import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/styles.dart';
@@ -13,7 +14,6 @@ import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_state.dart';
 import 'package:madarj/Feature/home/ui/widgets/biometric_bloc_listener.dart';
 import 'package:madarj/Feature/home/ui/widgets/period_and_total_hours.dart';
-import 'package:intl/intl.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class ClockIn extends StatelessWidget {
@@ -76,7 +76,7 @@ class ClockIn extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () async {
-                      if (CachHelper.getData(key: SharedKeys.skipBiometric) ==
+                      if (CacheHelper.getData(key: SharedKeys.skipBiometric) ==
                           true) {
                         // context.popAlert();
                         context.read<HomeCubit>().checkUser(context);

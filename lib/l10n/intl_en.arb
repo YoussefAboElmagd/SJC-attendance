@@ -158,7 +158,7 @@
   "Select_Priority": "Select Priority",
   "Tags": "Tags",
   "Select_tag": "Select tag",
-  "Task Details": "Task_Details",
+  "Task_Details": "Task_Details",
   "amount": "amount",
   "Department_text": "Department",
   "Request_type": "Request type",
@@ -261,5 +261,7 @@
   "no_refused_requests_description": "There are no refused attendance requests at the moment",
   "clear_saved_credentials": "Clear Saved Emails",
   "credentials_cleared": "Credentials cleared successfully",
-  "email_format_validation": "Please enter a valid email address"
+  "email_format_validation": "Please enter a valid email address",
+  "arabic": "Arabic",
+  "english": "English"
 }

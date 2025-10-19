@@ -1,14 +1,14 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
-import 'package:madarj/Core/helpers/extensions.dart';
-import 'package:madarj/Core/routing/routes.dart';
+import 'package:madarj/Core/helpers/language_bottom_sheet.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/home/ui/widgets/home_top_icons.dart';
 import 'package:madarj/generated/l10n.dart';
-import 'dart:math' as math;
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -35,19 +35,21 @@ class HomeHeader extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => setupLogout(context),
-                child: isArabic
-                    ? Transform(
-                        alignment: Alignment.center,
-                        transform: Matrix4.rotationY(math.pi),
-                        child: _buildLogoutIcon(),
-                      )
-                    : _buildLogoutIcon(),
+                child:
+                    isArabic
+                        ? Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.rotationY(math.pi),
+                          child: _buildLogoutIcon(),
+                        )
+                        : _buildLogoutIcon(),
               ),
               const Spacer(),
               Text(S.of(context).home_text, style: TextStyles.font22WhiteBold),
               const Spacer(),
               GestureDetector(
-                onTap: () => context.pushNamed(Routes.language),
+                // onTap: () => context.pushNamed(Routes.language),
+                onTap: () => openLanguageSheet(context),
                 child: CircleAvatar(
                   radius: 23.w,
                   backgroundColor: Colors.white,

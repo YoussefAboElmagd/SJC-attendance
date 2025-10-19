@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/colors.dart';
@@ -58,7 +58,7 @@ class AttendanceLogManagerCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CachHelper.getData(key: SharedKeys.isTimeOff) == 'manager'
+                  CacheHelper.getData(key: SharedKeys.isTimeOff) == 'manager'
                       ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -168,7 +168,7 @@ class AttendanceLogManagerCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 isPending == true &&
-                        CachHelper.getData(key: SharedKeys.isTimeOff) ==
+                        CacheHelper.getData(key: SharedKeys.isTimeOff) ==
                             'manager'
                     ? AppTextButton(
                       buttonWidth: MediaQuery.sizeOf(context).width * .25,

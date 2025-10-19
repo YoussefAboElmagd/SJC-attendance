@@ -233,6 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Tags": MessageLookupByLibrary.simpleMessage("الوسوم"),
         "Task_Delegation": MessageLookupByLibrary.simpleMessage("تفويض المهام"),
         "Task_Description": MessageLookupByLibrary.simpleMessage("وصف المهمة"),
+        "Task_Details": MessageLookupByLibrary.simpleMessage("تفاصيل المهمة"),
         "Task_Title": MessageLookupByLibrary.simpleMessage("عنوان المهمة"),
         "Tasks": MessageLookupByLibrary.simpleMessage("التاسكات"),
         "Tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
@@ -283,6 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "approve": MessageLookupByLibrary.simpleMessage("موافقة"),
         "approve_request":
             MessageLookupByLibrary.simpleMessage("الموافقة على الطلب"),
+        "arabic": MessageLookupByLibrary.simpleMessage("عربى"),
         "attendance_managment":
             MessageLookupByLibrary.simpleMessage("اداره الحضور والانصراف"),
         "attendance_requests":
@@ -324,6 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى إدخال بريدك الإلكتروني"),
         "employee": MessageLookupByLibrary.simpleMessage("الموظف"),
         "employee_name": MessageLookupByLibrary.simpleMessage("اسم الموظف"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("حدثت بعض الأخطاء"),
         "follow_refused_attendance": MessageLookupByLibrary.simpleMessage(

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
+
 import 'widgets/login_background.dart';
-import 'widgets/login_logo.dart';
 import 'widgets/login_form.dart';
+import 'widgets/login_logo.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -57,7 +58,7 @@ class _LoginState extends State<Login> {
                     onRememberMeChanged:
                         (val) => setState(() {
                           // print("val remember $val");
-                          CachHelper.saveData(
+                          CacheHelper.saveData(
                             value: val,
                             key: SharedKeys.isLogged,
                           );

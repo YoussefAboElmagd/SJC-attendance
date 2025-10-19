@@ -54,3 +54,5 @@ windows/flutter/generated_*
 *.g.dart
 *.freezed.dart
 *.gr.dart
+
+.vscode/

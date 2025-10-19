@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
@@ -96,7 +96,7 @@ class CheckUserBlocListener extends StatelessWidget {
               context,
               NotificationRequest(
                 fcmToken:
-                    CachHelper.getData(key: SharedKeys.fcmToken) ??
+                    CacheHelper.getData(key: SharedKeys.fcmToken) ??
                     AppConstants.fcmToken ??
                     "",
               ),

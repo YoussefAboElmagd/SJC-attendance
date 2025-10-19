@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Feature/home/logic/push_firebase_notification.dart';
@@ -35,13 +35,13 @@ class LoginCubit extends Cubit<LoginState> {
         // print(loginResonse.accessToken);
         await saveUserToken(loginResonse.accessToken, loginResonse.access);
 
-        final remember = await CachHelper.getData(key: SharedKeys.isLogged);
-        await CachHelper.saveData(
+        final remember = await CacheHelper.getData(key: SharedKeys.isLogged);
+        await CacheHelper.saveData(
           key: SharedKeys.userEmail,
           value: loginRequestBody.email,
         );
         if (remember == true) {
-          await CachHelper.saveData(key: SharedKeys.isLogged, value: true);
+          await CacheHelper.saveData(key: SharedKeys.isLogged, value: true);
         }
         saveUserCredentials(
           email: loginRequestBody.email,
@@ -74,7 +74,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> loadLastUserCredentials() async {
     try {
-      final lastUser = await CachHelper.getLastUser();
+      final lastUser = await CacheHelper.getLastUser();
       if (lastUser != null) {
         emailController.text = lastUser['email']!;
         passwordController.text = lastUser['password']!;
@@ -97,23 +97,29 @@ class LoginCubit extends Cubit<LoginState> {
     bool rememberMe = false,
   }) async {
     // if (rememberMe) {
-    await CachHelper.saveUserCredentials(email: email, password: password);
+    await CacheHelper.saveUserCredentials(email: email, password: password);
     // }
   }
 
   Future<void> saveUserToken(String token, Access access) async {
-    await CachHelper.setSecuredString(key: SharedKeys.userToken, value: token);
-    await CachHelper.saveData(
+    await CacheHelper.setSecuredString(key: SharedKeys.userToken, value: token);
+    await CacheHelper.saveData(
       key: SharedKeys.isAttendance,
       value: access.attendance,
     );
-    await CachHelper.saveData(
+    await CacheHelper.saveData(
       key: SharedKeys.isExpenses,
       value: access.expenses,
     );
-    await CachHelper.saveData(key: SharedKeys.isTimeOff, value: access.timeoff);
-    await CachHelper.saveData(key: SharedKeys.isPayroll, value: access.payroll);
-    await CachHelper.saveData(
+    await CacheHelper.saveData(
+      key: SharedKeys.isTimeOff,
+      value: access.timeoff,
+    );
+    await CacheHelper.saveData(
+      key: SharedKeys.isPayroll,
+      value: access.payroll,
+    );
+    await CacheHelper.saveData(
       key: SharedKeys.skipBiometric,
       value: access.skipBiometric,
     );
@@ -127,11 +133,11 @@ class LoginCubit extends Cubit<LoginState> {
       emit(const LoginState.loginLoading());
 
       final rememberMe =
-          await CachHelper.getData(key: SharedKeys.rememberMe) as bool? ??
+          await CacheHelper.getData(key: SharedKeys.rememberMe) as bool? ??
           false;
 
       if (rememberMe) {
-        final credentials = await CachHelper.getSavedLoginCredentials();
+        final credentials = await CacheHelper.getSavedLoginCredentials();
 
         if (credentials['email'] != null) {
           emailController.text = credentials['email']!;
@@ -161,7 +167,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<bool> hasSavedUsers() async {
     try {
-      final users = await CachHelper.getSavedUsers();
+      final users = await CacheHelper.getSavedUsers();
       return users.isNotEmpty;
     } catch (e) {
       // debugPrint('Error checking saved users: $e');

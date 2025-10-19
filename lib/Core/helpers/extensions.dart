@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:madarj/generated/l10n.dart';
 
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(
@@ -28,8 +29,10 @@ extension Navigation on BuildContext {
     );
   }
 
-  void pop() => Navigator.of(this).pop();
+  void pop<T>({T? result}) => Navigator.pop(this, result);
   void popAlert() => Navigator.of(this, rootNavigator: true).pop();
+
+  S get s => S.of(this);
 }
 
 extension StringExtension on String? {
@@ -323,18 +326,19 @@ extension DateTimeFormatter on String {
 extension DateTimeFormatter2 on DateTime {
   String formatDateTime2({bool isArabic = false}) {
     // String locale = isArabic ? 'ar' : 'en';
-    String amPm = hour >= 12
-        ? (isArabic ? "م" : "PM")
-        : (isArabic ? "ص" : "AM");
+    String amPm =
+        hour >= 12 ? (isArabic ? "م" : "PM") : (isArabic ? "ص" : "AM");
     int formattedHour = hour % 12 == 0 ? 12 : hour % 12;
 
-    String date = isArabic
-        ? "${convertToArabic(year)}/${convertToArabic(month)}/${convertToArabic(day)}"
-        : "$day/$month/$year";
+    String date =
+        isArabic
+            ? "${convertToArabic(year)}/${convertToArabic(month)}/${convertToArabic(day)}"
+            : "$day/$month/$year";
 
-    String time = isArabic
-        ? "${convertToArabic(formattedHour)}:${convertToArabic(minute.toString().padLeft(2, '0'))} $amPm"
-        : "$formattedHour:${minute.toString().padLeft(2, '0')} $amPm";
+    String time =
+        isArabic
+            ? "${convertToArabic(formattedHour)}:${convertToArabic(minute.toString().padLeft(2, '0'))} $amPm"
+            : "$formattedHour:${minute.toString().padLeft(2, '0')} $amPm";
 
     return "$date\n$time";
   }

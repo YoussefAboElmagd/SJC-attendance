@@ -1,5 +1,7 @@
 import 'dart:io';
+
 import 'package:bloc/bloc.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:local_auth/local_auth.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
 import 'package:madarj/Core/networking/api_results.dart';
@@ -23,7 +25,6 @@ import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
 import 'package:madarj/Feature/home/data/model/total_hours.dart';
 import 'package:madarj/Feature/home/data/repo/home_repo.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_state.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 // import 'package:madarj/Feature/home/logic/firebase_servies_local.dart';
 // import 'package:madarj/Feature/home/logic/work_manager_service.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -501,7 +502,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   String? clockInText;
   changeClockInText(String? clockInText) {
-    CachHelper.saveData(value: clockInText, key: SharedKeys.clockUser);
+    CacheHelper.saveData(value: clockInText, key: SharedKeys.clockUser);
     this.clockInText = clockInText;
   }
 

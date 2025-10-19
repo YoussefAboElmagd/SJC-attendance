@@ -1640,7 +1640,15 @@ class S {
     );
   }
 
-  // skipped getter for the 'Task Details' key
+  /// `Task_Details`
+  String get Task_Details {
+    return Intl.message(
+      'Task_Details',
+      name: 'Task_Details',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `amount`
   String get amount {
@@ -2667,6 +2675,26 @@ class S {
     return Intl.message(
       'Please enter a valid email address',
       name: 'email_format_validation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
       desc: '',
       args: [],
     );

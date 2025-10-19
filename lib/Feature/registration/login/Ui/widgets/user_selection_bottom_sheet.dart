@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/themes/styles.dart';
 
 class UserSelectionBottomSheet extends StatefulWidget {
@@ -30,7 +30,7 @@ class _UserSelectionBottomSheetState extends State<UserSelectionBottomSheet> {
 
   Future<void> _loadSavedUsers() async {
     try {
-      final users = await CachHelper.getSavedUsers();
+      final users = await CacheHelper.getSavedUsers();
       setState(() {
         _savedUsers = users;
         _isLoading = false;
@@ -46,7 +46,7 @@ class _UserSelectionBottomSheetState extends State<UserSelectionBottomSheet> {
   Future<void> _deleteUser(int index) async {
     try {
       final userEmail = _savedUsers[index]['email']!;
-      await CachHelper.removeUser(userEmail);
+      await CacheHelper.removeUser(userEmail);
       await _loadSavedUsers(); // Reload the list
 
       ScaffoldMessenger.of(context).showSnackBar(

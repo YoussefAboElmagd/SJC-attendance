@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
@@ -37,10 +37,10 @@ class PayrollErrorHandler extends StatelessWidget {
   }
 
   Future<void> _handleTokenExpiration(BuildContext context) async {
-    CachHelper.removeData(key: SharedKeys.userToken);
-    CachHelper.clearAllSecuredData();
+    CacheHelper.removeData(key: SharedKeys.userToken);
+    CacheHelper.clearAllSecuredData();
     AppConstants.isLogged = false;
-    await CachHelper.saveData(key: SharedKeys.isLogged, value: false);
+    await CacheHelper.saveData(key: SharedKeys.isLogged, value: false);
     DioFactory.setTokenAfterLogin(null);
 
     Fluttertoast.showToast(

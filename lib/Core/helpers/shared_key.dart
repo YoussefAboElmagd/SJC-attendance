@@ -16,4 +16,6 @@ class SharedKeys {
   static const String savedPassword = 'saved_password';
   static const String rememberMe = 'remember_me';
   static const String savedUsers = 'savedUsers';
+
+  static const String appLang = 'app_lang';
 }

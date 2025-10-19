@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
   final String title;
   final double? height;
   final double? width;
-  final Function() onTap;
+  final VoidCallback? onTap;
   final Color? color;
   final TextStyle? textStyle;
 
@@ -32,14 +32,12 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: color ?? ColorsManager.mainColor,
           borderRadius: BorderRadius.circular(10.r),
-          border: color != null && color == ColorsManager.white
-              ? Border.all(color: ColorsManager.mainColor)
-              : null,
+          border:
+              color != null && color == ColorsManager.white
+                  ? Border.all(color: ColorsManager.mainColor)
+                  : null,
         ),
-        child: Text(
-          title,
-          style: textStyle ?? TextStyles.font18WhiteBold,
-        ),
+        child: Text(title, style: textStyle ?? TextStyles.font18WhiteBold),
       ),
     );
   }

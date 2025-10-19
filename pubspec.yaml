@@ -4,7 +4,7 @@ publish_to: "none"
 version: 4.0.0+1
 
 environment:
-  sdk: ">=3.7.0 <3.8.0"
+  sdk: ">=3.7.0"
 
 dependencies:
   build_runner: ^2.4.9
@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   device_info_plus: ^11.3.0
   device_preview: ^1.2.0
+  dio: ^5.9.0
   dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
   easy_localization: ^3.0.7
@@ -24,6 +25,8 @@ dependencies:
   flutter_cached_pdfview: ^0.4.3
   flutter_local_notifications: ^19.2.1
   flutter_localization: ^0.2.1
+  flutter_localizations:
+    sdk: flutter
   flutter_native_splash: ^2.4.1
   flutter_pdfview: ^1.4.0+1
   flutter_screenutil: ^5.9.3

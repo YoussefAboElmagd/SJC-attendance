@@ -239,6 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Task Delegation"),
         "Task_Description":
             MessageLookupByLibrary.simpleMessage("Task Description"),
+        "Task_Details": MessageLookupByLibrary.simpleMessage("Task_Details"),
         "Task_Title": MessageLookupByLibrary.simpleMessage("Task Title"),
         "Tasks": MessageLookupByLibrary.simpleMessage("Tasks"),
         "Tax": MessageLookupByLibrary.simpleMessage("Tax"),
@@ -290,6 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "approve": MessageLookupByLibrary.simpleMessage("Approve"),
         "approve_request":
             MessageLookupByLibrary.simpleMessage("Approve Request"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "attendance_managment":
             MessageLookupByLibrary.simpleMessage("Attendance managment"),
         "attendance_requests":
@@ -328,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter your email"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "employee_name": MessageLookupByLibrary.simpleMessage("Employee Name"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("some errors occurred"),
         "follow_refused_attendance": MessageLookupByLibrary.simpleMessage(

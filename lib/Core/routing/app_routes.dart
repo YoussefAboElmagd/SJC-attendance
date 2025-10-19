@@ -8,15 +8,15 @@ import 'package:madarj/Feature/attendance_manager/ui/attendance_manager.dart';
 import 'package:madarj/Feature/base/ui/views/base_layer.dart';
 import 'package:madarj/Feature/cards/ui/cards_screen.dart';
 import 'package:madarj/Feature/clock_in/ui/clock_in_screen.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/expenses.dart';
 import 'package:madarj/Feature/expenses/send_expenses/ui/send_expenses.dart';
 import 'package:madarj/Feature/expenses/show_expenses_details/ui/show_expenses_details.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
-import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_cubit.dart';
-import 'package:madarj/Feature/leave/leave_managment/ui/leave_manager_screen.dart';
+import 'package:madarj/Feature/leave/leave_management/logic/cubit/leave_manager_details_cubit.dart';
+import 'package:madarj/Feature/leave/leave_management/ui/leave_manager_screen.dart';
 import 'package:madarj/Feature/leave/send_leave/logic/cubit/send_leave_cubit.dart';
 import 'package:madarj/Feature/leave/send_leave/ui/send_leave.dart';
 import 'package:madarj/Feature/on_boarding/ui/on_boarding_screen.dart';
@@ -42,7 +42,7 @@ class AppRouter {
               ),
         );
       case Routes.baseLayer:
-        final index = settings.arguments as int? ?? 0;
+        final index = arg as int? ?? 0;
         return MaterialPageRoute(
           builder: (_) => BaseLayer(initialIndex: index),
         );
@@ -82,7 +82,7 @@ class AppRouter {
               ),
         );
       case Routes.showExpensesDetailsBody:
-        final args = settings.arguments as Map<String, dynamic>?;
+        final args = arg as Map<String, dynamic>?;
 
         return MaterialPageRoute(
           builder:
@@ -103,15 +103,15 @@ class AppRouter {
       case Routes.allMonthWorks:
         return MaterialPageRoute(builder: (_) => const AllMonthWorks());
       case Routes.language:
-        return MaterialPageRoute(builder: (_) => const Languageoptions());
+        return MaterialPageRoute(builder: (_) => const LanguageOptions());
       case Routes.payrollDetails:
-        final args = settings.arguments as Map<String, dynamic>?;
+        final args = arg as Map<String, dynamic>?;
 
         return MaterialPageRoute(
           builder: (_) => PayrollDetails(payslipId: args?['id'] ?? 0),
         );
       case Routes.payroll:
-        final args = settings.arguments as Map<String, dynamic>?;
+        // final args = arg as Map<String, dynamic>?;
 
         return MaterialPageRoute(
           builder:
@@ -124,7 +124,7 @@ class AppRouter {
               ),
         );
       case Routes.sendExpenses:
-        final args = settings.arguments as Map<String, dynamic>?;
+        final args = arg as Map<String, dynamic>?;
         // print(args?['id']);
         return MaterialPageRoute(
           builder:
@@ -139,7 +139,7 @@ class AppRouter {
               (_) => BlocProvider(
                 create:
                     (context) =>
-                        getIt<SendLeaveCubit>()..getTimeoffTypes(context),
+                        getIt<SendLeaveCubit>()..getTimeOffTypes(context),
                 child: const SendLeave(),
               ),
         );

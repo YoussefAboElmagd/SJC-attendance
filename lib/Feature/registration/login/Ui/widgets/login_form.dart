@@ -1,18 +1,16 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
-import 'package:madarj/Core/helpers/extensions.dart';
-import 'package:madarj/Core/routing/routes.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
+import 'package:madarj/Core/helpers/language_bottom_sheet.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_state.dart';
-import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
 import 'package:madarj/Feature/registration/login/Ui/widgets/login_bloc_listener.dart';
 import 'package:madarj/Feature/registration/login/Ui/widgets/user_selection_bottom_sheet.dart';
+import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class LoginForm extends StatefulWidget {
@@ -287,7 +285,7 @@ class _LoginFormState extends State<LoginForm> {
 
         if (isArabic) _buildRememberMeCheckbox(),
 
-        Spacer(),
+        const Spacer(),
 
         if (_hasSavedUsers)
           TextButton(
@@ -396,7 +394,8 @@ class _LoginFormState extends State<LoginForm> {
       child: GestureDetector(
         onTap: () {
           _unfocusAllFields();
-          context.pushNamed(Routes.language);
+          // context.pushNamed(Routes.language);
+          openLanguageSheet(context);
         },
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
@@ -495,7 +494,7 @@ class _LoginFormState extends State<LoginForm> {
     final cubit = context.read<LoginCubit>();
 
     try {
-      await CachHelper.clearAllUsers();
+      await CacheHelper.clearAllUsers();
 
       // Use the captured cubit reference
       cubit.clearForm();
