@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'login_response_body.g.dart';
 
 @JsonSerializable()
@@ -42,6 +43,7 @@ class LoginResponseBody {
 class Access {
   @JsonKey(name: 'attendance')
   final String? attendance;
+  //TODO:  user / Manager
   @JsonKey(name: 'expenses')
   final String? expenses;
   @JsonKey(name: 'payroll')
