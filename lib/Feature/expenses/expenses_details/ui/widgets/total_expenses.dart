@@ -2,9 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/list_of_total_expenses.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/list_of_total_expenses.dart';
 import 'package:madarj/generated/l10n.dart';
-
 
 class TotalExpenses extends StatelessWidget {
   const TotalExpenses({super.key});
@@ -17,17 +16,10 @@ class TotalExpenses extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  15.r,
-                ),
-              ),
+              borderRadius: BorderRadius.all(Radius.circular(15.r)),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16.w,
-                vertical: 16.w,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -39,12 +31,7 @@ class TotalExpenses extends StatelessWidget {
                   Text(
                     '${S.of(context).Period_text} 1 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year} - 30 ${DateFormat('MMM').format(DateTime.now())} ${DateTime.now().year}',
                     style: TextStyles.font14BlackSemiBold.copyWith(
-                      color: const Color.fromRGBO(
-                        71,
-                        84,
-                        103,
-                        1,
-                      ),
+                      color: const Color.fromRGBO(71, 84, 103, 1),
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),

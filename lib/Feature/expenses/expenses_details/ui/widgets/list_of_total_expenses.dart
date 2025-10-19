@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_details.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/expenses_details.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class ExpenseItem {
@@ -58,13 +58,11 @@ class ListOfTotalExpenses extends StatelessWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return SizedBox(
-                  width: 15.w,
-                );
+                return SizedBox(width: 15.w);
               },
               itemCount: 3,
             ),
-          )
+          ),
           // ExpensesDetails(),
         ],
       ),

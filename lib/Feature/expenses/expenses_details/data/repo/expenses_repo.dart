@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:madarj/Core/networking/api_error_handler.dart';
 import 'package:madarj/Core/networking/api_results.dart';
-import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
-import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_model.dart';
-import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_service.dart';
+import 'package:madarj/Feature/expenses/expenses_details/apis/expenses_service.dart';
+import 'package:madarj/Feature/expenses/expenses_details/data/model/expenses_model.dart';
 
 class ExpensesRepo {
   ExpensesRepo(this._expensesService);
@@ -29,7 +28,9 @@ class ExpensesRepo {
     }
   }
 
-  Future<ApiResults<ExpensesListResponse>> getPendingExpenses(BuildContext context,) async {
+  Future<ApiResults<ExpensesListResponse>> getPendingExpenses(
+    BuildContext context,
+  ) async {
     try {
       final response = await _expensesService.getPendingExpenses();
       return ApiResults.success(response);
@@ -38,7 +39,9 @@ class ExpensesRepo {
     }
   }
 
-  Future<ApiResults<ExpensesListResponse>> getDoneExpenses(BuildContext context,) async {
+  Future<ApiResults<ExpensesListResponse>> getDoneExpenses(
+    BuildContext context,
+  ) async {
     try {
       final response = await _expensesService.getDoneExpenses();
       return ApiResults.success(response);

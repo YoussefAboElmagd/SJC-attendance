@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_model.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/bottom_expenses_button.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_body_widgets.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_top_header.dart';
+import 'package:madarj/Feature/expenses/expenses_details/data/model/expenses_model.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/bottom_expenses_button.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/expenses_body_widgets.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/expenses_top_header.dart';
 
 class ExpensesSuccess extends StatelessWidget {
   const ExpensesSuccess({

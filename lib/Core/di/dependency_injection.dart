@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
 // import 'package:madarj/Core/networking/api_service.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
@@ -10,15 +9,15 @@ import 'package:madarj/Feature/all_works/logic/cubit/all_work_cubit.dart';
 import 'package:madarj/Feature/attendance_manager/apis/attendance_manager_services.dart';
 import 'package:madarj/Feature/attendance_manager/data/repo/attendance_manager_repo.dart';
 import 'package:madarj/Feature/attendance_manager/logic/attendance_manager_cubit.dart';
-import 'package:madarj/Feature/expenses/show_expenses_details/apis/show_expenses_details_service.dart';
-import 'package:madarj/Feature/expenses/show_expenses_details/data/repo/get_expense_details_repo.dart';
-import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_cubit.dart';
-import 'package:madarj/Feature/expenses/expnses_details/apis/expenses_service.dart';
-import 'package:madarj/Feature/expenses/expnses_details/data/repo/expenses_repo.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expenses_details/apis/expenses_service.dart';
+import 'package:madarj/Feature/expenses/expenses_details/data/repo/expenses_repo.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_cubit.dart';
 import 'package:madarj/Feature/expenses/send_expenses/apis/send_expenses_service.dart';
 import 'package:madarj/Feature/expenses/send_expenses/data/repo/send_expenses_repo.dart';
 import 'package:madarj/Feature/expenses/send_expenses/logic/cubit/send_expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/apis/show_expenses_details_service.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/data/repo/get_expense_details_repo.dart';
+import 'package:madarj/Feature/expenses/show_expenses_details/logic/cubit/expenses_details_cubit.dart';
 import 'package:madarj/Feature/home/apis/home_services.dart';
 import 'package:madarj/Feature/home/data/repo/home_repo.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';

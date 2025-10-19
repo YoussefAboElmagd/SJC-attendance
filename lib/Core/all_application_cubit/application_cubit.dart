@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
 import 'package:madarj/Core/helpers/cache_helper.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
+import 'package:madarj/Core/helpers/lang_enum.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/expenses.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
@@ -20,22 +22,21 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   static ApplicationCubit get(context) => BlocProvider.of(context);
 
   bool isArabic =
-      CacheHelper.getData(key: "app_lang") == "ar" ||
-              CacheHelper.getData(key: "app_lang") == null
+      CacheHelper.getData(key: SharedKeys.appLang) == LangEnum.ar.name ||
+              CacheHelper.getData(key: SharedKeys.appLang) == null
           ? true
           : false;
-  static Locale locale = const Locale("ar");
-  String language = "ar";
-  getlanguage(String language) {
-    if (language == "ar") {
+  static Locale locale = Locale(LangEnum.ar.name);
+  String language = LangEnum.ar.name;
+  getLanguage(LangEnum language) {
+    if (language == LangEnum.ar) {
       isArabic = true;
-      CacheHelper.saveData(value: "ar", key: "app_lang");
     } else {
       isArabic = false;
-      CacheHelper.saveData(value: "en", key: "app_lang");
     }
-    language = language;
-    emit(ApplicationState.changeTheLanguageOfApp(language: language));
+    CacheHelper.saveData(value: language.name, key: SharedKeys.appLang);
+    language = language; //
+    emit(ApplicationState.changeTheLanguageOfApp(language: language.name));
   }
 
   int currentIndex = 0;

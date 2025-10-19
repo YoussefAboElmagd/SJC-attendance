@@ -11,9 +11,9 @@ import 'package:madarj/Core/networking/dio_factory.dart';
 import 'package:madarj/Core/routing/routes.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_state.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/widgets/expenses_success.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_state.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/widgets/expenses_success.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class ExpensesBody extends StatelessWidget {

@@ -1,9 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/networking/api_error_model.dart';
-import 'package:madarj/Feature/expenses/expnses_details/data/model/expenses_model.dart';
-import 'package:madarj/Feature/expenses/expnses_details/data/repo/expenses_repo.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_state.dart';
+import 'package:madarj/Feature/expenses/expenses_details/data/model/expenses_model.dart';
+import 'package:madarj/Feature/expenses/expenses_details/data/repo/expenses_repo.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_state.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class ExpensesCubit extends Cubit<ExpensesState> {
@@ -11,7 +11,7 @@ class ExpensesCubit extends Cubit<ExpensesState> {
 
   final ExpensesRepo _expensesRepo;
 
-  Future<void> getExpenseCategories(BuildContext context,) async {
+  Future<void> getExpenseCategories(BuildContext context) async {
     emit(const ExpensesState.getExpensesLoading());
 
     final result = await _expensesRepo.getExpenseCategories(context);

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
+import 'package:madarj/Core/helpers/lang_enum.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class EnglishLanguage extends StatelessWidget {
-  const EnglishLanguage({
-    super.key,
-  });
+  const EnglishLanguage({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApplicationCubit, ApplicationState>(
@@ -18,9 +17,7 @@ class EnglishLanguage extends StatelessWidget {
           highlightColor: Colors.white,
           splashColor: Colors.white,
           onTap: () {
-            ApplicationCubit.get(context).getlanguage(
-              "en",
-            );
+            ApplicationCubit.get(context).getLanguage(LangEnum.en);
           },
           child: Column(
             children: [
@@ -39,10 +36,8 @@ class EnglishLanguage extends StatelessWidget {
                     ApplicationCubit.get(context).isArabic
                         ? Container()
                         : const Image(
-                            image: AssetImage(
-                              "assets/images/check.png",
-                            ),
-                          ),
+                          image: AssetImage("assets/images/check.png"),
+                        ),
                   ],
                 ),
               ),

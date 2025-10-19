@@ -11,4 +11,5 @@ class SharedKeys {
   static String isLogged = "isLogged";
   static String clockUser = "Clock-In";
   static String fcmToken = "fcmToken";
+  static String appLang = "app_lang";
 }
