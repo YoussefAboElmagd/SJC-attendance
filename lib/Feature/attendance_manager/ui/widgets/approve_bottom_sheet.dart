@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: approve_bottom_sheet.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – add bool to determine if both in and out
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';

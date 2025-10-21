@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: api_error_handler.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – handel error from update occur
+// -----------------------------------------------------------------------------
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:madarj/generated/l10n.dart';
