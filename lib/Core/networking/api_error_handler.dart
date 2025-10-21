@@ -33,9 +33,12 @@ class ApiErrorHandler {
 ApiErrorModel _handleError(BuildContext context, dynamic data) {
   return ApiErrorModel(
     message:
-        data['message'] ?? data['error'] ?? S.of(context).Unknown_server_error,
+        data['message'] ??
+        data['debug'] ??
+        data['error'] ??
+        S.of(context).Unknown_server_error,
     code: data['errors'],
-    errors: data['error'],
+    errors: data['error'] is Map<String, dynamic> ? data['error'] : null,
     // errors: data['data'],
   );
 }

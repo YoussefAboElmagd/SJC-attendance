@@ -178,9 +178,12 @@ class AttendanceLogManagerCard extends StatelessWidget {
                       onPressed: () async {
                         final result = await showApproveRequestBottomSheet(
                           context,
-                          initialCheckIn: data.checkInOld,
-                          initialCheckOut: data.checkOutOld,
+                          initialCheckIn:
+                              data.checkInOld ?? DateTime.now().toString(),
+                          initialCheckOut:
+                              data.checkOutOld ?? DateTime.now().toString(),
                           employeeName: data.employeeName,
+                          isBothInAndOut: false,
                         );
 
                         if (result != null) {

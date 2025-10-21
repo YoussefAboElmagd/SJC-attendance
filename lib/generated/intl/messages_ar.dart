@@ -294,8 +294,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تحديات في الانتظار"),
         "change_language_button":
             MessageLookupByLibrary.simpleMessage("تغير اللغة"),
+        "check_in_success":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الحضور بنجاح"),
         "check_in_time":
             MessageLookupByLibrary.simpleMessage("وقت تسجيل الدخول"),
+        "check_out_success":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الانصراف بنجاح"),
         "check_out_time":
             MessageLookupByLibrary.simpleMessage("وقت تسجيل الخروج"),
         "checkin_new":

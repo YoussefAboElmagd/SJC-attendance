@@ -263,5 +263,7 @@
   "credentials_cleared": "Credentials cleared successfully",
   "email_format_validation": "Please enter a valid email address",
   "arabic": "Arabic",
-  "english": "English"
+  "english": "English",
+  "check_in_success": "Check in successfully",
+  "check_out_success": "Check out successfully"
 }

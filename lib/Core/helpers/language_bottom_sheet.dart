@@ -1,3 +1,11 @@
+// -----------------------------------------------------------------------------
+// File: language_bottom_sheet.dart
+// Description: Language bottom sheet
+// Author(s): Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-19: Ahmed Eid Ibrahim – Created file
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

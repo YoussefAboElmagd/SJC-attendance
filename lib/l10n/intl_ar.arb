@@ -263,5 +263,7 @@
   "credentials_cleared": "تم مسح بيانات الاعتماد بنجاح",
   "email_format_validation": "يرجى إدخال عنوان بريد إلكتروني صحيح",
   "arabic": "عربى",
-  "english": "English"
+  "english": "English",
+  "check_in_success": "تم تسجيل الحضور بنجاح",
+  "check_out_success": "تم تسجيل الانصراف بنجاح"
 }

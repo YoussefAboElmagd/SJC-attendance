@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: home_cubit.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changelog:
+// 2025-10-21: Ahmed Eid Ibrahim – add service for update attendance when admin use app.
+// -----------------------------------------------------------------------------
+
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
@@ -17,6 +24,7 @@ import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/custom_alert.dart';
 import 'package:madarj/Core/widgets/custom_button.dart';
+import 'package:madarj/Feature/home/data/model/attendance_edit_manager_request.dart';
 import 'package:madarj/Feature/home/data/model/check_request.dart';
 import 'package:madarj/Feature/home/data/model/clock_status_response.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
@@ -563,6 +571,22 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> createEditRequest(BuildContext context, int attendanceId) async {
     emit(const HomeState.editRequestLoading());
     var response = await _homeRepo.createEditRequest(context, attendanceId);
+    response.when(
+      success: (data) {
+        emit(HomeState.editRequestSuccess(data));
+      },
+      failure: (ApiErrorModel apiErrorModel) {
+        emit(HomeState.editRequestError(apiErrorModel));
+      },
+    );
+  }
+
+  Future<void> attendanceEditManager(
+    BuildContext context,
+    AttendanceEditManagerRequest request,
+  ) async {
+    emit(const HomeState.editRequestLoading());
+    var response = await _homeRepo.attendanceEditManager(context, request);
     response.when(
       success: (data) {
         emit(HomeState.editRequestSuccess(data));

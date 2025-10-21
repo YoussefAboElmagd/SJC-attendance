@@ -301,7 +301,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Challanges Awaiting"),
         "change_language_button":
             MessageLookupByLibrary.simpleMessage("language"),
+        "check_in_success":
+            MessageLookupByLibrary.simpleMessage("Check in successfully"),
         "check_in_time": MessageLookupByLibrary.simpleMessage("Check In Time"),
+        "check_out_success":
+            MessageLookupByLibrary.simpleMessage("Check out successfully"),
         "check_out_time":
             MessageLookupByLibrary.simpleMessage("Check Out Time"),
         "checkin_new": MessageLookupByLibrary.simpleMessage("New Check in"),

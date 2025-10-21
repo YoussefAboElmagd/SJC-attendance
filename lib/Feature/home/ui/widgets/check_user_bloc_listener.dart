@@ -63,7 +63,10 @@ class CheckUserBlocListener extends StatelessWidget {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_Out;
               // await context.read<HomeCubit>().endShift();
             }
-
+            String msg =
+                context.read<HomeCubit>().clockInText == S.of(context).Clock_In
+                    ? S.of(context).check_in_success
+                    : S.of(context).check_out_success;
             context.read<HomeCubit>().getAllHome2(context);
             showDialog(
               context: context,
@@ -76,7 +79,8 @@ class CheckUserBlocListener extends StatelessWidget {
                     ),
                     content: Text(
                       // context.read<HomeCubit>().clockInText!,
-                      checkResponse.data[0].message,
+                      // checkResponse.data[0].message,
+                      msg,
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                     actions: [

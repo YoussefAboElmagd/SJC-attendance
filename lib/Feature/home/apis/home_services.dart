@@ -1,11 +1,21 @@
+// -----------------------------------------------------------------------------
+// File: home_services.dart
+// Description: Home services class
+// Edited by: Ahmed Eid Ibrahim
+// changelog:
+// 2025-10-21: Ahmed Eid Ibrahim – add service for update attendance when admin use app.
+// -----------------------------------------------------------------------------
+
+import 'package:dio/dio.dart';
 import 'package:madarj/Core/networking/api_constants.dart';
 import 'package:madarj/Feature/home/apis/home_constants.dart';
+import 'package:madarj/Feature/home/data/model/attendance_edit_manager_request.dart';
+import 'package:madarj/Feature/home/data/model/attendance_edit_manager_response.dart';
 import 'package:madarj/Feature/home/data/model/attendance_edit_request.dart';
 import 'package:madarj/Feature/home/data/model/attendance_edit_response.dart';
 import 'package:madarj/Feature/home/data/model/check_request.dart';
 import 'package:madarj/Feature/home/data/model/check_response.dart';
 import 'package:madarj/Feature/home/data/model/clock_status_response.dart';
-import 'package:madarj/Feature/attendance_manager/data/model/edit_request_item.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
 import 'package:madarj/Feature/home/data/model/notification_request.dart';
 import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
@@ -13,7 +23,6 @@ import 'package:madarj/Feature/home/data/model/pay_period_response.dart';
 import 'package:madarj/Feature/home/data/model/total_hours.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-import 'package:dio/dio.dart';
 
 part 'home_services.g.dart';
 
@@ -45,5 +54,11 @@ abstract class HomeServices {
   @POST(HomeConstants.editAttendance)
   Future<AttendanceEditResponse> createEditRequest(
     @Body() AttendanceEditRequest request,
+  );
+
+  /// update attendance when admin use app
+  @POST(HomeConstants.updateManagerAttendance)
+  Future<AttendanceEditManagerResponse> attendanceEditManager(
+    @Body() AttendanceEditManagerRequest request,
   );
 }

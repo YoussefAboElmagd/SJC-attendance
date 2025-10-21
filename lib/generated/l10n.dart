@@ -2699,6 +2699,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Check in successfully`
+  String get check_in_success {
+    return Intl.message(
+      'Check in successfully',
+      name: 'check_in_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check out successfully`
+  String get check_out_success {
+    return Intl.message(
+      'Check out successfully',
+      name: 'check_out_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: extensions.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – append pop extension
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:madarj/generated/l10n.dart';
