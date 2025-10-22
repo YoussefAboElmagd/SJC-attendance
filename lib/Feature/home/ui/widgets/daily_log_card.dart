@@ -5,7 +5,8 @@
 // Edited by: Ahmed Eid Ibrahim
 // Last Modified: 2025-10-21
 // changelog:
-// 2025-10-21: Ahmed Eid Ibrahim – add other behavior when admin tap on edit attendance button .
+// 2025-10-21: Ahmed Eid Ibrahim – add other behavior when admin tap on edit attendance button.
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for check in and out
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -75,7 +76,6 @@ class DailyLogCard extends StatelessWidget {
                             initialCheckOut: formatTimeToFullDateTime(
                               workDayEntry.checkOut!,
                             ),
-                            isBothInAndOut: true,
                           );
 
                           if (result != null) {

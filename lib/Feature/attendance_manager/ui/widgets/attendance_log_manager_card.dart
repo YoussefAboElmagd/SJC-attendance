@@ -3,6 +3,7 @@
 // Edited by: Ahmed Eid Ibrahim
 // Changes:
 // 2025-10-21: Ahmed Eid Ibrahim – add safe check for there is date or not
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for both in and out
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -190,7 +191,6 @@ class AttendanceLogManagerCard extends StatelessWidget {
                           initialCheckOut:
                               data.checkOutOld ?? DateTime.now().toString(),
                           employeeName: data.employeeName,
-                          isBothInAndOut: false,
                         );
 
                         if (result != null) {

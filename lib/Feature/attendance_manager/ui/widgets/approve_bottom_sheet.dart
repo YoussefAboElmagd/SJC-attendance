@@ -3,6 +3,7 @@
 // Edited by: Ahmed Eid Ibrahim
 // Changes:
 // 2025-10-21: Ahmed Eid Ibrahim – add bool to determine if both in and out
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for update in all cases if in or out
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -25,14 +26,12 @@ class ApproveRequestBottomSheet extends StatefulWidget {
   final String initialCheckIn;
   final String initialCheckOut;
   final String? employeeName;
-  final bool isBothInAndOut;
 
   const ApproveRequestBottomSheet({
     super.key,
     required this.initialCheckIn,
     required this.initialCheckOut,
     this.employeeName,
-    required this.isBothInAndOut,
   });
 
   @override
@@ -139,7 +138,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
     }
   }
 
-  void _handleApprove(bool isBothInAndOut) {
+  void _handleApprove() {
     // التحقق من اختيار على الأقل تاريخ واحد
     if (checkInController.text.isEmpty && checkOutController.text.isEmpty) {
       Navigator.pop(context);
@@ -255,8 +254,6 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
 
       // السيناريو 3: لو اختار يعدل الاتنين
       if (newCheckIn != null && newCheckOut != null) {
-        if (!isBothInAndOut) Navigator.pop(context);
-
         if (newCheckOut.isBefore(newCheckIn)) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -445,7 +442,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
                       buttonText: S.of(context).approve,
                       textStyle: TextStyles.font14WhiteSemiBold,
                       backgroundColor: ColorsManager.mainColor1,
-                      onPressed: () => _handleApprove(widget.isBothInAndOut),
+                      onPressed: () => _handleApprove(),
                       hintText: '',
                     ),
                   ),
@@ -465,7 +462,6 @@ Future<ApproveRequestResult?> showApproveRequestBottomSheet(
   required String initialCheckIn,
   required String initialCheckOut,
   String? employeeName,
-  required bool isBothInAndOut,
 }) {
   return showModalBottomSheet<ApproveRequestResult>(
     context: context,
@@ -476,7 +472,6 @@ Future<ApproveRequestResult?> showApproveRequestBottomSheet(
           initialCheckIn: initialCheckIn,
           initialCheckOut: initialCheckOut,
           employeeName: employeeName,
-          isBothInAndOut: isBothInAndOut,
         ),
   );
 }
