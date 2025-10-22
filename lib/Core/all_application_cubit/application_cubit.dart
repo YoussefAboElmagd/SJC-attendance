@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: application_cubit.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-19: Ahmed Eid Ibrahim – add get for lang
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
