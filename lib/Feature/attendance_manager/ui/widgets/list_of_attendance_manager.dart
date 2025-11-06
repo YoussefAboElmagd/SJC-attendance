@@ -6,7 +6,7 @@ import 'package:madarj/Feature/attendance_manager/logic/attendance_manager_cubit
 import 'package:madarj/Feature/attendance_manager/logic/attendance_manager_state.dart';
 import 'package:madarj/Feature/attendance_manager/ui/widgets/attendance_log_manager_card.dart';
 import 'package:madarj/Feature/attendance_manager/ui/widgets/no_attendance_today.dart';
-import 'package:madarj/Feature/leave/leave_managment/logic/cubit/leave_manager_details_state.dart';
+import 'package:madarj/Feature/leave/leave_management/logic/cubit/leave_manager_details_state.dart';
 
 class ListOfAttendanceManager extends StatefulWidget {
   const ListOfAttendanceManager({

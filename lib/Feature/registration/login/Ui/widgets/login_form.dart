@@ -1,18 +1,24 @@
-import 'dart:convert';
+// -----------------------------------------------------------------------------
+// File: login_form.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-22: Ahmed Eid Ibrahim – Change some colors
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
-import 'package:madarj/Core/helpers/extensions.dart';
-import 'package:madarj/Core/routing/routes.dart';
+import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
+import 'package:madarj/Core/helpers/language_bottom_sheet.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_cubit.dart';
 import 'package:madarj/Feature/registration/login/Logic/cubit/login_state.dart';
-import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
 import 'package:madarj/Feature/registration/login/Ui/widgets/login_bloc_listener.dart';
 import 'package:madarj/Feature/registration/login/Ui/widgets/user_selection_bottom_sheet.dart';
+import 'package:madarj/Feature/registration/login/data/model/login_request_body.dart';
 import 'package:madarj/generated/l10n.dart';
 
 class LoginForm extends StatefulWidget {
@@ -282,19 +288,25 @@ class _LoginFormState extends State<LoginForm> {
 
         Text(
           S.of(context).Remember_Me,
-          style: TextStyles.font14BlackSemiBold.copyWith(fontSize: 14.sp),
+          style: TextStyles.font16MainColorSemiBold.copyWith(
+            fontSize: 14.sp,
+            color: ColorsManager.mainColor2,
+          ),
         ),
 
         if (isArabic) _buildRememberMeCheckbox(),
 
-        Spacer(),
+        const Spacer(),
 
         if (_hasSavedUsers)
           TextButton(
             onPressed: _clearSavedCredentials,
             child: Text(
               S.of(context).clear_saved_credentials,
-              style: TextStyles.font14BlueRegular.copyWith(fontSize: 12.sp),
+              style: TextStyles.font16MainColorSemiBold.copyWith(
+                fontSize: 12.sp,
+                color: ColorsManager.mainColor1,
+              ),
             ),
           ),
       ],
@@ -308,11 +320,12 @@ class _LoginFormState extends State<LoginForm> {
       checkColor: Colors.white,
       fillColor: WidgetStateProperty.resolveWith<Color>((states) {
         if (states.contains(WidgetState.selected)) {
-          return const Color.fromRGBO(42, 49, 131, 1);
+          // return const Color.fromRGBO(42, 49, 131, 1);
+          return ColorsManager.mainColor1;
         }
         return Colors.transparent;
       }),
-      side: const BorderSide(color: Color.fromRGBO(42, 49, 131, 1), width: 2),
+      side: const BorderSide(color: ColorsManager.mainColor1, width: 2),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.r)),
     );
   }
@@ -386,17 +399,18 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   Widget _buildChangeLanguageButton(BuildContext context) {
-    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
+    final isArabic = context.read<ApplicationCubit>().isArabic;
 
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25.r),
-        border: Border.all(color: Colors.blue.shade100, width: 1.w),
+        border: Border.all(color: ColorsManager.mainColor2),
       ),
       child: GestureDetector(
         onTap: () {
           _unfocusAllFields();
-          context.pushNamed(Routes.language);
+          // context.pushNamed(Routes.language);
+          openLanguageSheet(context);
         },
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
@@ -407,13 +421,13 @@ class _LoginFormState extends State<LoginForm> {
                     ? [
                       CircleAvatar(
                         radius: 16.w,
-                        backgroundColor: Colors.blue.shade50,
+                        backgroundColor: ColorsManager.mainColor2.withAlpha(30),
                         child: SvgPicture.asset(
                           "assets/svgs/language.svg",
                           width: 16.w,
                           height: 16.h,
                           colorFilter: const ColorFilter.mode(
-                            Colors.blue,
+                            ColorsManager.mainColor2,
                             BlendMode.srcIn,
                           ),
                         ),
@@ -421,8 +435,9 @@ class _LoginFormState extends State<LoginForm> {
                       SizedBox(width: 8.w),
                       Text(
                         S.of(context).change_language_button,
-                        style: TextStyles.font14BlueSemiBold.copyWith(
+                        style: TextStyles.font14MainColorBold.copyWith(
                           fontSize: 14.sp,
+                          color: ColorsManager.mainColor2,
                         ),
                       ),
                     ]
@@ -436,7 +451,7 @@ class _LoginFormState extends State<LoginForm> {
                       SizedBox(width: 8.w),
                       CircleAvatar(
                         radius: 16.w,
-                        backgroundColor: Colors.blue.shade50,
+                        backgroundColor: ColorsManager.mainColor2.withAlpha(30),
                         child: SvgPicture.asset(
                           "assets/svgs/language.svg",
                           width: 16.w,
@@ -495,7 +510,7 @@ class _LoginFormState extends State<LoginForm> {
     final cubit = context.read<LoginCubit>();
 
     try {
-      await CachHelper.clearAllUsers();
+      await CacheHelper.clearAllUsers();
 
       // Use the captured cubit reference
       cubit.clearForm();

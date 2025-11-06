@@ -4,12 +4,12 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/networking/api_constants.dart';
 import 'package:madarj/Core/networking/dio_factory.dart';
-import 'package:madarj/Feature/home/logic/firebase_servies_local.dart';
+import 'package:madarj/Feature/home/logic/firebase_services_local.dart';
 
 @pragma('vm:entry-point')
 class PushNotificationsService {
@@ -20,13 +20,13 @@ class PushNotificationsService {
     await messaging.getToken().then((value) {
       // print(value);
       AppConstants.fcmToken = value;
-      CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
+      CacheHelper.saveData(key: SharedKeys.fcmToken, value: value);
     });
 
     messaging.onTokenRefresh.listen((value) {
       // print(value);
       AppConstants.fcmToken = value;
-      CachHelper.saveData(key: SharedKeys.fcmToken, value: value);
+      CacheHelper.saveData(key: SharedKeys.fcmToken, value: value);
     });
 
     // Handle messages in all states

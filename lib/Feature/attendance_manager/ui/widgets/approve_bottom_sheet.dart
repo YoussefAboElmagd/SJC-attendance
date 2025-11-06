@@ -1,6 +1,14 @@
-import 'package:intl/intl.dart';
+// -----------------------------------------------------------------------------
+// File: approve_bottom_sheet.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – add bool to determine if both in and out
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for update in all cases if in or out
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/app_button.dart';
@@ -15,14 +23,14 @@ class ApproveRequestResult {
 }
 
 class ApproveRequestBottomSheet extends StatefulWidget {
-  final String? initialCheckIn;
-  final String? initialCheckOut;
+  final String initialCheckIn;
+  final String initialCheckOut;
   final String? employeeName;
 
   const ApproveRequestBottomSheet({
     super.key,
-    this.initialCheckIn,
-    this.initialCheckOut,
+    required this.initialCheckIn,
+    required this.initialCheckOut,
     this.employeeName,
   });
 
@@ -77,7 +85,13 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
     if (pickedDate != null) {
       final TimeOfDay? pickedTime = await showTimePicker(
         context: context,
-        initialTime: TimeOfDay.now(),
+        initialTime: TimeOfDay.fromDateTime(
+          DateTime.parse(
+            isCheckIn
+                ? widget.initialCheckIn.replaceAll(' ', 'T')
+                : widget.initialCheckOut.replaceAll(' ', 'T'),
+          ),
+        ),
         builder: (context, child) {
           return Theme(
             data: Theme.of(context).copyWith(
@@ -144,26 +158,25 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
       DateTime? oldCheckOut;
 
       // تحويل القيم القديمة (Initial Values)
-      if (widget.initialCheckIn != null && widget.initialCheckIn!.isNotEmpty) {
+      if (widget.initialCheckIn.isNotEmpty) {
         try {
           // محاولة parse مباشر أولاً (لو جاي بفورمات كامل)
           oldCheckIn = DateFormat(
             'yyyy-MM-dd HH:mm:ss',
             'en',
-          ).parse(widget.initialCheckIn!.replaceAll(' => ', ' '));
+          ).parse(widget.initialCheckIn.replaceAll(' => ', ' '));
         } catch (e) {
           // print("Error parsing initialCheckIn: $e");
         }
       }
 
-      if (widget.initialCheckOut != null &&
-          widget.initialCheckOut!.isNotEmpty) {
+      if (widget.initialCheckOut.isNotEmpty) {
         try {
           // محاولة parse مباشر أولاً (لو جاي بفورمات كامل)
           oldCheckOut = DateFormat(
             'yyyy-MM-dd HH:mm:ss',
             'en',
-          ).parse(widget.initialCheckOut!.replaceAll(' => ', ' '));
+          ).parse(widget.initialCheckOut.replaceAll(' => ', ' '));
         } catch (e) {
           // print("Error parsing initialCheckOut: $e");
         }
@@ -241,8 +254,6 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
 
       // السيناريو 3: لو اختار يعدل الاتنين
       if (newCheckIn != null && newCheckOut != null) {
-        Navigator.pop(context);
-
         if (newCheckOut.isBefore(newCheckIn)) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -431,7 +442,7 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
                       buttonText: S.of(context).approve,
                       textStyle: TextStyles.font14WhiteSemiBold,
                       backgroundColor: ColorsManager.mainColor1,
-                      onPressed: _handleApprove,
+                      onPressed: () => _handleApprove(),
                       hintText: '',
                     ),
                   ),
@@ -448,8 +459,8 @@ class _ApproveRequestBottomSheetState extends State<ApproveRequestBottomSheet> {
 // Helper Function لفتح الـ Bottom Sheet
 Future<ApproveRequestResult?> showApproveRequestBottomSheet(
   BuildContext context, {
-  String? initialCheckIn,
-  String? initialCheckOut,
+  required String initialCheckIn,
+  required String initialCheckOut,
   String? employeeName,
 }) {
   return showModalBottomSheet<ApproveRequestResult>(

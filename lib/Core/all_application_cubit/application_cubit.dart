@@ -1,41 +1,50 @@
+// -----------------------------------------------------------------------------
+// File: application_cubit.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-19: Ahmed Eid Ibrahim – add get for lang
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
-import 'package:madarj/Feature/expenses/expnses_details/logic/cubit/expenses_cubit.dart';
-import 'package:madarj/Feature/expenses/expnses_details/ui/expenses.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
+import 'package:madarj/Core/helpers/lang_enum.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
+import 'package:madarj/Feature/expenses/expenses_details/logic/cubit/expenses_cubit.dart';
+import 'package:madarj/Feature/expenses/expenses_details/ui/expenses.dart';
 import 'package:madarj/Feature/home/ui/home.dart';
 import 'package:madarj/Feature/leave/leave_details/logic/cubit/leave_details_cubit.dart';
 import 'package:madarj/Feature/leave/leave_details/ui/leave_screen.dart';
 import 'package:madarj/Feature/tasks/tasks_details/ui/tasks.dart';
 
+part 'application_cubit.freezed.dart';
 // import 'package:ka3ba/Core/helpers/constants.dart';
 
 part 'application_state.dart';
-part 'application_cubit.freezed.dart';
 
 class ApplicationCubit extends Cubit<ApplicationState> {
   ApplicationCubit() : super(const ApplicationState.initial());
   static ApplicationCubit get(context) => BlocProvider.of(context);
-
+  String get lang =>
+      CacheHelper.getData(key: SharedKeys.appLang) ?? LangEnum.ar.name;
   bool isArabic =
-      CachHelper.getData(key: "app_lang") == "ar" ||
-          CachHelper.getData(key: "app_lang") == null
-      ? true
-      : false;
-  static Locale locale = const Locale("ar");
-  String language = "ar";
-  getlanguage(String language) {
-    if (language == "ar") {
+      CacheHelper.getData(key: SharedKeys.appLang) == LangEnum.ar.name ||
+              CacheHelper.getData(key: SharedKeys.appLang) == null
+          ? true
+          : false;
+  // static Locale locale = const Locale("ar");
+  // String language = "ar";
+  getLanguage(LangEnum language) {
+    if (language == LangEnum.ar) {
       isArabic = true;
-      CachHelper.saveData(value: "ar", key: "app_lang");
     } else {
       isArabic = false;
-      CachHelper.saveData(value: "en", key: "app_lang");
     }
-    language = language;
-    emit(ApplicationState.changeTheLanguageOfApp(language: language));
+    CacheHelper.saveData(value: language.name, key: SharedKeys.appLang);
+    // language = language;
+    emit(ApplicationState.changeTheLanguageOfApp(language: language.name));
   }
 
   int currentIndex = 0;

@@ -1,7 +1,14 @@
+// -----------------------------------------------------------------------------
+// File: check_user_bloc_listener.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – handel locale success msg for check in and check out
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
@@ -63,7 +70,10 @@ class CheckUserBlocListener extends StatelessWidget {
               context.read<HomeCubit>().clockInText = S.of(context).Clock_Out;
               // await context.read<HomeCubit>().endShift();
             }
-
+            String msg =
+                context.read<HomeCubit>().clockInText == S.of(context).Clock_In
+                    ? S.of(context).check_in_success
+                    : S.of(context).check_out_success;
             context.read<HomeCubit>().getAllHome2(context);
             showDialog(
               context: context,
@@ -76,7 +86,8 @@ class CheckUserBlocListener extends StatelessWidget {
                     ),
                     content: Text(
                       // context.read<HomeCubit>().clockInText!,
-                      checkResponse.data[0].message,
+                      // checkResponse.data[0].message,
+                      msg,
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                     actions: [
@@ -96,7 +107,7 @@ class CheckUserBlocListener extends StatelessWidget {
               context,
               NotificationRequest(
                 fcmToken:
-                    CachHelper.getData(key: SharedKeys.fcmToken) ??
+                    CacheHelper.getData(key: SharedKeys.fcmToken) ??
                     AppConstants.fcmToken ??
                     "",
               ),

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/constants.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
@@ -52,20 +52,22 @@ class CustomAlert extends StatelessWidget {
                   SizedBox(height: 15.h),
                   CustomButton(
                     onTap: () async {
-                      CachHelper.removeData(key: SharedKeys.userToken);
-                      CachHelper.clearAllSecuredData();
+                      CacheHelper.removeData(key: SharedKeys.userToken);
+                      CacheHelper.clearAllSecuredData();
                       context.pushNamedAndRemoveUntill(Routes.loginScreen);
                       AppConstants.isLogged = false;
-                      await CachHelper.saveData(
+                      await CacheHelper.saveData(
                         key: SharedKeys.isLogged,
                         value: false,
                       );
                       DioFactory.setTokenAfterLogin(null);
-                      await CachHelper.removeData(key: SharedKeys.isAttendance);
-                      await CachHelper.removeData(key: SharedKeys.isExpenses);
-                      await CachHelper.removeData(key: SharedKeys.isTimeOff);
-                      await CachHelper.removeData(key: SharedKeys.isPayroll);
-                      String? email = await CachHelper.getData(
+                      await CacheHelper.removeData(
+                        key: SharedKeys.isAttendance,
+                      );
+                      await CacheHelper.removeData(key: SharedKeys.isExpenses);
+                      await CacheHelper.removeData(key: SharedKeys.isTimeOff);
+                      await CacheHelper.removeData(key: SharedKeys.isPayroll);
+                      String? email = await CacheHelper.getData(
                         key: SharedKeys.userEmail,
                       );
 

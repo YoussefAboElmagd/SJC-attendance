@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:madarj/Core/di/dependency_injection.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Feature/attendance_manager/logic/attendance_manager_cubit.dart';
@@ -19,7 +19,7 @@ class AttendanceManager extends StatelessWidget {
 
       body: BlocProvider(
         create: (context) {
-          if (CachHelper.getData(key: SharedKeys.isTimeOff) == 'manager') {
+          if (CacheHelper.getData(key: SharedKeys.isTimeOff) == 'manager') {
             return getIt<AttendanceManagerCubit>()..getAllEditRequests(context);
           } else {
             return getIt<AttendanceManagerCubit>()

@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File: api_error_handler.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – handel error from update occur
+// -----------------------------------------------------------------------------
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -33,9 +40,12 @@ class ApiErrorHandler {
 ApiErrorModel _handleError(BuildContext context, dynamic data) {
   return ApiErrorModel(
     message:
-        data['message'] ?? data['error'] ?? S.of(context).Unknown_server_error,
+        data['message'] ??
+        data['debug'] ??
+        data['error'] ??
+        S.of(context).Unknown_server_error,
     code: data['errors'],
-    errors: data['error'],
+    errors: data['error'] is Map<String, dynamic> ? data['error'] : null,
     // errors: data['data'],
   );
 }

@@ -1,14 +1,31 @@
+// -----------------------------------------------------------------------------
+// File: daily_log_card.dart
+// Description: Short description of this file.
+// Author(s): Original Author Name
+// Edited by: Ahmed Eid Ibrahim
+// Last Modified: 2025-10-21
+// changelog:
+// 2025-10-21: Ahmed Eid Ibrahim – add other behavior when admin tap on edit attendance button.
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for check in and out
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:madarj/Core/all_application_cubit/application_cubit.dart';
+import 'package:madarj/Core/enums/attendance_enum.dart';
+import 'package:madarj/Core/functions/format_time_to_full_date_time.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
+import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/colors.dart';
 import 'package:madarj/Core/themes/styles.dart';
 import 'package:madarj/Core/widgets/app_button.dart';
+import 'package:madarj/Feature/attendance_manager/ui/widgets/approve_bottom_sheet.dart';
+import 'package:madarj/Feature/home/data/model/attendance_edit_manager_request.dart';
 import 'package:madarj/Feature/home/data/model/get_today_work_response.dart';
-import 'package:intl/intl.dart';
 import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 // import 'package:madarj/Feature/home/logic/cubit/home_cubit.dart';
 import 'package:madarj/generated/l10n.dart';
@@ -43,12 +60,55 @@ class DailyLogCard extends StatelessWidget {
                         workDayEntry.checkOut != null
                     ? AppTextButton(
                       buttonWidth: MediaQuery.sizeOf(context).width * .4,
-                      onPressed: () {
+                      onPressed: () async {
                         // print(workDayEntry.id);
-                        context.read<HomeCubit>().createEditRequest(
-                          context,
-                          workDayEntry.id!.toInt(),
+                        // TODO: change after osama info
+
+                        final isAttendance = CacheHelper.getData(
+                          key: SharedKeys.isAttendance,
                         );
+                        if (isAttendance == AttendanceEnum.manager.name) {
+                          final result = await showApproveRequestBottomSheet(
+                            context,
+                            initialCheckIn: formatTimeToFullDateTime(
+                              workDayEntry.checkIn!,
+                            ),
+                            initialCheckOut: formatTimeToFullDateTime(
+                              workDayEntry.checkOut!,
+                            ),
+                          );
+
+                          if (result != null) {
+                            var checkIn =
+                                result.checkInNew!.split("=>").length == 2
+                                    ? "${result.checkInNew!.split("=>")[0]}${result.checkInNew!.split("=>")[1]}"
+                                        .replaceFirst("  ", " ")
+                                    : result.checkInNew!;
+                            print(" checkIn: $checkIn");
+                            var checkOut =
+                                result.checkOutNew!.split("=>").length == 2
+                                    ? "${result.checkOutNew!.split("=>")[0]}${result.checkOutNew!.split("=>")[1]}"
+                                        .replaceFirst("  ", " ")
+                                    : result.checkOutNew;
+                            print(" checkOut: $checkOut");
+
+                            await context
+                                .read<HomeCubit>()
+                                .attendanceEditManager(
+                                  context,
+                                  AttendanceEditManagerRequest(
+                                    attendanceId: workDayEntry.id!.toInt(),
+                                    checkIn: checkIn,
+                                    checkOut: checkOut,
+                                  ),
+                                );
+                          }
+                        } else if (isAttendance == AttendanceEnum.user.name) {
+                          await context.read<HomeCubit>().createEditRequest(
+                            context,
+                            workDayEntry.id!.toInt(),
+                          );
+                        }
                       },
                       buttonText: S.of(context).request_attendance,
                       textStyle: TextStyles.font16WhiteBold,

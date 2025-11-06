@@ -1,8 +1,16 @@
+// -----------------------------------------------------------------------------
+// File: attendance_log_manager_card.dart
+// Edited by: Ahmed Eid Ibrahim
+// Changes:
+// 2025-10-21: Ahmed Eid Ibrahim – add safe check for there is date or not
+// 2025-10-22: Ahmed Eid Ibrahim – delete bool for both in and out
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/extensions.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 import 'package:madarj/Core/themes/colors.dart';
@@ -58,7 +66,7 @@ class AttendanceLogManagerCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CachHelper.getData(key: SharedKeys.isTimeOff) == 'manager'
+                  CacheHelper.getData(key: SharedKeys.isTimeOff) == 'manager'
                       ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -168,7 +176,7 @@ class AttendanceLogManagerCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 isPending == true &&
-                        CachHelper.getData(key: SharedKeys.isTimeOff) ==
+                        CacheHelper.getData(key: SharedKeys.isTimeOff) ==
                             'manager'
                     ? AppTextButton(
                       buttonWidth: MediaQuery.sizeOf(context).width * .25,
@@ -178,8 +186,10 @@ class AttendanceLogManagerCard extends StatelessWidget {
                       onPressed: () async {
                         final result = await showApproveRequestBottomSheet(
                           context,
-                          initialCheckIn: data.checkInOld,
-                          initialCheckOut: data.checkOutOld,
+                          initialCheckIn:
+                              data.checkInOld ?? DateTime.now().toString(),
+                          initialCheckOut:
+                              data.checkOutOld ?? DateTime.now().toString(),
                           employeeName: data.employeeName,
                         );
 

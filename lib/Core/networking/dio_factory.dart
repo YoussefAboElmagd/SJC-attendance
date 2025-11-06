@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:madarj/Core/helpers/cach_helper.dart';
+import 'package:madarj/Core/helpers/cache_helper.dart';
 import 'package:madarj/Core/helpers/shared_key.dart';
 // import 'package:labaiik_mo3tmer/Core/helpers/cach_helper.dart';
 // import 'package:labaiik_mo3tmer/Core/helpers/shared_key.dart';
@@ -59,9 +59,7 @@ class DioFactory {
 
   static Dio? dio;
   static Future<Dio> getDio() async {
-    Duration timeOut = const Duration(
-      seconds: 30,
-    );
+    Duration timeOut = const Duration(seconds: 30);
     if (dio == null) {
       dio = Dio();
       await addDioHeaders(); // Await here to ensure headers are set
@@ -97,20 +95,19 @@ class DioFactory {
   static Future<void> addDioHeaders() async {
     // print(await CachHelper.getSecuredString(key: SharedKeys.userToken));
     print(
-        'userToken ${await CachHelper.getSecuredString(key: SharedKeys.userToken)}');
+      'userToken ${await CacheHelper.getSecuredString(key: SharedKeys.userToken)}',
+    );
     dio?.options.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'access-token':
-          '${await CachHelper.getSecuredString(key: SharedKeys.userToken)}',
+          '${await CacheHelper.getSecuredString(key: SharedKeys.userToken)}',
     };
   }
 
   static void setTokenAfterLogin(String? token) async {
     // print(token);
-    dio?.options.headers = {
-      'access-token': "$token",
-    };
+    dio?.options.headers = {'access-token': "$token"};
   }
 
   static void addDioLogger() {
